@@ -1,0 +1,66 @@
+grammar org.gemoc.bcool.model.xtext.BCOoL with org.eclipse.xtext.xbase.Xbase
+
+import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
+
+import "http://org.gemoc.bcool.model/"
+
+import "http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST"
+
+BCoolSpec returns BCoolSpecification:
+	(name=ID)? 
+		(importsLib+= ImportLibRule)+
+		(importsBehavioralInterface+= ImportInterfaceRule)+
+		(bcoolOperators+=BCoolOperatorSpec)+
+;
+
+BCoolOperatorSpec returns BCoolOperator:
+	'Operator'name=ID 
+						(globalEventExpressions+=globalEventExpressionRule)?
+						(globalDSEs+=globalDSEsRule)?
+						(bcoolCompositionRules+=BCoolCompositionRule)+
+	'end operator;'
+;
+
+globalDSEsRule returns DefPropertyCS:
+	'Event' name=ID';'
+;
+
+globalEventExpressionRule returns EventExpression:
+	'let' EventExpression
+;
+
+BCoolCompositionRule returns BCoolCompositionRule: 
+	'CompositionRule' name=ID '('(DSEs+=[DefPropertyCS|ID] (',' DSEs+=[DefPropertyCS|ID])*)? ')'
+					   'MatchingRule :' matchingRule=MatchingRule
+					   'CoordinationRule  :' coordinationRule=CoordinationRule
+	'end rule;'
+;
+
+
+MatchingRule returns MatchingRule:
+	'when' condition=STRING
+	 ('having' (filterEventExpressions+=EventExpression';')*)?
+	;
+
+EventExpression returns EventExpression:
+	name=ID '=' declaration=[ExpressionDeclaration|ID]'(' (actualParameters+=STRING (',' actualParameters+=STRING)*)? ')'
+;
+
+CoordinationRule returns CoordinationRule:
+		eventRelations=EventRelation
+;
+
+EventRelation returns EventRelation:
+	declaration=[RelationDeclaration|ID] '(' (actualParameters+=STRING (',' actualParameters+=STRING)*)? ')'
+;
+
+
+ImportLibRule returns ImportLibStatement:
+	"ImportLib" importURI=STRING
+;
+
+ImportInterfaceRule returns ImportInterfaceStatement:
+	"ImportInterface" importURI=STRING "as" STRING
+;
+
