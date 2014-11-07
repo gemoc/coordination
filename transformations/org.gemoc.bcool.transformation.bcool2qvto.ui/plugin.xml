@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.bcool"
+            id="org.gemoc.bcool.transformation.bcool2qvto.ui.popupMenus.contribution.IFile">
+         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Model to Text" path="additionsAcceleo">
+               <groupMarker name="acceleo"/> 
+         </menu>
+         <action
+               class="org.gemoc.bcool.transformation.bcool2qvto.ui.popupMenus.AcceleoGenerateBcool2qvtoAction"
+               enablesFor="+"
+               id="org.gemoc.bcool.transformation.bcool2qvto.ui.popupMenus.acceleoGenerateBcool2qvtoAction"
+               icon="icons/default.gif"
+               label="Generate Bcool2qvto"
+               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
+      </objectContribution>
+   </extension>
+</plugin>
