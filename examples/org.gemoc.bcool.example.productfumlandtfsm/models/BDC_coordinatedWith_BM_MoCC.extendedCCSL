@@ -1,0 +1,22 @@
+ClockConstraintSystem SyncProductTfsmwithfUMLCoordination {
+	imports {
+		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/library/bcoollib.ccslLib" as lib_2 ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as model_1_1 ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as model_1_2 ;
+		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/TFSMMoC.ccslLib" as model_1_3 ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as model_2_1 ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as model_2_2 ;
+		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/lib4RT.ccslLib" as model_2_3 ;
+		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/models/BDC_MoCC.extendedCCSL" as inM1 ;
+		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/models/BMC_MoCC.extendedCCSL" as inM2 ;
+	}
+	entryBlock mainBlock
+	Block mainBlock {
+		Relation MatchingandCoordinationSharedEvents_BCoolCompositionRule_doClose [ RendezVous ]
+		( LeftClock -> "BarrierControl::mainBlock::doClose_occurs",
+		RightClock -> "Model::mainBlock::doClose_startAction" )
+		Relation MatchingandCoordinationSharedEvents_BCoolCompositionRule_closed [ RendezVous ]
+		( LeftClock -> "BarrierControl::mainBlock::closed_occurs",
+		RightClock -> "Model::mainBlock::closed_startAction" )
+	}
+}

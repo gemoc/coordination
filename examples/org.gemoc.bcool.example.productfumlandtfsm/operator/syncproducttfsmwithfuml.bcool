@@ -1,0 +1,17 @@
+SyncProductTfsmwithfUML
+
+ImportLib "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/library/facilities.bcoollib"
+ImportLib "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/library/bcoollib.ccslLib"
+
+ImportInterface "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/TFSM.ecl" as "I_TFSM" // left
+ImportInterface "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/activitySemantics.ecl" as "I_Activity" // right
+
+
+Operator SyncProductOperator
+														    // right , left 
+	CompositionRule MatchingandCoordinationSharedEvents (startAction, occurs )
+		MatchingRule : when "startAction.name = occurs.name"
+		CoordinationRule  : RendezVous("occurs", "startAction")
+	end rule;
+		
+end operator;
