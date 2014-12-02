@@ -18686,8 +18686,8 @@ rule__BCoolCompositionRule__DSEsAssignment_3_0
 (
 { before(grammarAccess.getBCoolCompositionRuleAccess().getDSEsDefPropertyCSCrossReference_3_0_0()); }
 (
-{ before(grammarAccess.getBCoolCompositionRuleAccess().getDSEsDefPropertyCSQualifiedNameParserRuleCall_3_0_0_1()); }
-	ruleQualifiedName{ after(grammarAccess.getBCoolCompositionRuleAccess().getDSEsDefPropertyCSQualifiedNameParserRuleCall_3_0_0_1()); }
+{ before(grammarAccess.getBCoolCompositionRuleAccess().getDSEsDefPropertyCSIDTerminalRuleCall_3_0_0_1()); }
+	RULE_ID{ after(grammarAccess.getBCoolCompositionRuleAccess().getDSEsDefPropertyCSIDTerminalRuleCall_3_0_0_1()); }
 )
 { after(grammarAccess.getBCoolCompositionRuleAccess().getDSEsDefPropertyCSCrossReference_3_0_0()); }
 )
@@ -18752,8 +18752,8 @@ rule__MatchingRule__ConditionAssignment_1
     }
 :
 (
-{ before(grammarAccess.getMatchingRuleAccess().getConditionSTRINGTerminalRuleCall_1_0()); }
-	RULE_STRING{ after(grammarAccess.getMatchingRuleAccess().getConditionSTRINGTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getMatchingRuleAccess().getConditionXExpressionParserRuleCall_1_0()); }
+	ruleXExpression{ after(grammarAccess.getMatchingRuleAccess().getConditionXExpressionParserRuleCall_1_0()); }
 )
 
 ;
@@ -18880,8 +18880,12 @@ rule__EventRelation__ActualParametersAssignment_2_0
     }
 :
 (
-{ before(grammarAccess.getEventRelationAccess().getActualParametersSTRINGTerminalRuleCall_2_0_0()); }
-	RULE_STRING{ after(grammarAccess.getEventRelationAccess().getActualParametersSTRINGTerminalRuleCall_2_0_0()); }
+{ before(grammarAccess.getEventRelationAccess().getActualParametersEObjectCrossReference_2_0_0()); }
+(
+{ before(grammarAccess.getEventRelationAccess().getActualParametersEObjectIDTerminalRuleCall_2_0_0_1()); }
+	RULE_ID{ after(grammarAccess.getEventRelationAccess().getActualParametersEObjectIDTerminalRuleCall_2_0_0_1()); }
+)
+{ after(grammarAccess.getEventRelationAccess().getActualParametersEObjectCrossReference_2_0_0()); }
 )
 
 ;
@@ -18895,8 +18899,12 @@ rule__EventRelation__ActualParametersAssignment_2_1_1
     }
 :
 (
-{ before(grammarAccess.getEventRelationAccess().getActualParametersSTRINGTerminalRuleCall_2_1_1_0()); }
-	RULE_STRING{ after(grammarAccess.getEventRelationAccess().getActualParametersSTRINGTerminalRuleCall_2_1_1_0()); }
+{ before(grammarAccess.getEventRelationAccess().getActualParametersEObjectCrossReference_2_1_1_0()); }
+(
+{ before(grammarAccess.getEventRelationAccess().getActualParametersEObjectIDTerminalRuleCall_2_1_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getEventRelationAccess().getActualParametersEObjectIDTerminalRuleCall_2_1_1_0_1()); }
+)
+{ after(grammarAccess.getEventRelationAccess().getActualParametersEObjectCrossReference_2_1_1_0()); }
 )
 
 ;

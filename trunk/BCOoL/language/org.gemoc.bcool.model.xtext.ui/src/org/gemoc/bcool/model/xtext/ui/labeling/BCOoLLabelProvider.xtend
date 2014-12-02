@@ -4,6 +4,8 @@
 package org.gemoc.bcool.model.xtext.ui.labeling
 
 import com.google.inject.Inject
+import org.eclipse.jface.resource.ImageDescriptor
+import org.eclipse.xtext.common.types.JvmOperation
 
 /**
  * Provides labels for a EObjects.
@@ -16,6 +18,17 @@ class BCOoLLabelProvider extends org.eclipse.xtext.xbase.ui.labeling.XbaseLabelP
 	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
+
+	override
+	def public ImageDescriptor getImageDescriptor(Object element) {
+		if (!(element instanceof JvmOperation)){
+			val Object image = doGetImage(element);
+			val ImageDescriptor imageDescriptor = convertToImageDescriptor(image);
+			return imageDescriptor;
+		}
+		return null
+	}
+
 
 	// Labels and icons can be computed like this:
 	
