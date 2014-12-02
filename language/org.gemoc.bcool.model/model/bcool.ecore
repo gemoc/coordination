@@ -7,7 +7,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="globalEventExpressions"
         upperBound="-1" eType="#//EventExpression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="globalDSEs" upperBound="-1"
-        eType="ecore:EClass platform:/plugin/org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.ecore#//DefPropertyCS"
+        eType="ecore:EClass ../../org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.ecore#//DefPropertyCS"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BCoolCompositionRule" eSuperTypes="#//NamedElement">
@@ -35,7 +35,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="MatchingRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="filterEventExpressions"
         upperBound="-1" eType="#//EventExpression" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType platform:/plugin/org.eclipse.ocl.examples.pivot/model/Pivot.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoordinationRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="eventRelations" lowerBound="1"
@@ -52,10 +54,10 @@
         eType="#//ExpressionDeclaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EventRelation" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actualParameters" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
         eType="#//RelationDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualParameters" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RelationDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
@@ -80,7 +82,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RelationDeclaration" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formalParameters" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formalParameters" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
 </ecore:EPackage>
