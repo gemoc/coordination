@@ -29,7 +29,6 @@ import fr.inria.aoste.timesquare.ECL.ECLDocument
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.xtend.typesystem.emf.EcoreUtil2
 import org.eclipse.emf.ecore.util.EcoreUtil
-import org.eclipse.emf.ecore.EOperation
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -127,9 +126,9 @@ class BCOoLJvmModelInferrer extends AbstractModelInferrer {
 	   		val ClassifierContextDeclCS context = eo.classifierContextDecl
 	   		if(context != null){
 	   			for( cr : context.eCrossReferences){
-//	   				if (cr instanceof org.eclipse.ocl.examples.pivot.Class){
-	   					cr.inferEObject(acceptor,isPreIndexingPhase)
-//   					}
+	   				if (cr instanceof org.eclipse.ocl.examples.pivot.Class){
+	   					cr.inferPivot(acceptor,isPreIndexingPhase)
+   					}
 	   			}
 	   		}
 	   		
@@ -166,24 +165,6 @@ def dispatch private void inferEObject(EClass clazz, IJvmDeclaredTypeAcceptor ac
 	if(!(alreadyExists)){
    		inferedObject.put(na,null) //just to avoid infinite loop		
 
-
-		for(sup : clazz.ESuperTypes){
-			sup.inferEObject(acceptor,isPreIndexingPhase)
-		}
-
-		for(nestedEo : clazz.eContents+clazz.eCrossReferences){
-			if((!(nestedEo instanceof EOperation)) && nestedEo.containsNameAttribute()){
-				nestedEo.inferEObject(acceptor,isPreIndexingPhase)
-			}
-		}
-		
-		for(nestedOp : clazz.EOperations){
-			if(nestedOp.EType != null){
-				nestedOp.EType.inferEObject(acceptor,isPreIndexingPhase)
-			}
-		}
-
-
    		val type = clazz.toClass(clazz.myQualifiedName)
    		inferedObject.put(na,type)
    		acceptor.accept(
@@ -191,7 +172,7 @@ def dispatch private void inferEObject(EClass clazz, IJvmDeclaredTypeAcceptor ac
    		).initializeLater[
 
 		for(sup : clazz.ESuperTypes){
-//			sup.inferEObject(acceptor,isPreIndexingPhase)
+			sup.inferEObject(acceptor,isPreIndexingPhase)
 			val jvmType =inferedObject.get(sup.myQualifiedName)
 			if(jvmType != null){
 				var typeRef= jvmType.createTypeRef()
@@ -201,7 +182,7 @@ def dispatch private void inferEObject(EClass clazz, IJvmDeclaredTypeAcceptor ac
 
 		for(nestedEo : clazz.eContents+clazz.eCrossReferences){
 			if(nestedEo.containsNameAttribute()){
-//				nestedEo.inferEObject(acceptor,isPreIndexingPhase)
+				nestedEo.inferEObject(acceptor,isPreIndexingPhase)
 				val jvmType =inferedObject.get(nestedEo.myQualifiedName)
 				if(jvmType != null){
 					var typeRef= jvmType.createTypeRef()
@@ -213,7 +194,7 @@ def dispatch private void inferEObject(EClass clazz, IJvmDeclaredTypeAcceptor ac
 		}
 		
 		for(nestedOp : clazz.EOperations){
-//			nestedOp.EType.inferEObject(acceptor,isPreIndexingPhase)
+			nestedOp.EType.inferEObject(acceptor,isPreIndexingPhase)
 			val jvmType = inferedObject.get(nestedOp.EType.myQualifiedName)
 			if(jvmType != null){
 				var typeRef= jvmType.createTypeRef()
@@ -231,65 +212,53 @@ def dispatch private void inferEObject(EClass clazz, IJvmDeclaredTypeAcceptor ac
    	
    	
    	
+ var inPivot = false  	
    	
-synchronized def dispatch private void inferEObject(org.eclipse.ocl.examples.pivot.Class pivot, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+synchronized def dispatch private void inferPivot(org.eclipse.ocl.examples.pivot.Class pivot, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 	val na = pivot.myQualifiedName
+	if(! inPivot){
+	inPivot = true
 	var alreadyExists = inferedObject.containsKey(na)
 	if(!(alreadyExists)){
    		inferedObject.put(na,null) //just to avoid infinite loop
-//here the problem comes from the fact that OCL is loading the UML through the pivot. I must get the UML metamodel myself
-
-		var EObject linkedEO = null
 		var set = pivot.eResource.resourceSet
    		if(set != null){
-   			set.getPackageRegistry().put(importedNSURI,set.getPackageRegistry().getEPackage(importedNSURI));
    			for (r : set.resources){
-   				if(r.URI.toString.startsWith(importedNSURI)){
+   				if(r.URI.toString.startsWith(importedNSURI) && r.URI.toString != pivot.eResource.URI.toString){
    				var iter = r.allContents
    				while(iter.hasNext){
    					val eo = iter.next
    					//print(" - "+eo.ecoreQualifiedName+"\n")
-   					if ((eo.ecoreQualifiedName == pivot.ecoreQualifiedName) && !(eo instanceof DefPropertyCS)){
-	   					linkedEO = eo
-	   					var nestedAlreadyExists = inferedObject.containsKey(eo.myQualifiedName)
-   						if(!(nestedAlreadyExists)){
-   							eo.eClass.inferEObject(acceptor,isPreIndexingPhase)
-   							var type = eo.toClass(eo.eClass.myQualifiedName)
-   							inferedObject.put(na,type)
+   					if (! (eo instanceof org.eclipse.ocl.examples.pivot.Class) && !(eo instanceof DefPropertyCS)){
 	   						eo.inferEObject(acceptor,isPreIndexingPhase)
-	   						
-	   					}
-
-					
-
+//					   		val type = inferedObject.get(eo.myQualifiedName)
+//					   		inferedObject.put(na,type)
+//					   		acceptor.accept(
+//					   			type
+//					   		).initializeLater[
+//	
+//				   			for(nestedEo : eo.eContents+eo.eCrossReferences){
+//				   				if(nestedEo.containsNameAttribute()){
+//				   					val jvmType =inferedObject.get(nestedEo.myQualifiedName)
+//				   					if(jvmType != null){
+//				   						var typeRef= jvmType.createTypeRef()
+//				   						var m = nestedEo.toField(nestedEo.EOName, cloneWithProxies(typeRef))
+//				   						m.setVisibility(JvmVisibility.PUBLIC);
+//				   						members+=m
+//									}
+//				   				}
+//				   			}
+//				   			members += eo.toToStringMethod(it)
+//				   			]
 			   			}
    					}
-   					
-   		val flinkedEO = linkedEO		
-   		var typeOK = inferedObject.get(na)
-   		acceptor.accept(
-   			typeOK
-   		).initializeLater[
-   			
-   			for(nestedEo : flinkedEO.eContents+flinkedEO.eCrossReferences){
-   				if(nestedEo.containsNameAttribute()){
-   					val jvmType =inferedObject.get(nestedEo.eClass.myQualifiedName)
-   					if(jvmType != null){
-   						var typeRef= jvmType.createTypeRef()
-   						var m = nestedEo.toField(nestedEo.EOName, cloneWithProxies(typeRef))
-   						m.setVisibility(JvmVisibility.PUBLIC);
-   						members+=m
-					}
-   				}
-   			}
-   			members += flinkedEO.toToStringMethod(it)
-   		]
-   					
-   					
   				}
    			}
    			}
    		}
+   	inPivot = false
+   	}
+   	
    	}
    	
    	
@@ -301,28 +270,14 @@ synchronized def dispatch private void inferEObject(org.eclipse.ocl.examples.piv
    	def dispatch private void inferEObject(EObject eo, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
    	if(eo.containsNameAttribute()){
    		val na = eo.myQualifiedName
+   		
    		var alreadyExists = inferedObject.containsKey(na)
    		if(!(alreadyExists)){
    		inferedObject.put(na,null) //just to avoid infinite loop
    		
-   		for(nestedEo : eo.eContents+eo.eCrossReferences){
-			if(nestedEo.containsNameAttribute()){
-				if(nestedEo instanceof org.eclipse.ocl.examples.pivot.Class){
-					if((nestedEo as org.eclipse.ocl.examples.pivot.Class).ETarget != null){
-						(nestedEo as org.eclipse.ocl.examples.pivot.Class).ETarget.inferEObject(acceptor,isPreIndexingPhase)
-					}
-				}else{
-					nestedEo.inferEObject(acceptor,isPreIndexingPhase)
-					}
-			}
-		}
-   		
-   		
-   		
-   		
    		eo.eClass.inferEObject(acceptor,isPreIndexingPhase)
 //   		inferedObject.get(eo.eClass.myQualifiedName)
-   		var type = eo.toClass(eo.eClass.myQualifiedName)
+   		var type = eo.toClass(eo.myQualifiedName)
    		inferedObject.put(na,type)
    		acceptor.accept(
    			type
@@ -330,7 +285,8 @@ synchronized def dispatch private void inferEObject(org.eclipse.ocl.examples.piv
    			
    			for(nestedEo : eo.eContents+eo.eCrossReferences){
    				if(nestedEo.containsNameAttribute()){
-   					val jvmType =inferedObject.get(nestedEo.eClass.myQualifiedName)
+   					nestedEo.inferEObject(acceptor,isPreIndexingPhase)
+   					val jvmType =inferedObject.get(nestedEo.myQualifiedName)
    					if(jvmType != null){
    						var typeRef= jvmType.createTypeRef()
    						var m = nestedEo.toField(nestedEo.EOName, cloneWithProxies(typeRef))
@@ -356,7 +312,6 @@ synchronized def dispatch private void inferEObject(org.eclipse.ocl.examples.piv
    	}
    	
    	def private String getEOName(EObject eo){
-   		if (eo != null){
    		for (feat : eo.eClass.EAllStructuralFeatures){
    			if (feat.name == "name"){
    				var res = eo.eGet(feat) as String
@@ -367,14 +322,9 @@ synchronized def dispatch private void inferEObject(org.eclipse.ocl.examples.piv
    			}
    		}
    		return "noName"+eo.eClass.name
-   	}else{
-   		return "null_"	
-   	}
-   	
    	}
    	
    	def private String myQualifiedName(EObject eo){
-		if(eo != null){
 		var String res=eo.EOName
 		var currentEo = eo
 		while(currentEo.eContainer != null){
@@ -382,10 +332,6 @@ synchronized def dispatch private void inferEObject(org.eclipse.ocl.examples.piv
 			res = currentEo.EOName +"."+res
 		}
 	return res
-   	}else{
-   	return "nullQN"	
-   	}
-   	
    	}
    	
    	

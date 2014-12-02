@@ -4,9 +4,16 @@
 package org.gemoc.bcool.model.xtext.scoping
 
 import com.google.inject.Inject
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS
+import org.eclipse.xtext.common.types.JvmIdentifiableElement
+import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+import org.eclipse.xtext.xbase.scoping.batch.IFeatureScopeSession
+import org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider
+import org.eclipse.xtext.xbase.typesystem.references.ITypeReferenceOwner
 import org.gemoc.bcool.model.bcool.BCoolCompositionRule
 
 /**
@@ -17,51 +24,29 @@ import org.gemoc.bcool.model.bcool.BCoolCompositionRule
  *
  */
  
-class BCOoLScopeProvider extends AbstractDeclarativeScopeProvider  {
+class BCOoLBatchScopeProvider extends XbaseBatchScopeProvider  {
 	@Inject extension BCOoLCompositionRuleExtensions
 
-	def IScope scope_BCOoLCompositionRule_name(BCoolCompositionRule rule, EReference eRef) {
-		rule.getScope(IScope.NULLSCOPE)
+	override IScope getScope(EObject context, EReference reference) {
+		if (context instanceof BCoolCompositionRule/*  && "name".equals(reference.name)*/) {
+			return (context as BCoolCompositionRule).getScope(super.getScope(context, reference))
+		} else
+			return super.getScope(context, reference)
 	}
 	
 	
-//	static class MyMap extends MapBasedScope{
-//	
-//		protected new(IScope parent, Map<QualifiedName, IEObjectDescription> elements, boolean ignoreCase) {
-//			super(parent, elements, ignoreCase)
-//		}
-//		
-//	}
-//	
-//	def getScope(BCoolCompositionRule spec) {
-//		var map = new HashMap<QualifiedName, IEObjectDescription>();
-//		//map.putAll(fields.toMap[f | f.simpleName.removeXTendUnderscore.qName ])
-//		
-//		for (Resource r : spec.eResource.getResourceSet().resources){
-//				for (EObject eo :r.contents){
-//					if (eo instanceof DefPropertyCS){
-//						var IEObjectDescription eodesc = new MapEntry(new SimpleEntry(QualifiedName.create(eo.name) ,eo ))
-//						map.put(QualifiedName.create(eo.name), eodesc)
-//						//addLocalElement(QualifiedName.create(eo.name), eo as JvmIdentifiableElement, context as ITypeReferenceOwner)
-//					} 
-//				}
-//			}	
-//		return new MyMap(super.getScope(spec, spec.eContainmentFeature),map,true)
-//	}
-	
-	
-//	override newSession(Resource context) {
-//		var IFeatureScopeSession result = super.newSession(context)
-//			for (Resource r : context.getResourceSet().resources){
-//				for (EObject eo :r.contents){
-//					if (eo instanceof DefPropertyCS){
-//						result.addLocalElement(QualifiedName.create(eo.name), eo as JvmIdentifiableElement, context as ITypeReferenceOwner)
-//					} 
-//					//state.addLocalToCurrentScope(eo as JvmIdentifiableElement)		
-//				}
-//			}	
-//		return result
-//	}
+	override newSession(Resource context) {
+		var IFeatureScopeSession result = super.newSession(context)
+			for (Resource r : context.getResourceSet().resources){
+				for (EObject eo :r.contents){
+					if (eo instanceof DefPropertyCS){
+						result.addLocalElement(QualifiedName.create(eo.name), eo as JvmIdentifiableElement, context as ITypeReferenceOwner)
+					} 
+					//state.addLocalToCurrentScope(eo as JvmIdentifiableElement)		
+				}
+			}	
+		return result
+	}
 	
 	
 //	
