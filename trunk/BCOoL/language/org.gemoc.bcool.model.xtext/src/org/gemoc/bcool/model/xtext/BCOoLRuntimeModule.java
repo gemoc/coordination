@@ -3,9 +3,28 @@
  */
 package org.gemoc.bcool.model.xtext;
 
+import org.eclipse.xtext.xbase.typesystem.computation.ITypeComputer;
+import org.gemoc.bcool.model.xtext.typing.BCOoLTypeComputer;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
+@SuppressWarnings("restriction")
 public class BCOoLRuntimeModule extends org.gemoc.bcool.model.xtext.AbstractBCOoLRuntimeModule {
 
+//	@Override
+//	public Class<? extends ITypeComputer> bindITypeComputer() {
+//		return BCOoLTypeComputer.class;
+//	}
+	
+//	@Override
+//	public Class<? extends XbaseBatchScopeProvider> bindXbaseBatchScopeProvider() {
+//		return BCOoLBatchScopeProvider.class;
+//	}
+//	
+//	@Override
+//	public Class<? extends IScopeProvider> bindIScopeProvider() {
+//		return BCOoLScopeProvider.class;
+//	}
+	
 }
