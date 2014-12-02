@@ -16,6 +16,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ocl.examples.xtext.completeocl;visibility:=reexport,
  org.eclipse.ocl.examples.xtext.essentialocl;visibility:=reexport,
  org.eclipse.ocl.examples.pivot;visibility:=reexport,
- org.eclipse.xtext.common.types;visibility:=reexport,
- org.eclipse.xtext.xbase;visibility:=reexport
+ org.eclipse.xtext.xbase;visibility:=reexport,
+ org.eclipse.xtext.common.types;visibility:=reexport
 Bundle-ActivationPolicy: lazy
