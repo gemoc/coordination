@@ -1240,7 +1240,7 @@ public abstract class AbstractBCOoLSemanticSequencer extends XbaseSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (DSEs+=[DefPropertyCS|QualifiedName] DSEs+=[DefPropertyCS|ID]*)? matchingRule=MatchingRule coordinationRule=CoordinationRule)
+	 *     (name=ID (DSEs+=[DefPropertyCS|ID] DSEs+=[DefPropertyCS|ID]*)? matchingRule=MatchingRule coordinationRule=CoordinationRule)
 	 */
 	protected void sequence_BCoolCompositionRule(EObject context, BCoolCompositionRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1292,7 +1292,7 @@ public abstract class AbstractBCOoLSemanticSequencer extends XbaseSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (declaration=[RelationDeclaration|ID] (actualParameters+=STRING actualParameters+=STRING*)?)
+	 *     (declaration=[RelationDeclaration|ID] (actualParameters+=[EObject|ID] actualParameters+=[EObject|ID]*)?)
 	 */
 	protected void sequence_EventRelation(EObject context, EventRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1333,7 +1333,7 @@ public abstract class AbstractBCOoLSemanticSequencer extends XbaseSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (condition=STRING filterEventExpressions+=EventExpression*)
+	 *     (condition=XExpression filterEventExpressions+=EventExpression*)
 	 */
 	protected void sequence_MatchingRule(EObject context, MatchingRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

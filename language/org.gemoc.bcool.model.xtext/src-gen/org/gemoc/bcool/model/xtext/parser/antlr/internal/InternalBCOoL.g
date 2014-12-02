@@ -385,12 +385,10 @@ ruleBCoolCompositionRule returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getBCoolCompositionRuleRule());
 	        }
         }
-		{ 
-	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getDSEsDefPropertyCSCrossReference_3_0_0()); 
-	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getBCoolCompositionRuleAccess().getDSEsDefPropertyCSCrossReference_3_0_0()); 
+	}
 
 )
 )(	otherlv_4=',' 
@@ -489,19 +487,19 @@ ruleMatchingRule returns [EObject current=null]
     }
 (
 (
-		lv_condition_1_0=RULE_STRING
-		{
-			newLeafNode(lv_condition_1_0, grammarAccess.getMatchingRuleAccess().getConditionSTRINGTerminalRuleCall_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getMatchingRuleAccess().getConditionXExpressionParserRuleCall_1_0()); 
+	    }
+		lv_condition_1_0=ruleXExpression		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMatchingRuleRule());
+	            $current = createModelElementForParent(grammarAccess.getMatchingRuleRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"condition",
         		lv_condition_1_0, 
-        		"STRING");
+        		"XExpression");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -714,20 +712,15 @@ ruleEventRelation returns [EObject current=null]
     }
 ((
 (
-		lv_actualParameters_2_0=RULE_STRING
 		{
-			newLeafNode(lv_actualParameters_2_0, grammarAccess.getEventRelationAccess().getActualParametersSTRINGTerminalRuleCall_2_0_0()); 
-		}
-		{
-	        if ($current==null) {
+			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getEventRelationRule());
 	        }
-       		addWithLastConsumed(
-       			$current, 
-       			"actualParameters",
-        		lv_actualParameters_2_0, 
-        		"STRING");
-	    }
+        }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getEventRelationAccess().getActualParametersEObjectCrossReference_2_0_0()); 
+	}
 
 )
 )(	otherlv_3=',' 
@@ -736,20 +729,15 @@ ruleEventRelation returns [EObject current=null]
     }
 (
 (
-		lv_actualParameters_4_0=RULE_STRING
 		{
-			newLeafNode(lv_actualParameters_4_0, grammarAccess.getEventRelationAccess().getActualParametersSTRINGTerminalRuleCall_2_1_1_0()); 
-		}
-		{
-	        if ($current==null) {
+			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getEventRelationRule());
 	        }
-       		addWithLastConsumed(
-       			$current, 
-       			"actualParameters",
-        		lv_actualParameters_4_0, 
-        		"STRING");
-	    }
+        }
+	otherlv_4=RULE_ID
+	{
+		newLeafNode(otherlv_4, grammarAccess.getEventRelationAccess().getActualParametersEObjectCrossReference_2_1_1_0()); 
+	}
 
 )
 ))*)?	otherlv_5=')' 
