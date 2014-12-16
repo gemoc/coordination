@@ -6,6 +6,14 @@ package org.gemoc.bcool.model.xtext.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import org.eclipse.xtext.xbase.XExpression
+import org.gemoc.bcool.model.bcool.BCoolSpecification
+import org.eclipse.xtext.xbase.compiler.XbaseCompiler
+import com.google.inject.Inject
+import org.eclipse.xtext.xbase.XBinaryOperation
+import org.eclipse.xtext.xbase.XMemberFeatureCall
+import org.eclipse.xtext.xbase.impl.XMemberFeatureCallImplCustom
+import org.eclipse.xtext.xbase.XFeatureCall
 
 /**
  * Generates code from your model files on save.
@@ -14,11 +22,72 @@ import org.eclipse.xtext.generator.IFileSystemAccess
  */
 class BCOoLGenerator implements IGenerator {
 	
+	@Inject
+	protected XbaseCompiler xbaseCompiler
+	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
 //			resource.allContents
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
+	//}
+	
+	for (greeting : resource.allContents.toIterable.filter(typeof(BCoolSpecification))) {
+			fsa.generateFile(
+				greeting.name + ".bcoolgen",
+				greeting.compile)
+		}
 	}
+	
+	
+		def compile(BCoolSpecification greeting) '''
+	package «greeting.packageName»;
+
+	public class «greeting.className» {
+		public static void main(String args[]) {
+			System.out.println("Hellooooo «greeting.name»");
+		}
+	}
+	
+	«FOR i : greeting.bcoolOperators»
+			«FOR j : i.bcoolCompositionRules»
+				«compile (j.matchingRule.condition)»
+			«ENDFOR»
+	«ENDFOR»
+	
+	'''
+
+	def className(BCoolSpecification greeting) {
+		greeting.name.toFirstUpper
+	}
+
+	def packageName(BCoolSpecification greeting) {
+		greeting.name.toLowerCase
+	}
+	
+	def compile(XExpression xExpression) {
+		switch xExpression {
+			XBinaryOperation: {
+				val left = xExpression.leftOperand as XMemberFeatureCall
+				val atributo = left.memberCallTarget as XMemberFeatureCall
+				val contexto = atributo.memberCallTarget as XMemberFeatureCall
+				val dse = contexto.memberCallTarget as XFeatureCall
+				''' «dse.concreteSyntaxFeatureName».«atributo.concreteSyntaxFeatureName» '''
+				//''' holaaaa «xExpression.concreteSyntaxFeatureName» '''
+			}
+		}
+	}
+		
+
+	// ''' holaaaa  «xExpression.»'''
+	
+	//def compile (BCoolSpecification bcoolspec) {
+	//	System.out.println ("hola");
+	//}
+	
+	//def compile(XExpression xExpression) {
+	//	System.out.println ("hola");
+	//}
+	
 }

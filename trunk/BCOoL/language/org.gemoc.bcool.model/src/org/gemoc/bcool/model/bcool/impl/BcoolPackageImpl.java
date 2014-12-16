@@ -420,8 +420,8 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEventExpression_ActualParameters() {
-		return (EAttribute)eventExpressionEClass.getEStructuralFeatures().get(1);
+	public EReference getEventExpression_ActualParameters() {
+		return (EReference)eventExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -644,7 +644,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 
 		eventExpressionEClass = createEClass(EVENT_EXPRESSION);
 		createEReference(eventExpressionEClass, EVENT_EXPRESSION__DECLARATION);
-		createEAttribute(eventExpressionEClass, EVENT_EXPRESSION__ACTUAL_PARAMETERS);
+		createEReference(eventExpressionEClass, EVENT_EXPRESSION__ACTUAL_PARAMETERS);
 
 		expressionDefinitionEClass = createEClass(EXPRESSION_DEFINITION);
 		createEReference(expressionDefinitionEClass, EXPRESSION_DEFINITION__DEFINITION);
@@ -744,7 +744,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 
 		initEClass(eventExpressionEClass, EventExpression.class, "EventExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventExpression_Declaration(), this.getExpressionDeclaration(), null, "declaration", null, 1, 1, EventExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEventExpression_ActualParameters(), ecorePackage.getEString(), "actualParameters", null, 0, -1, EventExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventExpression_ActualParameters(), ecorePackage.getEObject(), null, "actualParameters", null, 0, -1, EventExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionDefinitionEClass, ExpressionDefinition.class, "ExpressionDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExpressionDefinition_Definition(), this.getExpressionDeclaration(), null, "definition", null, 1, 1, ExpressionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

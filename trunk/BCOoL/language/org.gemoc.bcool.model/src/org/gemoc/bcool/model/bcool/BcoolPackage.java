@@ -434,7 +434,7 @@ public interface BcoolPackage extends EPackage {
 	int EVENT_EXPRESSION__DECLARATION = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Actual Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Actual Parameters</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1038,15 +1038,15 @@ public interface BcoolPackage extends EPackage {
 	EReference getEventExpression_Declaration();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.gemoc.bcool.model.bcool.EventExpression#getActualParameters <em>Actual Parameters</em>}'.
+	 * Returns the meta object for the reference list '{@link org.gemoc.bcool.model.bcool.EventExpression#getActualParameters <em>Actual Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Actual Parameters</em>'.
+	 * @return the meta object for the reference list '<em>Actual Parameters</em>'.
 	 * @see org.gemoc.bcool.model.bcool.EventExpression#getActualParameters()
 	 * @see #getEventExpression()
 	 * @generated
 	 */
-	EAttribute getEventExpression_ActualParameters();
+	EReference getEventExpression_ActualParameters();
 
 	/**
 	 * Returns the meta object for class '{@link org.gemoc.bcool.model.bcool.ExpressionDefinition <em>Expression Definition</em>}'.
@@ -1463,12 +1463,12 @@ public interface BcoolPackage extends EPackage {
 		EReference EVENT_EXPRESSION__DECLARATION = eINSTANCE.getEventExpression_Declaration();
 
 		/**
-		 * The meta object literal for the '<em><b>Actual Parameters</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Actual Parameters</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EVENT_EXPRESSION__ACTUAL_PARAMETERS = eINSTANCE.getEventExpression_ActualParameters();
+		EReference EVENT_EXPRESSION__ACTUAL_PARAMETERS = eINSTANCE.getEventExpression_ActualParameters();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.bcool.model.bcool.impl.ExpressionDefinitionImpl <em>Expression Definition</em>}' class.

@@ -3,18 +3,13 @@
 package org.gemoc.bcool.model.bcool.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.gemoc.bcool.model.bcool.BcoolPackage;
 import org.gemoc.bcool.model.bcool.EventExpression;
 import org.gemoc.bcool.model.bcool.ExpressionDeclaration;
@@ -45,14 +40,14 @@ public class EventExpressionImpl extends NamedElementImpl implements EventExpres
 	protected ExpressionDeclaration declaration;
 
 	/**
-	 * The cached value of the '{@link #getActualParameters() <em>Actual Parameters</em>}' attribute list.
+	 * The cached value of the '{@link #getActualParameters() <em>Actual Parameters</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getActualParameters()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> actualParameters;
+	protected EList<EObject> actualParameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,9 +111,9 @@ public class EventExpressionImpl extends NamedElementImpl implements EventExpres
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getActualParameters() {
+	public EList<EObject> getActualParameters() {
 		if (actualParameters == null) {
-			actualParameters = new EDataTypeUniqueEList<String>(String.class, this, BcoolPackage.EVENT_EXPRESSION__ACTUAL_PARAMETERS);
+			actualParameters = new EObjectResolvingEList<EObject>(EObject.class, this, BcoolPackage.EVENT_EXPRESSION__ACTUAL_PARAMETERS);
 		}
 		return actualParameters;
 	}
@@ -154,7 +149,7 @@ public class EventExpressionImpl extends NamedElementImpl implements EventExpres
 				return;
 			case BcoolPackage.EVENT_EXPRESSION__ACTUAL_PARAMETERS:
 				getActualParameters().clear();
-				getActualParameters().addAll((Collection<? extends String>)newValue);
+				getActualParameters().addAll((Collection<? extends EObject>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,22 +187,6 @@ public class EventExpressionImpl extends NamedElementImpl implements EventExpres
 				return actualParameters != null && !actualParameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (actualParameters: ");
-		result.append(actualParameters);
-		result.append(')');
-		return result.toString();
 	}
 
 } //EventExpressionImpl

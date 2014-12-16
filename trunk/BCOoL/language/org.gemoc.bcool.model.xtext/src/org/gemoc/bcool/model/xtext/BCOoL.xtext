@@ -15,11 +15,10 @@ BCoolSpec returns BCoolSpecification:
 ;
 
 BCoolOperatorSpec returns BCoolOperator:
-	'Operator'name=ID 
+	'Spec' name=ID 
 						(globalEventExpressions+=globalEventExpressionRule)?
 						(globalDSEs+=globalDSEsRule)?
 						(bcoolCompositionRules+=BCoolCompositionRule)+
-	'end operator;'
 ;
 
 globalDSEsRule returns DefPropertyCS:
@@ -31,20 +30,22 @@ globalEventExpressionRule returns EventExpression:
 ;
 
 BCoolCompositionRule returns BCoolCompositionRule: 
-	'CompositionRule' name=ID '('(DSEs+=[DefPropertyCS|ID] (',' DSEs+=[DefPropertyCS|ID])*)? ')'
-					   'MatchingRule :' matchingRule=MatchingRule
-					   'CoordinationRule  :' coordinationRule=CoordinationRule
-	'end rule;'
+	'Operator' name=ID '('(DSEs+=[DefPropertyCS|ID] (',' DSEs+=[DefPropertyCS|ID])*)? ')'
+					   'MatchingCorrespondance :' matchingRule=MatchingRule
+					    coordinationRule=CoordinationRule
+	'end operator;'
 ;
 
 
 MatchingRule returns MatchingRule:
-	'when' (condition= XExpression)
-	 ('having' (filterEventExpressions+=EventExpression';')*)?
+	'when' condition=XExpression ';'
+	 'CoordinationRule:'
+	 ('Event' filterEventExpressions+=EventExpression';')*
 	;
 
 EventExpression returns EventExpression:
-	name=ID '=' declaration=[ExpressionDeclaration|ID]'(' (actualParameters+=STRING (',' actualParameters+=STRING)*)? ')'
+	//name=ID '=' declaration=[ExpressionDeclaration|ID]'(' (actualParameters+=STRING (',' actualParameters+=STRING)*)? ')'
+	name=ID '=' declaration=[ExpressionDeclaration|ID] '(' (actualParameters+=[ecore::EObject|ID] (',' actualParameters+=[ecore::EObject|ID])*)? ')'
 ;
 
 CoordinationRule returns CoordinationRule:

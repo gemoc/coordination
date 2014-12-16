@@ -109,6 +109,11 @@ public abstract class AbstractBCOoLRuntimeModule extends DefaultRuntimeModule {
 		binder.bind(org.eclipse.xtext.resource.IResourceDescriptions.class).to(org.eclipse.xtext.resource.impl.ResourceSetBasedResourceDescriptions.class);
 	}
 
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public void configureIResourceDescriptionsPersisted(com.google.inject.Binder binder) {
+		binder.bind(org.eclipse.xtext.resource.IResourceDescriptions.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider.PERSISTED_DESCRIPTIONS)).to(org.eclipse.xtext.resource.impl.ResourceSetBasedResourceDescriptions.class);
+	}
+
 	// contributed by org.eclipse.xtext.generator.formatting.FormatterFragment
 	public Class<? extends org.eclipse.xtext.formatting.IFormatter> bindIFormatter() {
 		return org.gemoc.bcool.model.xtext.formatting.BCOoLFormatter.class;
@@ -257,6 +262,21 @@ public abstract class AbstractBCOoLRuntimeModule extends DefaultRuntimeModule {
 	// contributed by org.eclipse.xtext.generator.xbase.XbaseGeneratorFragment
 	public Class<? extends org.eclipse.xtext.xbase.scoping.featurecalls.StaticImplicitMethodsFeatureForTypeProvider.ExtensionClassNameProvider> bindStaticImplicitMethodsFeatureForTypeProvider$ExtensionClassNameProvider() {
 		return org.eclipse.xtext.xbase.scoping.batch.ImplicitlyImportedTypesAdapter.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.xbase.XbaseGeneratorFragment
+	public Class<? extends org.eclipse.xtend.lib.macro.file.MutableFileSystemSupport> bindMutableFileSystemSupport() {
+		return org.eclipse.xtext.xbase.file.JavaIOFileSystemSupport.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.xbase.XbaseGeneratorFragment
+	public Class<? extends org.eclipse.xtend.lib.macro.file.FileLocations> bindFileLocations() {
+		return org.eclipse.xtext.xbase.file.FileLocationsImpl.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.xbase.XbaseGeneratorFragment
+	public Class<? extends com.google.inject.Provider<org.eclipse.xtext.xbase.file.WorkspaceConfig>> provideWorkspaceConfig() {
+		return org.eclipse.xtext.xbase.file.RuntimeWorkspaceConfigProvider.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.xbase.XbaseGeneratorFragment
