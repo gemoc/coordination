@@ -8,7 +8,7 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*"
 			id="org.gemoc.cool.transformation.qvto2ccsl.ui.popupMenus.contribution.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="GEMOC composition" path="additionsAcceleo">
+         <menu id="org.eclipse.acceleo.module.menu" label="GEMOC coordination" path="additionsAcceleo">
                <groupMarker name="acceleo"/> 
          </menu>
          <action

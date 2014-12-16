@@ -13,17 +13,25 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarationCS;
+import org.eclipse.xtext.common.types.impl.JvmFieldImplCustom;
 import org.eclipse.xtext.resource.SaveOptions;
 import org.eclipse.xtext.resource.SaveOptions.Builder;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
+import org.eclipse.xtext.xbase.XBinaryOperation;
+import org.eclipse.xtext.xbase.XExpression;
+import org.eclipse.xtext.xbase.XFeatureCall;
+import org.eclipse.xtext.xbase.XMemberFeatureCall;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
+import org.gemoc.bcool.model.bcool.EventExpression;
 import org.gemoc.bcool.model.bcool.ImportInterfaceStatement;
 
 import com.google.inject.Injector;
 
 import fr.inria.aoste.timesquare.ECL.ECLDocument;
+import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.IntegerElement;
 import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
 
 public class helperNsURI {
@@ -177,5 +185,60 @@ public class helperNsURI {
 		}
 		return (new Integer(1)).toString(); //1 is returned by default since we do not necessarly know the name of the rootElement and it is PAckage by default (for UML)
 	}
+	
+	public String XexpressiontoString (XExpression exp ){
+	String leftoper = "";
+	String rightoper = "";
+	String binaryoperstr = "";
+	
+		if (exp instanceof XBinaryOperation) {
+			XBinaryOperation binaryoper = (XBinaryOperation) exp;
+			XExpression _leftOperand = ((XBinaryOperation)exp).getLeftOperand();
+			XMemberFeatureCall left = ((XMemberFeatureCall) _leftOperand);
+			XExpression _memberCallTarget = left.getMemberCallTarget();
+	        XMemberFeatureCall atributo = ((XMemberFeatureCall) _memberCallTarget);
+	        XExpression _memberCallTarget_1 = atributo.getMemberCallTarget();
+	        XMemberFeatureCall contexto = ((XMemberFeatureCall) _memberCallTarget_1);
+	        XExpression _memberCallTarget_2 = contexto.getMemberCallTarget();
+	        XFeatureCall dse = ((XFeatureCall) _memberCallTarget_2);
+	        leftoper = dse.getConcreteSyntaxFeatureName() + "." + atributo.getConcreteSyntaxFeatureName();
+			
+	        XExpression _rightOperand = ((XBinaryOperation)exp).getRightOperand();
+			XMemberFeatureCall right = ((XMemberFeatureCall) _rightOperand);
+			XExpression _memberCallTargetright = right.getMemberCallTarget();
+	        XMemberFeatureCall atributoright = ((XMemberFeatureCall) _memberCallTargetright);
+	        XExpression _memberCallTarget_1right = atributoright.getMemberCallTarget();
+	        XMemberFeatureCall contextoright = ((XMemberFeatureCall) _memberCallTarget_1right);
+	        XExpression _memberCallTarget_2right = contextoright.getMemberCallTarget();
+	        XFeatureCall dseright = ((XFeatureCall) _memberCallTarget_2right);
+	        rightoper = dseright.getConcreteSyntaxFeatureName() + "." + atributoright.getConcreteSyntaxFeatureName();
+	        
+	        binaryoperstr = binaryoper.getConcreteSyntaxFeatureName();
+	        if (binaryoperstr.startsWith("==")) {return leftoper+ "=" + rightoper;  }
+	        if (binaryoperstr.startsWith("!=")) {return leftoper+ "<>" + rightoper;  }
+	        
+	        
+		}
+		return "not valid XExpression";
+	}
+	
+	public String DSEtoString (EObject dse ){
+		if (dse instanceof JvmFieldImplCustom) {
+		JvmFieldImplCustom dsetmp = (JvmFieldImplCustom) dse ;
+		return dsetmp.getSimpleName();
+		}
+		
+		if (dse instanceof EventExpression) {
+			EventExpression dsetmp = (EventExpression) dse ;
+			return dsetmp.getName();
+			}
+		
+		if (dse instanceof IntegerElement) {
+			IntegerElement dsetmp = (IntegerElement) dse ;
+			return dsetmp.getName();
+			}
+
+		return "nada";
+	}	
 	
 }
