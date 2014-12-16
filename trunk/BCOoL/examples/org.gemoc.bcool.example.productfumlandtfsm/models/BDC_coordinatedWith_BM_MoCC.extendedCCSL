@@ -18,12 +18,19 @@ ClockConstraintSystem SyncProductTfsmwithfUMLCoordination {
 		Expression MatchingandCoordinationSharedEvents_filter_occursfilterOfclosedclosed = AfterN
 		( WaitingClock -> "BarrierControl::mainBlock::closed_occurs",
 		WaitingValue -> four )
+		Expression MatchingandCoordinationSharedEvents_filter_actionfilterOfdoClosedoClose = AfterN
+		( WaitingClock -> "Model::mainBlock::doClose_startAction",
+		WaitingValue -> three )
+		Expression MatchingandCoordinationSharedEvents_filter_actionfilterOfclosedclosed = AfterN
+		( WaitingClock -> "Model::mainBlock::closed_startAction",
+		WaitingValue -> three )
 		Relation MatchingandCoordinationSharedEvents_BCoolCompositionRule_doClose [ RendezVous ]
 		( LeftClock -> MatchingandCoordinationSharedEvents_filter_occursfilterOfdoClosedoClose,
-		RightClock -> "Model::mainBlock::doClose_startAction" )
+		RightClock -> MatchingandCoordinationSharedEvents_filter_actionfilterOfdoClosedoClose )
 		Relation MatchingandCoordinationSharedEvents_BCoolCompositionRule_closed [ RendezVous ]
 		( LeftClock -> MatchingandCoordinationSharedEvents_filter_occursfilterOfclosedclosed,
-		RightClock -> "Model::mainBlock::closed_startAction" )
-		Integer four : int = 4
+		RightClock -> MatchingandCoordinationSharedEvents_filter_actionfilterOfclosedclosed )
+		Integer four : int = 0
+		Integer three : int = 0
 	}
 }
