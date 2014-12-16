@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+			adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*"
+			id="org.gemoc.bcool.transformation.qvto2ccsl.ui.popupMenus.contribution.IFile">
+         <menu id="org.eclipse.acceleo.module.menu" label="GEMOC coordination" path="additionsAcceleo">
+               <groupMarker name="acceleo"/> 
+         </menu>
+         <action
+               label="create CCSL coordination model"
+               class="org.gemoc.bcool.transformation.qvto2ccsl.ui.popup.actions.Qvto2CCSLTranslator"
+               menubarPath="org.eclipse.acceleo.module.menu/acceleo"
+               enablesFor="multiple"
+               id="org.gemoc.bcool.transformation.qvto2ccsl.ui.newAction">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>
+	
