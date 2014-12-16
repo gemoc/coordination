@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='2'>
+  <unit id='org.gemoc.cool.transformation.qvto2ccsl.ui' version='1.0.0.201401191422'>
+    <update id='org.gemoc.cool.transformation.qvto2ccsl.ui' range='[0.0.0,1.0.0.201401191422)' severity='0'/>
+    <properties size='5'>
+      <property name='org.eclipse.equinox.p2.name' value='Ui'/>
+      <property name='org.eclipse.equinox.p2.provider' value='Aoste INRIA/I3S'/>
+      <property name='maven-groupId' value='fr.inria.aoste.timesquare.ecl.framework'/>
+      <property name='maven-artifactId' value='org.gemoc.cool.transformation.qvto2ccsl.ui'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+    <provides size='3'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.gemoc.cool.transformation.qvto2ccsl.ui' version='1.0.0.201401191422'/>
+      <provided namespace='osgi.bundle' name='org.gemoc.cool.transformation.qvto2ccsl.ui' version='1.0.0.201401191422'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='6'>
+      <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.m2m.qvt.oml' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='fr.inria.aoste.timesquare.ccslkernel.parser.xtext' range='1.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.xtext' range='2.3.0'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='org.gemoc.cool.transformation.qvto2ccsl.ui' version='1.0.0.201401191422'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: org.gemoc.cool.transformation.qvto2ccsl.ui; singleton:=true&#xA;Bundle-Version: 1.0.0.201401191422&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+  <unit id='org.gemoc.cool.transformation.qvto2ccsl.ui.source' version='1.0.0.201401191422' singleton='false'>
+    <update id='org.gemoc.cool.transformation.qvto2ccsl.ui.source' range='[0.0.0,1.0.0.201401191422)' severity='0'/>
+    <properties size='9'>
+      <property name='df_LT.bundleVendor' value='Aoste INRIA/I3S'/>
+      <property name='df_LT.bundleName' value='Ui Source'/>
+      <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+      <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+      <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+      <property name='maven-groupId' value='fr.inria.aoste.timesquare.ecl.framework'/>
+      <property name='maven-artifactId' value='org.gemoc.cool.transformation.qvto2ccsl.ui'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-classifier' value='sources'/>
+    </properties>
+    <provides size='4'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.gemoc.cool.transformation.qvto2ccsl.ui.source' version='1.0.0.201401191422'/>
+      <provided namespace='osgi.bundle' name='org.gemoc.cool.transformation.qvto2ccsl.ui.source' version='1.0.0.201401191422'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+    </provides>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='org.gemoc.cool.transformation.qvto2ccsl.ui.source' version='1.0.0.201401191422'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: org.gemoc.cool.transformation.qvto2ccsl.ui.source&#xA;Bundle-Version: 1.0.0.201401191422&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>
