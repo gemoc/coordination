@@ -6,12 +6,12 @@ ImportLib "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/library
 ImportInterface "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/TFSM.ecl" as "I_TFSM" // left
 ImportInterface "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/activitySemantics.ecl" as "I_Activity" // right
 
+Spec test 
 
-Operator SyncProductOperator
-														    // right , left 
-	CompositionRule MatchingandCoordinationSharedEvents (startAction, occurs )
-		MatchingRule : when "startAction.name = occurs.name"
-		CoordinationRule  : RendezVous("occurs", "startAction")
-	end rule;
-		
+Operator  MatchingandCoordinationSharedEvents (startAction, occurs )
+MatchingCorrespondance : when occurs.FSMEvent.name.toString == startAction.Action.name.toString;
+		CoordinationRule: 
+			Event filter_occurs = AfterN (occurs,three);
+			Event filter_action = AfterN (startAction, two);
+		RendezVous(filter_occurs, filter_action)
 end operator;
