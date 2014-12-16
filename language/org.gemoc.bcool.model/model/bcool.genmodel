@@ -38,7 +38,7 @@
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//EventExpression">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//EventExpression/declaration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bcool.ecore#//EventExpression/actualParameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference bcool.ecore#//EventExpression/actualParameters"/>
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//ExpressionDefinition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//ExpressionDefinition/definition"/>

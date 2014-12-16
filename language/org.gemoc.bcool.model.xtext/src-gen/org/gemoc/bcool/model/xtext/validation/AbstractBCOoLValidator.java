@@ -11,7 +11,7 @@ public class AbstractBCOoLValidator extends org.eclipse.xtext.xbase.validation.X
 
 	@Override
 	protected List<EPackage> getEPackages() {
-	    List<EPackage> result = new ArrayList<EPackage>();
+	    List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.gemoc.bcool.model/"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/xbase/Xbase"));

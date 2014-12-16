@@ -18,7 +18,6 @@ import org.gemoc.bcool.model.xtext.services.BCOoLGrammarAccess;
 public abstract class AbstractBCOoLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected BCOoLGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_MatchingRule_HavingKeyword_2_0_q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
 	protected AbstractElementAlias match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q;
@@ -29,7 +28,6 @@ public abstract class AbstractBCOoLSyntacticSequencer extends AbstractSyntacticS
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BCOoLGrammarAccess) access;
-		match_MatchingRule_HavingKeyword_2_0_q = new TokenAlias(false, true, grammarAccess.getMatchingRuleAccess().getHavingKeyword_2_0());
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
 		match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getLeftParenthesisKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getRightParenthesisKeyword_0_2()));
@@ -73,13 +71,13 @@ public abstract class AbstractBCOoLSyntacticSequencer extends AbstractSyntacticS
 	
 	/**
 	 * terminal STRING: 
-	 * 			'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
-	 * 			"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
+	 * 			'"' ( '\\' .  | !('\\'|'"') )* '"'? |
+	 * 			"'" ( '\\' .  | !('\\'|"'") )* "'"?;
 	 */
 	protected String getSTRINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "\"\"";
+		return "\"";
 	}
 	
 	@Override
@@ -88,9 +86,7 @@ public abstract class AbstractBCOoLSyntacticSequencer extends AbstractSyntacticS
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_MatchingRule_HavingKeyword_2_0_q.equals(syntax))
-				emit_MatchingRule_HavingKeyword_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
+			if(match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
 				emit_XBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XExpressionInClosure_SemicolonKeyword_1_1_q.equals(syntax))
 				emit_XExpressionInClosure_SemicolonKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -106,14 +102,6 @@ public abstract class AbstractBCOoLSyntacticSequencer extends AbstractSyntacticS
 		}
 	}
 
-	/**
-	 * Syntax:
-	 *     'having'?
-	 */
-	protected void emit_MatchingRule_HavingKeyword_2_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 	/**
 	 * Syntax:
 	 *     ';'?

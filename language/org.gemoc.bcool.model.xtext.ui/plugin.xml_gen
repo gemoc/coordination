@@ -456,7 +456,7 @@
    </extension>
    <extension point="org.eclipse.ui.editorActions">
       <editorContribution targetID="org.gemoc.bcool.model.xtext.BCOoL" 
-                          id="org.gemoc.bcool.model.xtext.BCOoL.ide.rulerActions">
+                          id="org.gemoc.bcool.model.xtext.BCOoL.rulerActions">
 	     <action
 	             label="Not Used"
 	             class="org.gemoc.bcool.model.xtext.ui.BCOoLExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
@@ -467,17 +467,29 @@
    </extension>
    <extension point="org.eclipse.ui.popupMenus">
       <viewerContribution
-         targetID="example.rulerContextMenuId"
-         id="org.gemoc.bcool.model.xtext.BCOoL.ide.RulerPopupActions">
+         targetID="org.gemoc.bcool.model.xtext.BCOoL.RulerContext"
+         id="org.gemoc.bcool.model.xtext.BCOoL.RulerPopupActions">
          <action
             label="Toggle Breakpoint"
             class="org.gemoc.bcool.model.xtext.ui.BCOoLExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
-            menubarPath="additions"
-            id="org.gemoc.bcool.model.xtext.BCOoL.ide.rulerContextMenu.toggleBreakpointAction">
+            menubarPath="debug"
+            id="org.gemoc.bcool.model.xtext.BCOoL.rulerContextMenu.toggleBreakpointAction">
+         </action>
+         <action
+            label="Not used"
+            class="org.gemoc.bcool.model.xtext.ui.BCOoLExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerEnableDisableBreakpointActionDelegate"
+            menubarPath="debug"
+            id="org.gemoc.bcool.model.xtext.BCOoL.rulerContextMenu.enableDisableBreakpointAction">
+         </action>
+         <action
+           label="Breakpoint Properties"
+           helpContextId="breakpoint_properties_action_context"
+           class="org.gemoc.bcool.model.xtext.ui.BCOoLExecutableExtensionFactory:org.eclipse.jdt.debug.ui.actions.JavaBreakpointPropertiesRulerActionDelegate"
+           menubarPath="group.properties"
+           id="org.gemoc.bcool.model.xtext.BCOoL.rulerContextMenu.openBreapointPropertiesAction">
          </action>
       </viewerContribution>
    </extension>
-   
     <!-- Introduce Local Variable Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 

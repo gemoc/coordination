@@ -3,6 +3,7 @@
 package org.gemoc.bcool.model.bcool;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,19 +50,19 @@ public interface EventExpression extends NamedElement {
 	void setDeclaration(ExpressionDeclaration value);
 
 	/**
-	 * Returns the value of the '<em><b>Actual Parameters</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Actual Parameters</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Actual Parameters</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actual Parameters</em>' attribute list.
+	 * @return the value of the '<em>Actual Parameters</em>' reference list.
 	 * @see org.gemoc.bcool.model.bcool.BcoolPackage#getEventExpression_ActualParameters()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getActualParameters();
+	EList<EObject> getActualParameters();
 
 } // EventExpression
