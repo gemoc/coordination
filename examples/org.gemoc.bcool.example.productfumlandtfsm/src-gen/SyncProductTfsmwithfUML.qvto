@@ -322,7 +322,6 @@ main() {
 
 
 		MM2_seqOfstartActionActionContext->map MatchingandCoordinationSharedEvents_filter_occurs(MM1_seqOfoccursFSMEventContext) ;
-		MM2_seqOfstartActionActionContext->map MatchingandCoordinationSharedEvents_filter_action(MM1_seqOfoccursFSMEventContext) ;
 
 	MM2_seqOfstartActionActionContext->map MatchingandCoordinationSharedEvents(MM1_seqOfoccursFSMEventContext) ;
 
@@ -354,40 +353,7 @@ main() {
 				};
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := tmp->map Real2Integer("three")->asSequence()->first();
-					_abstract := seqOfExpressionDeclaration[name = 'Wait']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-		end{
-			theMainBlock.expressions += result;
-		}	
-	}
-
-
-	
-	mapping inMM2::Action::MatchingandCoordinationSharedEvents_filter_action(leftSet: Sequence(inMM1::FSMEvent)) : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
-	when{
-		let startAction : inMM2::Action = self in
-		 (leftSet->exists( occurs | occurs.name=startAction.name))
-	}{
-		var startAction : inMM2::Action = self;
-		var rightDse : inMM1::FSMEvent = leftSet->select(occurs | occurs.name=startAction.name)->first();
-		var tmp : Integer;
-		name := 'MatchingandCoordinationSharedEvents'+'_'+'filter_action'+'filterOf'+startAction.name+rightDse.name;
-		type := seqOfExpressionDeclaration->select(rd | rd.name = "AfterN")->first();
-		
-		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					
-				if (inM1Clocks[name = self.name+'_'+'startAction']->notEmpty()) then
-					bindable := inM1Clocks[name = self.name+'_'+'startAction']->first().oclAsType(TimeModel::Clock)
-				else
-					bindable := inM2Clocks[name = self.name+'_'+'startAction']->first().oclAsType(TimeModel::Clock)
-				endif;
-
-					_abstract := seqOfExpressionDeclaration[name = 'Wait']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := tmp->map Real2Integer("two")->asSequence()->first();
+					bindable := tmp->map Real2Integer("four")->asSequence()->first();
 					_abstract := seqOfExpressionDeclaration[name = 'Wait']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 		end{
@@ -432,10 +398,10 @@ mapping inMM2::Action::MatchingandCoordinationSharedEvents(leftSet: Sequence(inM
 		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 				
 
-				if (theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'filter_action'+'filterOf'+startAction.name+rightDse.name]->notEmpty()) then
-					bindable := theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'filter_action'+'filterOf'+startAction.name+rightDse.name]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
+				if (theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'startAction'+'filterOf'+startAction.name+rightDse.name]->notEmpty()) then
+					bindable := theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'startAction'+'filterOf'+startAction.name+rightDse.name]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 				else
-					bindable := inM2Clocks[name = rightDse.name+'_'+'filter_action']->first().oclAsType(TimeModel::Clock)
+					bindable := inM2Clocks[name = rightDse.name+'_'+'startAction']->first().oclAsType(TimeModel::Clock)
 				endif;
 
 					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;

@@ -5,6 +5,9 @@ Library extraExpressions{
 		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as CCSLLib;
 	}
 	
+	IntegerType four
+	IntegerType three
+	
 	RelationLibrary bcoolrelations{
 		RelationDefinition RendezVousDef[RendezVous]{ 
 			Relation RendezVousrelat[Coincides]( Clock1->RightClock, Clock2->LeftClock)

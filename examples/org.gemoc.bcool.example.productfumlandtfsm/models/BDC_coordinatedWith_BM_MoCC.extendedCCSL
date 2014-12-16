@@ -13,24 +13,17 @@ ClockConstraintSystem SyncProductTfsmwithfUMLCoordination {
 	entryBlock mainBlock
 	Block mainBlock {
 		Expression MatchingandCoordinationSharedEvents_filter_occursfilterOfdoClosedoClose = AfterN
-		( WaitingValue -> "BarrierControl::mainBlock::doClose_occurs",
-		WaitingClock -> three )
+		( WaitingClock -> "BarrierControl::mainBlock::doClose_occurs",
+		WaitingValue -> four )
 		Expression MatchingandCoordinationSharedEvents_filter_occursfilterOfclosedclosed = AfterN
-		( WaitingValue -> "BarrierControl::mainBlock::closed_occurs",
-		WaitingClock -> three )
-		Expression MatchingandCoordinationSharedEvents_filter_actionfilterOfdoClosedoClose = AfterN
-		( WaitingValue -> "Model::mainBlock::doClose_startAction",
-		WaitingClock -> two )
-		Expression MatchingandCoordinationSharedEvents_filter_actionfilterOfclosedclosed = AfterN
-		( WaitingValue -> "Model::mainBlock::closed_startAction",
-		WaitingClock -> two )
+		( WaitingClock -> "BarrierControl::mainBlock::closed_occurs",
+		WaitingValue -> four )
 		Relation MatchingandCoordinationSharedEvents_BCoolCompositionRule_doClose [ RendezVous ]
 		( LeftClock -> MatchingandCoordinationSharedEvents_filter_occursfilterOfdoClosedoClose,
-		RightClock -> MatchingandCoordinationSharedEvents_filter_actionfilterOfdoClosedoClose )
+		RightClock -> "Model::mainBlock::doClose_startAction" )
 		Relation MatchingandCoordinationSharedEvents_BCoolCompositionRule_closed [ RendezVous ]
 		( LeftClock -> MatchingandCoordinationSharedEvents_filter_occursfilterOfclosedclosed,
-		RightClock -> MatchingandCoordinationSharedEvents_filter_actionfilterOfclosedclosed )
-		Integer three : int = 0
-		Integer two : int = 0
+		RightClock -> "Model::mainBlock::closed_startAction" )
+		Integer four : int = 4
 	}
 }
