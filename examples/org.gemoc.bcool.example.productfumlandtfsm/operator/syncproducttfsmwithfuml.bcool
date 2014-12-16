@@ -13,5 +13,6 @@ MatchingCorrespondance : when occurs.FSMEvent.name.toString == startAction.Actio
 		CoordinationRule: 
 		Event filter_occurs = AfterN (occurs, four);
 		Event filter_action = AfterN (startAction, three);
-		RendezVous(filter_occurs, startAction)
+		
+		RendezVous(filter_occurs, filter_action)
 end operator;
