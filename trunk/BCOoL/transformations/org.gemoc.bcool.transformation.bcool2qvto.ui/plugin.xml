@@ -7,7 +7,7 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.bcool"
             id="org.gemoc.bcool.transformation.bcool2qvto.ui.popupMenus.contribution.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Model to Text" path="additionsAcceleo">
+         <menu id="org.eclipse.acceleo.module.menu" label="GEMOC coordination" path="additionsAcceleo">
                <groupMarker name="acceleo"/> 
          </menu>
          <action
@@ -15,7 +15,7 @@
                enablesFor="+"
                id="org.gemoc.bcool.transformation.bcool2qvto.ui.popupMenus.acceleoGenerateBcool2qvtoAction"
                icon="icons/default.gif"
-               label="Generate Bcool2qvto"
+               label="Generate BCOoL transformation"
                menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
       </objectContribution>
    </extension>

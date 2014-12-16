@@ -6,7 +6,8 @@
 'http://www.eclipse.org/ocl/3.1.0/Pivot',
 'http://www.eclipse.org/ocl/3.1.0/BaseCST',
 'http://www.eclipse.org/ocl/3.1.0/EssentialOCLCST',
-'http://fr.inria.aoste.timesquare.ecl'
+'http://fr.inria.aoste.timesquare.ecl',
+'http://www.eclipse.org/xtext/xbase/Xbase'
 )]
 
 [template public generateElement(aBCoolSpecification : BCoolSpecification)]
@@ -185,27 +186,27 @@ main() {
 	mapping [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/]::[rule.name/]_[filter.name/](leftSet: Sequence([packetnameright/]::[rule.DSEs->last().oclAsType(DefPropertyCS).classifierContextDecl.pathName/])) : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	when{
 		let [rule.DSEs->first().oclAsType(DefPropertyCS).name/] : [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = self in
-		 (leftSet->exists( [rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition/]))
+		 (leftSet->exists( [rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition.XexpressiontoString()/]))
 	}{
 		var [rule.DSEs->first().oclAsType(DefPropertyCS).name/] : [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = self;
-		var rightDse : [packetnameright/]::[rule.DSEs->last().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = leftSet->select([rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition/])->first();
+		var rightDse : [packetnameright/]::[rule.DSEs->last().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = leftSet->select([rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition.XexpressiontoString()/])->first();
 		var tmp : Integer;
 		name := '[rule.name/]'+'_'+'[filter.name/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name;
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "[filter.declaration.name/]")->first();
 		
 		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					
-				if (inM1Clocks['['/]name = self.name+'_'+'[filter.actualParameters->first().toString()/]'[']'/]->notEmpty()) then
-					bindable := inM1Clocks['['/]name = self.name+'_'+'[filter.actualParameters->first().toString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
+				if (inM1Clocks['['/]name = self.name+'_'+'[filter.actualParameters->first().DSEtoString()/]'[']'/]->notEmpty()) then
+					bindable := inM1Clocks['['/]name = self.name+'_'+'[filter.actualParameters->first().DSEtoString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
 				else
-					bindable := inM2Clocks['['/]name = self.name+'_'+'[filter.actualParameters->first().toString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
+					bindable := inM2Clocks['['/]name = self.name+'_'+'[filter.actualParameters->first().DSEtoString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
 				endif;
 
 					_abstract := seqOfExpressionDeclaration['['/]name = 'Wait'[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := tmp->map Real2Integer("[filter.actualParameters->last().toString()/]")->asSequence()->first();
+					bindable := tmp->map Real2Integer("[filter.actualParameters->last().DSEtoString()/]")->asSequence()->first();
 					_abstract := seqOfExpressionDeclaration['['/]name = 'Wait'[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 		end{
@@ -228,10 +229,10 @@ main() {
 mapping [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/]::[rule.name/](leftSet: Sequence([packetnameright/]::[rule.DSEs->last().oclAsType(DefPropertyCS).classifierContextDecl.pathName/])) : TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 	when{
 		let [rule.DSEs->first().oclAsType(DefPropertyCS).name/] : [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = self in
-		 (leftSet->exists( [rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition/]))
+		 (leftSet->exists( [rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition.XexpressiontoString()/]))
 	}{
 		var [rule.DSEs->first().oclAsType(DefPropertyCS).name/] : [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = self;
-		var rightDse : [packetnameright/]::[rule.DSEs->last().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = leftSet->select([rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition/])->first();
+		var rightDse : [packetnameright/]::[rule.DSEs->last().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = leftSet->select([rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition.XexpressiontoString()/])->first();
 		name := '[rule.name/]_[rule.eClass().name/]_'+self.name;
 
 
@@ -239,10 +240,10 @@ mapping [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierCo
 		
 		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 
-				if (theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->first().toString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->notEmpty()) then
-					bindable := theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->first().toString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
+				if (theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->first().DSEtoString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->notEmpty()) then
+					bindable := theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->first().DSEtoString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 				else
-					bindable := inM1Clocks['['/]name = self.name+'_'+'[rule.coordinationRule.eventRelations.actualParameters->first().toString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
+					bindable := inM1Clocks['['/]name = self.name+'_'+'[rule.coordinationRule.eventRelations.actualParameters->first().DSEtoString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
 				endif;
 
 				_abstract := seqOfRelationDeclaration['['/]name = 'Causes'[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
@@ -251,10 +252,10 @@ mapping [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierCo
 		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 				
 
-				if (theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->last().toString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->notEmpty()) then
-					bindable := theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->last().toString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
+				if (theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->last().DSEtoString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->notEmpty()) then
+					bindable := theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->last().DSEtoString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 				else
-					bindable := inM2Clocks['['/]name = rightDse.name+'_'+'[rule.coordinationRule.eventRelations.actualParameters->last().toString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
+					bindable := inM2Clocks['['/]name = rightDse.name+'_'+'[rule.coordinationRule.eventRelations.actualParameters->last().DSEtoString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
 				endif;
 
 					_abstract := seqOfRelationDeclaration['['/]name = 'Causes'[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
@@ -748,6 +749,15 @@ TimeModel::EventKind::start;
 
 [query public resolveAll(arg0 : BCoolSpecification) : String
 	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'resolveAll(org.gemoc.bcool.model.bcool.BCoolSpecification)', Sequence{arg0}) /]
+
+[query public XexpressiontoString (arg0 : XExpression) : String
+	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'XexpressiontoString(org.eclipse.xtext.xbase.XExpression)', Sequence{arg0}) /]
+
+
+[query public DSEtoString (arg0 : EObject) : String
+	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'DSEtoString(org.eclipse.emf.ecore.EObject)', Sequence{arg0}) /]
+
+
 
 [query public getpackageIndex(eclDoc : ECLDocument, objectName : String) : String
 	= invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'getpackageIndex(fr.inria.aoste.timesquare.ECL.ECLDocument, java.lang.String)', Sequence{eclDoc, objectName}) /]

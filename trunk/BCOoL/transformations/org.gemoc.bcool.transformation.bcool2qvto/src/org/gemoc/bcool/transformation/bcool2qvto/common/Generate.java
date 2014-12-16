@@ -370,6 +370,9 @@ public class Generate extends AbstractAcceleoGenerator {
         if (!isInWorkspace(fr.inria.aoste.timesquare.ECL.ECLPackage.class)) {
             resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ECL.ECLPackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ECL.ECLPackage.eINSTANCE);
         }
+        if (!isInWorkspace(org.eclipse.xtext.xbase.XbasePackage.class)) {
+            resourceSet.getPackageRegistry().put(org.eclipse.xtext.xbase.XbasePackage.eINSTANCE.getNsURI(), org.eclipse.xtext.xbase.XbasePackage.eINSTANCE);
+        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
