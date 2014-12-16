@@ -32,6 +32,7 @@ import com.google.inject.Injector;
 
 import fr.inria.aoste.timesquare.ECL.ECLDocument;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.IntegerElement;
+import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.impl.IntegerImpl;
 import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
 
 public class helperNsURI {
@@ -233,8 +234,8 @@ public class helperNsURI {
 			return dsetmp.getName();
 			}
 		
-		if (dse instanceof IntegerElement) {
-			IntegerElement dsetmp = (IntegerElement) dse ;
+		if (dse instanceof IntegerImpl) {
+			IntegerImpl dsetmp = (IntegerImpl) dse ;
 			return dsetmp.getName();
 			}
 
