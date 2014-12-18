@@ -238,6 +238,11 @@ public class helperNsURI {
 			IntegerImpl dsetmp = (IntegerImpl) dse ;
 			return dsetmp.getName();
 			}
+		
+		if (dse instanceof IntegerElement) {
+			IntegerElement dsetmp = (IntegerElement) dse ;
+			return dsetmp.getName();
+			}
 
 		return "nada";
 	}	
