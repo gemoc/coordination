@@ -47,6 +47,9 @@ property seqOfRelationDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpressi
 property seqOfAbstractEntity :		Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)    = Sequence{};
 property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration)    = Sequence{};
 
+
+
+
 		property MM1_seqOfticksFSMClockContext :	Sequence(inMM1::FSMClock) = Sequence{};
 		property MM1_seqOfticksFSMClockReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -56,6 +59,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM1_seqOfticksFSMClockReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM1_seqOffireTransitionContext :	Sequence(inMM1::Transition) = Sequence{};
 		property MM1_seqOffireTransitionReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -65,6 +72,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM1_seqOffireTransitionReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM1_seqOfevaluateEvaluateGuardContext :	Sequence(inMM1::EvaluateGuard) = Sequence{};
 		property MM1_seqOfevaluateEvaluateGuardReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -74,6 +85,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM1_seqOfevaluateEvaluateGuardReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM1_seqOfoccursFSMEventContext :	Sequence(inMM1::FSMEvent) = Sequence{};
 		property MM1_seqOfoccursFSMEventReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -83,6 +98,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM1_seqOfoccursFSMEventReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM1_seqOfenteringStateContext :	Sequence(inMM1::State) = Sequence{};
 		property MM1_seqOfenteringStateReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -92,6 +111,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM1_seqOfenteringStateReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM1_seqOfleavingStateContext :	Sequence(inMM1::State) = Sequence{};
 		property MM1_seqOfleavingStateReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -101,6 +124,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM1_seqOfleavingStateReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM1_seqOfevaluatedTrueEvaluateGuardContext :	Sequence(inMM1::EvaluateGuard) = Sequence{};
 		property MM1_seqOfevaluatedTrueEvaluateGuardReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -110,6 +137,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM1_seqOfevaluatedTrueEvaluateGuardReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM1_seqOfevaluatedFalseEvaluateGuardContext :	Sequence(inMM1::EvaluateGuard) = Sequence{};
 		property MM1_seqOfevaluatedFalseEvaluateGuardReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -119,6 +150,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM1_seqOfevaluatedFalseEvaluateGuardReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM1_seqOfstartTFSMContext :	Sequence(inMM1::TFSM) = Sequence{};
 		property MM1_seqOfstartTFSMReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -128,6 +163,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM1_seqOfstartTFSMReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM1_seqOfstallTFSMContext :	Sequence(inMM1::TFSM) = Sequence{};
 		property MM1_seqOfstallTFSMReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -137,6 +176,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM1_seqOfstallTFSMReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM2_seqOfdataReadInputPinContext :	Sequence(inMM2::InputPin) = Sequence{};
 		property MM2_seqOfdataReadInputPinReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -146,6 +189,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM2_seqOfdataReadInputPinReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM2_seqOfdataWriteOutputPinContext :	Sequence(inMM2::OutputPin) = Sequence{};
 		property MM2_seqOfdataWriteOutputPinReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -155,6 +202,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM2_seqOfdataWriteOutputPinReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM2_seqOfstartItControlNodeContext :	Sequence(inMM2::ControlNode) = Sequence{};
 		property MM2_seqOfstartItControlNodeReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -164,6 +215,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM2_seqOfstartItControlNodeReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM2_seqOffinishItControlNodeContext :	Sequence(inMM2::ControlNode) = Sequence{};
 		property MM2_seqOffinishItControlNodeReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -173,6 +228,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM2_seqOffinishItControlNodeReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM2_seqOftemporalEventControlNodeContext :	Sequence(inMM2::ControlNode) = Sequence{};
 		property MM2_seqOftemporalEventControlNodeReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -182,6 +241,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM2_seqOftemporalEventControlNodeReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM2_seqOfstartActivityActivityContext :	Sequence(inMM2::Activity) = Sequence{};
 		property MM2_seqOfstartActivityActivityReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -191,6 +254,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM2_seqOfstartActivityActivityReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM2_seqOffinishActivityActivityContext :	Sequence(inMM2::Activity) = Sequence{};
 		property MM2_seqOffinishActivityActivityReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -200,6 +267,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM2_seqOffinishActivityActivityReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM2_seqOfstartActionActionContext :	Sequence(inMM2::Action) = Sequence{};
 		property MM2_seqOfstartActionActionReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -209,6 +280,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM2_seqOfstartActionActionReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM2_seqOffinishActionActionContext :	Sequence(inMM2::Action) = Sequence{};
 		property MM2_seqOffinishActionActionReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -218,6 +293,10 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM2_seqOffinishActionActionReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
+
+
+
 		property MM2_seqOfcallMessageEventContext :	Sequence(inMM2::MessageEvent) = Sequence{};
 		property MM2_seqOfcallMessageEventReferedElement :	Sequence(EObject) = Sequence{};
 
@@ -227,6 +306,7 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 			MM2_seqOfcallMessageEventReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
+	
 
 
 
@@ -321,8 +401,6 @@ main() {
 	map SyncProductTfsmwithfUML2CCSL();
 
 
-		MM2_seqOfstartActionActionContext->map MatchingandCoordinationSharedEvents_filter_occurs(MM1_seqOfoccursFSMEventContext) ;
-		MM2_seqOfstartActionActionContext->map MatchingandCoordinationSharedEvents_filter_action(MM1_seqOfoccursFSMEventContext) ;
 
 	MM2_seqOfstartActionActionContext->map MatchingandCoordinationSharedEvents(MM1_seqOfoccursFSMEventContext) ;
 
@@ -330,72 +408,6 @@ main() {
 
 
 	
-	
-	mapping inMM2::Action::MatchingandCoordinationSharedEvents_filter_occurs(leftSet: Sequence(inMM1::FSMEvent)) : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
-	when{
-		let startAction : inMM2::Action = self in
-		 (leftSet->exists( occurs | occurs.name=startAction.name))
-	}{
-		var startAction : inMM2::Action = self;
-		var rightDse : inMM1::FSMEvent = leftSet->select(occurs | occurs.name=startAction.name)->first();
-		var tmp : Integer;
-		name := 'MatchingandCoordinationSharedEvents'+'_'+'filter_occurs'+'filterOf'+startAction.name+rightDse.name;
-		type := seqOfExpressionDeclaration->select(rd | rd.name = "AfterN")->first();
-		
-		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					
-				if (inM1Clocks[name = self.name+'_'+'occurs']->notEmpty()) then
-					bindable := inM1Clocks[name = self.name+'_'+'occurs']->first().oclAsType(TimeModel::Clock)
-				else
-					bindable := inM2Clocks[name = self.name+'_'+'occurs']->first().oclAsType(TimeModel::Clock)
-				endif;
-
-					_abstract := seqOfExpressionDeclaration[name = 'Wait']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := tmp->map Real2Integer("four")->asSequence()->first();
-					_abstract := seqOfExpressionDeclaration[name = 'Wait']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-		end{
-			theMainBlock.expressions += result;
-		}	
-	}
-
-
-	
-	mapping inMM2::Action::MatchingandCoordinationSharedEvents_filter_action(leftSet: Sequence(inMM1::FSMEvent)) : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
-	when{
-		let startAction : inMM2::Action = self in
-		 (leftSet->exists( occurs | occurs.name=startAction.name))
-	}{
-		var startAction : inMM2::Action = self;
-		var rightDse : inMM1::FSMEvent = leftSet->select(occurs | occurs.name=startAction.name)->first();
-		var tmp : Integer;
-		name := 'MatchingandCoordinationSharedEvents'+'_'+'filter_action'+'filterOf'+startAction.name+rightDse.name;
-		type := seqOfExpressionDeclaration->select(rd | rd.name = "AfterN")->first();
-		
-		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					
-				if (inM1Clocks[name = self.name+'_'+'startAction']->notEmpty()) then
-					bindable := inM1Clocks[name = self.name+'_'+'startAction']->first().oclAsType(TimeModel::Clock)
-				else
-					bindable := inM2Clocks[name = self.name+'_'+'startAction']->first().oclAsType(TimeModel::Clock)
-				endif;
-
-					_abstract := seqOfExpressionDeclaration[name = 'Wait']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := tmp->map Real2Integer("three")->asSequence()->first();
-					_abstract := seqOfExpressionDeclaration[name = 'Wait']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-		end{
-			theMainBlock.expressions += result;
-		}	
-	}
-
-
 
 
 
@@ -409,10 +421,10 @@ main() {
 mapping inMM2::Action::MatchingandCoordinationSharedEvents(leftSet: Sequence(inMM1::FSMEvent)) : TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 	when{
 		let startAction : inMM2::Action = self in
-		 (leftSet->exists( occurs | occurs.name=startAction.name))
+		 (leftSet->exists( occurs | occurs.name = startAction.name))
 	}{
 		var startAction : inMM2::Action = self;
-		var rightDse : inMM1::FSMEvent = leftSet->select(occurs | occurs.name=startAction.name)->first();
+		var rightDse : inMM1::FSMEvent = leftSet->select(occurs | occurs.name = startAction.name)->first();
 		name := 'MatchingandCoordinationSharedEvents_BCoolCompositionRule_'+self.name;
 
 
@@ -420,10 +432,10 @@ mapping inMM2::Action::MatchingandCoordinationSharedEvents(leftSet: Sequence(inM
 		
 		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 
-				if (theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'filter_occurs'+'filterOf'+startAction.name+rightDse.name]->notEmpty()) then
-					bindable := theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'filter_occurs'+'filterOf'+startAction.name+rightDse.name]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
+				if (theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'occurs'+'filterOf'+startAction.name+rightDse.name]->notEmpty()) then
+					bindable := theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'occurs'+'filterOf'+startAction.name+rightDse.name]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 				else
-					bindable := inM1Clocks[name = self.name+'_'+'filter_occurs']->first().oclAsType(TimeModel::Clock)
+					bindable := inM1Clocks[name = self.name+'_'+'occurs']->first().oclAsType(TimeModel::Clock)
 				endif;
 
 				_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
@@ -432,10 +444,10 @@ mapping inMM2::Action::MatchingandCoordinationSharedEvents(leftSet: Sequence(inM
 		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 				
 
-				if (theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'filter_action'+'filterOf'+startAction.name+rightDse.name]->notEmpty()) then
-					bindable := theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'filter_action'+'filterOf'+startAction.name+rightDse.name]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
+				if (theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'startAction'+'filterOf'+startAction.name+rightDse.name]->notEmpty()) then
+					bindable := theMainBlock.expressions[name = 'MatchingandCoordinationSharedEvents'+'_'+'startAction'+'filterOf'+startAction.name+rightDse.name]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 				else
-					bindable := inM2Clocks[name = rightDse.name+'_'+'filter_action']->first().oclAsType(TimeModel::Clock)
+					bindable := inM2Clocks[name = rightDse.name+'_'+'startAction']->first().oclAsType(TimeModel::Clock)
 				endif;
 
 					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
