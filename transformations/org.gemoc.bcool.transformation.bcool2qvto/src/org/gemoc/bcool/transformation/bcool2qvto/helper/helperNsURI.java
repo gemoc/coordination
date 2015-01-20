@@ -27,6 +27,7 @@ import org.eclipse.xtext.xbase.XMemberFeatureCall;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.bcool.EventExpression;
 import org.gemoc.bcool.model.bcool.ImportInterfaceStatement;
+import org.gemoc.gel.gexpressions.GExpression;
 
 import com.google.inject.Injector;
 
@@ -35,6 +36,18 @@ import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.IntegerEle
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.impl.IntegerImpl;
 import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
 
+import org.gemoc.gel.gexpressions.GAdditionExpression;
+import org.gemoc.gel.gexpressions.GBraceExpression;
+import org.gemoc.gel.gexpressions.GEqualityExpression;
+import org.gemoc.gel.gexpressions.GIntegerExpression;
+import org.gemoc.gel.gexpressions.GStringExpression;
+import org.gemoc.gel.gexpressions.GexpressionsFactory;
+import org.gemoc.gel.gexpressions.xtext.GExpressionsStandaloneSetup;
+import org.eclipse.xtext.serializer.impl.Serializer;
+
+
+
+@SuppressWarnings("restriction")
 public class helperNsURI {
 	
 	
@@ -223,10 +236,36 @@ public class helperNsURI {
 		return "not valid XExpression";
 	}
 	
+	public String GexpressiontoString (GExpression exp ){
+		GEqualityExpression binaryoper = null;
+
+		String s = "";
+		  GExpressionsStandaloneSetup setup = new GExpressionsStandaloneSetup();
+		
+		   Injector injector = setup.createInjectorAndDoEMFRegistration();
+	       Serializer serializer = injector.getInstance(Serializer.class);
+	        
+	      try {  
+	    	  
+	    	  if (exp instanceof GBraceExpression) {
+	    		  GBraceExpression gexp = (GBraceExpression) exp;
+	    		  binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
+	    		  
+	    	  }
+	    	 
+			s = serializer.serialize(binaryoper);
+	    	  } catch (Exception ex) { // fall back:  
+	    	    s =  exp.getClass().getSimpleName()+'@'+exp.hashCode();  
+	    	  }
+		
+		return s;
+	}
+	
+	
 	public String DSEtoString (EObject dse ){
-		if (dse instanceof JvmFieldImplCustom) {
-		JvmFieldImplCustom dsetmp = (JvmFieldImplCustom) dse ;
-		return dsetmp.getSimpleName();
+		if (dse instanceof DefPropertyCS) {
+			DefPropertyCS dsetmp = (DefPropertyCS) dse ;
+		return dsetmp.getName();
 		}
 		
 		if (dse instanceof EventExpression) {
