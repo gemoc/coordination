@@ -17,7 +17,7 @@ import com.google.inject.Injector;
 public class BCOoLStandaloneSetupGenerated implements ISetup {
 
 	public Injector createInjectorAndDoEMFRegistration() {
-		org.eclipse.xtext.xbase.XbaseStandaloneSetup.doSetup();
+		org.gemoc.gel.gexpressions.xtext.GExpressionsStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);
@@ -35,7 +35,6 @@ public class BCOoLStandaloneSetupGenerated implements ISetup {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("bcool", resourceFactory);
 		org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("bcool", serviceProvider);
 		
-
 
 
 	}

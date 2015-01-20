@@ -3,26 +3,19 @@
 package org.gemoc.bcool.model.bcool.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.xtext.xbase.XExpression;
-
 import org.gemoc.bcool.model.bcool.BcoolPackage;
 import org.gemoc.bcool.model.bcool.EventExpression;
 import org.gemoc.bcool.model.bcool.MatchingRule;
+import org.gemoc.gel.gexpressions.GExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +50,7 @@ public class MatchingRuleImpl extends MinimalEObjectImpl.Container implements Ma
 	 * @generated
 	 * @ordered
 	 */
-	protected XExpression condition;
+	protected GExpression condition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,7 +88,7 @@ public class MatchingRuleImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XExpression getCondition() {
+	public GExpression getCondition() {
 		return condition;
 	}
 
@@ -104,8 +97,8 @@ public class MatchingRuleImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCondition(XExpression newCondition, NotificationChain msgs) {
-		XExpression oldCondition = condition;
+	public NotificationChain basicSetCondition(GExpression newCondition, NotificationChain msgs) {
+		GExpression oldCondition = condition;
 		condition = newCondition;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BcoolPackage.MATCHING_RULE__CONDITION, oldCondition, newCondition);
@@ -119,7 +112,7 @@ public class MatchingRuleImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCondition(XExpression newCondition) {
+	public void setCondition(GExpression newCondition) {
 		if (newCondition != condition) {
 			NotificationChain msgs = null;
 			if (condition != null)
@@ -179,7 +172,7 @@ public class MatchingRuleImpl extends MinimalEObjectImpl.Container implements Ma
 				getFilterEventExpressions().addAll((Collection<? extends EventExpression>)newValue);
 				return;
 			case BcoolPackage.MATCHING_RULE__CONDITION:
-				setCondition((XExpression)newValue);
+				setCondition((GExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -197,7 +190,7 @@ public class MatchingRuleImpl extends MinimalEObjectImpl.Container implements Ma
 				getFilterEventExpressions().clear();
 				return;
 			case BcoolPackage.MATCHING_RULE__CONDITION:
-				setCondition((XExpression)null);
+				setCondition((GExpression)null);
 				return;
 		}
 		super.eUnset(featureID);

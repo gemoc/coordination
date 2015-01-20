@@ -3,10 +3,10 @@
  */
 package org.gemoc.bcool.model.xtext.formatting
 
-import com.google.inject.Inject
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
-import org.gemoc.bcool.model.xtext.services.BCOoLGrammarAccess
+// import com.google.inject.Inject;
+// import org.test.bcool2.text.services.BCOoL2GrammarAccess
 
 /**
  * This class contains custom formatting description.
@@ -16,24 +16,15 @@ import org.gemoc.bcool.model.xtext.services.BCOoLGrammarAccess
  * 
  * Also see {@link org.eclipse.xtext.xtext.XtextFormattingTokenSerializer} as an example
  */
-public class BCOoLFormatter extends AbstractDeclarativeFormatter {
+class BCOoLFormatter extends AbstractDeclarativeFormatter {
+
+//	@Inject extension BCOoL2GrammarAccess
 	
-	@Inject extension BCOoLGrammarAccess
-	
-	override protected configureFormatting(FormattingConfig c) {
-		for(pair: findKeywordPairs('{', '}')) {
-			c.setIndentation(pair.first, pair.second)
-			c.setLinewrap(1).after(pair.first)
-			c.setLinewrap(1).before(pair.second)
-			c.setLinewrap(1).after(pair.second)
-		}
-		for(comma: findKeywords(',')) {
-			c.setNoLinewrap().before(comma)
-			c.setNoSpace().before(comma)
-			c.setLinewrap().after(comma)
-		}
-		c.setLinewrap(0, 1, 2).before(SL_COMMENTRule)
-		c.setLinewrap(0, 1, 2).before(ML_COMMENTRule)
-		c.setLinewrap(0, 1, 1).after(ML_COMMENTRule)
+	override protected void configureFormatting(FormattingConfig c) {
+// It's usually a good idea to activate the following three statements.
+// They will add and preserve newlines around comments
+//		c.setLinewrap(0, 1, 2).before(SL_COMMENTRule)
+//		c.setLinewrap(0, 1, 2).before(ML_COMMENTRule)
+//		c.setLinewrap(0, 1, 1).after(ML_COMMENTRule)
 	}
 }

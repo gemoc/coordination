@@ -6,13 +6,8 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage;
-
-import org.eclipse.xtext.xbase.XbasePackage;
-
 import org.gemoc.bcool.model.bcool.BCoolCompositionRule;
 import org.gemoc.bcool.model.bcool.BCoolLibrary;
 import org.gemoc.bcool.model.bcool.BCoolOperator;
@@ -30,6 +25,7 @@ import org.gemoc.bcool.model.bcool.MatchingRule;
 import org.gemoc.bcool.model.bcool.NamedElement;
 import org.gemoc.bcool.model.bcool.RelationDeclaration;
 import org.gemoc.bcool.model.bcool.RelationDefinition;
+import org.gemoc.gel.gexpressions.GexpressionsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -191,7 +187,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 
 		// Initialize simple dependencies
 		CompleteOCLCSPackage.eINSTANCE.eClass();
-		XbasePackage.eINSTANCE.eClass();
+		GexpressionsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theBcoolPackage.createPackageContents();
@@ -697,7 +693,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 
 		// Obtain other dependent packages
 		CompleteOCLCSPackage theCompleteOCLCSPackage = (CompleteOCLCSPackage)EPackage.Registry.INSTANCE.getEPackage(CompleteOCLCSPackage.eNS_URI);
-		XbasePackage theXbasePackage = (XbasePackage)EPackage.Registry.INSTANCE.getEPackage(XbasePackage.eNS_URI);
+		GexpressionsPackage theGexpressionsPackage = (GexpressionsPackage)EPackage.Registry.INSTANCE.getEPackage(GexpressionsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -737,7 +733,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 
 		initEClass(matchingRuleEClass, MatchingRule.class, "MatchingRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMatchingRule_FilterEventExpressions(), this.getEventExpression(), null, "filterEventExpressions", null, 0, -1, MatchingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMatchingRule_Condition(), theXbasePackage.getXExpression(), null, "condition", null, 1, 1, MatchingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMatchingRule_Condition(), theGexpressionsPackage.getGExpression(), null, "condition", null, 1, 1, MatchingRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(coordinationRuleEClass, CoordinationRule.class, "CoordinationRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCoordinationRule_EventRelations(), this.getEventRelation(), null, "eventRelations", null, 1, 1, CoordinationRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

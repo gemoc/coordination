@@ -3,11 +3,7 @@
  */
 package org.gemoc.bcool.model.xtext.scoping
 
-import com.google.inject.Inject
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
-import org.gemoc.bcool.model.bcool.BCoolCompositionRule
+
 
 /**
  * This class contains custom scoping description.
@@ -17,103 +13,7 @@ import org.gemoc.bcool.model.bcool.BCoolCompositionRule
  *
  */
  
-class BCOoLScopeProvider extends AbstractDeclarativeScopeProvider  {
-	@Inject extension BCOoLCompositionRuleExtensions
+class BCOoLScopeProvider extends org.gemoc.gel.gexpressions.xtext.scoping.GExpressionsScopeProvider {
 
-	def IScope scope_BCOoLCompositionRule_name(BCoolCompositionRule rule, EReference eRef) {
-		rule.getScope(IScope.NULLSCOPE)
-	}
-	
-	
-//	static class MyMap extends MapBasedScope{
-//	
-//		protected new(IScope parent, Map<QualifiedName, IEObjectDescription> elements, boolean ignoreCase) {
-//			super(parent, elements, ignoreCase)
-//		}
-//		
-//	}
-//	
-//	def getScope(BCoolCompositionRule spec) {
-//		var map = new HashMap<QualifiedName, IEObjectDescription>();
-//		//map.putAll(fields.toMap[f | f.simpleName.removeXTendUnderscore.qName ])
-//		
-//		for (Resource r : spec.eResource.getResourceSet().resources){
-//				for (EObject eo :r.contents){
-//					if (eo instanceof DefPropertyCS){
-//						var IEObjectDescription eodesc = new MapEntry(new SimpleEntry(QualifiedName.create(eo.name) ,eo ))
-//						map.put(QualifiedName.create(eo.name), eodesc)
-//						//addLocalElement(QualifiedName.create(eo.name), eo as JvmIdentifiableElement, context as ITypeReferenceOwner)
-//					} 
-//				}
-//			}	
-//		return new MyMap(super.getScope(spec, spec.eContainmentFeature),map,true)
-//	}
-	
-	
-//	override newSession(Resource context) {
-//		var IFeatureScopeSession result = super.newSession(context)
-//			for (Resource r : context.getResourceSet().resources){
-//				for (EObject eo :r.contents){
-//					if (eo instanceof DefPropertyCS){
-//						result.addLocalElement(QualifiedName.create(eo.name), eo as JvmIdentifiableElement, context as ITypeReferenceOwner)
-//					} 
-//					//state.addLocalToCurrentScope(eo as JvmIdentifiableElement)		
-//				}
-//			}	
-//		return result
-//	}
-	
-	
-//	
-//	override computeTypes(XExpression expression, ITypeComputationState state) {
-//		switch (expression) {
-//			XBlockExpression: expression._computeTypes(state)
-//		default: super.computeTypes(expression, state)
-//}
-//}
-//	
-//	override void _computeTypes(XBlockExpression b, ITypeComputationState typeState) {
-//		var state = typeState
-//		if (b.eContainer instanceof CoordinationRule){
-//			val rule = b.eContainer as CoordinationRule
-//			
-//			for (Resource r : rule.eResource().getResourceSet().resources){
-//				for (EObject eo :r.contents){
-//					state.addLocalToCurrentScope(eo as JvmIdentifiableElement)		
-//				}
-//			}
-//		}
-//		
-//	}
-//
-//protected def void addVariableDeclarationsToScope(XExpression e, ITypeComputationState state) {
-//	switch (e) {
-//	//XVariableDeclaration : addLocalToCurrentScope(e, state)
-//			CoordinationRule : {
-//				for (Resource r : e.eResource.resourceSet.resources) {
-//					for (exp : r.contents){
-//					if (exp instanceof XVariableDeclaration) {
-//						addLocalToCurrentScope(exp, state);
-//					}
-//					}
-//				}
-//			}
-//		}
-//	}
-
-//override IScope getScope(EObject context, EReference reference) {
-//			if (context == null || context.eResource() == null || context.eResource().getResourceSet() == null) {
-//				return IScope.NULLSCOPE;
-//			}
-//			if (context instanceof XBlockExpression){
-//				throw new NoClassDefFoundError();
-//			}
-//			var IScope scope = super.getScope(context,reference)
-//			for (Resource r : context.eResource().getResourceSet().resources){
-//				scope = Scopes.scopeFor(r.contents, scope);
-//			}
-//
-//			return scope;
-//		}
-//				
 }
+ 

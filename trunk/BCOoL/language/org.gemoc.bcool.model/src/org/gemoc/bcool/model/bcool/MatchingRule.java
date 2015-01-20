@@ -3,10 +3,8 @@
 package org.gemoc.bcool.model.bcool;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.xtext.xbase.XExpression;
+import org.gemoc.gel.gexpressions.GExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,12 +49,12 @@ public interface MatchingRule extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Condition</em>' containment reference.
-	 * @see #setCondition(XExpression)
+	 * @see #setCondition(GExpression)
 	 * @see org.gemoc.bcool.model.bcool.BcoolPackage#getMatchingRule_Condition()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	XExpression getCondition();
+	GExpression getCondition();
 
 	/**
 	 * Sets the value of the '{@link org.gemoc.bcool.model.bcool.MatchingRule#getCondition <em>Condition</em>}' containment reference.
@@ -66,6 +64,6 @@ public interface MatchingRule extends EObject {
 	 * @see #getCondition()
 	 * @generated
 	 */
-	void setCondition(XExpression value);
+	void setCondition(GExpression value);
 
 } // MatchingRule
