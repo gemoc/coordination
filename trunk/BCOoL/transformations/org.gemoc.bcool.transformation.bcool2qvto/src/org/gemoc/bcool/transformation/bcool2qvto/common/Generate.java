@@ -373,6 +373,9 @@ public class Generate extends AbstractAcceleoGenerator {
         if (!isInWorkspace(org.eclipse.xtext.xbase.XbasePackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.xtext.xbase.XbasePackage.eINSTANCE.getNsURI(), org.eclipse.xtext.xbase.XbasePackage.eINSTANCE);
         }
+        if (!isInWorkspace(org.gemoc.gel.gexpressions.GexpressionsPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.gemoc.gel.gexpressions.GexpressionsPackage.eINSTANCE.getNsURI(), org.gemoc.gel.gexpressions.GexpressionsPackage.eINSTANCE);
+        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
