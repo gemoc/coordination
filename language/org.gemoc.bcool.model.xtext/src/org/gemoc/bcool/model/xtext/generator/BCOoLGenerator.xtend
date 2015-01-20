@@ -20,10 +20,8 @@ import org.eclipse.xtext.xbase.XFeatureCall
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration
  */
-class BCOoLGenerator implements IGenerator {
-	
-	@Inject
-	protected XbaseCompiler xbaseCompiler
+ 
+ class BCOoLGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
@@ -31,63 +29,6 @@ class BCOoLGenerator implements IGenerator {
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
-	//}
-	
-	for (greeting : resource.allContents.toIterable.filter(typeof(BCoolSpecification))) {
-			fsa.generateFile(
-				greeting.name + ".bcoolgen",
-				greeting.compile)
-		}
 	}
-	
-	
-		def compile(BCoolSpecification greeting) '''
-	package «greeting.packageName»;
-
-	public class «greeting.className» {
-		public static void main(String args[]) {
-			System.out.println("Hellooooo «greeting.name»");
-		}
-	}
-	
-	«FOR i : greeting.bcoolOperators»
-			«FOR j : i.bcoolCompositionRules»
-				«compile (j.matchingRule.condition)»
-			«ENDFOR»
-	«ENDFOR»
-	
-	'''
-
-	def className(BCoolSpecification greeting) {
-		greeting.name.toFirstUpper
-	}
-
-	def packageName(BCoolSpecification greeting) {
-		greeting.name.toLowerCase
-	}
-	
-	def compile(XExpression xExpression) {
-		switch xExpression {
-			XBinaryOperation: {
-				val left = xExpression.leftOperand as XMemberFeatureCall
-				val atributo = left.memberCallTarget as XMemberFeatureCall
-				val contexto = atributo.memberCallTarget as XMemberFeatureCall
-				val dse = contexto.memberCallTarget as XFeatureCall
-				''' «dse.concreteSyntaxFeatureName».«atributo.concreteSyntaxFeatureName» '''
-				//''' holaaaa «xExpression.concreteSyntaxFeatureName» '''
-			}
-		}
-	}
-		
-
-	// ''' holaaaa  «xExpression.»'''
-	
-	//def compile (BCoolSpecification bcoolspec) {
-	//	System.out.println ("hola");
-	//}
-	
-	//def compile(XExpression xExpression) {
-	//	System.out.println ("hola");
-	//}
-	
 }
+ 

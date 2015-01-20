@@ -2,8 +2,8 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.gemoc.bcool.model/src" modelPluginID="org.gemoc.bcool.model"
     modelName="Bcool" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.ocl.examples.xtext.base/model/BaseCS.genmodel#//basecs ../../org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.genmodel#//completeoclcs ../../org.eclipse.ocl.examples.xtext.essentialocl/model/EssentialOCLCS.genmodel#//essentialoclcs ../../org.eclipse.ocl.examples.pivot/model/Pivot.merged.genmodel#//pivot ../../org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types ../../org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.ocl.examples.xtext.base/model/BaseCS.genmodel#//basecs ../../org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.genmodel#//completeoclcs ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.ocl.examples.xtext.essentialocl/model/EssentialOCLCS.genmodel#//essentialoclcs ../../org.gemoc.gel.gexpressions/model/gexpressions.genmodel#//gexpressions ../../org.eclipse.ocl.examples.pivot/model/Pivot.merged.genmodel#//pivot"
     operationReflection="true" importOrganizing="true">
   <foreignModel>bcool.ecore</foreignModel>
   <genPackages prefix="Bcool" basePackage="org.gemoc.bcool.model" disposableProviderFactory="true"
@@ -38,14 +38,14 @@
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//EventExpression">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//EventExpression/declaration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference bcool.ecore#//EventExpression/actualParameters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//EventExpression/actualParameters"/>
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//ExpressionDefinition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//ExpressionDefinition/definition"/>
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//EventRelation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//EventRelation/declaration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference bcool.ecore#//EventRelation/actualParameters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//EventRelation/actualParameters"/>
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//RelationDefinition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//RelationDefinition/definition"/>
@@ -63,7 +63,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bcool.ecore#//ExpressionDeclaration/formalParameters"/>
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//RelationDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference bcool.ecore#//RelationDeclaration/formalParameters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//RelationDeclaration/formalParameters"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

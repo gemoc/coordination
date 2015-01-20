@@ -4,8 +4,6 @@
 package org.gemoc.bcool.model.xtext;
 
 import org.eclipse.xtext.generator.IGenerator;
-import org.gemoc.bcool.model.xtext.generator.BCOoLGenerator;
-
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
@@ -16,10 +14,6 @@ public class BCOoLRuntimeModule extends org.gemoc.bcool.model.xtext.AbstractBCOo
 	//	return TemplateCompiler.class;
 	//}
 	
-	@Override
-    public Class<? extends IGenerator> bindIGenerator() {
-        return BCOoLGenerator.class;
-    }
 	
 	
 //	@Override

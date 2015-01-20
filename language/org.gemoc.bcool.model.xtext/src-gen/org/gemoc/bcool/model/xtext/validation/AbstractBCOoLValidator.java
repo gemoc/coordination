@@ -7,16 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
 
-public class AbstractBCOoLValidator extends org.eclipse.xtext.xbase.validation.XbaseValidator {
+public class AbstractBCOoLValidator extends org.gemoc.gel.gexpressions.xtext.validation.GExpressionsValidator {
 
 	@Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.gemoc.bcool.model/"));
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST"));
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/xbase/Xbase"));
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/common/JavaVMTypes"));
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/xbase/Xtype"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://fr.inria.aoste.timesquare.ecl"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.gemoc.org/gel/gexpressions"));
 		return result;
 	}
 }

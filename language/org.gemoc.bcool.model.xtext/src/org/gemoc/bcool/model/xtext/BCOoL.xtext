@@ -1,10 +1,10 @@
-grammar org.gemoc.bcool.model.xtext.BCOoL with org.eclipse.xtext.xbase.Xbase
+grammar org.gemoc.bcool.model.xtext.BCOoL with org.gemoc.gel.gexpressions.xtext.GExpressions
 
 import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
 import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 
 import "http://org.gemoc.bcool.model/"
-
+import "http://fr.inria.aoste.timesquare.ecl" as ecl 
 import "http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 BCoolSpec returns BCoolSpecification:
@@ -21,7 +21,7 @@ BCoolOperatorSpec returns BCoolOperator:
 						(bcoolCompositionRules+=BCoolCompositionRule)+
 ;
 
-globalDSEsRule returns DefPropertyCS:
+globalDSEsRule returns ecl::ECLDefCS:
 	'Event' name=ID';'
 ;
 
@@ -30,7 +30,7 @@ globalEventExpressionRule returns EventExpression:
 ;
 
 BCoolCompositionRule returns BCoolCompositionRule: 
-	'Operator' name=ID '('(DSEs+=[DefPropertyCS|ID] (',' DSEs+=[DefPropertyCS|ID])*)? ')'
+	'Operator' name=ID '('(DSEs+=[ecl::ECLDefCS|QualifiedName] (',' DSEs+=[ecl::ECLDefCS|QualifiedName])*)? ')'
 					   'MatchingCorrespondance :' matchingRule=MatchingRule
 					    coordinationRule=CoordinationRule
 	'end operator;'
@@ -38,7 +38,7 @@ BCoolCompositionRule returns BCoolCompositionRule:
 
 
 MatchingRule returns MatchingRule:
-	'when' condition=XExpression ';'
+	'when' condition=GExpression ';'
 	 'CoordinationRule:'
 	 ('Event' filterEventExpressions+=EventExpression';')*
 	;
@@ -53,7 +53,7 @@ CoordinationRule returns CoordinationRule:
 ;
 
 EventRelation returns EventRelation:
-	declaration=[RelationDeclaration|ID] '(' (actualParameters+=[ecore::EObject|ID] (',' actualParameters+=[ecore::EObject|ID])*)? ')'
+	declaration=[RelationDeclaration|ID] '(' (actualParameters+=[ecl::ECLDefCS|QualifiedName] (',' actualParameters+=[ecl::ECLDefCS|QualifiedName])*)? ')'
 ;
  
 
