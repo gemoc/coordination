@@ -10,27 +10,27 @@ ECLimport "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfa
 package UML 
 	
 	context InputPin
-		def : dataRead : Event(ConsumeEvent) = self 
+		def : dataRead : Event = self 
 	
 	context OutputPin
-		def : dataWrite : Event(produceEvent) = self
+		def : dataWrite : Event = self
 	
 	context ControlNode
-		def : startIt : Event(self) = self --StartEvent
-		def : finishIt : Event(self) = self --StopEvent
-		def : temporalEvent : Event(self) = self --GenericEvent
+		def : startIt : Event = self --StartEvent
+		def : finishIt : Event= self --StopEvent
+		def : temporalEvent : Event = self --GenericEvent
 		
 	context Activity  
-		def: startActivity : Event(self) = self --StartEvent
-		def: finishActivity: Event(self) = self --StopEvent
+		def: startActivity : Event = self --StartEvent
+		def: finishActivity: Event = self --StopEvent
 		
 	context Action
-		def : startAction : Event(self) = self --StartEvent
-		def : finishAction : Event(self) = self --StopEvent
+		def : startAction : Event = self --StartEvent
+		def : finishAction : Event = self --StopEvent
 		
 	-- This is from Arda Goknil
 	context MessageEvent
-	    def : call : Event(self) =self -- GenericEvent	
+	    def : call : Event =self -- GenericEvent	
 
 	-- This is from Arda Goknil
 	context AcceptEventAction

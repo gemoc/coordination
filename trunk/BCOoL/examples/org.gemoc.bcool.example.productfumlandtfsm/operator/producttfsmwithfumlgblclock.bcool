@@ -9,9 +9,9 @@ ImportInterface "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/i
 Spec test 
 
 Event globalclock;
-
+ 
 Operator  MatchingandCoordinationSharedEvents (startAction,occurs)
-MatchingCorrespondance : when (occurs.name = startAction.name );
+MatchingCorrespondance : when (occurs.name = startAction.ActionInputPin.name );
 		CoordinationRule:
 			Event syncA = SampleBy (globalclock, occurs);
 			Event syncB = SampleBy (globalclock, startAction);

@@ -2,7 +2,7 @@ ClockConstraintSystem BarrierControl {
 	imports {
 		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as kernel ;
 		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as CCSL ;
-		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/TFSMMoC.ccslLib" as TFSMMoC ;
+		import "../interfaces/TFSMMoC.ccslLib" as TFSMMoC ;
 		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/models/BDC.tfsm" as TimedSystem ;
 	}
 	entryBlock mainBlock
