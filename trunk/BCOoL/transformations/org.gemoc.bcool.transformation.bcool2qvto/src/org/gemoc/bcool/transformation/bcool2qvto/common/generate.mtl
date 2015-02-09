@@ -165,8 +165,8 @@ main() {
 
 [for (operator : BCoolOperator | aBCoolSpecification.bcoolOperators)]
 	[for (globaldse: DefPropertyCS| operator.globalDSEs)]
-		var [globaldse.name/] : String = "[operator.name/]" ;
-		map NewClock("[operator.name/]"+"_"+"[globaldse.name/]");
+		var [globaldse.name/] : String = "[globaldse.name/]"+"_"+"[operator.name/]" ;
+		map NewClock([globaldse.name/]);
 	[/for]
 [/for]
 
@@ -185,16 +185,18 @@ main() {
 				
 				[for (filterarg : EObject  | filter.actualParameters)]
 					[let dsename : String = filterarg.DSEtoString() ]
-
-						[if filterarg.oclIsTypeOf(EventExpression)]
+						[comment] TODO: globalEvents are detected by checking the container [/comment]
+						[if filterarg.eContainer().oclIsTypeOf(BCoolOperator)]
+							[dsename/] 
+						[elseif filterarg.oclIsTypeOf(EventExpression)]
 							'[dsename/]'+[dsename/]
-						 [elseif filterarg.oclIsTypeOf(IntegerElement)]
+						[elseif filterarg.oclIsTypeOf(IntegerElement)]
 							'[dsename/]'
-						 [else]
+						[else]
 							[dsename/].name+'_[dsename/]'
-						 [/if]
+						[/if]
 
-					[if not(dsename.contains(rule.matchingRule.filterEventExpressions.actualParameters->last().DSEtoString()))]
+					[if not(dsename.contains(filter.actualParameters->last().DSEtoString()))]
 						+
 					[/if]
 					[/let]
@@ -205,8 +207,9 @@ main() {
 
 				[for (filterarg : EObject  | filter.actualParameters)]
 					[let dsename : String = filterarg.DSEtoString() ]
-
-						 [if filterarg.oclIsTypeOf(EventExpression)]
+						 [if filterarg.eContainer().oclIsTypeOf(BCoolOperator)]
+							[dsename/] 
+						 [elseif filterarg.oclIsTypeOf(EventExpression)]
 							'[dsename/]'+[dsename/]
 						 [elseif filterarg.oclIsTypeOf(IntegerElement)]
 							'[dsename/]'
@@ -216,7 +219,7 @@ main() {
 				
 
 						 
-					[if not(dsename.contains(rule.matchingRule.filterEventExpressions.actualParameters->last().DSEtoString()))]
+					[if not(dsename.contains(filter.actualParameters->last().DSEtoString()))]
 						,
 					[/if]
 					[/let]
@@ -233,7 +236,9 @@ main() {
 				[for (coordruleparam : EObject | coordrule.eventRelations.actualParameters)]	
 				[let dsename : String = coordruleparam.DSEtoString() ]
 
-					[if coordruleparam.oclIsTypeOf(EventExpression)]
+					[if coordruleparam.eContainer().oclIsTypeOf(BCoolOperator)]
+						'[dsename/]'+[dsename/] 
+					[elseif coordruleparam.oclIsTypeOf(EventExpression)]
 						'[dsename/]'+[dsename/]
 					[else]
 						[dsename/].name+'_[dsename/]'
