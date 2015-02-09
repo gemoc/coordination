@@ -11,5 +11,5 @@ Spec test
 Operator  MatchingandCoordinationSharedEvents (startAction,occurs)
 MatchingCorrespondance : when (occurs.name = startAction.name );
 		CoordinationRule:
-		RendezVous(occurs, startAction)
+			RendezVous(occurs, startAction)
 end operator;
