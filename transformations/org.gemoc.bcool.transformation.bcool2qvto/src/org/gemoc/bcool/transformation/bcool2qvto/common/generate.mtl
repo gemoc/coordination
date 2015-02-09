@@ -8,7 +8,8 @@
 'http://www.eclipse.org/ocl/3.1.0/EssentialOCLCST',
 'http://fr.inria.aoste.timesquare.ecl',
 'http://www.eclipse.org/xtext/xbase/Xbase',
-'http://www.gemoc.org/gel/gexpressions'
+'http://www.gemoc.org/gel/gexpressions',
+'http://fr.inria.aoste.timemodel.basicTypes'
 )]
 
 [template public generateElement(aBCoolSpecification : BCoolSpecification)]
@@ -140,6 +141,7 @@ query identifyUserRelations() {
 		}
 	}
 
+
 main() {
 	identifyUserRelations();
 	[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
@@ -152,7 +154,7 @@ main() {
 		[let anEclDoc : ECLDocument = im.getEclDocument()]
 		[let allEvents : Sequence(DefCS) = anEclDoc.eAllContents()->select(eo | eo.oclIsKindOf(DefCS) and eo.oclAsType(DefCS).ownedType.oclIsKindOf(EventType))]
 		[for (evt : DefCS | allEvents)]
-		inM[modelNumber/].objectsOfType(inMM[modelNumber/]::[evt.classifierContextDecl.pathName/]).get[evt.name/]MSEofMM[modelNumber/]();
+			inM[modelNumber/].objectsOfType(inMM[modelNumber/]::[evt.classifierContextDecl.pathName/]).get[evt.name/]MSEofMM[modelNumber/]();
 		[/for]
 		[/let]
 		[/let]
@@ -163,114 +165,239 @@ main() {
 
 [for (operator : BCoolOperator | aBCoolSpecification.bcoolOperators)]
 	[for (globaldse: DefPropertyCS| operator.globalDSEs)]
+		var [globaldse.name/] : String = "[operator.name/]" ;
 		map NewClock("[operator.name/]"+"_"+"[globaldse.name/]");
 	[/for]
 [/for]
 
+[comment]	Each operator is split in a foreach for every argument [/comment]
 [for (rule : BCoolCompositionRule | aBCoolSpecification.bcoolOperators->first().bcoolCompositionRules)]	
-	[for (filtersmap : EventExpression | rule.matchingRule.filterEventExpressions)]
-		MM2_seqOf[rule.DSEs->first().oclAsType(DefPropertyCS).name/][rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/]Context->map [rule.name/]_[filtersmap.name/](MM1_seqOf[rule.DSEs->last().oclAsType(DefCS).name/][rule.DSEs->last().oclAsType(DefCS).classifierContextDecl.pathName/]Context) ;
+	[for (dse : DefPropertyCS | rule.DSEs)]
+		MM[dse.getDSEIndex(aBCoolSpecification)/]_seqOf[dse.oclAsType(DefPropertyCS).name/][dse.oclAsType(DefPropertyCS).classifierContextDecl.pathName/]Context-> forEach ([dse.oclAsType(DefPropertyCS).name/]){ 
 	[/for]
 
-	MM2_seqOf[rule.DSEs->first().oclAsType(DefPropertyCS).name/][rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/]Context->map [rule.name/](MM1_seqOf[rule.DSEs->last().oclAsType(DefCS).name/][rule.DSEs->last().oclAsType(DefCS).classifierContextDecl.pathName/]Context) ;
+		if ([rule.matchingRule.condition.GexpressiontoString()/]) then {
+		
+			[comment]	We create the filter [/comment]
+			[for (filter : EventExpression  | rule.matchingRule.filterEventExpressions)]
+				var [filter.name/] : String;
+				[filter.name/] := 
+				
+				[for (filterarg : EObject  | filter.actualParameters)]
+					[let dsename : String = filterarg.DSEtoString() ]
+
+						[if filterarg.oclIsTypeOf(EventExpression)]
+							'[dsename/]'+[dsename/]
+						 [elseif filterarg.oclIsTypeOf(IntegerElement)]
+							'[dsename/]'
+						 [else]
+							[dsename/].name+'_[dsename/]'
+						 [/if]
+
+					[if not(dsename.contains(rule.matchingRule.filterEventExpressions.actualParameters->last().DSEtoString()))]
+						+
+					[/if]
+					[/let]
+				[/for]
+				;
+
+			map [filter.name/] (
+
+				[for (filterarg : EObject  | filter.actualParameters)]
+					[let dsename : String = filterarg.DSEtoString() ]
+
+						 [if filterarg.oclIsTypeOf(EventExpression)]
+							'[dsename/]'+[dsename/]
+						 [elseif filterarg.oclIsTypeOf(IntegerElement)]
+							'[dsename/]'
+						 [else]
+							[dsename/].name+'_[dsename/]'
+						 [/if]
+				
+
+						 
+					[if not(dsename.contains(rule.matchingRule.filterEventExpressions.actualParameters->last().DSEtoString()))]
+						,
+					[/if]
+					[/let]
+				[/for]
+
+
+
+			);
+			[/for]
+			
+			[comment]	We create the coordination rules [/comment]
+			map [rule.name/] (
+				[let coordrule : CoordinationRule = rule.coordinationRule]
+				[for (coordruleparam : EObject | coordrule.eventRelations.actualParameters)]	
+				[let dsename : String = coordruleparam.DSEtoString() ]
+
+					[if coordruleparam.oclIsTypeOf(EventExpression)]
+						'[dsename/]'+[dsename/]
+					[else]
+						[dsename/].name+'_[dsename/]'
+					[/if]
+			
+					[if not(dsename.contains(coordrule.eventRelations.actualParameters->last().DSEtoString()))]
+					,
+					[/if]
+				[/let]
+				[/for]
+				[/let]
+			
+			);
+		} endif;
+
+	[for (dse : DefPropertyCS | rule.DSEs)]
+		}
+	[/for]
 [/for]
 
 }
 
-	[for (rule : BCoolCompositionRule | aBCoolSpecification.bcoolOperators->first().bcoolCompositionRules)]
 
-	[let packetname : String = 'inMM2']
-	[let packetnameright : String = 'inMM1']
-	
+[comment]	here I will map the coordination rules [/comment]
+[for (rule : BCoolCompositionRule | aBCoolSpecification.bcoolOperators->first().bcoolCompositionRules)]	
+
+
 	[for ( filter : EventExpression | rule.matchingRule.filterEventExpressions)]
+			[comment] Here It must be the filters [/comment]
+	mapping [filter.name/] (
+
+
 	
-	mapping [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/]::[rule.name/]_[filter.name/](leftSet: Sequence([packetnameright/]::[rule.DSEs->last().oclAsType(DefPropertyCS).classifierContextDecl.pathName/])) : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
-	when{
-		let [rule.DSEs->first().oclAsType(DefPropertyCS).name/] : [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = self in
-		 (leftSet->exists( [rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition.GexpressiontoString()/]))
-	}{
-		var [rule.DSEs->first().oclAsType(DefPropertyCS).name/] : [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = self;
-		var rightDse : [packetnameright/]::[rule.DSEs->last().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = leftSet->select([rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition.GexpressiontoString()/])->first();
-		var tmp : Integer;
-		name := '[rule.name/]'+'_'+'[filter.name/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name;
+				[for (filterparam : EObject | filter.actualParameters)]	
+				[let dsename : String = filterparam.DSEtoString() ]
+			
+
+							[dsename/]:String
+
+				[if not(dsename.contains(filter.actualParameters->last().DSEtoString()))]
+					,
+				[/if]
+				[/let]
+				[/for]
+		) : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression {
+
+
+		name := '[filter.name/]';
+			
+				[for (filterparam : EObject | filter.actualParameters)]	
+				[let dsename : String = filterparam.DSEtoString() ]
+					name := name + [dsename/].toString();
+				[/let]
+				[/for]
+			
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "[filter.declaration.name/]")->first();
+
 		
-		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					
-				if (inM1Clocks['['/]name = self.name+'_'+'[filter.actualParameters->first().DSEtoString()/]'[']'/]->notEmpty()) then
-					bindable := inM1Clocks['['/]name = self.name+'_'+'[filter.actualParameters->first().DSEtoString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
-				else
-					bindable := inM2Clocks['['/]name = self.name+'_'+'[filter.actualParameters->first().DSEtoString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
-				endif;
+				[for (filterparam : EObject | filter.actualParameters)]	
+				[let dsename : String = filterparam.DSEtoString() ]
+					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+						
+						
+					 [if filterparam.oclIsTypeOf(EventExpression)]
+							bindable := map DSEtoClock([dsename/]).bindable;
+					 [elseif filterparam.oclIsTypeOf(IntegerElement)]
+							var tmp : Integer;
+							bindable := tmp->map Real2Integer("[dsename/]")->asSequence()->first();
+					 [else]
+							bindable := map DSEtoClock([dsename/]).bindable;
+					 [/if]
 
-					_abstract := seqOfExpressionDeclaration['['/]name = 'Wait'[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := tmp->map Real2Integer("[filter.actualParameters->last().DSEtoString()/]")->asSequence()->first();
-					_abstract := seqOfExpressionDeclaration['['/]name = 'Wait'[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Wait).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
-				};
-		end{
+					[let paramNumber : EInt = i]	
+						_abstract := seqOfExpressionDeclaration->select(rd | rd.name = "[filter.declaration.name/]")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at([paramNumber/]).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)
+					[/let]
+					};
+				[/let]
+				[/for]
+			end{
 			theMainBlock.expressions += result;
 		}	
 	}
-
-
 	[/for]
 
 
 
 
+mapping [rule.name/] (
+[comment]	I make the head of the mapping [/comment]
+[comment]	The String must contains the name of the instance, I'm using the name of DSE only to ease the coding [/comment]
+	[let coordrule : CoordinationRule = rule.coordinationRule]
+		[for (coordruleparam : EObject | coordrule.eventRelations.actualParameters)]	
+			[let dsename : String = coordruleparam.DSEtoString() ]
+				[dsename/]:String
+				[if not(dsename.contains(coordrule.eventRelations.actualParameters->last().DSEtoString()))]
+					,
+				[/if]
+			[/let]
+		[/for]
+	[/let]
+	) :TimeModel::CCSLModel::ClockExpressionAndRelation::Relation {
+			
+			[comment]	I make the name of the CCSL relationship, here I must use the instance name of DSE [/comment]
+			name := '[rule.name/]';
+			[let coordrule : CoordinationRule = rule.coordinationRule]
+				[for (coordruleparam : EObject | coordrule.eventRelations.actualParameters)]	
+				[let dsename : String = coordruleparam.DSEtoString() ]
+					name := name + [dsename/].toString();
+				[/let]
+				[/for]
+			[/let]
+	
+			type := seqOfRelationDeclaration->select(rd | rd.name = "[rule.coordinationRule.eventRelations.declaration.name/]")->first();
+			
+			[let coordrule : CoordinationRule = rule.coordinationRule]
+				[for (coordruleparam : EObject | coordrule.eventRelations.actualParameters)]	
+				[let dsename : String = coordruleparam.DSEtoString() ]
+					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+						bindable := map DSEtoClock([dsename/]).bindable;
+					[let paramNumber : EInt = i]	
+						_abstract := seqOfRelationDeclaration->select(rd | rd.name = "[rule.coordinationRule.eventRelations.declaration.name/]")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at([paramNumber/]).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					[/let]
+					};
+				[/let]
+				[/for]
+			[/let]
 
-
-
-
-
-
-mapping [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/]::[rule.name/](leftSet: Sequence([packetnameright/]::[rule.DSEs->last().oclAsType(DefPropertyCS).classifierContextDecl.pathName/])) : TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
-	when{
-		let [rule.DSEs->first().oclAsType(DefPropertyCS).name/] : [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = self in
-		 (leftSet->exists( [rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition.GexpressiontoString()/]))
-	}{
-		var [rule.DSEs->first().oclAsType(DefPropertyCS).name/] : [packetname/]::[rule.DSEs->first().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = self;
-		var rightDse : [packetnameright/]::[rule.DSEs->last().oclAsType(DefPropertyCS).classifierContextDecl.pathName/] = leftSet->select([rule.DSEs->last().oclAsType(DefPropertyCS).name/] | [rule.matchingRule.condition.GexpressiontoString()/])->first();
-		name := '[rule.name/]_[rule.eClass().name/]_'+self.name;
-
-
-				type := seqOfRelationDeclaration->select(rd | rd.name = "[rule.coordinationRule.eventRelations.declaration.name/]")->first();
-		
-		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-
-				if (theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->first().DSEtoString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->notEmpty()) then
-					bindable := theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->first().DSEtoString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
-				else
-					bindable := inM1Clocks['['/]name = self.name+'_'+'[rule.coordinationRule.eventRelations.actualParameters->first().DSEtoString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
-				endif;
-
-				_abstract := seqOfRelationDeclaration['['/]name = 'Causes'[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
-				};
-		
-		bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-
-				if (theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->last().DSEtoString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->notEmpty()) then
-					bindable := theMainBlock.expressions['['/]name = '[rule.name/]'+'_'+'[rule.coordinationRule.eventRelations.actualParameters->last().DSEtoString()/]'+'filterOf'+[rule.DSEs->first().oclAsType(DefPropertyCS).name/].name+rightDse.name[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
-				else
-					bindable := inM2Clocks['['/]name = rightDse.name+'_'+'[rule.coordinationRule.eventRelations.actualParameters->last().DSEtoString()/]'[']'/]->first().oclAsType(TimeModel::Clock)
-				endif;
-
-					_abstract := seqOfRelationDeclaration['['/]name = 'Causes'[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
-				};
-
-
-		end{
+end{
 			theMainBlock.relations += result;
 		}	
-	}
-	[/let]
-	[/let]
-	[/for]			
 			
+}
+[/for]
+
+[comment ] I return the instance of clock for a given name [/comment]
+[comment ] NOTE: the _abstract is not filled! [/comment]
+mapping DSEtoClock (iname: String) : TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+	[comment ] First, I check if it is a clock [/comment]
+	[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
+	[let modelNumber : EInt = i]
+		if inM[i/]Clocks['['/]name = iname[']'/]->notEmpty() then 
+			bindable := inM[i/]Clocks['['/]name = iname[']'/]->first().oclAsType(TimeModel::Clock)
+		endif;
+	[/let]
+	[/for]
+	[comment ] Second, I check if it is an EventExpression [/comment]
+	if theMainBlock.expressions['['/]name = iname[']'/]->notEmpty() then
+		bindable := theMainBlock.expressions['['/]name = iname[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
+	endif;
+
+	[comment ] Finally, I check if it is a global event [/comment]
+	if theMainBlock.elements['['/]name = iname[']'/]->notEmpty() then
+		bindable := theMainBlock.elements['['/]name = iname[']'/]->first().oclAsType(TimeModel::Clock)
+	endif;
+	[comment ] If not, I return nil [/comment]
+
+
+}
+
+
+
+
+
+
 
 	mapping [aBCoolSpecification.name/]2CCSL() : TimeModel::CCSLModel::ClockConstraintSystem {
 	    theCCSLSpec := result;
@@ -762,8 +889,8 @@ TimeModel::EventKind::start;
 
 
 
-[query public getpackageIndex(eclDoc : ECLDocument, objectName : String) : String
-	= invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'getpackageIndex(fr.inria.aoste.timesquare.ECL.ECLDocument, java.lang.String)', Sequence{eclDoc, objectName}) /]
+[query public getDSEIndex(arg0 : EObject, aBCoolSpec : BCoolSpecification ) : String
+	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getDSEIndex(org.eclipse.emf.ecore.EObject,org.gemoc.bcool.model.bcool.BCoolSpecification)', Sequence{arg0,aBCoolSpec}) /]
 
 [comment]
 

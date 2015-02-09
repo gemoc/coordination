@@ -376,6 +376,9 @@ public class Generate extends AbstractAcceleoGenerator {
         if (!isInWorkspace(org.gemoc.gel.gexpressions.GexpressionsPackage.class)) {
             resourceSet.getPackageRegistry().put(org.gemoc.gel.gexpressions.GexpressionsPackage.eINSTANCE.getNsURI(), org.gemoc.gel.gexpressions.GexpressionsPackage.eINSTANCE);
         }
+        if (!isInWorkspace(fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.BasicTypePackage.class)) {
+            resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.BasicTypePackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.BasicTypePackage.eINSTANCE);
+        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
