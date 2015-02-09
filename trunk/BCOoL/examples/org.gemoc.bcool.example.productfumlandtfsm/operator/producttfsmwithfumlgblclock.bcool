@@ -1,0 +1,20 @@
+ProductTfsmwithfUMLGlobalClock
+
+ImportLib "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/library/facilities.bcoollib"
+ImportLib "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/library/bcoollib.ccslLib"
+
+ImportInterface "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/TFSM.ecl" as "I_TFSM" // left
+ImportInterface "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/activitySemantics.ecl" as "I_Activity" // right
+
+Spec test 
+
+Event globalclock;
+
+Operator  MatchingandCoordinationSharedEvents (startAction,occurs)
+MatchingCorrespondance : when (occurs.name = startAction.name );
+		CoordinationRule:
+			Event syncA = SampleBy (globalclock, occurs);
+			Event syncB = SampleBy (globalclock, startAction);
+			
+			RendezVous(syncA, syncB)
+end operator;
