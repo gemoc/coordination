@@ -1,0 +1,18 @@
+TimeActionOper
+
+ImportLib "platform:/resource/org.gemoc.bcool.example.timetfsmandfuml/library/facilities.bcoollib"
+ImportLib "platform:/resource/org.gemoc.bcool.example.timetfsmandfuml/library/bcoollib.ccslLib"
+
+ImportInterface "platform:/resource/org.gemoc.bcool.example.timetfsmandfuml/interfaces/TFSM.ecl" as "I_TFSM" // left
+ImportInterface "platform:/resource/org.gemoc.bcool.example.timetfsmandfuml/interfaces/activitySemantics.ecl" as "I_Activity" // right
+
+Spec test 
+
+Operator  MatchingandCoordinationActionsTicks (startAction, finishAction, ticks)
+MatchingCorrespondance : when ((startAction.name = finishAction.name) and (ticks.name = "globalclock"));
+		CoordinationRule:
+		Event delayed = DelayFor (startAction, ticks, five);
+		
+		Causality(finishAction, delayed)
+end operator;
+
