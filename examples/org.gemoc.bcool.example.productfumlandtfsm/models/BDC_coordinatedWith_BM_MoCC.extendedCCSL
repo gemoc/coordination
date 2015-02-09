@@ -12,10 +12,10 @@ ClockConstraintSystem SyncProductTfsmwithfUMLCoordination {
 	}
 	entryBlock mainBlock
 	Block mainBlock {
-		Relation MatchingandCoordinationSharedEvents_BCoolCompositionRule_doClose [ RendezVous ]
+		Relation MatchingandCoordinationSharedEventsdoClose_occursdoClose_startAction [ RendezVous ]
 		( LeftClock -> "BarrierControl::mainBlock::doClose_occurs",
 		RightClock -> "Model::mainBlock::doClose_startAction" )
-		Relation MatchingandCoordinationSharedEvents_BCoolCompositionRule_closed [ RendezVous ]
+		Relation MatchingandCoordinationSharedEventsclosed_occursclosed_startAction [ RendezVous ]
 		( LeftClock -> "BarrierControl::mainBlock::closed_occurs",
 		RightClock -> "Model::mainBlock::closed_startAction" )
 	}
