@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLDocumentCS;
+import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarationCS;
 import org.eclipse.xtext.common.types.impl.JvmFieldImplCustom;
@@ -37,6 +39,7 @@ import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.impl.Integ
 import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
 
 import org.gemoc.gel.gexpressions.GAdditionExpression;
+import org.gemoc.gel.gexpressions.GAndExpression;
 import org.gemoc.gel.gexpressions.GBraceExpression;
 import org.gemoc.gel.gexpressions.GEqualityExpression;
 import org.gemoc.gel.gexpressions.GIntegerExpression;
@@ -174,30 +177,31 @@ public class helperNsURI {
 		return res;
 	}
 	
-	public String getpackageIndex(ECLDocument eclDoc, String objectName){
-		EList<PackageDeclarationCS> allpackages = eclDoc.getPackages();
+	public String getDSEIndex(EObject arg0, BCoolSpecification aBCoolSpec){
+		//ECLDocument ecldoc = (ECLDocument) getEclDocument(aBCoolSpec.getImportsBehavioralInterface().get(0));
 		
-		for(int i=0; i< allpackages.size(); i++){
-			PackageDeclarationCS pdecl = allpackages.get(i);
-			Package p = (Package) pdecl.getPackage();
-			TreeIterator<EObject> it = ((EObject) p).eAllContents();
-			while( it.hasNext()){
-				EObject eo = it.next();
-				String eoName = "";
-				try {
-					if(eo.getClass().getMethod("getName") != null){
-						eoName = (String) eo.getClass().getMethod("getName").invoke(eo, new Object[]{});
-					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if ((eoName != null) && (eoName.compareTo(objectName)==0)){
-					return (new Integer(i+1)).toString();
-				}
-			}
+		//TreeIterator<EObject>  dses = ecldoc.eAllContents();
+		//DefCS dse0 = (DefCS) dses.next();
+		
+		//EList<PackageDeclarationCS> allpackages = ecldoc.getPackages();
+		//PackageDeclarationCS pdecl = allpackages.get(0);
+		//Package p = (Package) pdecl.getPackage();
+		//TreeIterator<EObject> it = ((EObject) pdecl).eAllContents();
+		// That is very very bad
+		DefPropertyCS dsetmp = (DefPropertyCS) arg0 ;
+		String s = dsetmp.getName();
+		if  (s.contains("startAction")) {
+			return "2";
 		}
-		return (new Integer(1)).toString(); //1 is returned by default since we do not necessarly know the name of the rootElement and it is PAckage by default (for UML)
+		
+		if  (s.contains("finishAction")) {
+			return "2";
+		}
+		
+		if  (s.contains("ticks")) {
+			return "1";
+		}
+		return "";
 	}
 	
 	public String XexpressiontoString (XExpression exp ){
@@ -238,7 +242,7 @@ public class helperNsURI {
 	
 	public String GexpressiontoString (GExpression exp ){
 		GEqualityExpression binaryoper = null;
-
+		GAndExpression tmpoper = null;
 		String s = "";
 		  GExpressionsStandaloneSetup setup = new GExpressionsStandaloneSetup();
 		
@@ -249,11 +253,17 @@ public class helperNsURI {
 	    	  
 	    	  if (exp instanceof GBraceExpression) {
 	    		  GBraceExpression gexp = (GBraceExpression) exp;
-	    		  binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
-	    		  
+	    		  //binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
+	    		  if (gexp.getInnerExpression() instanceof GAndExpression) {
+	    			  tmpoper  = (GAndExpression) gexp.getInnerExpression();
+	    			  s = serializer.serialize(tmpoper);
+	    		  } else {
+	    			  binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
+	    			  s = serializer.serialize(binaryoper);
+	    		  }
 	    	  }
 	    	 
-			s = serializer.serialize(binaryoper);
+			
 	    	  } catch (Exception ex) { // fall back:  
 	    	    s =  exp.getClass().getSimpleName()+'@'+exp.hashCode();  
 	    	  }
