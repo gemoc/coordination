@@ -148,6 +148,15 @@ public interface BcoolFactory extends EFactory {
 	RelationDeclaration createRelationDeclaration();
 
 	/**
+	 * Returns a new object of class '<em>BCool Operator Arg</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BCool Operator Arg</em>'.
+	 * @generated
+	 */
+	BCoolOperatorArg createBCoolOperatorArg();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

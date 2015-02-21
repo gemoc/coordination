@@ -147,6 +147,7 @@ public class BcoolSwitch<T> extends Switch<T> {
 			case BcoolPackage.IMPORT_INTERFACE_STATEMENT: {
 				ImportInterfaceStatement importInterfaceStatement = (ImportInterfaceStatement)theEObject;
 				T result = caseImportInterfaceStatement(importInterfaceStatement);
+				if (result == null) result = caseNamedElement(importInterfaceStatement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -161,6 +162,13 @@ public class BcoolSwitch<T> extends Switch<T> {
 				RelationDeclaration relationDeclaration = (RelationDeclaration)theEObject;
 				T result = caseRelationDeclaration(relationDeclaration);
 				if (result == null) result = caseNamedElement(relationDeclaration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BcoolPackage.BCOOL_OPERATOR_ARG: {
+				BCoolOperatorArg bCoolOperatorArg = (BCoolOperatorArg)theEObject;
+				T result = caseBCoolOperatorArg(bCoolOperatorArg);
+				if (result == null) result = caseNamedElement(bCoolOperatorArg);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -390,6 +398,21 @@ public class BcoolSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRelationDeclaration(RelationDeclaration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BCool Operator Arg</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BCool Operator Arg</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBCoolOperatorArg(BCoolOperatorArg object) {
 		return null;
 	}
 

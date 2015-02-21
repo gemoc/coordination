@@ -30,15 +30,19 @@ globalEventExpressionRule returns EventExpression:
 ;
 
 BCoolCompositionRule returns BCoolCompositionRule: 
-	'Operator' name=ID '('(DSEs+=[ecl::ECLDefCS|QualifiedName] (',' DSEs+=[ecl::ECLDefCS|QualifiedName])*)? ')'
+	'Operator' name=ID '('(BCoolOperatorArgs+=BCoolOperatorArg (',' BCoolOperatorArgs+=BCoolOperatorArg)*)? ')'
 					   'MatchingCorrespondance :' matchingRule=MatchingRule
 					    coordinationRule=CoordinationRule
 	'end operator;'
 ;
 
+BCoolOperatorArg returns BCoolOperatorArg: 
+	 name=ID ' : ' Interface=[ImportInterfaceStatement] '::'  DSE=[ecl::ECLDefCS|QualifiedName]
+;
+
 
 MatchingRule returns MatchingRule:
-	'when' condition=GExpression ';'
+	'when' condition=GExpression ';' 
 	 'CoordinationRule:'
 	 ('Event' filterEventExpressions+=EventExpression';')*
 	;
@@ -62,6 +66,6 @@ ImportLibRule returns ImportLibStatement:
 ;
 
 ImportInterfaceRule returns ImportInterfaceStatement:
-	"ImportInterface" importURI=STRING "as" STRING
+	"ImportInterface" importURI=STRING "as" name=ID
 ;
 

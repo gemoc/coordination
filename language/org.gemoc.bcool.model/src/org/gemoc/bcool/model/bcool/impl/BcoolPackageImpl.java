@@ -11,6 +11,7 @@ import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPac
 import org.gemoc.bcool.model.bcool.BCoolCompositionRule;
 import org.gemoc.bcool.model.bcool.BCoolLibrary;
 import org.gemoc.bcool.model.bcool.BCoolOperator;
+import org.gemoc.bcool.model.bcool.BCoolOperatorArg;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.bcool.BcoolFactory;
 import org.gemoc.bcool.model.bcool.BcoolPackage;
@@ -140,6 +141,13 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 	private EClass relationDeclarationEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bCoolOperatorArgEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -254,7 +262,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBCoolCompositionRule_DSEs() {
+	public EReference getBCoolCompositionRule_BCoolOperatorArgs() {
 		return (EReference)bCoolCompositionRuleEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -587,6 +595,33 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBCoolOperatorArg() {
+		return bCoolOperatorArgEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBCoolOperatorArg_DSE() {
+		return (EReference)bCoolOperatorArgEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBCoolOperatorArg_Interface() {
+		return (EReference)bCoolOperatorArgEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BcoolFactory getBcoolFactory() {
 		return (BcoolFactory)getEFactoryInstance();
 	}
@@ -616,7 +651,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 		createEReference(bCoolOperatorEClass, BCOOL_OPERATOR__GLOBAL_DS_ES);
 
 		bCoolCompositionRuleEClass = createEClass(BCOOL_COMPOSITION_RULE);
-		createEReference(bCoolCompositionRuleEClass, BCOOL_COMPOSITION_RULE__DS_ES);
+		createEReference(bCoolCompositionRuleEClass, BCOOL_COMPOSITION_RULE__BCOOL_OPERATOR_ARGS);
 		createEReference(bCoolCompositionRuleEClass, BCOOL_COMPOSITION_RULE__MATCHING_RULE);
 		createEReference(bCoolCompositionRuleEClass, BCOOL_COMPOSITION_RULE__COORDINATION_RULE);
 
@@ -666,6 +701,10 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 
 		relationDeclarationEClass = createEClass(RELATION_DECLARATION);
 		createEReference(relationDeclarationEClass, RELATION_DECLARATION__FORMAL_PARAMETERS);
+
+		bCoolOperatorArgEClass = createEClass(BCOOL_OPERATOR_ARG);
+		createEReference(bCoolOperatorArgEClass, BCOOL_OPERATOR_ARG__DSE);
+		createEReference(bCoolOperatorArgEClass, BCOOL_OPERATOR_ARG__INTERFACE);
 	}
 
 	/**
@@ -706,8 +745,10 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 		eventExpressionEClass.getESuperTypes().add(this.getNamedElement());
 		eventRelationEClass.getESuperTypes().add(this.getNamedElement());
 		bCoolLibraryEClass.getESuperTypes().add(this.getNamedElement());
+		importInterfaceStatementEClass.getESuperTypes().add(this.getNamedElement());
 		expressionDeclarationEClass.getESuperTypes().add(this.getNamedElement());
 		relationDeclarationEClass.getESuperTypes().add(this.getNamedElement());
+		bCoolOperatorArgEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(bCoolOperatorEClass, BCoolOperator.class, "BCoolOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -716,7 +757,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 		initEReference(getBCoolOperator_GlobalDSEs(), theCompleteOCLCSPackage.getDefPropertyCS(), null, "globalDSEs", null, 0, -1, BCoolOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bCoolCompositionRuleEClass, BCoolCompositionRule.class, "BCoolCompositionRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBCoolCompositionRule_DSEs(), theCompleteOCLCSPackage.getDefPropertyCS(), null, "DSEs", null, 0, -1, BCoolCompositionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBCoolCompositionRule_BCoolOperatorArgs(), this.getBCoolOperatorArg(), null, "BCoolOperatorArgs", null, 0, -1, BCoolCompositionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBCoolCompositionRule_MatchingRule(), this.getMatchingRule(), null, "matchingRule", null, 1, 1, BCoolCompositionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBCoolCompositionRule_CoordinationRule(), this.getCoordinationRule(), null, "coordinationRule", null, 1, 1, BCoolCompositionRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -766,6 +807,10 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 
 		initEClass(relationDeclarationEClass, RelationDeclaration.class, "RelationDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRelationDeclaration_FormalParameters(), ecorePackage.getEObject(), null, "formalParameters", null, 0, -1, RelationDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bCoolOperatorArgEClass, BCoolOperatorArg.class, "BCoolOperatorArg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBCoolOperatorArg_DSE(), theCompleteOCLCSPackage.getDefPropertyCS(), null, "DSE", null, 1, 1, BCoolOperatorArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBCoolOperatorArg_Interface(), this.getImportInterfaceStatement(), null, "Interface", null, 1, 1, BCoolOperatorArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

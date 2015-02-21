@@ -177,13 +177,13 @@ public interface BcoolPackage extends EPackage {
 	int BCOOL_COMPOSITION_RULE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>DS Es</b></em>' reference list.
+	 * The feature id for the '<em><b>BCool Operator Args</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BCOOL_COMPOSITION_RULE__DS_ES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int BCOOL_COMPOSITION_RULE__BCOOL_OPERATOR_ARGS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Matching Rule</b></em>' containment reference.
@@ -673,13 +673,22 @@ public interface BcoolPackage extends EPackage {
 	int IMPORT_INTERFACE_STATEMENT = 12;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT_INTERFACE_STATEMENT__NAME = NAMED_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Import URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPORT_INTERFACE_STATEMENT__IMPORT_URI = 0;
+	int IMPORT_INTERFACE_STATEMENT__IMPORT_URI = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Import Interface Statement</em>' class.
@@ -688,7 +697,7 @@ public interface BcoolPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMPORT_INTERFACE_STATEMENT_FEATURE_COUNT = 1;
+	int IMPORT_INTERFACE_STATEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Import Interface Statement</em>' class.
@@ -697,7 +706,7 @@ public interface BcoolPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMPORT_INTERFACE_STATEMENT_OPERATION_COUNT = 0;
+	int IMPORT_INTERFACE_STATEMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.gemoc.bcool.model.bcool.impl.ExpressionDeclarationImpl <em>Expression Declaration</em>}' class.
@@ -793,6 +802,62 @@ public interface BcoolPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.gemoc.bcool.model.bcool.impl.BCoolOperatorArgImpl <em>BCool Operator Arg</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.gemoc.bcool.model.bcool.impl.BCoolOperatorArgImpl
+	 * @see org.gemoc.bcool.model.bcool.impl.BcoolPackageImpl#getBCoolOperatorArg()
+	 * @generated
+	 */
+	int BCOOL_OPERATOR_ARG = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCOOL_OPERATOR_ARG__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>DSE</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCOOL_OPERATOR_ARG__DSE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Interface</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCOOL_OPERATOR_ARG__INTERFACE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>BCool Operator Arg</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCOOL_OPERATOR_ARG_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>BCool Operator Arg</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCOOL_OPERATOR_ARG_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.gemoc.bcool.model.bcool.BCoolOperator <em>BCool Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -846,15 +911,15 @@ public interface BcoolPackage extends EPackage {
 	EClass getBCoolCompositionRule();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.gemoc.bcool.model.bcool.BCoolCompositionRule#getDSEs <em>DS Es</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.gemoc.bcool.model.bcool.BCoolCompositionRule#getBCoolOperatorArgs <em>BCool Operator Args</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>DS Es</em>'.
-	 * @see org.gemoc.bcool.model.bcool.BCoolCompositionRule#getDSEs()
+	 * @return the meta object for the containment reference list '<em>BCool Operator Args</em>'.
+	 * @see org.gemoc.bcool.model.bcool.BCoolCompositionRule#getBCoolOperatorArgs()
 	 * @see #getBCoolCompositionRule()
 	 * @generated
 	 */
-	EReference getBCoolCompositionRule_DSEs();
+	EReference getBCoolCompositionRule_BCoolOperatorArgs();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.gemoc.bcool.model.bcool.BCoolCompositionRule#getMatchingRule <em>Matching Rule</em>}'.
@@ -1240,6 +1305,38 @@ public interface BcoolPackage extends EPackage {
 	EReference getRelationDeclaration_FormalParameters();
 
 	/**
+	 * Returns the meta object for class '{@link org.gemoc.bcool.model.bcool.BCoolOperatorArg <em>BCool Operator Arg</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BCool Operator Arg</em>'.
+	 * @see org.gemoc.bcool.model.bcool.BCoolOperatorArg
+	 * @generated
+	 */
+	EClass getBCoolOperatorArg();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.bcool.model.bcool.BCoolOperatorArg#getDSE <em>DSE</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>DSE</em>'.
+	 * @see org.gemoc.bcool.model.bcool.BCoolOperatorArg#getDSE()
+	 * @see #getBCoolOperatorArg()
+	 * @generated
+	 */
+	EReference getBCoolOperatorArg_DSE();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.bcool.model.bcool.BCoolOperatorArg#getInterface <em>Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Interface</em>'.
+	 * @see org.gemoc.bcool.model.bcool.BCoolOperatorArg#getInterface()
+	 * @see #getBCoolOperatorArg()
+	 * @generated
+	 */
+	EReference getBCoolOperatorArg_Interface();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1307,12 +1404,12 @@ public interface BcoolPackage extends EPackage {
 		EClass BCOOL_COMPOSITION_RULE = eINSTANCE.getBCoolCompositionRule();
 
 		/**
-		 * The meta object literal for the '<em><b>DS Es</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>BCool Operator Args</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BCOOL_COMPOSITION_RULE__DS_ES = eINSTANCE.getBCoolCompositionRule_DSEs();
+		EReference BCOOL_COMPOSITION_RULE__BCOOL_OPERATOR_ARGS = eINSTANCE.getBCoolCompositionRule_BCoolOperatorArgs();
 
 		/**
 		 * The meta object literal for the '<em><b>Matching Rule</b></em>' containment reference feature.
@@ -1627,6 +1724,32 @@ public interface BcoolPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RELATION_DECLARATION__FORMAL_PARAMETERS = eINSTANCE.getRelationDeclaration_FormalParameters();
+
+		/**
+		 * The meta object literal for the '{@link org.gemoc.bcool.model.bcool.impl.BCoolOperatorArgImpl <em>BCool Operator Arg</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.gemoc.bcool.model.bcool.impl.BCoolOperatorArgImpl
+		 * @see org.gemoc.bcool.model.bcool.impl.BcoolPackageImpl#getBCoolOperatorArg()
+		 * @generated
+		 */
+		EClass BCOOL_OPERATOR_ARG = eINSTANCE.getBCoolOperatorArg();
+
+		/**
+		 * The meta object literal for the '<em><b>DSE</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BCOOL_OPERATOR_ARG__DSE = eINSTANCE.getBCoolOperatorArg_DSE();
+
+		/**
+		 * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BCOOL_OPERATOR_ARG__INTERFACE = eINSTANCE.getBCoolOperatorArg_Interface();
 
 	}
 

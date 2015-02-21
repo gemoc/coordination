@@ -3,22 +3,16 @@
 package org.gemoc.bcool.model.bcool.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.gemoc.bcool.model.bcool.BCoolCompositionRule;
+import org.gemoc.bcool.model.bcool.BCoolOperatorArg;
 import org.gemoc.bcool.model.bcool.BcoolPackage;
 import org.gemoc.bcool.model.bcool.CoordinationRule;
 import org.gemoc.bcool.model.bcool.MatchingRule;
@@ -30,7 +24,7 @@ import org.gemoc.bcool.model.bcool.MatchingRule;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.gemoc.bcool.model.bcool.impl.BCoolCompositionRuleImpl#getDSEs <em>DS Es</em>}</li>
+ *   <li>{@link org.gemoc.bcool.model.bcool.impl.BCoolCompositionRuleImpl#getBCoolOperatorArgs <em>BCool Operator Args</em>}</li>
  *   <li>{@link org.gemoc.bcool.model.bcool.impl.BCoolCompositionRuleImpl#getMatchingRule <em>Matching Rule</em>}</li>
  *   <li>{@link org.gemoc.bcool.model.bcool.impl.BCoolCompositionRuleImpl#getCoordinationRule <em>Coordination Rule</em>}</li>
  * </ul>
@@ -40,14 +34,14 @@ import org.gemoc.bcool.model.bcool.MatchingRule;
  */
 public class BCoolCompositionRuleImpl extends NamedElementImpl implements BCoolCompositionRule {
 	/**
-	 * The cached value of the '{@link #getDSEs() <em>DS Es</em>}' reference list.
+	 * The cached value of the '{@link #getBCoolOperatorArgs() <em>BCool Operator Args</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDSEs()
+	 * @see #getBCoolOperatorArgs()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DefPropertyCS> dsEs;
+	protected EList<BCoolOperatorArg> bCoolOperatorArgs;
 
 	/**
 	 * The cached value of the '{@link #getMatchingRule() <em>Matching Rule</em>}' containment reference.
@@ -93,11 +87,11 @@ public class BCoolCompositionRuleImpl extends NamedElementImpl implements BCoolC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DefPropertyCS> getDSEs() {
-		if (dsEs == null) {
-			dsEs = new EObjectResolvingEList<DefPropertyCS>(DefPropertyCS.class, this, BcoolPackage.BCOOL_COMPOSITION_RULE__DS_ES);
+	public EList<BCoolOperatorArg> getBCoolOperatorArgs() {
+		if (bCoolOperatorArgs == null) {
+			bCoolOperatorArgs = new EObjectContainmentEList<BCoolOperatorArg>(BCoolOperatorArg.class, this, BcoolPackage.BCOOL_COMPOSITION_RULE__BCOOL_OPERATOR_ARGS);
 		}
-		return dsEs;
+		return bCoolOperatorArgs;
 	}
 
 	/**
@@ -194,6 +188,8 @@ public class BCoolCompositionRuleImpl extends NamedElementImpl implements BCoolC
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case BcoolPackage.BCOOL_COMPOSITION_RULE__BCOOL_OPERATOR_ARGS:
+				return ((InternalEList<?>)getBCoolOperatorArgs()).basicRemove(otherEnd, msgs);
 			case BcoolPackage.BCOOL_COMPOSITION_RULE__MATCHING_RULE:
 				return basicSetMatchingRule(null, msgs);
 			case BcoolPackage.BCOOL_COMPOSITION_RULE__COORDINATION_RULE:
@@ -210,8 +206,8 @@ public class BCoolCompositionRuleImpl extends NamedElementImpl implements BCoolC
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case BcoolPackage.BCOOL_COMPOSITION_RULE__DS_ES:
-				return getDSEs();
+			case BcoolPackage.BCOOL_COMPOSITION_RULE__BCOOL_OPERATOR_ARGS:
+				return getBCoolOperatorArgs();
 			case BcoolPackage.BCOOL_COMPOSITION_RULE__MATCHING_RULE:
 				return getMatchingRule();
 			case BcoolPackage.BCOOL_COMPOSITION_RULE__COORDINATION_RULE:
@@ -229,9 +225,9 @@ public class BCoolCompositionRuleImpl extends NamedElementImpl implements BCoolC
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case BcoolPackage.BCOOL_COMPOSITION_RULE__DS_ES:
-				getDSEs().clear();
-				getDSEs().addAll((Collection<? extends DefPropertyCS>)newValue);
+			case BcoolPackage.BCOOL_COMPOSITION_RULE__BCOOL_OPERATOR_ARGS:
+				getBCoolOperatorArgs().clear();
+				getBCoolOperatorArgs().addAll((Collection<? extends BCoolOperatorArg>)newValue);
 				return;
 			case BcoolPackage.BCOOL_COMPOSITION_RULE__MATCHING_RULE:
 				setMatchingRule((MatchingRule)newValue);
@@ -251,8 +247,8 @@ public class BCoolCompositionRuleImpl extends NamedElementImpl implements BCoolC
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case BcoolPackage.BCOOL_COMPOSITION_RULE__DS_ES:
-				getDSEs().clear();
+			case BcoolPackage.BCOOL_COMPOSITION_RULE__BCOOL_OPERATOR_ARGS:
+				getBCoolOperatorArgs().clear();
 				return;
 			case BcoolPackage.BCOOL_COMPOSITION_RULE__MATCHING_RULE:
 				setMatchingRule((MatchingRule)null);
@@ -272,8 +268,8 @@ public class BCoolCompositionRuleImpl extends NamedElementImpl implements BCoolC
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case BcoolPackage.BCOOL_COMPOSITION_RULE__DS_ES:
-				return dsEs != null && !dsEs.isEmpty();
+			case BcoolPackage.BCOOL_COMPOSITION_RULE__BCOOL_OPERATOR_ARGS:
+				return bCoolOperatorArgs != null && !bCoolOperatorArgs.isEmpty();
 			case BcoolPackage.BCOOL_COMPOSITION_RULE__MATCHING_RULE:
 				return matchingRule != null;
 			case BcoolPackage.BCOOL_COMPOSITION_RULE__COORDINATION_RULE:

@@ -16,6 +16,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.gemoc.bcool.model.bcool.BCoolCompositionRule;
 import org.gemoc.bcool.model.bcool.BCoolOperator;
+import org.gemoc.bcool.model.bcool.BCoolOperatorArg;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.bcool.BcoolPackage;
 import org.gemoc.bcool.model.bcool.CoordinationRule;
@@ -72,6 +73,12 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 			case BcoolPackage.BCOOL_OPERATOR:
 				if(context == grammarAccess.getBCoolOperatorSpecRule()) {
 					sequence_BCoolOperatorSpec(context, (BCoolOperator) semanticObject); 
+					return; 
+				}
+				else break;
+			case BcoolPackage.BCOOL_OPERATOR_ARG:
+				if(context == grammarAccess.getBCoolOperatorArgRule()) {
+					sequence_BCoolOperatorArg(context, (BCoolOperatorArg) semanticObject); 
 					return; 
 				}
 				else break;
@@ -162,7 +169,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 				   context == grammarAccess.getGMultiplicationExpressionRule() ||
 				   context == grammarAccess.getGMultiplicationExpressionAccess().getGMultiplicationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGNavigationExpressionRule() ||
-				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionSourceAction_1_0() ||
+				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionBodyAction_1_0() ||
 				   context == grammarAccess.getGNegationExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0() ||
@@ -188,7 +195,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 				   context == grammarAccess.getGMultiplicationExpressionRule() ||
 				   context == grammarAccess.getGMultiplicationExpressionAccess().getGMultiplicationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGNavigationExpressionRule() ||
-				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionSourceAction_1_0() ||
+				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionBodyAction_1_0() ||
 				   context == grammarAccess.getGNegationExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0() ||
@@ -214,7 +221,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 				   context == grammarAccess.getGMultiplicationExpressionRule() ||
 				   context == grammarAccess.getGMultiplicationExpressionAccess().getGMultiplicationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGNavigationExpressionRule() ||
-				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionSourceAction_1_0() ||
+				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionBodyAction_1_0() ||
 				   context == grammarAccess.getGNegationExpressionRule() ||
 				   context == grammarAccess.getGNumericExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionRule() ||
@@ -241,7 +248,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 				   context == grammarAccess.getGMultiplicationExpressionRule() ||
 				   context == grammarAccess.getGMultiplicationExpressionAccess().getGMultiplicationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGNavigationExpressionRule() ||
-				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionSourceAction_1_0() ||
+				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionBodyAction_1_0() ||
 				   context == grammarAccess.getGNegationExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0() ||
@@ -281,7 +288,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 				   context == grammarAccess.getGMultiplicationExpressionRule() ||
 				   context == grammarAccess.getGMultiplicationExpressionAccess().getGMultiplicationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGNavigationExpressionRule() ||
-				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionSourceAction_1_0() ||
+				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionBodyAction_1_0() ||
 				   context == grammarAccess.getGNegationExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0() ||
@@ -313,7 +320,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 				   context == grammarAccess.getGMultiplicationExpressionRule() ||
 				   context == grammarAccess.getGMultiplicationExpressionAccess().getGMultiplicationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGNavigationExpressionRule() ||
-				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionSourceAction_1_0() ||
+				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionBodyAction_1_0() ||
 				   context == grammarAccess.getGNegationExpressionRule() ||
 				   context == grammarAccess.getGNumericExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionRule() ||
@@ -359,7 +366,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 				   context == grammarAccess.getGMultiplicationExpressionRule() ||
 				   context == grammarAccess.getGMultiplicationExpressionAccess().getGMultiplicationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGNavigationExpressionRule() ||
-				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionSourceAction_1_0() ||
+				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionBodyAction_1_0() ||
 				   context == grammarAccess.getGNegationExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0() ||
@@ -417,7 +424,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 				   context == grammarAccess.getGMultiplicationExpressionRule() ||
 				   context == grammarAccess.getGMultiplicationExpressionAccess().getGMultiplicationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGNavigationExpressionRule() ||
-				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionSourceAction_1_0() ||
+				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionBodyAction_1_0() ||
 				   context == grammarAccess.getGNegationExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0() ||
@@ -457,7 +464,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 				   context == grammarAccess.getGMultiplicationExpressionRule() ||
 				   context == grammarAccess.getGMultiplicationExpressionAccess().getGMultiplicationExpressionLeftOperandAction_1_0() ||
 				   context == grammarAccess.getGNavigationExpressionRule() ||
-				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionSourceAction_1_0() ||
+				   context == grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionBodyAction_1_0() ||
 				   context == grammarAccess.getGNegationExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionRule() ||
 				   context == grammarAccess.getGOrExpressionAccess().getGOrExpressionLeftOperandAction_1_0() ||
@@ -488,10 +495,32 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (DSEs+=[ECLDefCS|QualifiedName] DSEs+=[ECLDefCS|QualifiedName]*)? matchingRule=MatchingRule coordinationRule=CoordinationRule)
+	 *     (name=ID (BCoolOperatorArgs+=BCoolOperatorArg BCoolOperatorArgs+=BCoolOperatorArg*)? matchingRule=MatchingRule coordinationRule=CoordinationRule)
 	 */
 	protected void sequence_BCoolCompositionRule(EObject context, BCoolCompositionRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID Interface=[ImportInterfaceStatement|ID] DSE=[ECLDefCS|QualifiedName])
+	 */
+	protected void sequence_BCoolOperatorArg(EObject context, BCoolOperatorArg semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, BcoolPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BcoolPackage.Literals.NAMED_ELEMENT__NAME));
+			if(transientValues.isValueTransient(semanticObject, BcoolPackage.Literals.BCOOL_OPERATOR_ARG__DSE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BcoolPackage.Literals.BCOOL_OPERATOR_ARG__DSE));
+			if(transientValues.isValueTransient(semanticObject, BcoolPackage.Literals.BCOOL_OPERATOR_ARG__INTERFACE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BcoolPackage.Literals.BCOOL_OPERATOR_ARG__INTERFACE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getBCoolOperatorArgAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBCoolOperatorArgAccess().getInterfaceImportInterfaceStatementIDTerminalRuleCall_2_0_1(), semanticObject.getInterface());
+		feeder.accept(grammarAccess.getBCoolOperatorArgAccess().getDSEECLDefCSQualifiedNameParserRuleCall_4_0_1(), semanticObject.getDSE());
+		feeder.finish();
 	}
 	
 	
@@ -549,16 +578,19 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     importURI=STRING
+	 *     (importURI=STRING name=ID)
 	 */
 	protected void sequence_ImportInterfaceRule(EObject context, ImportInterfaceStatement semanticObject) {
 		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, BcoolPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BcoolPackage.Literals.NAMED_ELEMENT__NAME));
 			if(transientValues.isValueTransient(semanticObject, BcoolPackage.Literals.IMPORT_INTERFACE_STATEMENT__IMPORT_URI) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BcoolPackage.Literals.IMPORT_INTERFACE_STATEMENT__IMPORT_URI));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getImportInterfaceRuleAccess().getImportURISTRINGTerminalRuleCall_1_0(), semanticObject.getImportURI());
+		feeder.accept(grammarAccess.getImportInterfaceRuleAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

@@ -2,7 +2,6 @@
  */
 package org.gemoc.bcool.model.bcool;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ImportInterfaceStatement extends EObject {
+public interface ImportInterfaceStatement extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Import URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
