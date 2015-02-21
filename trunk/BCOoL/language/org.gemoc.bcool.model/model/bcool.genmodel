@@ -14,7 +14,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperator/globalDSEs"/>
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//BCoolCompositionRule">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolCompositionRule/DSEs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolCompositionRule/BCoolOperatorArgs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolCompositionRule/matchingRule"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolCompositionRule/coordinationRule"/>
     </genClasses>
@@ -64,6 +64,10 @@
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//RelationDeclaration">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//RelationDeclaration/formalParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="bcool.ecore#//BCoolOperatorArg">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperatorArg/DSE"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperatorArg/Interface"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

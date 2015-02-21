@@ -11,7 +11,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BCoolCompositionRule" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DSEs" upperBound="-1" eType="ecore:EClass ../../org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.ecore#//DefPropertyCS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="BCoolOperatorArgs" upperBound="-1"
+        eType="#//BCoolOperatorArg" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="matchingRule" lowerBound="1"
         eType="#//MatchingRule" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="coordinationRule" lowerBound="1"
@@ -73,7 +74,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressionDeclarations"
         upperBound="-1" eType="#//ExpressionDeclaration" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ImportInterfaceStatement">
+  <eClassifiers xsi:type="ecore:EClass" name="ImportInterfaceStatement" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -84,5 +85,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="RelationDeclaration" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="formalParameters" upperBound="-1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BCoolOperatorArg" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DSE" lowerBound="1" eType="ecore:EClass ../../org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.ecore#//DefPropertyCS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Interface" lowerBound="1"
+        eType="#//ImportInterfaceStatement"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -377,15 +377,18 @@ ruleBCoolCompositionRule returns [EObject current=null]
     }
 ((
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getBCoolCompositionRuleRule());
-	        }
-        }
 		{ 
-	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getDSEsECLDefCSCrossReference_3_0_0()); 
+	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_0_0()); 
 	    }
-		ruleQualifiedName		{ 
+		lv_BCoolOperatorArgs_3_0=ruleBCoolOperatorArg		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBCoolCompositionRuleRule());
+	        }
+       		add(
+       			$current, 
+       			"BCoolOperatorArgs",
+        		lv_BCoolOperatorArgs_3_0, 
+        		"BCoolOperatorArg");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -396,15 +399,18 @@ ruleBCoolCompositionRule returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getBCoolCompositionRuleRule());
-	        }
-        }
 		{ 
-	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getDSEsECLDefCSCrossReference_3_1_1_0()); 
+	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_1_1_0()); 
 	    }
-		ruleQualifiedName		{ 
+		lv_BCoolOperatorArgs_5_0=ruleBCoolOperatorArg		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBCoolCompositionRuleRule());
+	        }
+       		add(
+       			$current, 
+       			"BCoolOperatorArgs",
+        		lv_BCoolOperatorArgs_5_0, 
+        		"BCoolOperatorArg");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -458,6 +464,81 @@ ruleBCoolCompositionRule returns [EObject current=null]
     	newLeafNode(otherlv_10, grammarAccess.getBCoolCompositionRuleAccess().getEndOperatorKeyword_8());
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleBCoolOperatorArg
+entryRuleBCoolOperatorArg returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getBCoolOperatorArgRule()); }
+	 iv_ruleBCoolOperatorArg=ruleBCoolOperatorArg 
+	 { $current=$iv_ruleBCoolOperatorArg.current; } 
+	 EOF 
+;
+
+// Rule BCoolOperatorArg
+ruleBCoolOperatorArg returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		lv_name_0_0=RULE_ID
+		{
+			newLeafNode(lv_name_0_0, grammarAccess.getBCoolOperatorArgAccess().getNameIDTerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBCoolOperatorArgRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_0_0, 
+        		"ID");
+	    }
+
+)
+)	otherlv_1=' : ' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getBCoolOperatorArgAccess().getSpaceColonSpaceKeyword_1());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBCoolOperatorArgRule());
+	        }
+        }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getBCoolOperatorArgAccess().getInterfaceImportInterfaceStatementCrossReference_2_0()); 
+	}
+
+)
+)	otherlv_3='::' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getBCoolOperatorArgAccess().getColonColonKeyword_3());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getBCoolOperatorArgRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getBCoolOperatorArgAccess().getDSEECLDefCSCrossReference_4_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 
@@ -833,11 +914,25 @@ ruleImportInterfaceRule returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getImportInterfaceRuleAccess().getAsKeyword_2());
     }
-this_STRING_3=RULE_STRING
-    { 
-    newLeafNode(this_STRING_3, grammarAccess.getImportInterfaceRuleAccess().getSTRINGTerminalRuleCall_3()); 
-    }
+(
+(
+		lv_name_3_0=RULE_ID
+		{
+			newLeafNode(lv_name_3_0, grammarAccess.getImportInterfaceRuleAccess().getNameIDTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getImportInterfaceRuleRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_3_0, 
+        		"ID");
+	    }
+
 )
+))
 ;
 
 
@@ -1522,12 +1617,16 @@ ruleGNavigationExpression returns [EObject current=null]
 ((
     {
         $current = forceCreateModelElementAndSet(
-            grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionSourceAction_1_0(),
+            grammarAccess.getGNavigationExpressionAccess().getGNavigationExpressionBodyAction_1_0(),
             $current);
     }
-)	otherlv_2='.' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getGNavigationExpressionAccess().getFullStopKeyword_1_1());
+)
+    { 
+        newCompositeNode(grammarAccess.getGNavigationExpressionAccess().getNavigationOperatorParserRuleCall_1_1()); 
+    }
+ruleNavigationOperator
+    { 
+        afterParserOrEnumRuleCall();
     }
 (
 (
@@ -1538,7 +1637,7 @@ ruleGNavigationExpression returns [EObject current=null]
         }
 	otherlv_3=RULE_ID
 	{
-		newLeafNode(otherlv_3, grammarAccess.getGNavigationExpressionAccess().getFeatureEStructuralFeatureCrossReference_1_2_0()); 
+		newLeafNode(otherlv_3, grammarAccess.getGNavigationExpressionAccess().getReferencedEObjectEObjectCrossReference_1_2_0()); 
 	}
 
 )
@@ -2090,6 +2189,40 @@ ruleGBraceExpression returns [EObject current=null]
     }
 )
 ;
+
+
+
+
+
+// Entry rule entryRuleNavigationOperator
+entryRuleNavigationOperator returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getNavigationOperatorRule()); } 
+	 iv_ruleNavigationOperator=ruleNavigationOperator 
+	 { $current=$iv_ruleNavigationOperator.current.getText(); }  
+	 EOF 
+;
+
+// Rule NavigationOperator
+ruleNavigationOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+	kw='.' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getNavigationOperatorAccess().getFullStopKeyword_0()); 
+    }
+
+    |
+	kw='->' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getNavigationOperatorAccess().getHyphenMinusGreaterThanSignKeyword_1()); 
+    }
+)
+    ;
 
 
 

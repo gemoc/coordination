@@ -70,6 +70,7 @@ public class BcoolFactoryImpl extends EFactoryImpl implements BcoolFactory {
 			case BcoolPackage.IMPORT_INTERFACE_STATEMENT: return createImportInterfaceStatement();
 			case BcoolPackage.EXPRESSION_DECLARATION: return createExpressionDeclaration();
 			case BcoolPackage.RELATION_DECLARATION: return createRelationDeclaration();
+			case BcoolPackage.BCOOL_OPERATOR_ARG: return createBCoolOperatorArg();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -213,6 +214,16 @@ public class BcoolFactoryImpl extends EFactoryImpl implements BcoolFactory {
 	public RelationDeclaration createRelationDeclaration() {
 		RelationDeclarationImpl relationDeclaration = new RelationDeclarationImpl();
 		return relationDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BCoolOperatorArg createBCoolOperatorArg() {
+		BCoolOperatorArgImpl bCoolOperatorArg = new BCoolOperatorArgImpl();
+		return bCoolOperatorArg;
 	}
 
 	/**

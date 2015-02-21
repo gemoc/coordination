@@ -4,8 +4,6 @@ package org.gemoc.bcool.model.bcool;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BCool Composition Rule</b></em>'.
@@ -14,7 +12,7 @@ import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.gemoc.bcool.model.bcool.BCoolCompositionRule#getDSEs <em>DS Es</em>}</li>
+ *   <li>{@link org.gemoc.bcool.model.bcool.BCoolCompositionRule#getBCoolOperatorArgs <em>BCool Operator Args</em>}</li>
  *   <li>{@link org.gemoc.bcool.model.bcool.BCoolCompositionRule#getMatchingRule <em>Matching Rule</em>}</li>
  *   <li>{@link org.gemoc.bcool.model.bcool.BCoolCompositionRule#getCoordinationRule <em>Coordination Rule</em>}</li>
  * </ul>
@@ -26,20 +24,20 @@ import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
  */
 public interface BCoolCompositionRule extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>DS Es</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS}.
+	 * Returns the value of the '<em><b>BCool Operator Args</b></em>' containment reference list.
+	 * The list contents are of type {@link org.gemoc.bcool.model.bcool.BCoolOperatorArg}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>DS Es</em>' reference list isn't clear,
+	 * If the meaning of the '<em>BCool Operator Args</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>DS Es</em>' reference list.
-	 * @see org.gemoc.bcool.model.bcool.BcoolPackage#getBCoolCompositionRule_DSEs()
-	 * @model
+	 * @return the value of the '<em>BCool Operator Args</em>' containment reference list.
+	 * @see org.gemoc.bcool.model.bcool.BcoolPackage#getBCoolCompositionRule_BCoolOperatorArgs()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DefPropertyCS> getDSEs();
+	EList<BCoolOperatorArg> getBCoolOperatorArgs();
 
 	/**
 	 * Returns the value of the '<em><b>Matching Rule</b></em>' containment reference.
