@@ -1,4 +1,4 @@
-ClockConstraintSystem ProductTfsmwithfUMLGlobalClockCoordination {
+ClockConstraintSystem SyncProductTfsmwithfUMLCoordination {
 	imports {
 		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/library/bcoollib.ccslLib" as lib_2 ;
 		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as model_1_1 ;
@@ -12,27 +12,11 @@ ClockConstraintSystem ProductTfsmwithfUMLGlobalClockCoordination {
 	}
 	entryBlock mainBlock
 	Block mainBlock {
-		Expression syncAglobalclock_testdoClose_occurs = SampleBy
-		( Sampler -> globalclock_test,
-		Sampled -> "BarrierControl::mainBlock::doClose_occurs" )
-		Expression syncBglobalclock_testdoClose_startAction = SampleBy
-		( Sampler -> globalclock_test,
-		Sampled -> "Model::mainBlock::doClose_startAction" )
-		Expression syncAglobalclock_testclosed_occurs = SampleBy
-		( Sampler -> globalclock_test,
-		Sampled -> "BarrierControl::mainBlock::closed_occurs" )
-		Expression syncBglobalclock_testclosed_startAction = SampleBy
-		( Sampler -> globalclock_test,
-		Sampled -> "Model::mainBlock::closed_startAction" )
-		Relation
-		MatchingandCoordinationSharedEventssyncAglobalclock_testdoClose_occurssyncBglobalclock_testdoClose_startAction [
-		RendezVous ]
-		( ClockB -> syncAglobalclock_testdoClose_occurs,
-		ClockA -> syncBglobalclock_testdoClose_startAction )
-		Relation MatchingandCoordinationSharedEventssyncAglobalclock_testclosed_occurssyncBglobalclock_testclosed_startAction
-		[ RendezVous ]
-		( ClockB -> syncAglobalclock_testclosed_occurs,
-		ClockA -> syncBglobalclock_testclosed_startAction )
-		Clock globalclock_test : clock
+		Relation MatchingandCoordinationSharedEventsdoClose_startActiondoClose_occurs [ RendezVous ]
+		( ClockA -> "Model::mainBlock::doClose_startAction",
+		ClockB -> "BarrierControl::mainBlock::doClose_occurs" )
+		Relation MatchingandCoordinationSharedEventsclosed_startActionclosed_occurs [ RendezVous ]
+		( ClockA -> "Model::mainBlock::closed_startAction",
+		ClockB -> "BarrierControl::mainBlock::closed_occurs" )
 	}
 }

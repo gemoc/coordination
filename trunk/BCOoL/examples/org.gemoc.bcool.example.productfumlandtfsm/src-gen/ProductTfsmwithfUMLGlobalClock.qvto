@@ -5,7 +5,8 @@ import fr.inria.aoste.timesquare.ecl.EclQVToHelper;
 modeltype Ecore uses 'http://www.eclipse.org/emf/2002/Ecore';
 //modeltype pivot uses 'http://www.eclipse.org/ocl/3.1.0/Pivot';
 
-	modeltype inMM1 uses 'http://www.gemoc.org/sample/tfsm';
+	modeltype inMM1 uses 'http://www.gemoc.org/sample/tfsm'
+import 'platform:/plugin/org.gemoc.sample.tfsm.model/model/tfsm.ecore';
 	modeltype inMM2 uses 'http://www.eclipse.org/uml2/5.0.0/UML';
 modeltype ocl uses 'http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST';
 
@@ -15,8 +16,8 @@ modeltype TimeModel uses 'http://fr.inria.aoste.timemodel';
 	
 
 transformation doProductTfsmwithfUMLGlobalClock_To_CCSL(
-inM2 : inMM1,
-inM1 : inMM2,
+inM1 : inMM1,
+inM2 : inMM2,
  out TimeModel);
 
 
@@ -373,6 +374,8 @@ query identifyUserRelations() {
 
 
 main() {
+	var tmp : Integer;
+
 	identifyUserRelations();
 		retrieveinM1MoCCClocks();
 		retrieveinM2MoCCClocks();
@@ -404,10 +407,18 @@ main() {
 		var globalclock : String = "globalclock"+"_"+"test" ;
 		map NewClock(globalclock);
 
-		MM2_seqOfstartActionActionContext-> forEach (startAction){ 
-		MM1_seqOfoccursFSMEventContext-> forEach (occurs){ 
+			
+				 MM2_seqOfstartActionActionContext-> forEach (dse1){ 
 
-		if (occurs.name = startAction.name) then {
+
+			
+			
+				 MM1_seqOfoccursFSMEventContext-> forEach (dse2){ 
+
+
+			
+
+		if (GBraceExpressionImpl@200152748) then {
 		
 				var syncA : String;
 				syncA := 
@@ -415,18 +426,20 @@ main() {
 							globalclock 
 
 						+
-							occurs.name+'_occurs'
+								 dse1.name+'_startAction'
 
 				;
 
 			map syncA (
 
-							globalclock 
+							 theMainBlock.elements[name = globalclock ]->first().oclAsType(TimeModel::Clock)
 				
 
 						 
 						,
-							occurs.name+'_occurs'
+						
+									inM2Clocks[name =  dse1.name + '_startAction']->first().oclAsType(TimeModel::Clock)
+
 				
 
 						 
@@ -440,18 +453,20 @@ main() {
 							globalclock 
 
 						+
-							startAction.name+'_startAction'
+								 dse2.name+'_occurs'
 
 				;
 
 			map syncB (
 
-							globalclock 
+							 theMainBlock.elements[name = globalclock ]->first().oclAsType(TimeModel::Clock)
 				
 
 						 
 						,
-							startAction.name+'_startAction'
+						
+									inM1Clocks[name =  dse2.name + '_occurs']->first().oclAsType(TimeModel::Clock)
+
 				
 
 						 
@@ -461,12 +476,10 @@ main() {
 			);
 			
 			map MatchingandCoordinationSharedEvents (
-
-						'syncA'+syncA
+						theMainBlock.expressions[name = 'syncA'+syncA ]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 			
 					,
-
-						'syncB'+syncB
+						theMainBlock.expressions[name = 'syncB'+syncB ]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 			
 			
 			);
@@ -478,44 +491,24 @@ main() {
 }
 
 
-
-
 	mapping syncA (
-
-
-	
-			
-
-							globalclock:String
-
+							globalclock:TimeModel::CCSLModel::ClockExpressionAndRelation::BindableEntity
 					,
-			
-
-							occurs:String
-
+							dse1:TimeModel::CCSLModel::ClockExpressionAndRelation::BindableEntity
 		) : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression {
-
 
 		name := 'syncA';
 			
-					name := name + globalclock.toString();
-					name := name + occurs.toString();
+					name := name + globalclock.name;
+					name := name + dse1.name;
 			
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "SampleBy")->first();
-
-		
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-						
-						
-							bindable := map DSEtoClock(globalclock).bindable;
-
+					bindable := globalclock;
 						_abstract := seqOfExpressionDeclaration->select(rd | rd.name = "SampleBy")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)
 					};
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-						
-						
-							bindable := map DSEtoClock(occurs).bindable;
-
+					bindable := dse1;
 						_abstract := seqOfExpressionDeclaration->select(rd | rd.name = "SampleBy")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)
 					};
 			end{
@@ -523,41 +516,23 @@ main() {
 		}	
 	}
 	mapping syncB (
-
-
-	
-			
-
-							globalclock:String
-
+							globalclock:TimeModel::CCSLModel::ClockExpressionAndRelation::BindableEntity
 					,
-			
-
-							startAction:String
-
+							dse2:TimeModel::CCSLModel::ClockExpressionAndRelation::BindableEntity
 		) : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression {
-
 
 		name := 'syncB';
 			
-					name := name + globalclock.toString();
-					name := name + startAction.toString();
+					name := name + globalclock.name;
+					name := name + dse2.name;
 			
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "SampleBy")->first();
-
-		
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-						
-						
-							bindable := map DSEtoClock(globalclock).bindable;
-
+					bindable := globalclock;
 						_abstract := seqOfExpressionDeclaration->select(rd | rd.name = "SampleBy")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)
 					};
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-						
-						
-							bindable := map DSEtoClock(startAction).bindable;
-
+					bindable := dse2;
 						_abstract := seqOfExpressionDeclaration->select(rd | rd.name = "SampleBy")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)
 					};
 			end{
@@ -569,23 +544,23 @@ main() {
 
 
 mapping MatchingandCoordinationSharedEvents (
-				syncA:String
+				syncA:TimeModel::CCSLModel::ClockExpressionAndRelation::BindableEntity
 					,
-				syncB:String
+				syncB:TimeModel::CCSLModel::ClockExpressionAndRelation::BindableEntity
 	) :TimeModel::CCSLModel::ClockExpressionAndRelation::Relation {
 			
 			name := 'MatchingandCoordinationSharedEvents';
-					name := name + syncA.toString();
-					name := name + syncB.toString();
+					name := name + syncA.name;
+					name := name + syncB.name;
 	
 			type := seqOfRelationDeclaration->select(rd | rd.name = "RendezVous")->first();
 			
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-						bindable := map DSEtoClock(syncA).bindable;
+						bindable := syncA;
 						_abstract := seqOfRelationDeclaration->select(rd | rd.name = "RendezVous")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					};
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-						bindable := map DSEtoClock(syncB).bindable;
+						bindable := syncB;
 						_abstract := seqOfRelationDeclaration->select(rd | rd.name = "RendezVous")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					};
 
