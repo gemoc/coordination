@@ -26,6 +26,7 @@ import org.eclipse.xtext.xbase.XBinaryOperation;
 import org.eclipse.xtext.xbase.XExpression;
 import org.eclipse.xtext.xbase.XFeatureCall;
 import org.eclipse.xtext.xbase.XMemberFeatureCall;
+import org.gemoc.bcool.model.bcool.BCoolOperatorArg;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.bcool.EventExpression;
 import org.gemoc.bcool.model.bcool.ImportInterfaceStatement;
@@ -204,6 +205,7 @@ public class helperNsURI {
 		return "";
 	}
 	
+	
 	public String XexpressiontoString (XExpression exp ){
 	String leftoper = "";
 	String rightoper = "";
@@ -248,24 +250,39 @@ public class helperNsURI {
 		
 		   Injector injector = setup.createInjectorAndDoEMFRegistration();
 	       Serializer serializer = injector.getInstance(Serializer.class);
-	        
+	       GBraceExpression gexp = (GBraceExpression) exp;
+	       
+	      // GexpressionsFactory factory = GexpressionsFactory.eINSTANCE;
+           //GAdditionExpression exph = factory.createGAdditionExpression();
+           //GIntegerExpression un = factory.createGIntegerExpression();
+           //un.setValue(1);
+           //GStringExpression deux = factory.createGStringExpression();
+           //deux.setValue("deux");
+           //exph.setLeftOperand(un);
+           //exph.setRightOperand(deux);
+	       
+	       
+	       
 	      try {  
 	    	  
-	    	  if (exp instanceof GBraceExpression) {
-	    		  GBraceExpression gexp = (GBraceExpression) exp;
-	    		  //binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
-	    		  if (gexp.getInnerExpression() instanceof GAndExpression) {
-	    			  tmpoper  = (GAndExpression) gexp.getInnerExpression();
-	    			  s = serializer.serialize(tmpoper);
-	    		  } else {
-	    			  binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
-	    			  s = serializer.serialize(binaryoper);
-	    		  }
-	    	  }
+	    	//  if (exp instanceof GBraceExpression) {
+	    		
+	    		  s = serializer.serialize(gexp);
+	    		//  binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
+	    		 // if (gexp.getInnerExpression() instanceof GAndExpression) {
+	    		//	  tmpoper  = (GAndExpression) gexp.getInnerExpression();
+	    		//	  s = serializer.serialize(tmpoper);
+	    		 // } else {
+	    			//  binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
+	    			//  s = serializer.serialize(binaryoper);
+	    		 // }
+	    	  
 	    	 
 			
 	    	  } catch (Exception ex) { // fall back:  
-	    	    s =  exp.getClass().getSimpleName()+'@'+exp.hashCode();  
+	    		  ex.printStackTrace();
+	    		  s = gexp.getInnerExpression().toString(); 
+	    		  //s =  exp.getClass().getSimpleName()+'@'+exp.hashCode();  
 	    	  }
 		
 		return s;
@@ -292,8 +309,13 @@ public class helperNsURI {
 			IntegerElement dsetmp = (IntegerElement) dse ;
 			return dsetmp.getName();
 			}
+		
+		if (dse instanceof BCoolOperatorArg) {
+			BCoolOperatorArg dsetmp= (BCoolOperatorArg) dse; 
+			return dsetmp.getName();
+			}
 
-		return "nada";
+		return "naddda";
 	}	
 	
 }
