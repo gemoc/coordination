@@ -1,0 +1,38 @@
+ClockConstraintSystem SyncProductTfsmwithTfsmCoordination {
+	imports {
+		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/library/bcoollib.ccslLib" as lib_2 ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as model_1_1 ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as model_1_2 ;
+		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/interfaces/TFSMMoC.ccslLib" as model_1_3 ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as model_2_1 ;
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as model_2_2 ;
+		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/interfaces/TFSMMoC.ccslLib" as model_2_3 ;
+		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/models/tfsmSensorLight_MoCC.extendedCCSL" as
+		inM1 ;
+		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/models/tfsmSensorAlarm_MoCC.extendedCCSL" as
+		inM2 ;
+	}
+	entryBlock mainBlock
+	Block mainBlock {
+		Expression filter1alarmOn_occursthree = AfterN
+		( WaitingClock -> "tfsmSensorLight::mainBlock::alarmOn_occurs",
+		WaitingValue -> three )
+		Expression filter2alarmOn_occursthree = AfterN
+		( WaitingClock -> "tfsmSensorAlarm::mainBlock::alarmOn_occurs",
+		WaitingValue -> three )
+		Expression filter1alarmOff_occursthree = AfterN
+		( WaitingClock -> "tfsmSensorLight::mainBlock::alarmOff_occurs",
+		WaitingValue -> three )
+		Expression filter2alarmOff_occursthree = AfterN
+		( WaitingClock -> "tfsmSensorAlarm::mainBlock::alarmOff_occurs",
+		WaitingValue -> three )
+		Relation MatchingandCoordinationSharedEventsglobal_testfilter2alarmOn_occursthree [ RendezVous ]
+		( LeftClock -> global_test,
+		RightClock -> filter2alarmOn_occursthree )
+		Relation MatchingandCoordinationSharedEventsglobal_testfilter2alarmOff_occursthree [ RendezVous ]
+		( LeftClock -> global_test,
+		RightClock -> filter2alarmOff_occursthree )
+		Clock global_test : clock
+		Integer three : int = 0
+	}
+}
