@@ -2,7 +2,7 @@ ClockConstraintSystem tfsmSensorAlarm {
 	imports {
 		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as kernel ;
 		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as CCSL ;
-		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/TFSMMoC.ccslLib" as TFSMMoC ;
+		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/interfaces/TFSMMoC.ccslLib" as TFSMMoC ;
 		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/models/tfsmSensorAlarm.tfsm" as TFSM ;
 	}
 	entryBlock mainBlock

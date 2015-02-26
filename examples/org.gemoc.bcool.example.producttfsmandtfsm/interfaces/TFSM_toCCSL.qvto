@@ -6,13 +6,14 @@ modeltype Ecore uses 'http://www.eclipse.org/emf/2002/Ecore';
 
 	modeltype inMM1 uses 'http://www.gemoc.org/sample/tfsm';
 
+
 //modeltype inMM uses 'http://www.gemoc.org/sample/tfsm';
 modeltype QVT uses 'http://www.eclipse.org/QVT/1.0.0/Operational';//http://www.eclipse.org/m2m/qvt/oml/1.0.0/Stdlib';//http://www.eclipse.org/qvt/1.0/ImperativeOCL'; 
 modeltype TimeModel uses 'http://fr.inria.aoste.timemodel';
 
 modeltype FeedBack uses 'http://timesquare.inria.fr/feedback';
 
-transformation dotfsm_To_CCSL(in inM : inMM1, out ccsl : TimeModel, out feedback : FeedBack);
+transformation dotfsm_ecore_To_CCSL(in inM : inMM1, out ccsl : TimeModel, out feedback : FeedBack);
 property theFeedBackSpec		:FeedBack::ActionModel = null;
 property seqOfMSE :	Sequence(FeedBack::ModelSpecificEvent)    = Sequence{};
 
@@ -61,13 +62,13 @@ query identifyUserRelations() {
 
 main() {
 	identifyUserRelations();
-	inM.rootObjects()[inMM1::TFSM]->asSequence()->first()-> map tfsm2CCSL();
-	inM.rootObjects()[inMM1::TFSM]->asSequence()->first()-> map tfsm2FeedBack();
+	inM.rootObjects()[inMM1::TimedSystem]->asSequence()->first()-> map tfsm2CCSL();
+	inM.rootObjects()[inMM1::TimedSystem]->asSequence()->first()-> map tfsm2FeedBack();
 
 	}
 
 			
-	mapping inMM1::TFSM::tfsm2CCSL() : TimeModel::CCSLModel::ClockConstraintSystem {
+	mapping inMM1::TimedSystem::tfsm2CCSL() : TimeModel::CCSLModel::ClockConstraintSystem {
 	    theCCSLSpec := result;
 	    name := self.name;
 	    theMainBlock :=object TimeModel::CCSLModel::Block{
@@ -100,12 +101,6 @@ main() {
 
 		
 
-		inM.rootObjects().allSubobjects()->including(self)[ FSMEvent ]->map occurs2Clock();
-		
-
-
-		
-
 		inM.rootObjects().allSubobjects()->including(self)[ FSMClock ]->map ticks2Clock();
 		
 
@@ -113,7 +108,18 @@ main() {
 		
 
 		inM.rootObjects().allSubobjects()->including(self)[ Transition ]->map fire2Clock();
-		inM.rootObjects().allSubobjects()->including(self)[ Transition ]->map trigger2Clock();
+		
+
+
+		
+
+		inM.rootObjects().allSubobjects()->including(self)[ EvaluateGuard ]->map evaluate2Clock();
+		
+
+
+		
+
+		inM.rootObjects().allSubobjects()->including(self)[ FSMEvent ]->map occurs2Clock();
 		
 
 
@@ -126,7 +132,6 @@ main() {
 
 		
 
-		inM.rootObjects().allSubobjects()->including(self)[ EvaluateGuard ]->map evaluate2Clock();
 		inM.rootObjects().allSubobjects()->including(self)[ EvaluateGuard ]->map evaluatedTrue2Clock();
 		inM.rootObjects().allSubobjects()->including(self)[ EvaluateGuard ]->map evaluatedFalse2Clock();
 		
@@ -172,9 +177,6 @@ main() {
 		
 		
 		inM.rootObjects().allSubobjects()->including(self)[ Transition ]->map EvaluateGuardWhenEnteringState122EvaluateGuardWhenEnteringState();
-		
-		
-		inM.rootObjects().allSubobjects()->including(self)[ Transition ]->map TriggerEventOcurrs252TriggerEventOcurrs();
 		
 		
 
@@ -736,31 +738,14 @@ main() {
 
 
 
-	 	mapping inMM1::FSMEvent::occurs2Clock() :TimeModel::Clock 
-			when {  }
-		{
-			name:= self.name+'_occurs';
-			tickingEvent := object TimeModel::Event{
- 				referencedObjectRefs += self.oclAsType(EObject);
-			
-				name := 'evt_'+self.name+'_occurs';
-				kind := TimeModel::EventKind::undefined;
-						
-			};
-			type:= Kernel_Clock_Type;
-
-			end{
-				theMainBlock.elements += result;
-			}
-		}
-
-//relation stuff		
 	 	mapping inMM1::FSMClock::ticks2Clock() :TimeModel::Clock 
 			when {  }
 		{
 			name:= self.name+'_ticks';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
+				//referencedObjectRefs += self.oclAsType(EObject);
+				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "ticks")->first().oclAsType(EObject);
 			
 				name := 'evt_'+self.name+'_ticks';
 				kind := TimeModel::EventKind::undefined;
@@ -780,6 +765,8 @@ main() {
 			name:= self.name+'_fire';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
+				//referencedObjectRefs += self.oclAsType(EObject);
+				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "fire")->first().oclAsType(EObject);
 			
 				name := 'evt_'+self.name+'_fire';
 				kind := TimeModel::EventKind::undefined;
@@ -791,14 +778,36 @@ main() {
 				theMainBlock.elements += result;
 			}
 		}
-	 	mapping inMM1::Transition::trigger2Clock() :TimeModel::Clock 
+
+//relation stuff		
+	 	mapping inMM1::EvaluateGuard::evaluate2Clock() :TimeModel::Clock 
 			when {  }
 		{
-			name:= self.name+'_trigger';
+			name:= self.name+'_evaluate';
 			tickingEvent := object TimeModel::Event{
  				referencedObjectRefs += self.oclAsType(EObject);
+				//referencedObjectRefs += self.oclAsType(EObject);
+				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "evaluate")->first().oclAsType(EObject);
 			
-				name := 'evt_'+self.name+'_trigger';
+				name := 'evt_'+self.name+'_evaluate';
+				kind := TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+	 	mapping inMM1::FSMEvent::occurs2Clock() :TimeModel::Clock 
+			when {  }
+		{
+			name:= self.name+'_occurs';
+			tickingEvent := object TimeModel::Event{
+			
+				name := 'evt_'+self.name+'_occurs';
 				kind := TimeModel::EventKind::undefined;
 						
 			};
@@ -846,29 +855,11 @@ main() {
 		}
 
 //relation stuff		
-	 	mapping inMM1::EvaluateGuard::evaluate2Clock() :TimeModel::Clock 
-			when {  }
-		{
-			name:= self.name+'_evaluate';
-			tickingEvent := object TimeModel::Event{
- 				referencedObjectRefs += self.oclAsType(EObject);
-			
-				name := 'evt_'+self.name+'_evaluate';
-				kind := TimeModel::EventKind::undefined;
-						
-			};
-			type:= Kernel_Clock_Type;
-
-			end{
-				theMainBlock.elements += result;
-			}
-		}
 	 	mapping inMM1::EvaluateGuard::evaluatedTrue2Clock() :TimeModel::Clock 
 			when {  }
 		{
 			name:= self.name+'_evaluatedTrue';
 			tickingEvent := object TimeModel::Event{
- 				referencedObjectRefs += self.oclAsType(EObject);
 			
 				name := 'evt_'+self.name+'_evaluatedTrue';
 				kind := TimeModel::EventKind::undefined;
@@ -885,7 +876,6 @@ main() {
 		{
 			name:= self.name+'_evaluatedFalse';
 			tickingEvent := object TimeModel::Event{
- 				referencedObjectRefs += self.oclAsType(EObject);
 			
 				name := 'evt_'+self.name+'_evaluatedFalse';
 				kind := TimeModel::EventKind::undefined;
@@ -904,7 +894,6 @@ main() {
 		{
 			name:= self.name+'_start';
 			tickingEvent := object TimeModel::Event{
- 				referencedObjectRefs += self.oclAsType(EObject);
 			
 				name := 'evt_'+self.name+'_start';
 				kind := TimeModel::EventKind::undefined;
@@ -946,8 +935,7 @@ main() {
 		 	name := self.name+"FSMEventSendReceive_occursWhenSolicitate";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "FSMEventSendReceive")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self -> map AllTriggeringOccurrences2Expression()->asSequence()->first();
+							bindable := self -> map AllTriggeringOccurrences2Expression()->asSequence()->first();
 					_abstract := seqOfAbstractEntity[name = 'ClockA']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -970,8 +958,7 @@ main() {
 		 	name := self.name+"Coincides_fireWhenRestrueOccursTransition";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self -> map restrueOccursAfterOrWhileStateEntering2Expression()->asSequence()->first();
+							bindable := self -> map restrueOccursAfterOrWhileStateEntering2Expression()->asSequence()->first();
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -1000,8 +987,7 @@ main() {
 					_abstract := seqOfAbstractEntity[name = 'EventTransition_Trigger']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self -> map otherFireFromTheSameState32Expression()->asSequence()->first();
+							bindable := self -> map otherFireFromTheSameState32Expression()->asSequence()->first();
 					_abstract := seqOfAbstractEntity[name = 'EventTransition_Reset']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -1022,8 +1008,7 @@ main() {
 		 	name := self.name+"Coincides_fireWhenEventOccursOneTransition";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self -> map eventOccursAfterOrWhileStateEntering2Expression()->asSequence()->first();
+							bindable := self -> map eventOccursAfterOrWhileStateEntering2Expression()->asSequence()->first();
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -1052,8 +1037,7 @@ main() {
 					_abstract := seqOfAbstractEntity[name = 'EventTransition_Trigger']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self -> map otherFireFromTheSameState22Expression()->asSequence()->first();
+							bindable := self -> map otherFireFromTheSameState22Expression()->asSequence()->first();
 					_abstract := seqOfAbstractEntity[name = 'EventTransition_Reset']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -1083,13 +1067,11 @@ main() {
 					_abstract := seqOfAbstractEntity[name = 'TemporalTransition_RefClock']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self -> map otherFireFromTheSameState2Expression()->asSequence()->first();
+							bindable := self -> map otherFireFromTheSameState2Expression()->asSequence()->first();
 					_abstract := seqOfAbstractEntity[name = 'TemporalTransition_Reset']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self.ownedGuard.oclAsType(TemporalGuard).afterDuration -> map Real2Integer(self.name+self.ownedGuard.oclAsType(TemporalGuard).name+"guardDelay"+"_afterDuration")->asSequence()->first();
+							bindable := self.ownedGuard.oclAsType(TemporalGuard).afterDuration -> map Real2Integer(self.name+self.ownedGuard.oclAsType(TemporalGuard).name+"guardDelay"+"_afterDuration")->asSequence()->first();
 					_abstract := seqOfAbstractEntity[name = 'TemporalTransition_delay']->first();
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -1111,8 +1093,7 @@ main() {
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
 					var delay : Integer := self.ownedGuard.oclAsType(TemporalGuard).afterDuration;
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self -> map delayIsExpired_wrt_StateEntering2Expression()->asSequence()->first();
+							bindable := self -> map delayIsExpired_wrt_StateEntering2Expression()->asSequence()->first();
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -1144,28 +1125,6 @@ main() {
 		theMainBlock.relations += result;
 		}
 		
-	
-		mapping inMM1::Transition::TriggerEventOcurrs252TriggerEventOcurrs(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
-			when { 
-				(self.ownedGuard.oclIsKindOf(EventGuard)) 
-				
-}
-		{
-		 	name := self.name+"Coincides_TriggerEventOcurrs";
-			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := theMainBlock.elements[name = self.ownedGuard.oclAsType(EventGuard).triggeringEvent.name+'_occurs']->first();
-					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
-				};
-				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = self.name+'_trigger']->first();
-					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
-				};
-		
-		theMainBlock.relations += result;
-		}
-		
 
 //relation stuff		
 	
@@ -1191,8 +1150,7 @@ main() {
 		 	name := self.name+"Coincides_firingATransitionAlternatesWithLeavingState";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self -> map allFiredoutgoingTransition2Expression()->asSequence()->first();
+							bindable := self -> map allFiredoutgoingTransition2Expression()->asSequence()->first();
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -1213,8 +1171,7 @@ main() {
 		 	name := self.name+"Causes_stateEntering";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Causes")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self -> map allInputTransition2Expression()->asSequence()->first();
+							bindable := self -> map allInputTransition2Expression()->asSequence()->first();
 					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -1357,8 +1314,7 @@ main() {
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-				
-						bindable := self -> map onlyOneFirst2Expression()->asSequence()->first();
+							bindable := self -> map onlyOneFirst2Expression()->asSequence()->first();
 					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
 				};
 		
@@ -1386,18 +1342,11 @@ main() {
 
 
 
-mapping inMM1::TFSM::tfsm2FeedBack() : FeedBack::ActionModel {
+mapping inMM1::TimedSystem::tfsm2FeedBack() : FeedBack::ActionModel {
 	    theFeedBackSpec := result;
 		importStatements+= object FeedBack::ImportStatement{
 			importURI := getModelPath(ccsl.objectsOfType(Clock)->asSequence()->first().oclAsType(EObject));
 		}; 
-		
-
-	inM.rootObjects().allSubobjects()->including(self)[ FSMEvent ]->map occurs2MSE();
-
-
-
-
 		
 
 	inM.rootObjects().allSubobjects()->including(self)[ FSMClock ]->map ticks2MSE();
@@ -1408,7 +1357,20 @@ mapping inMM1::TFSM::tfsm2FeedBack() : FeedBack::ActionModel {
 		
 
 	inM.rootObjects().allSubobjects()->including(self)[ Transition ]->map fire2MSE();
-	inM.rootObjects().allSubobjects()->including(self)[ Transition ]->map trigger2MSE();
+
+
+
+
+		
+
+	inM.rootObjects().allSubobjects()->including(self)[ EvaluateGuard ]->map evaluate2MSE();
+
+
+
+
+		
+
+	inM.rootObjects().allSubobjects()->including(self)[ FSMEvent ]->map occurs2MSE();
 
 
 
@@ -1423,7 +1385,6 @@ mapping inMM1::TFSM::tfsm2FeedBack() : FeedBack::ActionModel {
 
 		
 
-	inM.rootObjects().allSubobjects()->including(self)[ EvaluateGuard ]->map evaluate2MSE();
 	inM.rootObjects().allSubobjects()->including(self)[ EvaluateGuard ]->map evaluatedTrue2MSE();
 	inM.rootObjects().allSubobjects()->including(self)[ EvaluateGuard ]->map evaluatedFalse2MSE();
 
@@ -1472,21 +1433,12 @@ mapping inMM1::TFSM::tfsm2FeedBack() : FeedBack::ActionModel {
 	}		
 
 
-	 	mapping inMM1::FSMEvent::occurs2MSE() :FeedBack::ModelSpecificEvent 
-			when {  }
-		{
-			name:= 'MSE_'+self.name+'_occurs';
-				solverEvent := theMainBlock.elements[Clock]->select(c|c.name=self.name+'_occurs')->first().oclAsType(EObject);
-				
-			end{
-				theFeedBackSpec.events += result;
-				seqOfMSE += result
-			}
-		}
 	 	mapping inMM1::FSMClock::ticks2MSE() :FeedBack::ModelSpecificEvent 
 			when {  }
 		{
 			name:= 'MSE_'+self.name+'_ticks';
+				caller := self.oclAsType(EObject);
+				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "ticks")->first();
 				solverEvent := theMainBlock.elements[Clock]->select(c|c.name=self.name+'_ticks')->first().oclAsType(EObject);
 				
 			end{
@@ -1498,6 +1450,8 @@ mapping inMM1::TFSM::tfsm2FeedBack() : FeedBack::ActionModel {
 			when {  }
 		{
 			name:= 'MSE_'+self.name+'_fire';
+				caller := self.oclAsType(EObject);
+				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "fire")->first();
 				solverEvent := theMainBlock.elements[Clock]->select(c|c.name=self.name+'_fire')->first().oclAsType(EObject);
 				
 			end{
@@ -1505,11 +1459,24 @@ mapping inMM1::TFSM::tfsm2FeedBack() : FeedBack::ActionModel {
 				seqOfMSE += result
 			}
 		}
-	 	mapping inMM1::Transition::trigger2MSE() :FeedBack::ModelSpecificEvent 
+	 	mapping inMM1::EvaluateGuard::evaluate2MSE() :FeedBack::ModelSpecificEvent 
 			when {  }
 		{
-			name:= 'MSE_'+self.name+'_trigger';
-				solverEvent := theMainBlock.elements[Clock]->select(c|c.name=self.name+'_trigger')->first().oclAsType(EObject);
+			name:= 'MSE_'+self.name+'_evaluate';
+				caller := self.oclAsType(EObject);
+				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "evaluate")->first();
+				solverEvent := theMainBlock.elements[Clock]->select(c|c.name=self.name+'_evaluate')->first().oclAsType(EObject);
+				
+			end{
+				theFeedBackSpec.events += result;
+				seqOfMSE += result
+			}
+		}
+	 	mapping inMM1::FSMEvent::occurs2MSE() :FeedBack::ModelSpecificEvent 
+			when {  }
+		{
+			name:= 'MSE_'+self.name+'_occurs';
+				solverEvent := theMainBlock.elements[Clock]->select(c|c.name=self.name+'_occurs')->first().oclAsType(EObject);
 				
 			end{
 				theFeedBackSpec.events += result;
@@ -1532,17 +1499,6 @@ mapping inMM1::TFSM::tfsm2FeedBack() : FeedBack::ActionModel {
 		{
 			name:= 'MSE_'+self.name+'_leaving';
 				solverEvent := theMainBlock.elements[Clock]->select(c|c.name=self.name+'_leaving')->first().oclAsType(EObject);
-				
-			end{
-				theFeedBackSpec.events += result;
-				seqOfMSE += result
-			}
-		}
-	 	mapping inMM1::EvaluateGuard::evaluate2MSE() :FeedBack::ModelSpecificEvent 
-			when {  }
-		{
-			name:= 'MSE_'+self.name+'_evaluate';
-				solverEvent := theMainBlock.elements[Clock]->select(c|c.name=self.name+'_evaluate')->first().oclAsType(EObject);
 				
 			end{
 				theFeedBackSpec.events += result;
