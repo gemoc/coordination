@@ -8,10 +8,10 @@ ImportInterface "platform:/resource/org.gemoc.bcool.example.timetfsmandfuml/inte
 
 Spec test 
 
-Operator  MatchingandCoordinationActionsTicks (startAction, finishAction, ticks)
-MatchingCorrespondance : when ((startAction.name = finishAction.name ) and (ticks.name = 'globalclk'));
+Operator  MatchingandCoordinationActionsTicks (istartAction : startAction, ifinishAction : finishAction, iticks : ticks)
+MatchingCorrespondance : when ((istartAction.name = ifinishAction.name ) and (iticks.name = 'globalclk'));
 		CoordinationRule:
-			Event sampler =  SampleBy(startAction, ticks);
-			Causality (finishAction,sampler)
+			Event sampler =  SampleBy(istartAction, iticks);
+			Causality (ifinishAction , sampler)
 end operator;
 

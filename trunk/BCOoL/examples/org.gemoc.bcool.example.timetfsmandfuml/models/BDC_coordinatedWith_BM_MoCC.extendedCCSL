@@ -44,43 +44,43 @@ ClockConstraintSystem AtomicActionsOperCoordination {
 		Sampled -> "BarrierControl::mainBlock::globalclk_ticks" )
 		Relation MatchingandCoordinationActionsTicksdoClose_finishActionsamplerdoClose_startActionglobalclk_ticks [ Causality
 		]
-		( ClockA -> "Model::mainBlock::doClose_finishAction",
-		ClockB -> samplerdoClose_startActionglobalclk_ticks )
+		( ClockB -> "Model::mainBlock::doClose_finishAction",
+		ClockA -> samplerdoClose_startActionglobalclk_ticks )
 		Relation MatchingandCoordinationActionsTicksclosed_finishActionsamplerclosed_startActionglobalclk_ticks [ Causality ]
-		( ClockA -> "Model::mainBlock::closed_finishAction",
-		ClockB -> samplerclosed_startActionglobalclk_ticks )
+		( ClockB -> "Model::mainBlock::closed_finishAction",
+		ClockA -> samplerclosed_startActionglobalclk_ticks )
 		Relation
 		MatchingandCoordinationActionsTicksreadSensorDown_finishActionsamplerreadSensorDown_startActionglobalclk_ticks [
 		Causality ]
-		( ClockA -> "Model::mainBlock::readSensorDown_finishAction",
-		ClockB -> samplerreadSensorDown_startActionglobalclk_ticks )
+		( ClockB -> "Model::mainBlock::readSensorDown_finishAction",
+		ClockA -> samplerreadSensorDown_startActionglobalclk_ticks )
 		Relation MatchingandCoordinationActionsTicksstopMotorDown_finishActionsamplerstopMotorDown_startActionglobalclk_ticks
 		[ Causality ]
-		( ClockA -> "Model::mainBlock::stopMotorDown_finishAction",
-		ClockB -> samplerstopMotorDown_startActionglobalclk_ticks )
+		( ClockB -> "Model::mainBlock::stopMotorDown_finishAction",
+		ClockA -> samplerstopMotorDown_startActionglobalclk_ticks )
 		Relation
 		MatchingandCoordinationActionsTicksstartBarrierDown_finishActionsamplerstartBarrierDown_startActionglobalclk_ticks [
 		Causality ]
-		( ClockA -> "Model::mainBlock::startBarrierDown_finishAction",
-		ClockB -> samplerstartBarrierDown_startActionglobalclk_ticks )
+		( ClockB -> "Model::mainBlock::startBarrierDown_finishAction",
+		ClockA -> samplerstartBarrierDown_startActionglobalclk_ticks )
 		Relation MatchingandCoordinationActionsTicksdoOpen_finishActionsamplerdoOpen_startActionglobalclk_ticks [ Causality ]
-		( ClockA -> "Model::mainBlock::doOpen_finishAction",
-		ClockB -> samplerdoOpen_startActionglobalclk_ticks )
+		( ClockB -> "Model::mainBlock::doOpen_finishAction",
+		ClockA -> samplerdoOpen_startActionglobalclk_ticks )
 		Relation
 		MatchingandCoordinationActionsTicksstartBarrierUp_finishActionsamplerstartBarrierUp_startActionglobalclk_ticks [
 		Causality ]
-		( ClockA -> "Model::mainBlock::startBarrierUp_finishAction",
-		ClockB -> samplerstartBarrierUp_startActionglobalclk_ticks )
+		( ClockB -> "Model::mainBlock::startBarrierUp_finishAction",
+		ClockA -> samplerstartBarrierUp_startActionglobalclk_ticks )
 		Relation MatchingandCoordinationActionsTicksreadSensorUp_finishActionsamplerreadSensorUp_startActionglobalclk_ticks [
 		Causality ]
-		( ClockA -> "Model::mainBlock::readSensorUp_finishAction",
-		ClockB -> samplerreadSensorUp_startActionglobalclk_ticks )
+		( ClockB -> "Model::mainBlock::readSensorUp_finishAction",
+		ClockA -> samplerreadSensorUp_startActionglobalclk_ticks )
 		Relation MatchingandCoordinationActionsTicksstopMotorUp_finishActionsamplerstopMotorUp_startActionglobalclk_ticks [
 		Causality ]
-		( ClockA -> "Model::mainBlock::stopMotorUp_finishAction",
-		ClockB -> samplerstopMotorUp_startActionglobalclk_ticks )
+		( ClockB -> "Model::mainBlock::stopMotorUp_finishAction",
+		ClockA -> samplerstopMotorUp_startActionglobalclk_ticks )
 		Relation MatchingandCoordinationActionsTicksopened_finishActionsampleropened_startActionglobalclk_ticks [ Causality ]
-		( ClockA -> "Model::mainBlock::opened_finishAction",
-		ClockB -> sampleropened_startActionglobalclk_ticks )
+		( ClockB -> "Model::mainBlock::opened_finishAction",
+		ClockA -> sampleropened_startActionglobalclk_ticks )
 	}
 }
