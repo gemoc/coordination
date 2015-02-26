@@ -17,7 +17,7 @@ package tfsm
      def: ticks : Event = self.ticks()
   	context Transition
      def: fire : Event = self.fire()
-  	-- Mapped to the evaluation of the guard
+  	-- Mapped to the evaluation of the guard 
   	context EvaluateGuard
      def : evaluate : Event = self.evaluate()
     

@@ -9,7 +9,7 @@ ECLimport "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfa
  
 package UML 
 	
-	context InputPin
+	context InputPin 
 		def : dataRead : Event = self 
 	
 	context OutputPin

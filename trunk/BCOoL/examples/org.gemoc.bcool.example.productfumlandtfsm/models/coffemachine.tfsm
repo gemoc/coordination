@@ -7,7 +7,7 @@
     <ownedTransitions name="inittoopen" source="//@tfsms.0/@ownedStates.0" target="//@tfsms.0/@ownedStates.1" action="doInit">
       <ownedGuard xsi:type="org.gemoc.sample.tfsm:EventGuard" name="guardstart" triggeringEvent="//@globalEvents.2"/>
     </ownedTransitions>
-    <ownedTransitions name="opentoclose" source="//@tfsms.0/@ownedStates.1" target="//@tfsms.0/@ownedStates.2" action="doUnlock">
+    <ownedTransitions name="opentoclose" source="//@tfsms.0/@ownedStates.1" target="//@tfsms.0/@ownedStates.2" generatedEvents="//@globalEvents.0" action="">
       <ownedGuard xsi:type="org.gemoc.sample.tfsm:EventGuard" name="guardcoin" triggeringEvent="//@globalEvents.3"/>
     </ownedTransitions>
     <ownedTransitions name="unlockedtolocked" source="//@tfsms.0/@ownedStates.2" target="//@tfsms.0/@ownedStates.1" action="doLock">
@@ -16,7 +16,7 @@
   </tfsms>
   <globalClocks name="globalclk"/>
   <globalEvents name="unlock" sollicitingTransitions="//@tfsms.0/@ownedTransitions.1"/>
-  <globalEvents name="coffee_done"/>
+  <globalEvents name="coffeeDone"/>
   <globalEvents name="start"/>
   <globalEvents name="coin"/>
 </org.gemoc.sample.tfsm:TimedSystem>

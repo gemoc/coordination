@@ -418,7 +418,7 @@ main() {
 
 			
 
-		if (GBraceExpressionImpl@200152748) then {
+		if (org.gemoc.gel.gexpressions.impl.GEqualityExpressionImpl@131a92d3 (operator: EQUAL)) then {
 		
 				var syncA : String;
 				syncA := 

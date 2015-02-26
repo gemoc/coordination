@@ -2,8 +2,8 @@ BCoolLibrary facilities{
 
 
 relationDeclarations { 
-	RelationDeclaration RendezVous { formalParameters {"a","b"} },
-	RelationDeclaration Causality { formalParameters {"a","b"} }
+	RelationDeclaration RendezVous { },
+	RelationDeclaration Causality { }
 
 }
 
