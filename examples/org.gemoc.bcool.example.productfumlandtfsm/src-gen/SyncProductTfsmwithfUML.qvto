@@ -416,7 +416,7 @@ main() {
 
 			
 
-		if (org.gemoc.gel.gexpressions.impl.GEqualityExpressionImpl@643299be (operator: EQUAL)) then {
+		if (org.gemoc.gel.gexpressions.impl.GEqualityExpressionImpl@2f83e5a8 (operator: EQUAL)) then {
 		
 			
 			map MatchingandCoordinationSharedEvents (
@@ -506,7 +506,7 @@ mapping DSEtoClock (iname: String) : TimeModel::CCSLModel::ClockExpressionAndRel
 
 		imports+= object TimeModel::ImportStatement{
 				importURI := 'platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/library/bcoollib.ccslLib';
-				alias := 'lib_2';	
+				alias := 'lib_1';	
 				}; 
 
 	imports+= object TimeModel::ImportStatement{
