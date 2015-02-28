@@ -373,6 +373,8 @@ query identifyUserRelations() {
 
 
 main() {
+	var tmp : Integer;
+
 	identifyUserRelations();
 		retrieveinM1MoCCClocks();
 		retrieveinM2MoCCClocks();
@@ -402,11 +404,23 @@ main() {
 	map AtomicActionsOper2CCSL();
 
 
-			MM2_seqOfstartActionActionContext-> forEach (dse1){ 
-			MM2_seqOffinishActionActionContext-> forEach (dse2){ 
-			MM1_seqOfticksFSMClockContext-> forEach (dse3){ 
+			
+				 MM2_seqOfstartActionActionContext-> forEach (dse1){ 
 
-		if ((dse1.name = dse2.name ) and (dse3.name = 'globalclk')) then {
+
+			
+			
+				 MM2_seqOffinishActionActionContext-> forEach (dse2){ 
+
+
+			
+			
+				 MM1_seqOfticksFSMClockContext-> forEach (dse3){ 
+
+
+			
+
+		if ((dse1.name=dse2.name)and(dse3.name='globalclk')) then {
 		
 				var sampler : String;
 				sampler := 
@@ -420,12 +434,16 @@ main() {
 
 			map sampler (
 
-							 dse1.name+'_startAction'
+						
+									inM2Clocks[name =  dse1.name + '_startAction']->first().oclAsType(TimeModel::Clock)
+
 				
 
 						 
 						,
-							 dse3.name+'_ticks'
+						
+									inM1Clocks[name =  dse3.name + '_ticks']->first().oclAsType(TimeModel::Clock)
+
 				
 
 						 
@@ -435,12 +453,12 @@ main() {
 			);
 			
 			map MatchingandCoordinationActionsTicks (
+						
+									inM2Clocks[name =  dse2.name + '_finishAction']->first().oclAsType(TimeModel::Clock)
 
-							 dse2.name+'_finishAction'
 			
 					,
-
-						'sampler'+sampler
+						theMainBlock.expressions[name = 'sampler'+sampler ]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 			
 			
 			);
@@ -453,44 +471,24 @@ main() {
 }
 
 
-
-
 	mapping sampler (
-
-
-	
-			
-
-							dse1:String
-
+							dse1:TimeModel::CCSLModel::ClockExpressionAndRelation::BindableEntity
 					,
-			
-
-							dse3:String
-
+							dse3:TimeModel::CCSLModel::ClockExpressionAndRelation::BindableEntity
 		) : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression {
-
 
 		name := 'sampler';
 			
-					name := name + dse1.toString();
-					name := name + dse3.toString();
+					name := name + dse1.name;
+					name := name + dse3.name;
 			
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "SampleBy")->first();
-
-		
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-						
-						
-							bindable := map DSEtoClock(dse1).bindable;
-
+					bindable := dse1;
 						_abstract := seqOfExpressionDeclaration->select(rd | rd.name = "SampleBy")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)
 					};
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-						
-						
-							bindable := map DSEtoClock(dse3).bindable;
-
+					bindable := dse3;
 						_abstract := seqOfExpressionDeclaration->select(rd | rd.name = "SampleBy")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)
 					};
 			end{
@@ -502,23 +500,23 @@ main() {
 
 
 mapping MatchingandCoordinationActionsTicks (
-				dse2:String
+				dse2:TimeModel::CCSLModel::ClockExpressionAndRelation::BindableEntity
 					,
-				sampler:String
+				sampler:TimeModel::CCSLModel::ClockExpressionAndRelation::BindableEntity
 	) :TimeModel::CCSLModel::ClockExpressionAndRelation::Relation {
 			
 			name := 'MatchingandCoordinationActionsTicks';
-					name := name + dse2.toString();
-					name := name + sampler.toString();
+					name := name + dse2.name;
+					name := name + sampler.name;
 	
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Causality")->first();
 			
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-						bindable := map DSEtoClock(dse2).bindable;
+						bindable := dse2;
 						_abstract := seqOfRelationDeclaration->select(rd | rd.name = "Causality")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					};
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-						bindable := map DSEtoClock(sampler).bindable;
+						bindable := sampler;
 						_abstract := seqOfRelationDeclaration->select(rd | rd.name = "Causality")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					};
 
