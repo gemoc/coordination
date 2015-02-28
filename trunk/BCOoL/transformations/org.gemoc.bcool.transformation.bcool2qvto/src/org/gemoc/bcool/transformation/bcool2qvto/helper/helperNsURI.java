@@ -243,14 +243,15 @@ public class helperNsURI {
 	}
 	
 	public String GexpressiontoString (GExpression exp ){
-		GEqualityExpression binaryoper = null;
-		GAndExpression tmpoper = null;
+		//GEqualityExpression binaryoper = null;
+		//GAndExpression tmpoper = null;
 		String s = "";
+		String m = "";
 		  GExpressionsStandaloneSetup setup = new GExpressionsStandaloneSetup();
 		
 		   Injector injector = setup.createInjectorAndDoEMFRegistration();
 	       Serializer serializer = injector.getInstance(Serializer.class);
-	       GBraceExpression gexp = (GBraceExpression) exp;
+	       //GEqualityExpression  gexp = (GEqualityExpression) exp;
 	       
 	      // GexpressionsFactory factory = GexpressionsFactory.eINSTANCE;
            //GAdditionExpression exph = factory.createGAdditionExpression();
@@ -261,13 +262,28 @@ public class helperNsURI {
            //exph.setLeftOperand(un);
            //exph.setRightOperand(deux);
 	       
-	       
+	      // GExpression gexpp = gexp.;
 	       
 	      try {  
 	    	  
-	    	//  if (exp instanceof GBraceExpression) {
+	    	  if (exp instanceof GEqualityExpression) {
+	    		GEqualityExpression  gexp = (GEqualityExpression) exp;
+	    		  m = serializer.serialize(gexp.getLeftOperand());
+	    		  m = m + "=";
+	    		  m = m + serializer.serialize(gexp.getRightOperand());
+	    	  } else if (exp instanceof GAndExpression) {
+	    		  GAndExpression  gexpand = (GAndExpression) exp;
+	    		  m = serializer.serialize(gexpand.getLeftOperand());
+	    		  m = m + "and";
+	    		  m = m + serializer.serialize(gexpand.getRightOperand());
+	    	  }else if (exp instanceof GBraceExpression){
+	    		  GBraceExpression  gexpra = (GBraceExpression) exp;
+	    		  m = serializer.serialize(gexpra.getInnerExpression());
+	    		//  m = m + "and";
+	    		 // m = m + serializer.serialize(gexpra.getRightOperand());
+	    		  
+	    	  }
 	    		
-	    		  s = serializer.serialize(gexp);
 	    		//  binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
 	    		 // if (gexp.getInnerExpression() instanceof GAndExpression) {
 	    		//	  tmpoper  = (GAndExpression) gexp.getInnerExpression();
@@ -281,10 +297,10 @@ public class helperNsURI {
 			
 	    	  } catch (Exception ex) { // fall back:  
 	    		  ex.printStackTrace();
-	    		  s = gexp.getInnerExpression().toString(); 
+	    		  //s = gexp.getInnerExpression().toString(); 
 	    		  //s =  exp.getClass().getSimpleName()+'@'+exp.hashCode();  
 	    	  }
-		
+		s = m.replace(" ", "");
 		return s;
 	}
 	
