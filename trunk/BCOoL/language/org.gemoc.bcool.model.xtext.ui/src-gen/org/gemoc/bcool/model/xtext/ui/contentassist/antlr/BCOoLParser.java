@@ -41,6 +41,7 @@ public class BCOoLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGReferenceExpressionAccess().getAlternatives(), "rule__GReferenceExpression__Alternatives");
 					put(grammarAccess.getGPrimaryExpressionAccess().getAlternatives(), "rule__GPrimaryExpression__Alternatives");
 					put(grammarAccess.getGNumericExpressionAccess().getAlternatives(), "rule__GNumericExpression__Alternatives");
+					put(grammarAccess.getNavigationOperatorAccess().getAlternatives(), "rule__NavigationOperator__Alternatives");
 					put(grammarAccess.getGEqualityOperatorAccess().getAlternatives(), "rule__GEqualityOperator__Alternatives");
 					put(grammarAccess.getGRelationOperatorAccess().getAlternatives(), "rule__GRelationOperator__Alternatives");
 					put(grammarAccess.getGAdditionOperatorAccess().getAlternatives(), "rule__GAdditionOperator__Alternatives");
@@ -53,6 +54,7 @@ public class BCOoLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBCoolCompositionRuleAccess().getGroup(), "rule__BCoolCompositionRule__Group__0");
 					put(grammarAccess.getBCoolCompositionRuleAccess().getGroup_3(), "rule__BCoolCompositionRule__Group_3__0");
 					put(grammarAccess.getBCoolCompositionRuleAccess().getGroup_3_1(), "rule__BCoolCompositionRule__Group_3_1__0");
+					put(grammarAccess.getBCoolOperatorArgAccess().getGroup(), "rule__BCoolOperatorArg__Group__0");
 					put(grammarAccess.getMatchingRuleAccess().getGroup(), "rule__MatchingRule__Group__0");
 					put(grammarAccess.getMatchingRuleAccess().getGroup_4(), "rule__MatchingRule__Group_4__0");
 					put(grammarAccess.getEventExpressionAccess().getGroup(), "rule__EventExpression__Group__0");
@@ -104,10 +106,13 @@ public class BCOoLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBCoolOperatorSpecAccess().getBcoolCompositionRulesAssignment_4(), "rule__BCoolOperatorSpec__BcoolCompositionRulesAssignment_4");
 					put(grammarAccess.getGlobalDSEsRuleAccess().getNameAssignment_1(), "rule__GlobalDSEsRule__NameAssignment_1");
 					put(grammarAccess.getBCoolCompositionRuleAccess().getNameAssignment_1(), "rule__BCoolCompositionRule__NameAssignment_1");
-					put(grammarAccess.getBCoolCompositionRuleAccess().getDSEsAssignment_3_0(), "rule__BCoolCompositionRule__DSEsAssignment_3_0");
-					put(grammarAccess.getBCoolCompositionRuleAccess().getDSEsAssignment_3_1_1(), "rule__BCoolCompositionRule__DSEsAssignment_3_1_1");
+					put(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsAssignment_3_0(), "rule__BCoolCompositionRule__BCoolOperatorArgsAssignment_3_0");
+					put(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsAssignment_3_1_1(), "rule__BCoolCompositionRule__BCoolOperatorArgsAssignment_3_1_1");
 					put(grammarAccess.getBCoolCompositionRuleAccess().getMatchingRuleAssignment_6(), "rule__BCoolCompositionRule__MatchingRuleAssignment_6");
 					put(grammarAccess.getBCoolCompositionRuleAccess().getCoordinationRuleAssignment_7(), "rule__BCoolCompositionRule__CoordinationRuleAssignment_7");
+					put(grammarAccess.getBCoolOperatorArgAccess().getNameAssignment_0(), "rule__BCoolOperatorArg__NameAssignment_0");
+					put(grammarAccess.getBCoolOperatorArgAccess().getInterfaceAssignment_2(), "rule__BCoolOperatorArg__InterfaceAssignment_2");
+					put(grammarAccess.getBCoolOperatorArgAccess().getDSEAssignment_4(), "rule__BCoolOperatorArg__DSEAssignment_4");
 					put(grammarAccess.getMatchingRuleAccess().getConditionAssignment_1(), "rule__MatchingRule__ConditionAssignment_1");
 					put(grammarAccess.getMatchingRuleAccess().getFilterEventExpressionsAssignment_4_1(), "rule__MatchingRule__FilterEventExpressionsAssignment_4_1");
 					put(grammarAccess.getEventExpressionAccess().getNameAssignment_0(), "rule__EventExpression__NameAssignment_0");
@@ -120,6 +125,7 @@ public class BCOoLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEventRelationAccess().getActualParametersAssignment_2_1_1(), "rule__EventRelation__ActualParametersAssignment_2_1_1");
 					put(grammarAccess.getImportLibRuleAccess().getImportURIAssignment_1(), "rule__ImportLibRule__ImportURIAssignment_1");
 					put(grammarAccess.getImportInterfaceRuleAccess().getImportURIAssignment_1(), "rule__ImportInterfaceRule__ImportURIAssignment_1");
+					put(grammarAccess.getImportInterfaceRuleAccess().getNameAssignment_3(), "rule__ImportInterfaceRule__NameAssignment_3");
 					put(grammarAccess.getGProgramAccess().getImportsAssignment_0(), "rule__GProgram__ImportsAssignment_0");
 					put(grammarAccess.getGProgramAccess().getExpressionsAssignment_1_0(), "rule__GProgram__ExpressionsAssignment_1_0");
 					put(grammarAccess.getGProgramAccess().getExpressionsAssignment_1_1_1(), "rule__GProgram__ExpressionsAssignment_1_1_1");
@@ -140,7 +146,7 @@ public class BCOoLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGMultiplicationExpressionAccess().getRightOperandAssignment_1_2(), "rule__GMultiplicationExpression__RightOperandAssignment_1_2");
 					put(grammarAccess.getGNegationExpressionAccess().getOperatorAssignment_1_1(), "rule__GNegationExpression__OperatorAssignment_1_1");
 					put(grammarAccess.getGNegationExpressionAccess().getOperandAssignment_1_2(), "rule__GNegationExpression__OperandAssignment_1_2");
-					put(grammarAccess.getGNavigationExpressionAccess().getFeatureAssignment_1_2(), "rule__GNavigationExpression__FeatureAssignment_1_2");
+					put(grammarAccess.getGNavigationExpressionAccess().getReferencedEObjectAssignment_1_2(), "rule__GNavigationExpression__ReferencedEObjectAssignment_1_2");
 					put(grammarAccess.getGReferenceExpressionAccess().getReferencedEObjectAssignment_1_1(), "rule__GReferenceExpression__ReferencedEObjectAssignment_1_1");
 					put(grammarAccess.getGStringExpressionAccess().getValueAssignment_1(), "rule__GStringExpression__ValueAssignment_1");
 					put(grammarAccess.getGBooleanExpressionAccess().getValueAssignment_1(), "rule__GBooleanExpression__ValueAssignment_1");
