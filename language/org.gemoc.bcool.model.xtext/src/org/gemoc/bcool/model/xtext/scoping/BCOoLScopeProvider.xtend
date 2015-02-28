@@ -10,6 +10,8 @@ import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContex
 import org.eclipse.xtext.scoping.Scopes
 import org.gemoc.bcool.model.bcool.BCoolOperatorArg
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.ocl.examples.pivot.Type
+import java.util.List
 
 /**
  * This class contains custom scoping description.
@@ -21,19 +23,25 @@ import org.eclipse.emf.ecore.EObject
  
 class BCOoLScopeProvider extends org.gemoc.gel.gexpressions.xtext.scoping.GExpressionsScopeProvider {
 
-def protected dispatch IScope getNavigationScopeForEObject(BCoolOperatorArg eo, IScope outerScope) {
-       val eclEvent = (eo.DSE.eContainer as ClassifierContextDeclCS).classifier
-       val contentList = eclEvent.eAllContents.toList
-        for (c : eclEvent.superClass){
-            contentList.addAll(c.eAllContents.toList)
-        }
-        return Scopes.scopeFor(contentList)
-}
+//def protected dispatch IScope getNavigationScopeForEObject(BCoolOperatorArg eo, IScope outerScope) {
+ //      val eclEvent = (eo.DSE.eContainer as ClassifierContextDeclCS).classifier
+  //     val contentList = eclEvent.eAllContents.toList
+  //      for (c : eclEvent.superClass){
+   //         contentList.addAll(getAllElem(c))
+    //    }
+     //   return Scopes.scopeFor(contentList)
+//}
 
 
-	def getAllElem(EObject eo){
-		//if(eo.)
-	}
+  //  def List<EObject>  getAllElem(Type t){
+    //    val contentList = t.eAllContents.toList
+        
+     //   for (c : t.superClass){
+        //    contentList.addAll(getAllElem(c))
+      //  }
+        
+        //return contentList
+    //}
 
 
 }

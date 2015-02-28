@@ -1,7 +1,7 @@
 grammar org.gemoc.bcool.model.xtext.BCOoL with org.gemoc.gel.gexpressions.xtext.GExpressions
 
-import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
-import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
+//import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
+//import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 
 import "http://org.gemoc.bcool.model/"
 import "http://fr.inria.aoste.timesquare.ecl" as ecl 
