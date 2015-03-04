@@ -31,8 +31,8 @@ package tfsm
      --def : entering : Event = StartEvent
      --def : entering : Event = self.onEnter()
      -- these events are tracked by the debugger thanks to the reference to self
-     def : entering : Event(self) = self
-     def : leaving : Event(self) = self
+     def : entering : Event = self
+     def : leaving : Event = self
     
 /**
  * @Private DSE
