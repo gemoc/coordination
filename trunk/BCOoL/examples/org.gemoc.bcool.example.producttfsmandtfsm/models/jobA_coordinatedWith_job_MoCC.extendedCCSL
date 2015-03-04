@@ -7,18 +7,16 @@ ClockConstraintSystem SyncProductTfsmwithTfsmCoordination {
 		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as model_2_1 ;
 		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as model_2_2 ;
 		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/interfaces/TFSMMoC.ccslLib" as model_2_3 ;
-		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/models/tfsmSensorLight_MoCC.extendedCCSL" as
-		inM1 ;
-		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/models/tfsmSensorAlarm_MoCC.extendedCCSL" as
-		inM2 ;
+		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/models/jobB_MoCC.extendedCCSL" as inM1 ;
+		import "platform:/resource/org.gemoc.bcool.example.producttfsmandtfsm/models/jobA_MoCC.extendedCCSL" as inM2 ;
 	}
 	entryBlock mainBlock
 	Block mainBlock {
-		Relation MatchingandCoordinationSharedEventsalarmOn_occursalarmOn_occurs [ RendezVous ]
-		( RightClock -> "tfsmSensorLight::mainBlock::alarmOn_occurs",
-		LeftClock -> "tfsmSensorAlarm::mainBlock::alarmOn_occurs" )
-		Relation MatchingandCoordinationSharedEventsalarmOff_occursalarmOff_occurs [ RendezVous ]
-		( RightClock -> "tfsmSensorLight::mainBlock::alarmOff_occurs",
-		LeftClock -> "tfsmSensorAlarm::mainBlock::alarmOff_occurs" )
+		Relation MatchingandCoordinationSharedEventsping_occursping_occurs [ RendezVous ]
+		( LeftClock -> "TFSMB::mainBlock::ping_occurs",
+		RightClock -> "TFSMA::mainBlock::ping_occurs" )
+		Relation MatchingandCoordinationSharedEventspong_occurspong_occurs [ RendezVous ]
+		( LeftClock -> "TFSMB::mainBlock::pong_occurs",
+		RightClock -> "TFSMA::mainBlock::pong_occurs" )
 	}
 }
