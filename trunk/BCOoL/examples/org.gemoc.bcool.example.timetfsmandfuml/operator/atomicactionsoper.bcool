@@ -11,7 +11,7 @@ Spec test
 Operator  MatchingandCoordinationActionsTicks (dse1 : activity:: startAction, dse2 : activity:: finishAction, dse3 : tfsm::ticks )
 MatchingCorrespondance : when ((dse1.name = dse2.name ) and (dse3.name = 'globalclk'));
 		CoordinationRule:
-			Event sampler =  SampleBy(dse1, dse3);
+			Local Event sampler =  SampleBy(dse1, dse3);
 			Causality (dse2 , sampler)
 end operator;
 
