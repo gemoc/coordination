@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_4uSaYLwiEeSMQuAD2oZAdg" name="LowBatteryModel">
-  <packagedElement xmi:type="uml:Activity" xmi:id="_9qUPgLwiEeSMQuAD2oZAdg" name="LowBattery" node="_C1bCcLwjEeSMQuAD2oZAdg _HLg48LwjEeSMQuAD2oZAdg _SSa78LwjEeSMQuAD2oZAdg _9uY6YLwmEeSMQuAD2oZAdg _DJR1wLwnEeSMQuAD2oZAdg _DVUtsLwnEeSMQuAD2oZAdg">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_9qUPgLwiEeSMQuAD2oZAdg" name="doJPEG" node="_C1bCcLwjEeSMQuAD2oZAdg _HLg48LwjEeSMQuAD2oZAdg _SSa78LwjEeSMQuAD2oZAdg _9uY6YLwmEeSMQuAD2oZAdg _DJR1wLwnEeSMQuAD2oZAdg _DVUtsLwnEeSMQuAD2oZAdg">
     <edge xmi:type="uml:ControlFlow" xmi:id="_zv3GoLwkEeSMQuAD2oZAdg" name="flow2" target="_HLg48LwjEeSMQuAD2oZAdg" source="_DVUtsLwnEeSMQuAD2oZAdg"/>
     <edge xmi:type="uml:ControlFlow" xmi:id="_3_koULwkEeSMQuAD2oZAdg" name="flow1" target="_C1bCcLwjEeSMQuAD2oZAdg" source="_SSa78LwjEeSMQuAD2oZAdg"/>
     <edge xmi:type="uml:ControlFlow" xmi:id="_Ex4V0LwoEeSMQuAD2oZAdg" name="flow3" target="_9uY6YLwmEeSMQuAD2oZAdg" source="_C1bCcLwjEeSMQuAD2oZAdg"/>

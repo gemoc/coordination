@@ -155,7 +155,7 @@
           </edges>
         </data>
       </ownedAnnotationEntries>
-      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_lqFvsbwtEeSozIkC9kpzOA" name="LowBattery">
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_lqFvsbwtEeSozIkC9kpzOA" name="doJPEG">
         <target xmi:type="uml:Activity" href="LowBattery.uml#_9qUPgLwiEeSMQuAD2oZAdg"/>
         <semanticElements xmi:type="uml:Activity" href="LowBattery.uml#_9qUPgLwiEeSMQuAD2oZAdg"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>

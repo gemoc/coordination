@@ -155,7 +155,7 @@
           </edges>
         </data>
       </ownedAnnotationEntries>
-      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="__42bQbwwEeS41YmRwibU2g" name="HighBattery">
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="__42bQbwwEeS41YmRwibU2g" name="doJPEG2000">
         <target xmi:type="uml:Activity" href="HighBattery.uml#_9qUPgLwiEeSMQuAD2oZAdg"/>
         <semanticElements xmi:type="uml:Activity" href="HighBattery.uml#_9qUPgLwiEeSMQuAD2oZAdg"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="__42bQrwwEeS41YmRwibU2g" labelSize="9" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid">
