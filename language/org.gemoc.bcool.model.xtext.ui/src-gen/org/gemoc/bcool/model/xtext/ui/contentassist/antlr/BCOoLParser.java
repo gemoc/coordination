@@ -52,8 +52,7 @@ public class BCOoLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGlobalDSEsRuleAccess().getGroup(), "rule__GlobalDSEsRule__Group__0");
 					put(grammarAccess.getGlobalEventExpressionRuleAccess().getGroup(), "rule__GlobalEventExpressionRule__Group__0");
 					put(grammarAccess.getBCoolCompositionRuleAccess().getGroup(), "rule__BCoolCompositionRule__Group__0");
-					put(grammarAccess.getBCoolCompositionRuleAccess().getGroup_3(), "rule__BCoolCompositionRule__Group_3__0");
-					put(grammarAccess.getBCoolCompositionRuleAccess().getGroup_3_1(), "rule__BCoolCompositionRule__Group_3_1__0");
+					put(grammarAccess.getBCoolCompositionRuleAccess().getGroup_4(), "rule__BCoolCompositionRule__Group_4__0");
 					put(grammarAccess.getBCoolOperatorArgAccess().getGroup(), "rule__BCoolOperatorArg__Group__0");
 					put(grammarAccess.getMatchingRuleAccess().getGroup(), "rule__MatchingRule__Group__0");
 					put(grammarAccess.getMatchingRuleAccess().getGroup_4(), "rule__MatchingRule__Group_4__0");
@@ -106,10 +105,10 @@ public class BCOoLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBCoolOperatorSpecAccess().getBcoolCompositionRulesAssignment_4(), "rule__BCoolOperatorSpec__BcoolCompositionRulesAssignment_4");
 					put(grammarAccess.getGlobalDSEsRuleAccess().getNameAssignment_1(), "rule__GlobalDSEsRule__NameAssignment_1");
 					put(grammarAccess.getBCoolCompositionRuleAccess().getNameAssignment_1(), "rule__BCoolCompositionRule__NameAssignment_1");
-					put(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsAssignment_3_0(), "rule__BCoolCompositionRule__BCoolOperatorArgsAssignment_3_0");
-					put(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsAssignment_3_1_1(), "rule__BCoolCompositionRule__BCoolOperatorArgsAssignment_3_1_1");
-					put(grammarAccess.getBCoolCompositionRuleAccess().getMatchingRuleAssignment_6(), "rule__BCoolCompositionRule__MatchingRuleAssignment_6");
-					put(grammarAccess.getBCoolCompositionRuleAccess().getCoordinationRuleAssignment_7(), "rule__BCoolCompositionRule__CoordinationRuleAssignment_7");
+					put(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsAssignment_3(), "rule__BCoolCompositionRule__BCoolOperatorArgsAssignment_3");
+					put(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsAssignment_4_1(), "rule__BCoolCompositionRule__BCoolOperatorArgsAssignment_4_1");
+					put(grammarAccess.getBCoolCompositionRuleAccess().getMatchingRuleAssignment_7(), "rule__BCoolCompositionRule__MatchingRuleAssignment_7");
+					put(grammarAccess.getBCoolCompositionRuleAccess().getCoordinationRuleAssignment_8(), "rule__BCoolCompositionRule__CoordinationRuleAssignment_8");
 					put(grammarAccess.getBCoolOperatorArgAccess().getNameAssignment_0(), "rule__BCoolOperatorArg__NameAssignment_0");
 					put(grammarAccess.getBCoolOperatorArgAccess().getInterfaceAssignment_2(), "rule__BCoolOperatorArg__InterfaceAssignment_2");
 					put(grammarAccess.getBCoolOperatorArgAccess().getDSEAssignment_4(), "rule__BCoolOperatorArg__DSEAssignment_4");
