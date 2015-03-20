@@ -22,7 +22,7 @@ BCoolOperatorSpec returns BCoolOperator:
 ;
 
 globalDSEsRule returns ecl::ECLDefCS:
-	'Event' name=ID';'
+	'Global Event' name=ID';'
 ;
 
 globalEventExpressionRule returns EventExpression:
@@ -30,7 +30,7 @@ globalEventExpressionRule returns EventExpression:
 ;
 
 BCoolCompositionRule returns BCoolCompositionRule: 
-	'Operator' name=ID '('(BCoolOperatorArgs+=BCoolOperatorArg (',' BCoolOperatorArgs+=BCoolOperatorArg)*)? ')'
+	'Operator' name=ID '(' BCoolOperatorArgs+=BCoolOperatorArg (',' BCoolOperatorArgs+=BCoolOperatorArg)* ')'
 					   'MatchingCorrespondance :' matchingRule=MatchingRule
 					    coordinationRule=CoordinationRule
 	'end operator;'
@@ -44,7 +44,7 @@ BCoolOperatorArg returns BCoolOperatorArg:
 MatchingRule returns MatchingRule:
 	'when' condition=GExpression ';' 
 	 'CoordinationRule:'
-	 ('Event' filterEventExpressions+=EventExpression';')*
+	 ('Local Event' filterEventExpressions+=EventExpression';')*
 	;
 
 EventExpression returns EventExpression:

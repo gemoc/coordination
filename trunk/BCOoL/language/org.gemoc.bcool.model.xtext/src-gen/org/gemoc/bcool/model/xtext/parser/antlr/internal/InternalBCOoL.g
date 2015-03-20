@@ -268,9 +268,9 @@ ruleglobalDSEsRule returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='Event' 
+(	otherlv_0='Global Event' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getGlobalDSEsRuleAccess().getEventKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getGlobalDSEsRuleAccess().getGlobalEventKeyword_0());
     }
 (
 (
@@ -375,10 +375,10 @@ ruleBCoolCompositionRule returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getBCoolCompositionRuleAccess().getLeftParenthesisKeyword_2());
     }
-((
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_0_0()); 
+	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_0()); 
 	    }
 		lv_BCoolOperatorArgs_3_0=ruleBCoolOperatorArg		{
 	        if ($current==null) {
@@ -395,12 +395,12 @@ ruleBCoolCompositionRule returns [EObject current=null]
 )
 )(	otherlv_4=',' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getBCoolCompositionRuleAccess().getCommaKeyword_3_1_0());
+    	newLeafNode(otherlv_4, grammarAccess.getBCoolCompositionRuleAccess().getCommaKeyword_4_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_1_1_0()); 
+	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getBCoolOperatorArgsBCoolOperatorArgParserRuleCall_4_1_0()); 
 	    }
 		lv_BCoolOperatorArgs_5_0=ruleBCoolOperatorArg		{
 	        if ($current==null) {
@@ -415,18 +415,18 @@ ruleBCoolCompositionRule returns [EObject current=null]
 	    }
 
 )
-))*)?	otherlv_6=')' 
+))*	otherlv_6=')' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getBCoolCompositionRuleAccess().getRightParenthesisKeyword_4());
+    	newLeafNode(otherlv_6, grammarAccess.getBCoolCompositionRuleAccess().getRightParenthesisKeyword_5());
     }
 	otherlv_7='MatchingCorrespondance :' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getBCoolCompositionRuleAccess().getMatchingCorrespondanceKeyword_5());
+    	newLeafNode(otherlv_7, grammarAccess.getBCoolCompositionRuleAccess().getMatchingCorrespondanceKeyword_6());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getMatchingRuleMatchingRuleParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getMatchingRuleMatchingRuleParserRuleCall_7_0()); 
 	    }
 		lv_matchingRule_8_0=ruleMatchingRule		{
 	        if ($current==null) {
@@ -444,7 +444,7 @@ ruleBCoolCompositionRule returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getCoordinationRuleCoordinationRuleParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getBCoolCompositionRuleAccess().getCoordinationRuleCoordinationRuleParserRuleCall_8_0()); 
 	    }
 		lv_coordinationRule_9_0=ruleCoordinationRule		{
 	        if ($current==null) {
@@ -461,7 +461,7 @@ ruleBCoolCompositionRule returns [EObject current=null]
 )
 )	otherlv_10='end operator;' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getBCoolCompositionRuleAccess().getEndOperatorKeyword_8());
+    	newLeafNode(otherlv_10, grammarAccess.getBCoolCompositionRuleAccess().getEndOperatorKeyword_9());
     }
 )
 ;
@@ -589,9 +589,9 @@ ruleMatchingRule returns [EObject current=null]
     {
     	newLeafNode(otherlv_3, grammarAccess.getMatchingRuleAccess().getCoordinationRuleKeyword_3());
     }
-(	otherlv_4='Event' 
+(	otherlv_4='Local Event' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getMatchingRuleAccess().getEventKeyword_4_0());
+    	newLeafNode(otherlv_4, grammarAccess.getMatchingRuleAccess().getLocalEventKeyword_4_0());
     }
 (
 (
