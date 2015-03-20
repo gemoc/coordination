@@ -9,9 +9,9 @@ ImportInterface "platform:/resource/org.gemoc.bcool.example.timetfsmandfuml/inte
 Spec test 
 
 Operator  MatchingandCoordinationActionsTicks (dse1 : activity:: startAction, dse2 : activity:: finishAction, dse3 : tfsm::ticks )
-MatchingCorrespondance : when ((dse1.name = dse2.name ) and (dse3.name = 'globalclk'));
+MatchingCorrespondance : when ((dse1.name = dse2.name ) and (dse3.DSE.classifierContextDecl.);
 		CoordinationRule:
-			Event delayed = DelayFor (dse1, dse3, five);
+			Local Event delayed = DelayFor (dse1, dse3, five);
 		
 			Causality(dse2, delayed)
 end operator;
