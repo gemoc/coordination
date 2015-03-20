@@ -116,20 +116,20 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 	public class GlobalDSEsRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "globalDSEsRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEventKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cGlobalEventKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//globalDSEsRule returns ecl::ECLDefCS:
-		//	"Event" name=ID ";";
+		//	"Global Event" name=ID ";";
 		public ParserRule getRule() { return rule; }
 
-		//"Event" name=ID ";"
+		//"Global Event" name=ID ";"
 		public Group getGroup() { return cGroup; }
 
-		//"Event"
-		public Keyword getEventKeyword_0() { return cEventKeyword_0; }
+		//"Global Event"
+		public Keyword getGlobalEventKeyword_0() { return cGlobalEventKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -168,27 +168,26 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cBCoolOperatorArgsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_0_0 = (RuleCall)cBCoolOperatorArgsAssignment_3_0.eContents().get(0);
-		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
-		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cBCoolOperatorArgsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_1_1_0 = (RuleCall)cBCoolOperatorArgsAssignment_3_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cMatchingCorrespondanceKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cMatchingRuleAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cMatchingRuleMatchingRuleParserRuleCall_6_0 = (RuleCall)cMatchingRuleAssignment_6.eContents().get(0);
-		private final Assignment cCoordinationRuleAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cCoordinationRuleCoordinationRuleParserRuleCall_7_0 = (RuleCall)cCoordinationRuleAssignment_7.eContents().get(0);
-		private final Keyword cEndOperatorKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cBCoolOperatorArgsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_0 = (RuleCall)cBCoolOperatorArgsAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cBCoolOperatorArgsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cBCoolOperatorArgsBCoolOperatorArgParserRuleCall_4_1_0 = (RuleCall)cBCoolOperatorArgsAssignment_4_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cMatchingCorrespondanceKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cMatchingRuleAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cMatchingRuleMatchingRuleParserRuleCall_7_0 = (RuleCall)cMatchingRuleAssignment_7.eContents().get(0);
+		private final Assignment cCoordinationRuleAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cCoordinationRuleCoordinationRuleParserRuleCall_8_0 = (RuleCall)cCoordinationRuleAssignment_8.eContents().get(0);
+		private final Keyword cEndOperatorKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//BCoolCompositionRule:
-		//	"Operator" name=ID "(" (BCoolOperatorArgs+=BCoolOperatorArg ("," BCoolOperatorArgs+=BCoolOperatorArg)*)? ")"
+		//	"Operator" name=ID "(" BCoolOperatorArgs+=BCoolOperatorArg ("," BCoolOperatorArgs+=BCoolOperatorArg)* ")"
 		//	"MatchingCorrespondance :" matchingRule=MatchingRule coordinationRule=CoordinationRule "end operator;";
 		public ParserRule getRule() { return rule; }
 
-		//"Operator" name=ID "(" (BCoolOperatorArgs+=BCoolOperatorArg ("," BCoolOperatorArgs+=BCoolOperatorArg)*)? ")"
+		//"Operator" name=ID "(" BCoolOperatorArgs+=BCoolOperatorArg ("," BCoolOperatorArgs+=BCoolOperatorArg)* ")"
 		//"MatchingCorrespondance :" matchingRule=MatchingRule coordinationRule=CoordinationRule "end operator;"
 		public Group getGroup() { return cGroup; }
 
@@ -204,47 +203,44 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 
-		//(BCoolOperatorArgs+=BCoolOperatorArg ("," BCoolOperatorArgs+=BCoolOperatorArg)*)?
-		public Group getGroup_3() { return cGroup_3; }
-
 		//BCoolOperatorArgs+=BCoolOperatorArg
-		public Assignment getBCoolOperatorArgsAssignment_3_0() { return cBCoolOperatorArgsAssignment_3_0; }
+		public Assignment getBCoolOperatorArgsAssignment_3() { return cBCoolOperatorArgsAssignment_3; }
 
 		//BCoolOperatorArg
-		public RuleCall getBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_0_0() { return cBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_0_0; }
+		public RuleCall getBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_0() { return cBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_0; }
 
 		//("," BCoolOperatorArgs+=BCoolOperatorArg)*
-		public Group getGroup_3_1() { return cGroup_3_1; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//","
-		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
 
 		//BCoolOperatorArgs+=BCoolOperatorArg
-		public Assignment getBCoolOperatorArgsAssignment_3_1_1() { return cBCoolOperatorArgsAssignment_3_1_1; }
+		public Assignment getBCoolOperatorArgsAssignment_4_1() { return cBCoolOperatorArgsAssignment_4_1; }
 
 		//BCoolOperatorArg
-		public RuleCall getBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_1_1_0() { return cBCoolOperatorArgsBCoolOperatorArgParserRuleCall_3_1_1_0; }
+		public RuleCall getBCoolOperatorArgsBCoolOperatorArgParserRuleCall_4_1_0() { return cBCoolOperatorArgsBCoolOperatorArgParserRuleCall_4_1_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 
 		//"MatchingCorrespondance :"
-		public Keyword getMatchingCorrespondanceKeyword_5() { return cMatchingCorrespondanceKeyword_5; }
+		public Keyword getMatchingCorrespondanceKeyword_6() { return cMatchingCorrespondanceKeyword_6; }
 
 		//matchingRule=MatchingRule
-		public Assignment getMatchingRuleAssignment_6() { return cMatchingRuleAssignment_6; }
+		public Assignment getMatchingRuleAssignment_7() { return cMatchingRuleAssignment_7; }
 
 		//MatchingRule
-		public RuleCall getMatchingRuleMatchingRuleParserRuleCall_6_0() { return cMatchingRuleMatchingRuleParserRuleCall_6_0; }
+		public RuleCall getMatchingRuleMatchingRuleParserRuleCall_7_0() { return cMatchingRuleMatchingRuleParserRuleCall_7_0; }
 
 		//coordinationRule=CoordinationRule
-		public Assignment getCoordinationRuleAssignment_7() { return cCoordinationRuleAssignment_7; }
+		public Assignment getCoordinationRuleAssignment_8() { return cCoordinationRuleAssignment_8; }
 
 		//CoordinationRule
-		public RuleCall getCoordinationRuleCoordinationRuleParserRuleCall_7_0() { return cCoordinationRuleCoordinationRuleParserRuleCall_7_0; }
+		public RuleCall getCoordinationRuleCoordinationRuleParserRuleCall_8_0() { return cCoordinationRuleCoordinationRuleParserRuleCall_8_0; }
 
 		//"end operator;"
-		public Keyword getEndOperatorKeyword_8() { return cEndOperatorKeyword_8; }
+		public Keyword getEndOperatorKeyword_9() { return cEndOperatorKeyword_9; }
 	}
 
 	public class BCoolOperatorArgElements extends AbstractParserRuleElementFinder {
@@ -308,16 +304,16 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cCoordinationRuleKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cEventKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cLocalEventKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cFilterEventExpressionsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cFilterEventExpressionsEventExpressionParserRuleCall_4_1_0 = (RuleCall)cFilterEventExpressionsAssignment_4_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		
 		//MatchingRule:
-		//	"when" condition=GExpression ";" "CoordinationRule:" ("Event" filterEventExpressions+=EventExpression ";")*;
+		//	"when" condition=GExpression ";" "CoordinationRule:" ("Local Event" filterEventExpressions+=EventExpression ";")*;
 		public ParserRule getRule() { return rule; }
 
-		//"when" condition=GExpression ";" "CoordinationRule:" ("Event" filterEventExpressions+=EventExpression ";")*
+		//"when" condition=GExpression ";" "CoordinationRule:" ("Local Event" filterEventExpressions+=EventExpression ";")*
 		public Group getGroup() { return cGroup; }
 
 		//"when"
@@ -335,11 +331,11 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		//"CoordinationRule:"
 		public Keyword getCoordinationRuleKeyword_3() { return cCoordinationRuleKeyword_3; }
 
-		//("Event" filterEventExpressions+=EventExpression ";")*
+		//("Local Event" filterEventExpressions+=EventExpression ";")*
 		public Group getGroup_4() { return cGroup_4; }
 
-		//"Event"
-		public Keyword getEventKeyword_4_0() { return cEventKeyword_4_0; }
+		//"Local Event"
+		public Keyword getLocalEventKeyword_4_0() { return cLocalEventKeyword_4_0; }
 
 		//filterEventExpressions+=EventExpression
 		public Assignment getFilterEventExpressionsAssignment_4_1() { return cFilterEventExpressionsAssignment_4_1; }
@@ -668,7 +664,7 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//globalDSEsRule returns ecl::ECLDefCS:
-	//	"Event" name=ID ";";
+	//	"Global Event" name=ID ";";
 	public GlobalDSEsRuleElements getGlobalDSEsRuleAccess() {
 		return pGlobalDSEsRule;
 	}
@@ -688,7 +684,7 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BCoolCompositionRule:
-	//	"Operator" name=ID "(" (BCoolOperatorArgs+=BCoolOperatorArg ("," BCoolOperatorArgs+=BCoolOperatorArg)*)? ")"
+	//	"Operator" name=ID "(" BCoolOperatorArgs+=BCoolOperatorArg ("," BCoolOperatorArgs+=BCoolOperatorArg)* ")"
 	//	"MatchingCorrespondance :" matchingRule=MatchingRule coordinationRule=CoordinationRule "end operator;";
 	public BCoolCompositionRuleElements getBCoolCompositionRuleAccess() {
 		return pBCoolCompositionRule;
@@ -709,7 +705,7 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MatchingRule:
-	//	"when" condition=GExpression ";" "CoordinationRule:" ("Event" filterEventExpressions+=EventExpression ";")*;
+	//	"when" condition=GExpression ";" "CoordinationRule:" ("Local Event" filterEventExpressions+=EventExpression ";")*;
 	public MatchingRuleElements getMatchingRuleAccess() {
 		return pMatchingRule;
 	}

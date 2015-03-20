@@ -1,43 +1,44 @@
 ' : '=23
-'#'=32
+'#'=33
 '('=18
 ')'=20
-'*'=49
-'+'=47
+'*'=50
+'+'=48
 ','=19
-'-'=48
-'->'=38
-'.'=37
-'/'=50
+'-'=49
+'->'=39
+'.'=38
+'/'=51
 '::'=24
 ';'=15
-'<'=43
-'<='=45
-'<>'=42
-'='=27
-'>'=44
-'>='=46
+'<'=44
+'<='=46
+'<>'=43
+'='=28
+'>'=45
+'>='=47
 'CoordinationRule:'=26
-'Event'=14
-'ImportInterface'=29
-'ImportLib'=28
+'Global Event'=14
+'ImportInterface'=30
+'ImportLib'=29
+'Local Event'=27
 'MatchingCorrespondance :'=21
 'Operator'=17
 'Spec'=13
-'and'=39
-'as'=30
-'else'=35
+'and'=40
+'as'=31
+'else'=36
 'end operator;'=22
-'endif'=36
-'if'=33
-'import'=31
+'endif'=37
+'if'=34
+'import'=32
 'let'=16
-'not'=51
-'or'=41
-'then'=34
+'not'=52
+'or'=42
+'then'=35
 'when'=25
-'xor'=40
-'~'=52
+'xor'=41
+'~'=53
 RULE_ANY_OTHER=12
 RULE_BOOLEAN=6
 RULE_DOUBLE=8
@@ -87,3 +88,4 @@ T__49=49
 T__50=50
 T__51=51
 T__52=52
+T__53=53

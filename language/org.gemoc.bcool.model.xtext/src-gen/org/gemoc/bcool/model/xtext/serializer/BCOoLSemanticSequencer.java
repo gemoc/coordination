@@ -495,7 +495,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (BCoolOperatorArgs+=BCoolOperatorArg BCoolOperatorArgs+=BCoolOperatorArg*)? matchingRule=MatchingRule coordinationRule=CoordinationRule)
+	 *     (name=ID BCoolOperatorArgs+=BCoolOperatorArg BCoolOperatorArgs+=BCoolOperatorArg* matchingRule=MatchingRule coordinationRule=CoordinationRule)
 	 */
 	protected void sequence_BCoolCompositionRule(EObject context, BCoolCompositionRule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
