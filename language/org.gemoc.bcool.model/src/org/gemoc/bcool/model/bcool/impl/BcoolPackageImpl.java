@@ -568,8 +568,8 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExpressionDeclaration_FormalParameters() {
-		return (EAttribute)expressionDeclarationEClass.getEStructuralFeatures().get(0);
+	public EReference getExpressionDeclaration_FormalParameters() {
+		return (EReference)expressionDeclarationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -697,7 +697,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 		createEAttribute(importInterfaceStatementEClass, IMPORT_INTERFACE_STATEMENT__IMPORT_URI);
 
 		expressionDeclarationEClass = createEClass(EXPRESSION_DECLARATION);
-		createEAttribute(expressionDeclarationEClass, EXPRESSION_DECLARATION__FORMAL_PARAMETERS);
+		createEReference(expressionDeclarationEClass, EXPRESSION_DECLARATION__FORMAL_PARAMETERS);
 
 		relationDeclarationEClass = createEClass(RELATION_DECLARATION);
 		createEReference(relationDeclarationEClass, RELATION_DECLARATION__FORMAL_PARAMETERS);
@@ -803,7 +803,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 		initEAttribute(getImportInterfaceStatement_ImportURI(), ecorePackage.getEString(), "importURI", null, 1, 1, ImportInterfaceStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionDeclarationEClass, ExpressionDeclaration.class, "ExpressionDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExpressionDeclaration_FormalParameters(), ecorePackage.getEString(), "formalParameters", null, 0, -1, ExpressionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExpressionDeclaration_FormalParameters(), ecorePackage.getEObject(), null, "formalParameters", null, 0, -1, ExpressionDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relationDeclarationEClass, RelationDeclaration.class, "RelationDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRelationDeclaration_FormalParameters(), ecorePackage.getEObject(), null, "formalParameters", null, 0, -1, RelationDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

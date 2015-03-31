@@ -60,7 +60,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bcool.ecore#//ImportInterfaceStatement/importURI"/>
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//ExpressionDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bcool.ecore#//ExpressionDeclaration/formalParameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference bcool.ecore#//ExpressionDeclaration/formalParameters"/>
     </genClasses>
     <genClasses ecoreClass="bcool.ecore#//RelationDeclaration">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//RelationDeclaration/formalParameters"/>

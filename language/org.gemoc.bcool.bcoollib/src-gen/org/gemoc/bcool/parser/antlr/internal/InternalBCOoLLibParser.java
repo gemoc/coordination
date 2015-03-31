@@ -21,9 +21,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'BCoolLibrary'", "'{'", "'expressionDefinitions'", "','", "'}'", "'relationDefinitions'", "'relationDeclarations'", "'expressionDeclarations'", "'ExpressionDefinition'", "'definition'", "'RelationDefinition'", "'RelationDeclaration'", "'formalParameters'", "'ExpressionDeclaration'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'BCoolLibrary'", "'{'", "'expressionDefinitions'", "','", "'}'", "'relationDefinitions'", "'relationDeclarations'", "'expressionDeclarations'", "'ExpressionDefinition'", "'definition'", "'RelationDefinition'", "'RelationDeclaration'", "'formalParameters'", "'ExpressionDeclaration'"
     };
-    public static final int RULE_ID=5;
+    public static final int RULE_ID=4;
     public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
@@ -34,7 +34,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
     public static final int EOF=-1;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__19=19;
-    public static final int RULE_STRING=4;
+    public static final int RULE_STRING=6;
     public static final int T__16=16;
     public static final int T__15=15;
     public static final int T__18=18;
@@ -43,7 +43,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
-    public static final int RULE_INT=6;
+    public static final int RULE_INT=5;
     public static final int RULE_WS=9;
 
     // delegates
@@ -97,13 +97,13 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
             // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:69:2: iv_ruleBCoolLibrary= ruleBCoolLibrary EOF
             {
              newCompositeNode(grammarAccess.getBCoolLibraryRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleBCoolLibrary_in_entryRuleBCoolLibrary75);
+            pushFollow(FOLLOW_ruleBCoolLibrary_in_entryRuleBCoolLibrary75);
             iv_ruleBCoolLibrary=ruleBCoolLibrary();
 
             state._fsp--;
 
              current =iv_ruleBCoolLibrary; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleBCoolLibrary85); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBCoolLibrary85); 
 
             }
 
@@ -121,11 +121,12 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBCoolLibrary"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:76:1: ruleBCoolLibrary returns [EObject current=null] : ( () otherlv_1= 'BCoolLibrary' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}' )? (otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}' )? (otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}' )? (otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}' )? otherlv_28= '}' ) ;
+    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:76:1: ruleBCoolLibrary returns [EObject current=null] : ( () otherlv_1= 'BCoolLibrary' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}' )? (otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}' )? (otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}' )? (otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}' )? otherlv_28= '}' ) ;
     public final EObject ruleBCoolLibrary() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
+        Token lv_name_2_0=null;
         Token otherlv_3=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
@@ -144,8 +145,6 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
         Token otherlv_25=null;
         Token otherlv_27=null;
         Token otherlv_28=null;
-        AntlrDatatypeRuleToken lv_name_2_0 = null;
-
         EObject lv_expressionDefinitions_6_0 = null;
 
         EObject lv_expressionDefinitions_8_0 = null;
@@ -166,11 +165,11 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:79:28: ( ( () otherlv_1= 'BCoolLibrary' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}' )? (otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}' )? (otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}' )? (otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}' )? otherlv_28= '}' ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:80:1: ( () otherlv_1= 'BCoolLibrary' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}' )? (otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}' )? (otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}' )? (otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}' )? otherlv_28= '}' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:79:28: ( ( () otherlv_1= 'BCoolLibrary' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}' )? (otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}' )? (otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}' )? (otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}' )? otherlv_28= '}' ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:80:1: ( () otherlv_1= 'BCoolLibrary' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}' )? (otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}' )? (otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}' )? (otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}' )? otherlv_28= '}' )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:80:1: ( () otherlv_1= 'BCoolLibrary' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}' )? (otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}' )? (otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}' )? (otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}' )? otherlv_28= '}' )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:80:2: () otherlv_1= 'BCoolLibrary' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}' )? (otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}' )? (otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}' )? (otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}' )? otherlv_28= '}'
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:80:1: ( () otherlv_1= 'BCoolLibrary' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}' )? (otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}' )? (otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}' )? (otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}' )? otherlv_28= '}' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:80:2: () otherlv_1= 'BCoolLibrary' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}' )? (otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}' )? (otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}' )? (otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}' )? otherlv_28= '}'
             {
             // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:80:2: ()
             // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:81:5: 
@@ -183,34 +182,29 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FollowSets000.FOLLOW_11_in_ruleBCoolLibrary131); 
+            otherlv_1=(Token)match(input,11,FOLLOW_11_in_ruleBCoolLibrary131); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getBCoolLibraryAccess().getBCoolLibraryKeyword_1());
                 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:90:1: ( (lv_name_2_0= ruleEString ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:91:1: (lv_name_2_0= ruleEString )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:90:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:91:1: (lv_name_2_0= RULE_ID )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:91:1: (lv_name_2_0= ruleEString )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:92:3: lv_name_2_0= ruleEString
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:91:1: (lv_name_2_0= RULE_ID )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:92:3: lv_name_2_0= RULE_ID
             {
-             
-            	        newCompositeNode(grammarAccess.getBCoolLibraryAccess().getNameEStringParserRuleCall_2_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleBCoolLibrary152);
-            lv_name_2_0=ruleEString();
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBCoolLibrary148); 
 
-            state._fsp--;
-
+            			newLeafNode(lv_name_2_0, grammarAccess.getBCoolLibraryAccess().getNameIDTerminalRuleCall_2_0()); 
+            		
 
             	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getBCoolLibraryRule());
+            	            current = createModelElement(grammarAccess.getBCoolLibraryRule());
             	        }
-                   		set(
+                   		setWithLastConsumed(
                    			current, 
                    			"name",
                     		lv_name_2_0, 
-                    		"EString");
-            	        afterParserOrEnumRuleCall();
+                    		"ID");
             	    
 
             }
@@ -218,7 +212,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleBCoolLibrary164); 
+            otherlv_3=(Token)match(input,12,FOLLOW_12_in_ruleBCoolLibrary165); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getBCoolLibraryAccess().getLeftCurlyBracketKeyword_3());
                 
@@ -233,11 +227,11 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:112:3: otherlv_4= 'expressionDefinitions' otherlv_5= '{' ( (lv_expressionDefinitions_6_0= ruleExpressionDefinition ) ) (otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) ) )* otherlv_9= '}'
                     {
-                    otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleBCoolLibrary177); 
+                    otherlv_4=(Token)match(input,13,FOLLOW_13_in_ruleBCoolLibrary178); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getBCoolLibraryAccess().getExpressionDefinitionsKeyword_4_0());
                         
-                    otherlv_5=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleBCoolLibrary189); 
+                    otherlv_5=(Token)match(input,12,FOLLOW_12_in_ruleBCoolLibrary190); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getBCoolLibraryAccess().getLeftCurlyBracketKeyword_4_1());
                         
@@ -250,7 +244,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getBCoolLibraryAccess().getExpressionDefinitionsExpressionDefinitionParserRuleCall_4_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleExpressionDefinition_in_ruleBCoolLibrary210);
+                    pushFollow(FOLLOW_ruleExpressionDefinition_in_ruleBCoolLibrary211);
                     lv_expressionDefinitions_6_0=ruleExpressionDefinition();
 
                     state._fsp--;
@@ -287,7 +281,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:138:4: otherlv_7= ',' ( (lv_expressionDefinitions_8_0= ruleExpressionDefinition ) )
                     	    {
-                    	    otherlv_7=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleBCoolLibrary223); 
+                    	    otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleBCoolLibrary224); 
 
                     	        	newLeafNode(otherlv_7, grammarAccess.getBCoolLibraryAccess().getCommaKeyword_4_3_0());
                     	        
@@ -300,7 +294,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                     	     
                     	    	        newCompositeNode(grammarAccess.getBCoolLibraryAccess().getExpressionDefinitionsExpressionDefinitionParserRuleCall_4_3_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleExpressionDefinition_in_ruleBCoolLibrary244);
+                    	    pushFollow(FOLLOW_ruleExpressionDefinition_in_ruleBCoolLibrary245);
                     	    lv_expressionDefinitions_8_0=ruleExpressionDefinition();
 
                     	    state._fsp--;
@@ -331,7 +325,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_9=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleBCoolLibrary258); 
+                    otherlv_9=(Token)match(input,15,FOLLOW_15_in_ruleBCoolLibrary259); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getBCoolLibraryAccess().getRightCurlyBracketKeyword_4_4());
                         
@@ -352,11 +346,11 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:164:5: otherlv_10= 'relationDefinitions' otherlv_11= '{' ( (lv_relationDefinitions_12_0= ruleRelationDefinition ) ) (otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) ) )* otherlv_15= '}'
                     {
-                    otherlv_10=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleBCoolLibrary273); 
+                    otherlv_10=(Token)match(input,16,FOLLOW_16_in_ruleBCoolLibrary274); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getBCoolLibraryAccess().getRelationDefinitionsKeyword_5_0());
                         
-                    otherlv_11=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleBCoolLibrary285); 
+                    otherlv_11=(Token)match(input,12,FOLLOW_12_in_ruleBCoolLibrary286); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getBCoolLibraryAccess().getLeftCurlyBracketKeyword_5_1());
                         
@@ -369,7 +363,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getBCoolLibraryAccess().getRelationDefinitionsRelationDefinitionParserRuleCall_5_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleRelationDefinition_in_ruleBCoolLibrary306);
+                    pushFollow(FOLLOW_ruleRelationDefinition_in_ruleBCoolLibrary307);
                     lv_relationDefinitions_12_0=ruleRelationDefinition();
 
                     state._fsp--;
@@ -406,7 +400,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:190:4: otherlv_13= ',' ( (lv_relationDefinitions_14_0= ruleRelationDefinition ) )
                     	    {
-                    	    otherlv_13=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleBCoolLibrary319); 
+                    	    otherlv_13=(Token)match(input,14,FOLLOW_14_in_ruleBCoolLibrary320); 
 
                     	        	newLeafNode(otherlv_13, grammarAccess.getBCoolLibraryAccess().getCommaKeyword_5_3_0());
                     	        
@@ -419,7 +413,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                     	     
                     	    	        newCompositeNode(grammarAccess.getBCoolLibraryAccess().getRelationDefinitionsRelationDefinitionParserRuleCall_5_3_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleRelationDefinition_in_ruleBCoolLibrary340);
+                    	    pushFollow(FOLLOW_ruleRelationDefinition_in_ruleBCoolLibrary341);
                     	    lv_relationDefinitions_14_0=ruleRelationDefinition();
 
                     	    state._fsp--;
@@ -450,7 +444,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_15=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleBCoolLibrary354); 
+                    otherlv_15=(Token)match(input,15,FOLLOW_15_in_ruleBCoolLibrary355); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getBCoolLibraryAccess().getRightCurlyBracketKeyword_5_4());
                         
@@ -471,11 +465,11 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:216:5: otherlv_16= 'relationDeclarations' otherlv_17= '{' ( (lv_relationDeclarations_18_0= ruleRelationDeclaration ) ) (otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) ) )* otherlv_21= '}'
                     {
-                    otherlv_16=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleBCoolLibrary369); 
+                    otherlv_16=(Token)match(input,17,FOLLOW_17_in_ruleBCoolLibrary370); 
 
                         	newLeafNode(otherlv_16, grammarAccess.getBCoolLibraryAccess().getRelationDeclarationsKeyword_6_0());
                         
-                    otherlv_17=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleBCoolLibrary381); 
+                    otherlv_17=(Token)match(input,12,FOLLOW_12_in_ruleBCoolLibrary382); 
 
                         	newLeafNode(otherlv_17, grammarAccess.getBCoolLibraryAccess().getLeftCurlyBracketKeyword_6_1());
                         
@@ -488,7 +482,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getBCoolLibraryAccess().getRelationDeclarationsRelationDeclarationParserRuleCall_6_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleRelationDeclaration_in_ruleBCoolLibrary402);
+                    pushFollow(FOLLOW_ruleRelationDeclaration_in_ruleBCoolLibrary403);
                     lv_relationDeclarations_18_0=ruleRelationDeclaration();
 
                     state._fsp--;
@@ -525,7 +519,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:242:4: otherlv_19= ',' ( (lv_relationDeclarations_20_0= ruleRelationDeclaration ) )
                     	    {
-                    	    otherlv_19=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleBCoolLibrary415); 
+                    	    otherlv_19=(Token)match(input,14,FOLLOW_14_in_ruleBCoolLibrary416); 
 
                     	        	newLeafNode(otherlv_19, grammarAccess.getBCoolLibraryAccess().getCommaKeyword_6_3_0());
                     	        
@@ -538,7 +532,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                     	     
                     	    	        newCompositeNode(grammarAccess.getBCoolLibraryAccess().getRelationDeclarationsRelationDeclarationParserRuleCall_6_3_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleRelationDeclaration_in_ruleBCoolLibrary436);
+                    	    pushFollow(FOLLOW_ruleRelationDeclaration_in_ruleBCoolLibrary437);
                     	    lv_relationDeclarations_20_0=ruleRelationDeclaration();
 
                     	    state._fsp--;
@@ -569,7 +563,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_21=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleBCoolLibrary450); 
+                    otherlv_21=(Token)match(input,15,FOLLOW_15_in_ruleBCoolLibrary451); 
 
                         	newLeafNode(otherlv_21, grammarAccess.getBCoolLibraryAccess().getRightCurlyBracketKeyword_6_4());
                         
@@ -590,11 +584,11 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:268:5: otherlv_22= 'expressionDeclarations' otherlv_23= '{' ( (lv_expressionDeclarations_24_0= ruleExpressionDeclaration ) ) (otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) ) )* otherlv_27= '}'
                     {
-                    otherlv_22=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleBCoolLibrary465); 
+                    otherlv_22=(Token)match(input,18,FOLLOW_18_in_ruleBCoolLibrary466); 
 
                         	newLeafNode(otherlv_22, grammarAccess.getBCoolLibraryAccess().getExpressionDeclarationsKeyword_7_0());
                         
-                    otherlv_23=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleBCoolLibrary477); 
+                    otherlv_23=(Token)match(input,12,FOLLOW_12_in_ruleBCoolLibrary478); 
 
                         	newLeafNode(otherlv_23, grammarAccess.getBCoolLibraryAccess().getLeftCurlyBracketKeyword_7_1());
                         
@@ -607,7 +601,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getBCoolLibraryAccess().getExpressionDeclarationsExpressionDeclarationParserRuleCall_7_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleExpressionDeclaration_in_ruleBCoolLibrary498);
+                    pushFollow(FOLLOW_ruleExpressionDeclaration_in_ruleBCoolLibrary499);
                     lv_expressionDeclarations_24_0=ruleExpressionDeclaration();
 
                     state._fsp--;
@@ -644,7 +638,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:294:4: otherlv_25= ',' ( (lv_expressionDeclarations_26_0= ruleExpressionDeclaration ) )
                     	    {
-                    	    otherlv_25=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleBCoolLibrary511); 
+                    	    otherlv_25=(Token)match(input,14,FOLLOW_14_in_ruleBCoolLibrary512); 
 
                     	        	newLeafNode(otherlv_25, grammarAccess.getBCoolLibraryAccess().getCommaKeyword_7_3_0());
                     	        
@@ -657,7 +651,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                     	     
                     	    	        newCompositeNode(grammarAccess.getBCoolLibraryAccess().getExpressionDeclarationsExpressionDeclarationParserRuleCall_7_3_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleExpressionDeclaration_in_ruleBCoolLibrary532);
+                    	    pushFollow(FOLLOW_ruleExpressionDeclaration_in_ruleBCoolLibrary533);
                     	    lv_expressionDeclarations_26_0=ruleExpressionDeclaration();
 
                     	    state._fsp--;
@@ -688,7 +682,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_27=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleBCoolLibrary546); 
+                    otherlv_27=(Token)match(input,15,FOLLOW_15_in_ruleBCoolLibrary547); 
 
                         	newLeafNode(otherlv_27, grammarAccess.getBCoolLibraryAccess().getRightCurlyBracketKeyword_7_4());
                         
@@ -698,7 +692,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_28=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleBCoolLibrary560); 
+            otherlv_28=(Token)match(input,15,FOLLOW_15_in_ruleBCoolLibrary561); 
 
                 	newLeafNode(otherlv_28, grammarAccess.getBCoolLibraryAccess().getRightCurlyBracketKeyword_8());
                 
@@ -722,121 +716,8 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleBCoolLibrary"
 
 
-    // $ANTLR start "entryRuleEString"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:332:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
-    public final String entryRuleEString() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleEString = null;
-
-
-        try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:333:2: (iv_ruleEString= ruleEString EOF )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:334:2: iv_ruleEString= ruleEString EOF
-            {
-             newCompositeNode(grammarAccess.getEStringRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_entryRuleEString597);
-            iv_ruleEString=ruleEString();
-
-            state._fsp--;
-
-             current =iv_ruleEString.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEString608); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleEString"
-
-
-    // $ANTLR start "ruleEString"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:341:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
-    public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token this_STRING_0=null;
-        Token this_ID_1=null;
-
-         enterRule(); 
-            
-        try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:344:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:345:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
-            {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:345:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
-            int alt9=2;
-            int LA9_0 = input.LA(1);
-
-            if ( (LA9_0==RULE_STRING) ) {
-                alt9=1;
-            }
-            else if ( (LA9_0==RULE_ID) ) {
-                alt9=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
-
-                throw nvae;
-            }
-            switch (alt9) {
-                case 1 :
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:345:6: this_STRING_0= RULE_STRING
-                    {
-                    this_STRING_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleEString648); 
-
-                    		current.merge(this_STRING_0);
-                        
-                     
-                        newLeafNode(this_STRING_0, grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0()); 
-                        
-
-                    }
-                    break;
-                case 2 :
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:353:10: this_ID_1= RULE_ID
-                    {
-                    this_ID_1=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleEString674); 
-
-                    		current.merge(this_ID_1);
-                        
-                     
-                        newLeafNode(this_ID_1, grammarAccess.getEStringAccess().getIDTerminalRuleCall_1()); 
-                        
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleEString"
-
-
     // $ANTLR start "entryRuleExpressionDefinition"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:368:1: entryRuleExpressionDefinition returns [EObject current=null] : iv_ruleExpressionDefinition= ruleExpressionDefinition EOF ;
+    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:332:1: entryRuleExpressionDefinition returns [EObject current=null] : iv_ruleExpressionDefinition= ruleExpressionDefinition EOF ;
     public final EObject entryRuleExpressionDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -844,17 +725,17 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:369:2: (iv_ruleExpressionDefinition= ruleExpressionDefinition EOF )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:370:2: iv_ruleExpressionDefinition= ruleExpressionDefinition EOF
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:333:2: (iv_ruleExpressionDefinition= ruleExpressionDefinition EOF )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:334:2: iv_ruleExpressionDefinition= ruleExpressionDefinition EOF
             {
              newCompositeNode(grammarAccess.getExpressionDefinitionRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleExpressionDefinition_in_entryRuleExpressionDefinition719);
+            pushFollow(FOLLOW_ruleExpressionDefinition_in_entryRuleExpressionDefinition597);
             iv_ruleExpressionDefinition=ruleExpressionDefinition();
 
             state._fsp--;
 
              current =iv_ruleExpressionDefinition; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleExpressionDefinition729); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExpressionDefinition607); 
 
             }
 
@@ -872,65 +753,59 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpressionDefinition"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:377:1: ruleExpressionDefinition returns [EObject current=null] : (otherlv_0= 'ExpressionDefinition' otherlv_1= '{' otherlv_2= 'definition' ( ( ruleEString ) ) otherlv_4= '}' ) ;
+    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:341:1: ruleExpressionDefinition returns [EObject current=null] : (otherlv_0= 'ExpressionDefinition' otherlv_1= '{' otherlv_2= 'definition' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}' ) ;
     public final EObject ruleExpressionDefinition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_1=null;
         Token otherlv_2=null;
+        Token otherlv_3=null;
         Token otherlv_4=null;
 
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:380:28: ( (otherlv_0= 'ExpressionDefinition' otherlv_1= '{' otherlv_2= 'definition' ( ( ruleEString ) ) otherlv_4= '}' ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:381:1: (otherlv_0= 'ExpressionDefinition' otherlv_1= '{' otherlv_2= 'definition' ( ( ruleEString ) ) otherlv_4= '}' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:344:28: ( (otherlv_0= 'ExpressionDefinition' otherlv_1= '{' otherlv_2= 'definition' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}' ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:345:1: (otherlv_0= 'ExpressionDefinition' otherlv_1= '{' otherlv_2= 'definition' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}' )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:381:1: (otherlv_0= 'ExpressionDefinition' otherlv_1= '{' otherlv_2= 'definition' ( ( ruleEString ) ) otherlv_4= '}' )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:381:3: otherlv_0= 'ExpressionDefinition' otherlv_1= '{' otherlv_2= 'definition' ( ( ruleEString ) ) otherlv_4= '}'
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:345:1: (otherlv_0= 'ExpressionDefinition' otherlv_1= '{' otherlv_2= 'definition' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:345:3: otherlv_0= 'ExpressionDefinition' otherlv_1= '{' otherlv_2= 'definition' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleExpressionDefinition766); 
+            otherlv_0=(Token)match(input,19,FOLLOW_19_in_ruleExpressionDefinition644); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getExpressionDefinitionAccess().getExpressionDefinitionKeyword_0());
                 
-            otherlv_1=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleExpressionDefinition778); 
+            otherlv_1=(Token)match(input,12,FOLLOW_12_in_ruleExpressionDefinition656); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getExpressionDefinitionAccess().getLeftCurlyBracketKeyword_1());
                 
-            otherlv_2=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleExpressionDefinition790); 
+            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleExpressionDefinition668); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getExpressionDefinitionAccess().getDefinitionKeyword_2());
                 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:393:1: ( ( ruleEString ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:394:1: ( ruleEString )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:357:1: ( (otherlv_3= RULE_ID ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:358:1: (otherlv_3= RULE_ID )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:394:1: ( ruleEString )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:395:3: ruleEString
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:358:1: (otherlv_3= RULE_ID )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:359:3: otherlv_3= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getExpressionDefinitionRule());
             	        }
                     
-             
-            	        newCompositeNode(grammarAccess.getExpressionDefinitionAccess().getDefinitionExpressionDeclarationCrossReference_3_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleExpressionDefinition813);
-            ruleEString();
+            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExpressionDefinition688); 
 
-            state._fsp--;
-
-             
-            	        afterParserOrEnumRuleCall();
-            	    
+            		newLeafNode(otherlv_3, grammarAccess.getExpressionDefinitionAccess().getDefinitionExpressionDeclarationCrossReference_3_0()); 
+            	
 
             }
 
 
             }
 
-            otherlv_4=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleExpressionDefinition825); 
+            otherlv_4=(Token)match(input,15,FOLLOW_15_in_ruleExpressionDefinition700); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getExpressionDefinitionAccess().getRightCurlyBracketKeyword_4());
                 
@@ -955,7 +830,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRelationDefinition"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:420:1: entryRuleRelationDefinition returns [EObject current=null] : iv_ruleRelationDefinition= ruleRelationDefinition EOF ;
+    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:382:1: entryRuleRelationDefinition returns [EObject current=null] : iv_ruleRelationDefinition= ruleRelationDefinition EOF ;
     public final EObject entryRuleRelationDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -963,17 +838,17 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:421:2: (iv_ruleRelationDefinition= ruleRelationDefinition EOF )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:422:2: iv_ruleRelationDefinition= ruleRelationDefinition EOF
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:383:2: (iv_ruleRelationDefinition= ruleRelationDefinition EOF )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:384:2: iv_ruleRelationDefinition= ruleRelationDefinition EOF
             {
              newCompositeNode(grammarAccess.getRelationDefinitionRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleRelationDefinition_in_entryRuleRelationDefinition861);
+            pushFollow(FOLLOW_ruleRelationDefinition_in_entryRuleRelationDefinition736);
             iv_ruleRelationDefinition=ruleRelationDefinition();
 
             state._fsp--;
 
              current =iv_ruleRelationDefinition; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRelationDefinition871); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRelationDefinition746); 
 
             }
 
@@ -991,65 +866,59 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRelationDefinition"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:429:1: ruleRelationDefinition returns [EObject current=null] : (otherlv_0= 'RelationDefinition' otherlv_1= '{' otherlv_2= 'definition' ( ( ruleEString ) ) otherlv_4= '}' ) ;
+    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:391:1: ruleRelationDefinition returns [EObject current=null] : (otherlv_0= 'RelationDefinition' otherlv_1= '{' otherlv_2= 'definition' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}' ) ;
     public final EObject ruleRelationDefinition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_1=null;
         Token otherlv_2=null;
+        Token otherlv_3=null;
         Token otherlv_4=null;
 
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:432:28: ( (otherlv_0= 'RelationDefinition' otherlv_1= '{' otherlv_2= 'definition' ( ( ruleEString ) ) otherlv_4= '}' ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:433:1: (otherlv_0= 'RelationDefinition' otherlv_1= '{' otherlv_2= 'definition' ( ( ruleEString ) ) otherlv_4= '}' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:394:28: ( (otherlv_0= 'RelationDefinition' otherlv_1= '{' otherlv_2= 'definition' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}' ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:395:1: (otherlv_0= 'RelationDefinition' otherlv_1= '{' otherlv_2= 'definition' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}' )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:433:1: (otherlv_0= 'RelationDefinition' otherlv_1= '{' otherlv_2= 'definition' ( ( ruleEString ) ) otherlv_4= '}' )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:433:3: otherlv_0= 'RelationDefinition' otherlv_1= '{' otherlv_2= 'definition' ( ( ruleEString ) ) otherlv_4= '}'
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:395:1: (otherlv_0= 'RelationDefinition' otherlv_1= '{' otherlv_2= 'definition' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:395:3: otherlv_0= 'RelationDefinition' otherlv_1= '{' otherlv_2= 'definition' ( (otherlv_3= RULE_ID ) ) otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleRelationDefinition908); 
+            otherlv_0=(Token)match(input,21,FOLLOW_21_in_ruleRelationDefinition783); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRelationDefinitionAccess().getRelationDefinitionKeyword_0());
                 
-            otherlv_1=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRelationDefinition920); 
+            otherlv_1=(Token)match(input,12,FOLLOW_12_in_ruleRelationDefinition795); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getRelationDefinitionAccess().getLeftCurlyBracketKeyword_1());
                 
-            otherlv_2=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleRelationDefinition932); 
+            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleRelationDefinition807); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getRelationDefinitionAccess().getDefinitionKeyword_2());
                 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:445:1: ( ( ruleEString ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:446:1: ( ruleEString )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:407:1: ( (otherlv_3= RULE_ID ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:408:1: (otherlv_3= RULE_ID )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:446:1: ( ruleEString )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:447:3: ruleEString
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:408:1: (otherlv_3= RULE_ID )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:409:3: otherlv_3= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getRelationDefinitionRule());
             	        }
                     
-             
-            	        newCompositeNode(grammarAccess.getRelationDefinitionAccess().getDefinitionRelationDeclarationCrossReference_3_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRelationDefinition955);
-            ruleEString();
+            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRelationDefinition827); 
 
-            state._fsp--;
-
-             
-            	        afterParserOrEnumRuleCall();
-            	    
+            		newLeafNode(otherlv_3, grammarAccess.getRelationDefinitionAccess().getDefinitionRelationDeclarationCrossReference_3_0()); 
+            	
 
             }
 
 
             }
 
-            otherlv_4=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRelationDefinition967); 
+            otherlv_4=(Token)match(input,15,FOLLOW_15_in_ruleRelationDefinition839); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getRelationDefinitionAccess().getRightCurlyBracketKeyword_4());
                 
@@ -1074,7 +943,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRelationDeclaration"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:472:1: entryRuleRelationDeclaration returns [EObject current=null] : iv_ruleRelationDeclaration= ruleRelationDeclaration EOF ;
+    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:432:1: entryRuleRelationDeclaration returns [EObject current=null] : iv_ruleRelationDeclaration= ruleRelationDeclaration EOF ;
     public final EObject entryRuleRelationDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -1082,17 +951,17 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:473:2: (iv_ruleRelationDeclaration= ruleRelationDeclaration EOF )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:474:2: iv_ruleRelationDeclaration= ruleRelationDeclaration EOF
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:433:2: (iv_ruleRelationDeclaration= ruleRelationDeclaration EOF )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:434:2: iv_ruleRelationDeclaration= ruleRelationDeclaration EOF
             {
              newCompositeNode(grammarAccess.getRelationDeclarationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleRelationDeclaration_in_entryRuleRelationDeclaration1003);
+            pushFollow(FOLLOW_ruleRelationDeclaration_in_entryRuleRelationDeclaration875);
             iv_ruleRelationDeclaration=ruleRelationDeclaration();
 
             state._fsp--;
 
              current =iv_ruleRelationDeclaration; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRelationDeclaration1013); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRelationDeclaration885); 
 
             }
 
@@ -1110,35 +979,32 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRelationDeclaration"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:481:1: ruleRelationDeclaration returns [EObject current=null] : ( () otherlv_1= 'RelationDeclaration' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) ;
+    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:441:1: ruleRelationDeclaration returns [EObject current=null] : ( () otherlv_1= 'RelationDeclaration' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) ;
     public final EObject ruleRelationDeclaration() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
+        Token lv_name_2_0=null;
         Token otherlv_3=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
+        Token otherlv_6=null;
         Token otherlv_7=null;
+        Token otherlv_8=null;
         Token otherlv_9=null;
         Token otherlv_10=null;
-        AntlrDatatypeRuleToken lv_name_2_0 = null;
-
-        AntlrDatatypeRuleToken lv_formalParameters_6_0 = null;
-
-        AntlrDatatypeRuleToken lv_formalParameters_8_0 = null;
-
 
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:484:28: ( ( () otherlv_1= 'RelationDeclaration' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:485:1: ( () otherlv_1= 'RelationDeclaration' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:444:28: ( ( () otherlv_1= 'RelationDeclaration' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:445:1: ( () otherlv_1= 'RelationDeclaration' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:485:1: ( () otherlv_1= 'RelationDeclaration' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:485:2: () otherlv_1= 'RelationDeclaration' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )? otherlv_10= '}'
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:445:1: ( () otherlv_1= 'RelationDeclaration' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:445:2: () otherlv_1= 'RelationDeclaration' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? otherlv_10= '}'
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:485:2: ()
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:486:5: 
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:445:2: ()
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:446:5: 
             {
 
                     current = forceCreateModelElement(
@@ -1148,34 +1014,29 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleRelationDeclaration1059); 
+            otherlv_1=(Token)match(input,22,FOLLOW_22_in_ruleRelationDeclaration931); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getRelationDeclarationAccess().getRelationDeclarationKeyword_1());
                 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:495:1: ( (lv_name_2_0= ruleEString ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:496:1: (lv_name_2_0= ruleEString )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:455:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:456:1: (lv_name_2_0= RULE_ID )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:496:1: (lv_name_2_0= ruleEString )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:497:3: lv_name_2_0= ruleEString
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:456:1: (lv_name_2_0= RULE_ID )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:457:3: lv_name_2_0= RULE_ID
             {
-             
-            	        newCompositeNode(grammarAccess.getRelationDeclarationAccess().getNameEStringParserRuleCall_2_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRelationDeclaration1080);
-            lv_name_2_0=ruleEString();
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRelationDeclaration948); 
 
-            state._fsp--;
-
+            			newLeafNode(lv_name_2_0, grammarAccess.getRelationDeclarationAccess().getNameIDTerminalRuleCall_2_0()); 
+            		
 
             	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getRelationDeclarationRule());
+            	            current = createModelElement(grammarAccess.getRelationDeclarationRule());
             	        }
-                   		set(
+                   		setWithLastConsumed(
                    			current, 
                    			"name",
                     		lv_name_2_0, 
-                    		"EString");
-            	        afterParserOrEnumRuleCall();
+                    		"ID");
             	    
 
             }
@@ -1183,104 +1044,84 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRelationDeclaration1092); 
+            otherlv_3=(Token)match(input,12,FOLLOW_12_in_ruleRelationDeclaration965); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getRelationDeclarationAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:517:1: (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:477:1: (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA11_0==23) ) {
-                alt11=1;
+            if ( (LA10_0==23) ) {
+                alt10=1;
             }
-            switch (alt11) {
+            switch (alt10) {
                 case 1 :
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:517:3: otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}'
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:477:3: otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}'
                     {
-                    otherlv_4=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleRelationDeclaration1105); 
+                    otherlv_4=(Token)match(input,23,FOLLOW_23_in_ruleRelationDeclaration978); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getRelationDeclarationAccess().getFormalParametersKeyword_4_0());
                         
-                    otherlv_5=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRelationDeclaration1117); 
+                    otherlv_5=(Token)match(input,12,FOLLOW_12_in_ruleRelationDeclaration990); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getRelationDeclarationAccess().getLeftCurlyBracketKeyword_4_1());
                         
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:525:1: ( (lv_formalParameters_6_0= ruleEString ) )
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:526:1: (lv_formalParameters_6_0= ruleEString )
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:485:1: ( (otherlv_6= RULE_ID ) )
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:486:1: (otherlv_6= RULE_ID )
                     {
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:526:1: (lv_formalParameters_6_0= ruleEString )
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:527:3: lv_formalParameters_6_0= ruleEString
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:486:1: (otherlv_6= RULE_ID )
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:487:3: otherlv_6= RULE_ID
                     {
-                     
-                    	        newCompositeNode(grammarAccess.getRelationDeclarationAccess().getFormalParametersEStringParserRuleCall_4_2_0()); 
-                    	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRelationDeclaration1138);
-                    lv_formalParameters_6_0=ruleEString();
 
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getRelationDeclarationRule());
+                    			if (current==null) {
+                    	            current = createModelElement(grammarAccess.getRelationDeclarationRule());
                     	        }
-                           		add(
-                           			current, 
-                           			"formalParameters",
-                            		lv_formalParameters_6_0, 
-                            		"EString");
-                    	        afterParserOrEnumRuleCall();
-                    	    
+                            
+                    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRelationDeclaration1010); 
+
+                    		newLeafNode(otherlv_6, grammarAccess.getRelationDeclarationAccess().getFormalParametersEObjectCrossReference_4_2_0()); 
+                    	
 
                     }
 
 
                     }
 
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:543:2: (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )*
-                    loop10:
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:498:2: (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )*
+                    loop9:
                     do {
-                        int alt10=2;
-                        int LA10_0 = input.LA(1);
+                        int alt9=2;
+                        int LA9_0 = input.LA(1);
 
-                        if ( (LA10_0==14) ) {
-                            alt10=1;
+                        if ( (LA9_0==14) ) {
+                            alt9=1;
                         }
 
 
-                        switch (alt10) {
+                        switch (alt9) {
                     	case 1 :
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:543:4: otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:498:4: otherlv_7= ',' ( (otherlv_8= RULE_ID ) )
                     	    {
-                    	    otherlv_7=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRelationDeclaration1151); 
+                    	    otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleRelationDeclaration1023); 
 
                     	        	newLeafNode(otherlv_7, grammarAccess.getRelationDeclarationAccess().getCommaKeyword_4_3_0());
                     	        
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:547:1: ( (lv_formalParameters_8_0= ruleEString ) )
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:548:1: (lv_formalParameters_8_0= ruleEString )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:502:1: ( (otherlv_8= RULE_ID ) )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:503:1: (otherlv_8= RULE_ID )
                     	    {
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:548:1: (lv_formalParameters_8_0= ruleEString )
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:549:3: lv_formalParameters_8_0= ruleEString
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:503:1: (otherlv_8= RULE_ID )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:504:3: otherlv_8= RULE_ID
                     	    {
-                    	     
-                    	    	        newCompositeNode(grammarAccess.getRelationDeclarationAccess().getFormalParametersEStringParserRuleCall_4_3_1_0()); 
-                    	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRelationDeclaration1172);
-                    	    lv_formalParameters_8_0=ruleEString();
 
-                    	    state._fsp--;
-
-
-                    	    	        if (current==null) {
-                    	    	            current = createModelElementForParent(grammarAccess.getRelationDeclarationRule());
+                    	    			if (current==null) {
+                    	    	            current = createModelElement(grammarAccess.getRelationDeclarationRule());
                     	    	        }
-                    	           		add(
-                    	           			current, 
-                    	           			"formalParameters",
-                    	            		lv_formalParameters_8_0, 
-                    	            		"EString");
-                    	    	        afterParserOrEnumRuleCall();
-                    	    	    
+                    	            
+                    	    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRelationDeclaration1043); 
+
+                    	    		newLeafNode(otherlv_8, grammarAccess.getRelationDeclarationAccess().getFormalParametersEObjectCrossReference_4_3_1_0()); 
+                    	    	
 
                     	    }
 
@@ -1292,11 +1133,11 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop10;
+                    	    break loop9;
                         }
                     } while (true);
 
-                    otherlv_9=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRelationDeclaration1186); 
+                    otherlv_9=(Token)match(input,15,FOLLOW_15_in_ruleRelationDeclaration1057); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getRelationDeclarationAccess().getRightCurlyBracketKeyword_4_4());
                         
@@ -1306,7 +1147,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_10=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRelationDeclaration1200); 
+            otherlv_10=(Token)match(input,15,FOLLOW_15_in_ruleRelationDeclaration1071); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getRelationDeclarationAccess().getRightCurlyBracketKeyword_5());
                 
@@ -1331,7 +1172,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpressionDeclaration"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:581:1: entryRuleExpressionDeclaration returns [EObject current=null] : iv_ruleExpressionDeclaration= ruleExpressionDeclaration EOF ;
+    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:531:1: entryRuleExpressionDeclaration returns [EObject current=null] : iv_ruleExpressionDeclaration= ruleExpressionDeclaration EOF ;
     public final EObject entryRuleExpressionDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -1339,17 +1180,17 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:582:2: (iv_ruleExpressionDeclaration= ruleExpressionDeclaration EOF )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:583:2: iv_ruleExpressionDeclaration= ruleExpressionDeclaration EOF
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:532:2: (iv_ruleExpressionDeclaration= ruleExpressionDeclaration EOF )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:533:2: iv_ruleExpressionDeclaration= ruleExpressionDeclaration EOF
             {
              newCompositeNode(grammarAccess.getExpressionDeclarationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleExpressionDeclaration_in_entryRuleExpressionDeclaration1236);
+            pushFollow(FOLLOW_ruleExpressionDeclaration_in_entryRuleExpressionDeclaration1107);
             iv_ruleExpressionDeclaration=ruleExpressionDeclaration();
 
             state._fsp--;
 
              current =iv_ruleExpressionDeclaration; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleExpressionDeclaration1246); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExpressionDeclaration1117); 
 
             }
 
@@ -1367,35 +1208,32 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpressionDeclaration"
-    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:590:1: ruleExpressionDeclaration returns [EObject current=null] : ( () otherlv_1= 'ExpressionDeclaration' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) ;
+    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:540:1: ruleExpressionDeclaration returns [EObject current=null] : ( () otherlv_1= 'ExpressionDeclaration' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) ;
     public final EObject ruleExpressionDeclaration() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
+        Token lv_name_2_0=null;
         Token otherlv_3=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
+        Token otherlv_6=null;
         Token otherlv_7=null;
+        Token otherlv_8=null;
         Token otherlv_9=null;
         Token otherlv_10=null;
-        AntlrDatatypeRuleToken lv_name_2_0 = null;
-
-        AntlrDatatypeRuleToken lv_formalParameters_6_0 = null;
-
-        AntlrDatatypeRuleToken lv_formalParameters_8_0 = null;
-
 
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:593:28: ( ( () otherlv_1= 'ExpressionDeclaration' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:594:1: ( () otherlv_1= 'ExpressionDeclaration' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:543:28: ( ( () otherlv_1= 'ExpressionDeclaration' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:544:1: ( () otherlv_1= 'ExpressionDeclaration' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:594:1: ( () otherlv_1= 'ExpressionDeclaration' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:594:2: () otherlv_1= 'ExpressionDeclaration' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )? otherlv_10= '}'
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:544:1: ( () otherlv_1= 'ExpressionDeclaration' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:544:2: () otherlv_1= 'ExpressionDeclaration' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )? otherlv_10= '}'
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:594:2: ()
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:595:5: 
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:544:2: ()
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:545:5: 
             {
 
                     current = forceCreateModelElement(
@@ -1405,34 +1243,29 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleExpressionDeclaration1292); 
+            otherlv_1=(Token)match(input,24,FOLLOW_24_in_ruleExpressionDeclaration1163); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getExpressionDeclarationAccess().getExpressionDeclarationKeyword_1());
                 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:604:1: ( (lv_name_2_0= ruleEString ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:605:1: (lv_name_2_0= ruleEString )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:554:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:555:1: (lv_name_2_0= RULE_ID )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:605:1: (lv_name_2_0= ruleEString )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:606:3: lv_name_2_0= ruleEString
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:555:1: (lv_name_2_0= RULE_ID )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:556:3: lv_name_2_0= RULE_ID
             {
-             
-            	        newCompositeNode(grammarAccess.getExpressionDeclarationAccess().getNameEStringParserRuleCall_2_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleExpressionDeclaration1313);
-            lv_name_2_0=ruleEString();
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExpressionDeclaration1180); 
 
-            state._fsp--;
-
+            			newLeafNode(lv_name_2_0, grammarAccess.getExpressionDeclarationAccess().getNameIDTerminalRuleCall_2_0()); 
+            		
 
             	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getExpressionDeclarationRule());
+            	            current = createModelElement(grammarAccess.getExpressionDeclarationRule());
             	        }
-                   		set(
+                   		setWithLastConsumed(
                    			current, 
                    			"name",
                     		lv_name_2_0, 
-                    		"EString");
-            	        afterParserOrEnumRuleCall();
+                    		"ID");
             	    
 
             }
@@ -1440,104 +1273,84 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleExpressionDeclaration1325); 
+            otherlv_3=(Token)match(input,12,FOLLOW_12_in_ruleExpressionDeclaration1197); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getExpressionDeclarationAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:626:1: (otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}' )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:576:1: (otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA13_0==23) ) {
-                alt13=1;
+            if ( (LA12_0==23) ) {
+                alt12=1;
             }
-            switch (alt13) {
+            switch (alt12) {
                 case 1 :
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:626:3: otherlv_4= 'formalParameters' otherlv_5= '{' ( (lv_formalParameters_6_0= ruleEString ) ) (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )* otherlv_9= '}'
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:576:3: otherlv_4= 'formalParameters' otherlv_5= '{' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}'
                     {
-                    otherlv_4=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleExpressionDeclaration1338); 
+                    otherlv_4=(Token)match(input,23,FOLLOW_23_in_ruleExpressionDeclaration1210); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getExpressionDeclarationAccess().getFormalParametersKeyword_4_0());
                         
-                    otherlv_5=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleExpressionDeclaration1350); 
+                    otherlv_5=(Token)match(input,12,FOLLOW_12_in_ruleExpressionDeclaration1222); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getExpressionDeclarationAccess().getLeftCurlyBracketKeyword_4_1());
                         
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:634:1: ( (lv_formalParameters_6_0= ruleEString ) )
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:635:1: (lv_formalParameters_6_0= ruleEString )
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:584:1: ( (otherlv_6= RULE_ID ) )
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:585:1: (otherlv_6= RULE_ID )
                     {
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:635:1: (lv_formalParameters_6_0= ruleEString )
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:636:3: lv_formalParameters_6_0= ruleEString
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:585:1: (otherlv_6= RULE_ID )
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:586:3: otherlv_6= RULE_ID
                     {
-                     
-                    	        newCompositeNode(grammarAccess.getExpressionDeclarationAccess().getFormalParametersEStringParserRuleCall_4_2_0()); 
-                    	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleExpressionDeclaration1371);
-                    lv_formalParameters_6_0=ruleEString();
 
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getExpressionDeclarationRule());
+                    			if (current==null) {
+                    	            current = createModelElement(grammarAccess.getExpressionDeclarationRule());
                     	        }
-                           		add(
-                           			current, 
-                           			"formalParameters",
-                            		lv_formalParameters_6_0, 
-                            		"EString");
-                    	        afterParserOrEnumRuleCall();
-                    	    
+                            
+                    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExpressionDeclaration1242); 
+
+                    		newLeafNode(otherlv_6, grammarAccess.getExpressionDeclarationAccess().getFormalParametersEObjectCrossReference_4_2_0()); 
+                    	
 
                     }
 
 
                     }
 
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:652:2: (otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) ) )*
-                    loop12:
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:597:2: (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )*
+                    loop11:
                     do {
-                        int alt12=2;
-                        int LA12_0 = input.LA(1);
+                        int alt11=2;
+                        int LA11_0 = input.LA(1);
 
-                        if ( (LA12_0==14) ) {
-                            alt12=1;
+                        if ( (LA11_0==14) ) {
+                            alt11=1;
                         }
 
 
-                        switch (alt12) {
+                        switch (alt11) {
                     	case 1 :
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:652:4: otherlv_7= ',' ( (lv_formalParameters_8_0= ruleEString ) )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:597:4: otherlv_7= ',' ( (otherlv_8= RULE_ID ) )
                     	    {
-                    	    otherlv_7=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleExpressionDeclaration1384); 
+                    	    otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleExpressionDeclaration1255); 
 
                     	        	newLeafNode(otherlv_7, grammarAccess.getExpressionDeclarationAccess().getCommaKeyword_4_3_0());
                     	        
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:656:1: ( (lv_formalParameters_8_0= ruleEString ) )
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:657:1: (lv_formalParameters_8_0= ruleEString )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:601:1: ( (otherlv_8= RULE_ID ) )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:602:1: (otherlv_8= RULE_ID )
                     	    {
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:657:1: (lv_formalParameters_8_0= ruleEString )
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:658:3: lv_formalParameters_8_0= ruleEString
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:602:1: (otherlv_8= RULE_ID )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:603:3: otherlv_8= RULE_ID
                     	    {
-                    	     
-                    	    	        newCompositeNode(grammarAccess.getExpressionDeclarationAccess().getFormalParametersEStringParserRuleCall_4_3_1_0()); 
-                    	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleExpressionDeclaration1405);
-                    	    lv_formalParameters_8_0=ruleEString();
 
-                    	    state._fsp--;
-
-
-                    	    	        if (current==null) {
-                    	    	            current = createModelElementForParent(grammarAccess.getExpressionDeclarationRule());
+                    	    			if (current==null) {
+                    	    	            current = createModelElement(grammarAccess.getExpressionDeclarationRule());
                     	    	        }
-                    	           		add(
-                    	           			current, 
-                    	           			"formalParameters",
-                    	            		lv_formalParameters_8_0, 
-                    	            		"EString");
-                    	    	        afterParserOrEnumRuleCall();
-                    	    	    
+                    	            
+                    	    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExpressionDeclaration1275); 
+
+                    	    		newLeafNode(otherlv_8, grammarAccess.getExpressionDeclarationAccess().getFormalParametersEObjectCrossReference_4_3_1_0()); 
+                    	    	
 
                     	    }
 
@@ -1549,11 +1362,11 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop12;
+                    	    break loop11;
                         }
                     } while (true);
 
-                    otherlv_9=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleExpressionDeclaration1419); 
+                    otherlv_9=(Token)match(input,15,FOLLOW_15_in_ruleExpressionDeclaration1289); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getExpressionDeclarationAccess().getRightCurlyBracketKeyword_4_4());
                         
@@ -1563,7 +1376,7 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_10=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleExpressionDeclaration1433); 
+            otherlv_10=(Token)match(input,15,FOLLOW_15_in_ruleExpressionDeclaration1303); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getExpressionDeclarationAccess().getRightCurlyBracketKeyword_5());
                 
@@ -1591,81 +1404,73 @@ public class InternalBCOoLLibParser extends AbstractInternalAntlrParser {
 
  
 
-    
-    private static class FollowSets000 {
-        public static final BitSet FOLLOW_ruleBCoolLibrary_in_entryRuleBCoolLibrary75 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleBCoolLibrary85 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_11_in_ruleBCoolLibrary131 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleBCoolLibrary152 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleBCoolLibrary164 = new BitSet(new long[]{0x000000000007A000L});
-        public static final BitSet FOLLOW_13_in_ruleBCoolLibrary177 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleBCoolLibrary189 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_ruleExpressionDefinition_in_ruleBCoolLibrary210 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_14_in_ruleBCoolLibrary223 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_ruleExpressionDefinition_in_ruleBCoolLibrary244 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_15_in_ruleBCoolLibrary258 = new BitSet(new long[]{0x0000000000078000L});
-        public static final BitSet FOLLOW_16_in_ruleBCoolLibrary273 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleBCoolLibrary285 = new BitSet(new long[]{0x0000000000200000L});
-        public static final BitSet FOLLOW_ruleRelationDefinition_in_ruleBCoolLibrary306 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_14_in_ruleBCoolLibrary319 = new BitSet(new long[]{0x0000000000200000L});
-        public static final BitSet FOLLOW_ruleRelationDefinition_in_ruleBCoolLibrary340 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_15_in_ruleBCoolLibrary354 = new BitSet(new long[]{0x0000000000068000L});
-        public static final BitSet FOLLOW_17_in_ruleBCoolLibrary369 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleBCoolLibrary381 = new BitSet(new long[]{0x0000000000400000L});
-        public static final BitSet FOLLOW_ruleRelationDeclaration_in_ruleBCoolLibrary402 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_14_in_ruleBCoolLibrary415 = new BitSet(new long[]{0x0000000000400000L});
-        public static final BitSet FOLLOW_ruleRelationDeclaration_in_ruleBCoolLibrary436 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_15_in_ruleBCoolLibrary450 = new BitSet(new long[]{0x0000000000048000L});
-        public static final BitSet FOLLOW_18_in_ruleBCoolLibrary465 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleBCoolLibrary477 = new BitSet(new long[]{0x0000000001000000L});
-        public static final BitSet FOLLOW_ruleExpressionDeclaration_in_ruleBCoolLibrary498 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_14_in_ruleBCoolLibrary511 = new BitSet(new long[]{0x0000000001000000L});
-        public static final BitSet FOLLOW_ruleExpressionDeclaration_in_ruleBCoolLibrary532 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_15_in_ruleBCoolLibrary546 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleBCoolLibrary560 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_entryRuleEString597 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleEString608 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_STRING_in_ruleEString648 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleEString674 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleExpressionDefinition_in_entryRuleExpressionDefinition719 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleExpressionDefinition729 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_19_in_ruleExpressionDefinition766 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleExpressionDefinition778 = new BitSet(new long[]{0x0000000000100000L});
-        public static final BitSet FOLLOW_20_in_ruleExpressionDefinition790 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleExpressionDefinition813 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleExpressionDefinition825 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleRelationDefinition_in_entryRuleRelationDefinition861 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleRelationDefinition871 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_21_in_ruleRelationDefinition908 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleRelationDefinition920 = new BitSet(new long[]{0x0000000000100000L});
-        public static final BitSet FOLLOW_20_in_ruleRelationDefinition932 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRelationDefinition955 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleRelationDefinition967 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleRelationDeclaration_in_entryRuleRelationDeclaration1003 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleRelationDeclaration1013 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_22_in_ruleRelationDeclaration1059 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRelationDeclaration1080 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleRelationDeclaration1092 = new BitSet(new long[]{0x0000000000808000L});
-        public static final BitSet FOLLOW_23_in_ruleRelationDeclaration1105 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleRelationDeclaration1117 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRelationDeclaration1138 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_14_in_ruleRelationDeclaration1151 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRelationDeclaration1172 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_15_in_ruleRelationDeclaration1186 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleRelationDeclaration1200 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleExpressionDeclaration_in_entryRuleExpressionDeclaration1236 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleExpressionDeclaration1246 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_24_in_ruleExpressionDeclaration1292 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleExpressionDeclaration1313 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleExpressionDeclaration1325 = new BitSet(new long[]{0x0000000000808000L});
-        public static final BitSet FOLLOW_23_in_ruleExpressionDeclaration1338 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleExpressionDeclaration1350 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleExpressionDeclaration1371 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_14_in_ruleExpressionDeclaration1384 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleExpressionDeclaration1405 = new BitSet(new long[]{0x000000000000C000L});
-        public static final BitSet FOLLOW_15_in_ruleExpressionDeclaration1419 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleExpressionDeclaration1433 = new BitSet(new long[]{0x0000000000000002L});
-    }
-
+    public static final BitSet FOLLOW_ruleBCoolLibrary_in_entryRuleBCoolLibrary75 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBCoolLibrary85 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_ruleBCoolLibrary131 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBCoolLibrary148 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleBCoolLibrary165 = new BitSet(new long[]{0x000000000007A000L});
+    public static final BitSet FOLLOW_13_in_ruleBCoolLibrary178 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleBCoolLibrary190 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_ruleExpressionDefinition_in_ruleBCoolLibrary211 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_14_in_ruleBCoolLibrary224 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_ruleExpressionDefinition_in_ruleBCoolLibrary245 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_15_in_ruleBCoolLibrary259 = new BitSet(new long[]{0x0000000000078000L});
+    public static final BitSet FOLLOW_16_in_ruleBCoolLibrary274 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleBCoolLibrary286 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_ruleRelationDefinition_in_ruleBCoolLibrary307 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_14_in_ruleBCoolLibrary320 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_ruleRelationDefinition_in_ruleBCoolLibrary341 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_15_in_ruleBCoolLibrary355 = new BitSet(new long[]{0x0000000000068000L});
+    public static final BitSet FOLLOW_17_in_ruleBCoolLibrary370 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleBCoolLibrary382 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleRelationDeclaration_in_ruleBCoolLibrary403 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_14_in_ruleBCoolLibrary416 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_ruleRelationDeclaration_in_ruleBCoolLibrary437 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_15_in_ruleBCoolLibrary451 = new BitSet(new long[]{0x0000000000048000L});
+    public static final BitSet FOLLOW_18_in_ruleBCoolLibrary466 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleBCoolLibrary478 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_ruleExpressionDeclaration_in_ruleBCoolLibrary499 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_14_in_ruleBCoolLibrary512 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_ruleExpressionDeclaration_in_ruleBCoolLibrary533 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_15_in_ruleBCoolLibrary547 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleBCoolLibrary561 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpressionDefinition_in_entryRuleExpressionDefinition597 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExpressionDefinition607 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleExpressionDefinition644 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleExpressionDefinition656 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleExpressionDefinition668 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleExpressionDefinition688 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleExpressionDefinition700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelationDefinition_in_entryRuleRelationDefinition736 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRelationDefinition746 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_ruleRelationDefinition783 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleRelationDefinition795 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleRelationDefinition807 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRelationDefinition827 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleRelationDefinition839 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelationDeclaration_in_entryRuleRelationDeclaration875 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRelationDeclaration885 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleRelationDeclaration931 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRelationDeclaration948 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleRelationDeclaration965 = new BitSet(new long[]{0x0000000000808000L});
+    public static final BitSet FOLLOW_23_in_ruleRelationDeclaration978 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleRelationDeclaration990 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRelationDeclaration1010 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_14_in_ruleRelationDeclaration1023 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRelationDeclaration1043 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_15_in_ruleRelationDeclaration1057 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleRelationDeclaration1071 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpressionDeclaration_in_entryRuleExpressionDeclaration1107 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExpressionDeclaration1117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleExpressionDeclaration1163 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleExpressionDeclaration1180 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleExpressionDeclaration1197 = new BitSet(new long[]{0x0000000000808000L});
+    public static final BitSet FOLLOW_23_in_ruleExpressionDeclaration1210 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleExpressionDeclaration1222 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleExpressionDeclaration1242 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_14_in_ruleExpressionDeclaration1255 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleExpressionDeclaration1275 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_15_in_ruleExpressionDeclaration1289 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleExpressionDeclaration1303 = new BitSet(new long[]{0x0000000000000002L});
 
 }
