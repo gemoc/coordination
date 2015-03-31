@@ -37,7 +37,6 @@ public class BCOoLLibParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getBCoolLibraryAccess().getGroup(), "rule__BCoolLibrary__Group__0");
 					put(grammarAccess.getBCoolLibraryAccess().getGroup_4(), "rule__BCoolLibrary__Group_4__0");
 					put(grammarAccess.getBCoolLibraryAccess().getGroup_4_3(), "rule__BCoolLibrary__Group_4_3__0");

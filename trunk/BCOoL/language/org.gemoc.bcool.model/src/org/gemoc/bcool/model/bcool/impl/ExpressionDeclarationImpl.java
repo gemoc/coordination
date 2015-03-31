@@ -3,13 +3,10 @@
 package org.gemoc.bcool.model.bcool.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.gemoc.bcool.model.bcool.BcoolPackage;
 import org.gemoc.bcool.model.bcool.ExpressionDeclaration;
 
@@ -28,14 +25,14 @@ import org.gemoc.bcool.model.bcool.ExpressionDeclaration;
  */
 public class ExpressionDeclarationImpl extends NamedElementImpl implements ExpressionDeclaration {
 	/**
-	 * The cached value of the '{@link #getFormalParameters() <em>Formal Parameters</em>}' attribute list.
+	 * The cached value of the '{@link #getFormalParameters() <em>Formal Parameters</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFormalParameters()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> formalParameters;
+	protected EList<EObject> formalParameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,9 +58,9 @@ public class ExpressionDeclarationImpl extends NamedElementImpl implements Expre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getFormalParameters() {
+	public EList<EObject> getFormalParameters() {
 		if (formalParameters == null) {
-			formalParameters = new EDataTypeUniqueEList<String>(String.class, this, BcoolPackage.EXPRESSION_DECLARATION__FORMAL_PARAMETERS);
+			formalParameters = new EObjectResolvingEList<EObject>(EObject.class, this, BcoolPackage.EXPRESSION_DECLARATION__FORMAL_PARAMETERS);
 		}
 		return formalParameters;
 	}
@@ -93,7 +90,7 @@ public class ExpressionDeclarationImpl extends NamedElementImpl implements Expre
 		switch (featureID) {
 			case BcoolPackage.EXPRESSION_DECLARATION__FORMAL_PARAMETERS:
 				getFormalParameters().clear();
-				getFormalParameters().addAll((Collection<? extends String>)newValue);
+				getFormalParameters().addAll((Collection<? extends EObject>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,22 +123,6 @@ public class ExpressionDeclarationImpl extends NamedElementImpl implements Expre
 				return formalParameters != null && !formalParameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (formalParameters: ");
-		result.append(formalParameters);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ExpressionDeclarationImpl

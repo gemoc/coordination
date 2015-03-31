@@ -728,7 +728,7 @@ public interface BcoolPackage extends EPackage {
 	int EXPRESSION_DECLARATION__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Formal Parameters</b></em>' attribute list.
+	 * The feature id for the '<em><b>Formal Parameters</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1273,15 +1273,15 @@ public interface BcoolPackage extends EPackage {
 	EClass getExpressionDeclaration();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.gemoc.bcool.model.bcool.ExpressionDeclaration#getFormalParameters <em>Formal Parameters</em>}'.
+	 * Returns the meta object for the reference list '{@link org.gemoc.bcool.model.bcool.ExpressionDeclaration#getFormalParameters <em>Formal Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Formal Parameters</em>'.
+	 * @return the meta object for the reference list '<em>Formal Parameters</em>'.
 	 * @see org.gemoc.bcool.model.bcool.ExpressionDeclaration#getFormalParameters()
 	 * @see #getExpressionDeclaration()
 	 * @generated
 	 */
-	EAttribute getExpressionDeclaration_FormalParameters();
+	EReference getExpressionDeclaration_FormalParameters();
 
 	/**
 	 * Returns the meta object for class '{@link org.gemoc.bcool.model.bcool.RelationDeclaration <em>Relation Declaration</em>}'.
@@ -1700,12 +1700,12 @@ public interface BcoolPackage extends EPackage {
 		EClass EXPRESSION_DECLARATION = eINSTANCE.getExpressionDeclaration();
 
 		/**
-		 * The meta object literal for the '<em><b>Formal Parameters</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Formal Parameters</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXPRESSION_DECLARATION__FORMAL_PARAMETERS = eINSTANCE.getExpressionDeclaration_FormalParameters();
+		EReference EXPRESSION_DECLARATION__FORMAL_PARAMETERS = eINSTANCE.getExpressionDeclaration_FormalParameters();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.bcool.model.bcool.impl.RelationDeclarationImpl <em>Relation Declaration</em>}' class.

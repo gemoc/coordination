@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalBCOoLLibLexer extends Lexer {
-    public static final int RULE_ID=5;
+    public static final int RULE_ID=4;
     public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
@@ -23,7 +23,7 @@ public class InternalBCOoLLibLexer extends Lexer {
     public static final int RULE_SL_COMMENT=8;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__19=19;
-    public static final int RULE_STRING=4;
+    public static final int RULE_STRING=6;
     public static final int T__16=16;
     public static final int T__15=15;
     public static final int T__18=18;
@@ -32,7 +32,7 @@ public class InternalBCOoLLibLexer extends Lexer {
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
-    public static final int RULE_INT=6;
+    public static final int RULE_INT=5;
     public static final int RULE_WS=9;
 
     // delegates
@@ -344,10 +344,10 @@ public class InternalBCOoLLibLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:689:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:689:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:629:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:629:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:689:11: ( '^' )?
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:629:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -356,7 +356,7 @@ public class InternalBCOoLLibLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:689:11: '^'
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:629:11: '^'
                     {
                     match('^'); 
 
@@ -374,7 +374,7 @@ public class InternalBCOoLLibLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:689:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:629:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -423,10 +423,10 @@ public class InternalBCOoLLibLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:691:10: ( ( '0' .. '9' )+ )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:691:12: ( '0' .. '9' )+
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:631:10: ( ( '0' .. '9' )+ )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:631:12: ( '0' .. '9' )+
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:691:12: ( '0' .. '9' )+
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:631:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -440,7 +440,7 @@ public class InternalBCOoLLibLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:691:13: '0' .. '9'
+            	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:631:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -472,10 +472,10 @@ public class InternalBCOoLLibLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -493,10 +493,10 @@ public class InternalBCOoLLibLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -512,23 +512,15 @@ public class InternalBCOoLLibLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:21: '\\\\' .
                     	    {
                     	    match('\\'); 
-                    	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
-                    	        input.consume();
-
-                    	    }
-                    	    else {
-                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
-                    	        recover(mse);
-                    	        throw mse;}
-
+                    	    matchAny(); 
 
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -553,10 +545,10 @@ public class InternalBCOoLLibLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -572,23 +564,15 @@ public class InternalBCOoLLibLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:54: '\\\\' .
                     	    {
                     	    match('\\'); 
-                    	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
-                    	        input.consume();
-
-                    	    }
-                    	    else {
-                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
-                    	        recover(mse);
-                    	        throw mse;}
-
+                    	    matchAny(); 
 
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:693:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:633:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -631,12 +615,12 @@ public class InternalBCOoLLibLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:695:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:695:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:635:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:635:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:695:24: ( options {greedy=false; } : . )*
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:635:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -661,7 +645,7 @@ public class InternalBCOoLLibLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:695:52: .
+            	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:635:52: .
             	    {
             	    matchAny(); 
 
@@ -691,12 +675,12 @@ public class InternalBCOoLLibLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:697:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:697:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:637:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:637:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:697:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:637:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -709,7 +693,7 @@ public class InternalBCOoLLibLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:697:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:637:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -729,7 +713,7 @@ public class InternalBCOoLLibLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:697:40: ( ( '\\r' )? '\\n' )?
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:637:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -738,9 +722,9 @@ public class InternalBCOoLLibLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:697:41: ( '\\r' )? '\\n'
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:637:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:697:41: ( '\\r' )?
+                    // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:637:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -749,7 +733,7 @@ public class InternalBCOoLLibLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:697:41: '\\r'
+                            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:637:41: '\\r'
                             {
                             match('\r'); 
 
@@ -781,10 +765,10 @@ public class InternalBCOoLLibLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:699:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:699:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:639:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:639:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:699:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:639:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -838,8 +822,8 @@ public class InternalBCOoLLibLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:701:16: ( . )
-            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:701:18: .
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:641:16: ( . )
+            // ../org.gemoc.bcool.bcoollib/src-gen/org/gemoc/bcool/parser/antlr/internal/InternalBCOoLLib.g:641:18: .
             {
             matchAny(); 
 
@@ -1013,59 +997,19 @@ public class InternalBCOoLLibLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\1\24\1\uffff\1\24\2\uffff\5\24\1\22\2\uffff\3\22\2\uffff"+
-        "\1\24\2\uffff\1\24\2\uffff\5\24\5\uffff\65\24\1\140\7\24\1\uffff"+
-        "\3\24\1\154\7\24\1\uffff\43\24\1\u0099\10\24\1\uffff\6\24\1\u00a8"+
-        "\3\24\1\u00ac\3\24\1\uffff\1\u00b0\2\24\1\uffff\1\u00b3\1\u00b4"+
-        "\1\24\1\uffff\1\u00b6\1\24\2\uffff\1\u00b8\1\uffff\1\u00b9\2\uffff";
+        "\1\uffff\1\24\1\uffff\1\24\2\uffff\5\24\1\22\2\uffff\3\22\2\uffff\1\24\2\uffff\1\24\2\uffff\5\24\5\uffff\65\24\1\140\7\24\1\uffff\3\24\1\154\7\24\1\uffff\43\24\1\u0099\10\24\1\uffff\6\24\1\u00a8\3\24\1\u00ac\3\24\1\uffff\1\u00b0\2\24\1\uffff\1\u00b3\1\u00b4\1\24\1\uffff\1\u00b6\1\24\2\uffff\1\u00b8\1\uffff\1\u00b9\2\uffff";
     static final String DFA12_eofS =
         "\u00ba\uffff";
     static final String DFA12_minS =
-        "\1\0\1\103\1\uffff\1\170\2\uffff\1\145\1\170\2\145\1\157\1\101\2"+
-        "\uffff\2\0\1\52\2\uffff\1\157\2\uffff\1\160\2\uffff\1\154\1\160"+
-        "\1\146\1\154\1\162\5\uffff\1\157\1\162\1\141\1\162\1\151\1\141\1"+
-        "\155\1\154\1\145\1\164\1\145\1\156\1\164\1\141\1\114\1\163\1\151"+
-        "\1\163\2\151\1\154\1\151\1\163\1\157\1\163\1\164\1\157\1\120\1\142"+
-        "\1\151\1\156\2\151\1\156\1\141\1\162\1\157\1\104\2\157\1\104\1\162"+
-        "\1\141\1\156\1\145\2\156\1\145\1\141\1\162\1\104\1\143\1\104\1\60"+
-        "\1\143\1\155\1\171\1\145\1\151\1\154\1\145\1\uffff\1\151\1\154\1"+
-        "\145\1\60\1\143\1\156\1\141\1\143\1\156\1\141\1\164\1\uffff\1\151"+
-        "\1\154\1\151\1\162\1\151\1\154\1\151\1\162\1\145\1\156\1\141\1\164"+
-        "\1\141\1\156\1\141\1\164\1\141\1\162\1\151\1\162\1\151\1\164\1\151"+
-        "\1\162\1\151\1\164\1\163\1\164\1\141\1\157\1\151\1\164\1\141\1\157"+
-        "\1\151\1\60\1\151\1\164\1\156\1\157\1\151\1\164\1\156\1\157\1\uffff"+
-        "\1\157\1\151\1\163\1\156\1\157\1\151\1\60\2\156\1\157\1\60\1\163"+
-        "\1\156\1\157\1\uffff\1\60\1\163\1\156\1\uffff\2\60\1\156\1\uffff"+
-        "\1\60\1\163\2\uffff\1\60\1\uffff\1\60\2\uffff";
+        "\1\0\1\103\1\uffff\1\170\2\uffff\1\145\1\170\2\145\1\157\1\101\2\uffff\2\0\1\52\2\uffff\1\157\2\uffff\1\160\2\uffff\1\154\1\160\1\146\1\154\1\162\5\uffff\1\157\1\162\1\141\1\162\1\151\1\141\1\155\1\154\1\145\1\164\1\145\1\156\1\164\1\141\1\114\1\163\1\151\1\163\2\151\1\154\1\151\1\163\1\157\1\163\1\164\1\157\1\120\1\142\1\151\1\156\2\151\1\156\1\141\1\162\1\157\1\104\2\157\1\104\1\162\1\141\1\156\1\145\2\156\1\145\1\141\1\162\1\104\1\143\1\104\1\60\1\143\1\155\1\171\1\145\1\151\1\154\1\145\1\uffff\1\151\1\154\1\145\1\60\1\143\1\156\1\141\1\143\1\156\1\141\1\164\1\uffff\1\151\1\154\1\151\1\162\1\151\1\154\1\151\1\162\1\145\1\156\1\141\1\164\1\141\1\156\1\141\1\164\1\141\1\162\1\151\1\162\1\151\1\164\1\151\1\162\1\151\1\164\1\163\1\164\1\141\1\157\1\151\1\164\1\141\1\157\1\151\1\60\1\151\1\164\1\156\1\157\1\151\1\164\1\156\1\157\1\uffff\1\157\1\151\1\163\1\156\1\157\1\151\1\60\2\156\1\157\1\60\1\163\1\156\1\157\1\uffff\1\60\1\163\1\156\1\uffff\2\60\1\156\1\uffff\1\60\1\163\2\uffff\1\60\1\uffff\1\60\2\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\103\1\uffff\1\170\2\uffff\1\145\1\170\2\145\1\157\1\172"+
-        "\2\uffff\2\uffff\1\57\2\uffff\1\157\2\uffff\1\160\2\uffff\1\154"+
-        "\1\160\1\146\1\154\1\162\5\uffff\1\157\1\162\1\141\1\162\1\151\1"+
-        "\141\1\155\1\154\1\145\1\164\1\145\1\156\1\164\1\141\1\114\1\163"+
-        "\1\151\1\163\2\151\1\154\1\151\1\163\1\157\1\163\1\164\1\157\1\120"+
-        "\1\142\1\151\1\156\2\151\1\156\1\141\1\162\1\157\1\104\2\157\1\104"+
-        "\1\162\1\141\1\156\1\145\2\156\1\145\1\141\1\162\1\104\1\146\1\104"+
-        "\1\172\1\146\1\155\1\171\1\145\1\151\1\154\1\145\1\uffff\1\151\1"+
-        "\154\1\145\1\172\1\146\1\156\1\141\1\146\1\156\1\141\1\164\1\uffff"+
-        "\1\151\1\154\1\151\1\162\1\151\1\154\1\151\1\162\1\145\1\156\1\141"+
-        "\1\164\1\141\1\156\1\141\1\164\1\141\1\162\1\151\1\162\1\151\1\164"+
-        "\1\151\1\162\1\151\1\164\1\163\1\164\1\141\1\157\1\151\1\164\1\141"+
-        "\1\157\1\151\1\172\1\151\1\164\1\156\1\157\1\151\1\164\1\156\1\157"+
-        "\1\uffff\1\157\1\151\1\163\1\156\1\157\1\151\1\172\2\156\1\157\1"+
-        "\172\1\163\1\156\1\157\1\uffff\1\172\1\163\1\156\1\uffff\2\172\1"+
-        "\156\1\uffff\1\172\1\163\2\uffff\1\172\1\uffff\1\172\2\uffff";
+        "\1\uffff\1\103\1\uffff\1\170\2\uffff\1\145\1\170\2\145\1\157\1\172\2\uffff\2\uffff\1\57\2\uffff\1\157\2\uffff\1\160\2\uffff\1\154\1\160\1\146\1\154\1\162\5\uffff\1\157\1\162\1\141\1\162\1\151\1\141\1\155\1\154\1\145\1\164\1\145\1\156\1\164\1\141\1\114\1\163\1\151\1\163\2\151\1\154\1\151\1\163\1\157\1\163\1\164\1\157\1\120\1\142\1\151\1\156\2\151\1\156\1\141\1\162\1\157\1\104\2\157\1\104\1\162\1\141\1\156\1\145\2\156\1\145\1\141\1\162\1\104\1\146\1\104\1\172\1\146\1\155\1\171\1\145\1\151\1\154\1\145\1\uffff\1\151\1\154\1\145\1\172\1\146\1\156\1\141\1\146\1\156\1\141\1\164\1\uffff\1\151\1\154\1\151\1\162\1\151\1\154\1\151\1\162\1\145\1\156\1\141\1\164\1\141\1\156\1\141\1\164\1\141\1\162\1\151\1\162\1\151\1\164\1\151\1\162\1\151\1\164\1\163\1\164\1\141\1\157\1\151\1\164\1\141\1\157\1\151\1\172\1\151\1\164\1\156\1\157\1\151\1\164\1\156\1\157\1\uffff\1\157\1\151\1\163\1\156\1\157\1\151\1\172\2\156\1\157\1\172\1\163\1\156\1\157\1\uffff\1\172\1\163\1\156\1\uffff\2\172\1\156\1\uffff\1\172\1\163\2\uffff\1\172\1\uffff\1\172\2\uffff";
     static final String DFA12_acceptS =
-        "\2\uffff\1\2\1\uffff\1\4\1\5\6\uffff\1\17\1\20\3\uffff\1\24\1\25"+
-        "\1\uffff\1\17\1\2\1\uffff\1\4\1\5\5\uffff\1\20\1\21\1\22\1\23\1"+
-        "\24\75\uffff\1\12\13\uffff\1\1\54\uffff\1\15\16\uffff\1\13\3\uffff"+
-        "\1\6\3\uffff\1\14\2\uffff\1\7\1\11\1\uffff\1\3\1\uffff\1\16\1\10";
+        "\2\uffff\1\2\1\uffff\1\4\1\5\6\uffff\1\17\1\20\3\uffff\1\24\1\25\1\uffff\1\17\1\2\1\uffff\1\4\1\5\5\uffff\1\20\1\21\1\22\1\23\1\24\75\uffff\1\12\13\uffff\1\1\54\uffff\1\15\16\uffff\1\13\3\uffff\1\6\3\uffff\1\14\2\uffff\1\7\1\11\1\uffff\1\3\1\uffff\1\16\1\10";
     static final String DFA12_specialS =
         "\1\2\15\uffff\1\1\1\0\u00aa\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\22\2\21\2\22\1\21\22\22\1\21\1\22\1\16\4\22\1\17\4\22\1"+
-            "\4\2\22\1\20\12\15\7\22\1\14\1\1\2\14\1\7\14\14\1\11\10\14\3"+
-            "\22\1\13\1\14\1\22\3\14\1\10\1\3\1\12\13\14\1\6\10\14\1\2\1"+
-            "\22\1\5\uff82\22",
+            "\11\22\2\21\2\22\1\21\22\22\1\21\1\22\1\16\4\22\1\17\4\22\1\4\2\22\1\20\12\15\7\22\1\14\1\1\2\14\1\7\14\14\1\11\10\14\3\22\1\13\1\14\1\22\3\14\1\10\1\3\1\12\13\14\1\6\10\14\1\2\1\22\1\5\uff82\22",
             "\1\23",
             "",
             "\1\26",
@@ -1269,7 +1213,7 @@ public class InternalBCOoLLibLexer extends Lexer {
         }
     }
 
-    static class DFA12 extends DFA {
+    class DFA12 extends DFA {
 
         public DFA12(BaseRecognizer recognizer) {
             this.recognizer = recognizer;

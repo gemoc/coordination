@@ -24,7 +24,7 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBCoolLibraryAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cBCoolLibraryKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cExpressionDefinitionsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
@@ -69,18 +69,18 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//BCoolLibrary:
-		//	{BCoolLibrary} "BCoolLibrary" name=EString "{" ("expressionDefinitions" "{"
-		//	expressionDefinitions+=ExpressionDefinition ("," expressionDefinitions+=ExpressionDefinition)* "}")?
-		//	("relationDefinitions" "{" relationDefinitions+=RelationDefinition ("," relationDefinitions+=RelationDefinition)*
-		//	"}")? ("relationDeclarations" "{" relationDeclarations+=RelationDeclaration (","
-		//	relationDeclarations+=RelationDeclaration)* "}")? ("expressionDeclarations" "{"
-		//	expressionDeclarations+=ExpressionDeclaration ("," expressionDeclarations+=ExpressionDeclaration)* "}")? "}";
+		//	{BCoolLibrary} "BCoolLibrary" name=ID "{" ("expressionDefinitions" "{" expressionDefinitions+=ExpressionDefinition
+		//	("," expressionDefinitions+=ExpressionDefinition)* "}")? ("relationDefinitions" "{"
+		//	relationDefinitions+=RelationDefinition ("," relationDefinitions+=RelationDefinition)* "}")? ("relationDeclarations"
+		//	"{" relationDeclarations+=RelationDeclaration ("," relationDeclarations+=RelationDeclaration)* "}")?
+		//	("expressionDeclarations" "{" expressionDeclarations+=ExpressionDeclaration (","
+		//	expressionDeclarations+=ExpressionDeclaration)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{BCoolLibrary} "BCoolLibrary" name=EString "{" ("expressionDefinitions" "{" expressionDefinitions+=ExpressionDefinition
-		//("," expressionDefinitions+=ExpressionDefinition)* "}")? ("relationDefinitions" "{"
-		//relationDefinitions+=RelationDefinition ("," relationDefinitions+=RelationDefinition)* "}")? ("relationDeclarations"
-		//"{" relationDeclarations+=RelationDeclaration ("," relationDeclarations+=RelationDeclaration)* "}")?
+		//{BCoolLibrary} "BCoolLibrary" name=ID "{" ("expressionDefinitions" "{" expressionDefinitions+=ExpressionDefinition (","
+		//expressionDefinitions+=ExpressionDefinition)* "}")? ("relationDefinitions" "{" relationDefinitions+=RelationDefinition
+		//("," relationDefinitions+=RelationDefinition)* "}")? ("relationDeclarations" "{"
+		//relationDeclarations+=RelationDeclaration ("," relationDeclarations+=RelationDeclaration)* "}")?
 		//("expressionDeclarations" "{" expressionDeclarations+=ExpressionDeclaration (","
 		//expressionDeclarations+=ExpressionDeclaration)* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -91,11 +91,11 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		//"BCoolLibrary"
 		public Keyword getBCoolLibraryKeyword_1() { return cBCoolLibraryKeyword_1; }
 
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
@@ -227,26 +227,6 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 
-	public class EStringElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EString");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//EString returns ecore::EString:
-		//	STRING | ID;
-		public ParserRule getRule() { return rule; }
-
-		//STRING | ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
-
-		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
-	}
-
 	public class ExpressionDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ExpressionDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -255,14 +235,14 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDefinitionKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDefinitionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cDefinitionExpressionDeclarationCrossReference_3_0 = (CrossReference)cDefinitionAssignment_3.eContents().get(0);
-		private final RuleCall cDefinitionExpressionDeclarationEStringParserRuleCall_3_0_1 = (RuleCall)cDefinitionExpressionDeclarationCrossReference_3_0.eContents().get(1);
+		private final RuleCall cDefinitionExpressionDeclarationIDTerminalRuleCall_3_0_1 = (RuleCall)cDefinitionExpressionDeclarationCrossReference_3_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ExpressionDefinition:
-		//	"ExpressionDefinition" "{" "definition" definition=[ExpressionDeclaration|EString] "}";
+		//	"ExpressionDefinition" "{" "definition" definition=[ExpressionDeclaration] "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ExpressionDefinition" "{" "definition" definition=[ExpressionDeclaration|EString] "}"
+		//"ExpressionDefinition" "{" "definition" definition=[ExpressionDeclaration] "}"
 		public Group getGroup() { return cGroup; }
 
 		//"ExpressionDefinition"
@@ -274,14 +254,14 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		//"definition"
 		public Keyword getDefinitionKeyword_2() { return cDefinitionKeyword_2; }
 
-		//definition=[ExpressionDeclaration|EString]
+		//definition=[ExpressionDeclaration]
 		public Assignment getDefinitionAssignment_3() { return cDefinitionAssignment_3; }
 
-		//[ExpressionDeclaration|EString]
+		//[ExpressionDeclaration]
 		public CrossReference getDefinitionExpressionDeclarationCrossReference_3_0() { return cDefinitionExpressionDeclarationCrossReference_3_0; }
 
-		//EString
-		public RuleCall getDefinitionExpressionDeclarationEStringParserRuleCall_3_0_1() { return cDefinitionExpressionDeclarationEStringParserRuleCall_3_0_1; }
+		//ID
+		public RuleCall getDefinitionExpressionDeclarationIDTerminalRuleCall_3_0_1() { return cDefinitionExpressionDeclarationIDTerminalRuleCall_3_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -295,14 +275,14 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDefinitionKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDefinitionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cDefinitionRelationDeclarationCrossReference_3_0 = (CrossReference)cDefinitionAssignment_3.eContents().get(0);
-		private final RuleCall cDefinitionRelationDeclarationEStringParserRuleCall_3_0_1 = (RuleCall)cDefinitionRelationDeclarationCrossReference_3_0.eContents().get(1);
+		private final RuleCall cDefinitionRelationDeclarationIDTerminalRuleCall_3_0_1 = (RuleCall)cDefinitionRelationDeclarationCrossReference_3_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//RelationDefinition:
-		//	"RelationDefinition" "{" "definition" definition=[RelationDeclaration|EString] "}";
+		//	"RelationDefinition" "{" "definition" definition=[RelationDeclaration] "}";
 		public ParserRule getRule() { return rule; }
 
-		//"RelationDefinition" "{" "definition" definition=[RelationDeclaration|EString] "}"
+		//"RelationDefinition" "{" "definition" definition=[RelationDeclaration] "}"
 		public Group getGroup() { return cGroup; }
 
 		//"RelationDefinition"
@@ -314,14 +294,14 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		//"definition"
 		public Keyword getDefinitionKeyword_2() { return cDefinitionKeyword_2; }
 
-		//definition=[RelationDeclaration|EString]
+		//definition=[RelationDeclaration]
 		public Assignment getDefinitionAssignment_3() { return cDefinitionAssignment_3; }
 
-		//[RelationDeclaration|EString]
+		//[RelationDeclaration]
 		public CrossReference getDefinitionRelationDeclarationCrossReference_3_0() { return cDefinitionRelationDeclarationCrossReference_3_0; }
 
-		//EString
-		public RuleCall getDefinitionRelationDeclarationEStringParserRuleCall_3_0_1() { return cDefinitionRelationDeclarationEStringParserRuleCall_3_0_1; }
+		//ID
+		public RuleCall getDefinitionRelationDeclarationIDTerminalRuleCall_3_0_1() { return cDefinitionRelationDeclarationIDTerminalRuleCall_3_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -333,27 +313,29 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cRelationDeclarationAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cRelationDeclarationKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cFormalParametersKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		private final Assignment cFormalParametersAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cFormalParametersEStringParserRuleCall_4_2_0 = (RuleCall)cFormalParametersAssignment_4_2.eContents().get(0);
+		private final CrossReference cFormalParametersEObjectCrossReference_4_2_0 = (CrossReference)cFormalParametersAssignment_4_2.eContents().get(0);
+		private final RuleCall cFormalParametersEObjectIDTerminalRuleCall_4_2_0_1 = (RuleCall)cFormalParametersEObjectCrossReference_4_2_0.eContents().get(1);
 		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
 		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
 		private final Assignment cFormalParametersAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
-		private final RuleCall cFormalParametersEStringParserRuleCall_4_3_1_0 = (RuleCall)cFormalParametersAssignment_4_3_1.eContents().get(0);
+		private final CrossReference cFormalParametersEObjectCrossReference_4_3_1_0 = (CrossReference)cFormalParametersAssignment_4_3_1.eContents().get(0);
+		private final RuleCall cFormalParametersEObjectIDTerminalRuleCall_4_3_1_0_1 = (RuleCall)cFormalParametersEObjectCrossReference_4_3_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//RelationDeclaration:
-		//	{RelationDeclaration} "RelationDeclaration" name=EString "{" ("formalParameters" "{" formalParameters+=EString (","
-		//	formalParameters+=EString)* "}")? "}";
+		//	{RelationDeclaration} "RelationDeclaration" name=ID "{" ("formalParameters" "{" formalParameters+=[ecore::EObject]
+		//	("," formalParameters+=[ecore::EObject])* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{RelationDeclaration} "RelationDeclaration" name=EString "{" ("formalParameters" "{" formalParameters+=EString (","
-		//formalParameters+=EString)* "}")? "}"
+		//{RelationDeclaration} "RelationDeclaration" name=ID "{" ("formalParameters" "{" formalParameters+=[ecore::EObject] (","
+		//formalParameters+=[ecore::EObject])* "}")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{RelationDeclaration}
@@ -362,16 +344,16 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		//"RelationDeclaration"
 		public Keyword getRelationDeclarationKeyword_1() { return cRelationDeclarationKeyword_1; }
 
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("formalParameters" "{" formalParameters+=EString ("," formalParameters+=EString)* "}")?
+		//("formalParameters" "{" formalParameters+=[ecore::EObject] ("," formalParameters+=[ecore::EObject])* "}")?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"formalParameters"
@@ -380,23 +362,29 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
 
-		//formalParameters+=EString
+		//formalParameters+=[ecore::EObject]
 		public Assignment getFormalParametersAssignment_4_2() { return cFormalParametersAssignment_4_2; }
 
-		//EString
-		public RuleCall getFormalParametersEStringParserRuleCall_4_2_0() { return cFormalParametersEStringParserRuleCall_4_2_0; }
+		//[ecore::EObject]
+		public CrossReference getFormalParametersEObjectCrossReference_4_2_0() { return cFormalParametersEObjectCrossReference_4_2_0; }
 
-		//("," formalParameters+=EString)*
+		//ID
+		public RuleCall getFormalParametersEObjectIDTerminalRuleCall_4_2_0_1() { return cFormalParametersEObjectIDTerminalRuleCall_4_2_0_1; }
+
+		//("," formalParameters+=[ecore::EObject])*
 		public Group getGroup_4_3() { return cGroup_4_3; }
 
 		//","
 		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
 
-		//formalParameters+=EString
+		//formalParameters+=[ecore::EObject]
 		public Assignment getFormalParametersAssignment_4_3_1() { return cFormalParametersAssignment_4_3_1; }
 
-		//EString
-		public RuleCall getFormalParametersEStringParserRuleCall_4_3_1_0() { return cFormalParametersEStringParserRuleCall_4_3_1_0; }
+		//[ecore::EObject]
+		public CrossReference getFormalParametersEObjectCrossReference_4_3_1_0() { return cFormalParametersEObjectCrossReference_4_3_1_0; }
+
+		//ID
+		public RuleCall getFormalParametersEObjectIDTerminalRuleCall_4_3_1_0_1() { return cFormalParametersEObjectIDTerminalRuleCall_4_3_1_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
@@ -411,27 +399,29 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cExpressionDeclarationAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cExpressionDeclarationKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cFormalParametersKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		private final Assignment cFormalParametersAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cFormalParametersEStringParserRuleCall_4_2_0 = (RuleCall)cFormalParametersAssignment_4_2.eContents().get(0);
+		private final CrossReference cFormalParametersEObjectCrossReference_4_2_0 = (CrossReference)cFormalParametersAssignment_4_2.eContents().get(0);
+		private final RuleCall cFormalParametersEObjectIDTerminalRuleCall_4_2_0_1 = (RuleCall)cFormalParametersEObjectCrossReference_4_2_0.eContents().get(1);
 		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
 		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
 		private final Assignment cFormalParametersAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
-		private final RuleCall cFormalParametersEStringParserRuleCall_4_3_1_0 = (RuleCall)cFormalParametersAssignment_4_3_1.eContents().get(0);
+		private final CrossReference cFormalParametersEObjectCrossReference_4_3_1_0 = (CrossReference)cFormalParametersAssignment_4_3_1.eContents().get(0);
+		private final RuleCall cFormalParametersEObjectIDTerminalRuleCall_4_3_1_0_1 = (RuleCall)cFormalParametersEObjectCrossReference_4_3_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ExpressionDeclaration:
-		//	{ExpressionDeclaration} "ExpressionDeclaration" name=EString "{" ("formalParameters" "{" formalParameters+=EString
-		//	("," formalParameters+=EString)* "}")? "}";
+		//	{ExpressionDeclaration} "ExpressionDeclaration" name=ID "{" ("formalParameters" "{" formalParameters+=[ecore::EObject]
+		//	("," formalParameters+=[ecore::EObject])* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{ExpressionDeclaration} "ExpressionDeclaration" name=EString "{" ("formalParameters" "{" formalParameters+=EString (","
-		//formalParameters+=EString)* "}")? "}"
+		//{ExpressionDeclaration} "ExpressionDeclaration" name=ID "{" ("formalParameters" "{" formalParameters+=[ecore::EObject]
+		//("," formalParameters+=[ecore::EObject])* "}")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{ExpressionDeclaration}
@@ -440,16 +430,16 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		//"ExpressionDeclaration"
 		public Keyword getExpressionDeclarationKeyword_1() { return cExpressionDeclarationKeyword_1; }
 
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("formalParameters" "{" formalParameters+=EString ("," formalParameters+=EString)* "}")?
+		//("formalParameters" "{" formalParameters+=[ecore::EObject] ("," formalParameters+=[ecore::EObject])* "}")?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"formalParameters"
@@ -458,23 +448,29 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
 
-		//formalParameters+=EString
+		//formalParameters+=[ecore::EObject]
 		public Assignment getFormalParametersAssignment_4_2() { return cFormalParametersAssignment_4_2; }
 
-		//EString
-		public RuleCall getFormalParametersEStringParserRuleCall_4_2_0() { return cFormalParametersEStringParserRuleCall_4_2_0; }
+		//[ecore::EObject]
+		public CrossReference getFormalParametersEObjectCrossReference_4_2_0() { return cFormalParametersEObjectCrossReference_4_2_0; }
 
-		//("," formalParameters+=EString)*
+		//ID
+		public RuleCall getFormalParametersEObjectIDTerminalRuleCall_4_2_0_1() { return cFormalParametersEObjectIDTerminalRuleCall_4_2_0_1; }
+
+		//("," formalParameters+=[ecore::EObject])*
 		public Group getGroup_4_3() { return cGroup_4_3; }
 
 		//","
 		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
 
-		//formalParameters+=EString
+		//formalParameters+=[ecore::EObject]
 		public Assignment getFormalParametersAssignment_4_3_1() { return cFormalParametersAssignment_4_3_1; }
 
-		//EString
-		public RuleCall getFormalParametersEStringParserRuleCall_4_3_1_0() { return cFormalParametersEStringParserRuleCall_4_3_1_0; }
+		//[ecore::EObject]
+		public CrossReference getFormalParametersEObjectCrossReference_4_3_1_0() { return cFormalParametersEObjectCrossReference_4_3_1_0; }
+
+		//ID
+		public RuleCall getFormalParametersEObjectIDTerminalRuleCall_4_3_1_0_1() { return cFormalParametersEObjectIDTerminalRuleCall_4_3_1_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
@@ -484,22 +480,26 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private BCoolLibraryElements pBCoolLibrary;
-	private EStringElements pEString;
-	private ExpressionDefinitionElements pExpressionDefinition;
-	private RelationDefinitionElements pRelationDefinition;
-	private RelationDeclarationElements pRelationDeclaration;
-	private ExpressionDeclarationElements pExpressionDeclaration;
+	private final BCoolLibraryElements pBCoolLibrary;
+	private final ExpressionDefinitionElements pExpressionDefinition;
+	private final RelationDefinitionElements pRelationDefinition;
+	private final RelationDeclarationElements pRelationDeclaration;
+	private final ExpressionDeclarationElements pExpressionDeclaration;
 	
 	private final Grammar grammar;
 
-	private TerminalsGrammarAccess gaTerminals;
+	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
 	public BCOoLLibGrammarAccess(GrammarProvider grammarProvider,
 		TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pBCoolLibrary = new BCoolLibraryElements();
+		this.pExpressionDefinition = new ExpressionDefinitionElements();
+		this.pRelationDefinition = new RelationDefinitionElements();
+		this.pRelationDeclaration = new RelationDeclarationElements();
+		this.pExpressionDeclaration = new ExpressionDeclarationElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -530,34 +530,24 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//BCoolLibrary:
-	//	{BCoolLibrary} "BCoolLibrary" name=EString "{" ("expressionDefinitions" "{"
-	//	expressionDefinitions+=ExpressionDefinition ("," expressionDefinitions+=ExpressionDefinition)* "}")?
-	//	("relationDefinitions" "{" relationDefinitions+=RelationDefinition ("," relationDefinitions+=RelationDefinition)*
-	//	"}")? ("relationDeclarations" "{" relationDeclarations+=RelationDeclaration (","
-	//	relationDeclarations+=RelationDeclaration)* "}")? ("expressionDeclarations" "{"
-	//	expressionDeclarations+=ExpressionDeclaration ("," expressionDeclarations+=ExpressionDeclaration)* "}")? "}";
+	//	{BCoolLibrary} "BCoolLibrary" name=ID "{" ("expressionDefinitions" "{" expressionDefinitions+=ExpressionDefinition
+	//	("," expressionDefinitions+=ExpressionDefinition)* "}")? ("relationDefinitions" "{"
+	//	relationDefinitions+=RelationDefinition ("," relationDefinitions+=RelationDefinition)* "}")? ("relationDeclarations"
+	//	"{" relationDeclarations+=RelationDeclaration ("," relationDeclarations+=RelationDeclaration)* "}")?
+	//	("expressionDeclarations" "{" expressionDeclarations+=ExpressionDeclaration (","
+	//	expressionDeclarations+=ExpressionDeclaration)* "}")? "}";
 	public BCoolLibraryElements getBCoolLibraryAccess() {
-		return (pBCoolLibrary != null) ? pBCoolLibrary : (pBCoolLibrary = new BCoolLibraryElements());
+		return pBCoolLibrary;
 	}
 	
 	public ParserRule getBCoolLibraryRule() {
 		return getBCoolLibraryAccess().getRule();
 	}
 
-	//EString returns ecore::EString:
-	//	STRING | ID;
-	public EStringElements getEStringAccess() {
-		return (pEString != null) ? pEString : (pEString = new EStringElements());
-	}
-	
-	public ParserRule getEStringRule() {
-		return getEStringAccess().getRule();
-	}
-
 	//ExpressionDefinition:
-	//	"ExpressionDefinition" "{" "definition" definition=[ExpressionDeclaration|EString] "}";
+	//	"ExpressionDefinition" "{" "definition" definition=[ExpressionDeclaration] "}";
 	public ExpressionDefinitionElements getExpressionDefinitionAccess() {
-		return (pExpressionDefinition != null) ? pExpressionDefinition : (pExpressionDefinition = new ExpressionDefinitionElements());
+		return pExpressionDefinition;
 	}
 	
 	public ParserRule getExpressionDefinitionRule() {
@@ -565,9 +555,9 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RelationDefinition:
-	//	"RelationDefinition" "{" "definition" definition=[RelationDeclaration|EString] "}";
+	//	"RelationDefinition" "{" "definition" definition=[RelationDeclaration] "}";
 	public RelationDefinitionElements getRelationDefinitionAccess() {
-		return (pRelationDefinition != null) ? pRelationDefinition : (pRelationDefinition = new RelationDefinitionElements());
+		return pRelationDefinition;
 	}
 	
 	public ParserRule getRelationDefinitionRule() {
@@ -575,10 +565,10 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RelationDeclaration:
-	//	{RelationDeclaration} "RelationDeclaration" name=EString "{" ("formalParameters" "{" formalParameters+=EString (","
-	//	formalParameters+=EString)* "}")? "}";
+	//	{RelationDeclaration} "RelationDeclaration" name=ID "{" ("formalParameters" "{" formalParameters+=[ecore::EObject]
+	//	("," formalParameters+=[ecore::EObject])* "}")? "}";
 	public RelationDeclarationElements getRelationDeclarationAccess() {
-		return (pRelationDeclaration != null) ? pRelationDeclaration : (pRelationDeclaration = new RelationDeclarationElements());
+		return pRelationDeclaration;
 	}
 	
 	public ParserRule getRelationDeclarationRule() {
@@ -586,10 +576,10 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExpressionDeclaration:
-	//	{ExpressionDeclaration} "ExpressionDeclaration" name=EString "{" ("formalParameters" "{" formalParameters+=EString
-	//	("," formalParameters+=EString)* "}")? "}";
+	//	{ExpressionDeclaration} "ExpressionDeclaration" name=ID "{" ("formalParameters" "{" formalParameters+=[ecore::EObject]
+	//	("," formalParameters+=[ecore::EObject])* "}")? "}";
 	public ExpressionDeclarationElements getExpressionDeclarationAccess() {
-		return (pExpressionDeclaration != null) ? pExpressionDeclaration : (pExpressionDeclaration = new ExpressionDeclarationElements());
+		return pExpressionDeclaration;
 	}
 	
 	public ParserRule getExpressionDeclarationRule() {
@@ -609,8 +599,8 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
-	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	//	"\"" ("\\" . / * 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' * / | !("\\" | "\""))* "\"" | "\'" ("\\" .
+	//	/ * 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' * / | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 
