@@ -2,12 +2,18 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>fr.inria.aoste.timesquare.ecl.framework</groupId>
-    <artifactId>fr.inria.aoste.timesquare.ecl.parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../../deployment/fr.inria.aoste.timesquare.ecl.build</relativePath>
-  </parent>
-  <artifactId>org.gemoc.cool.transformation.qvto2ccsl.ui</artifactId>
+   <artifactId>org.gemoc.bcool.transformation.qvto2ccsl.ui</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
+  
+    <parent>
+	<relativePath>../../bcool-deployment/org.gemoc.bcool.build</relativePath>
+  	<groupId>org.gemoc.bcool.framework</groupId>
+  	<artifactId>org.gemoc.bcool.build</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+
+
+
 </project>
