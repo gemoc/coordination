@@ -5,11 +5,12 @@ Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
  sion="2.3.0"
 Bundle-Vendor: Aoste INRIA/I3S
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 1.0.0.201401191422
-Bundle-Name: Ui
-Bundle-Activator: org.gemoc.cool.transformation.qvto2ccsl.ui.Activator
+Bundle-Version: 1.0.0.201503311134
+Bundle-Name: cool qvto to ccsl Ui
 Bundle-ManifestVersion: 2
-Bundle-SymbolicName: org.gemoc.cool.transformation.qvto2ccsl.ui; singl
+Bundle-Activator: org.gemoc.bcool.transformation.qvto2ccsl.ui.Activato
+ r
+Bundle-SymbolicName: org.gemoc.bcool.transformation.qvto2ccsl.ui;singl
  eton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,JavaSE-1.7
 
