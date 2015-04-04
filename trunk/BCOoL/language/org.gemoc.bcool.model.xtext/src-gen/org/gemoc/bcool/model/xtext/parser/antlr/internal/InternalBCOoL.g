@@ -665,10 +665,12 @@ ruleEventExpression returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getEventExpressionRule());
 	        }
         }
-	otherlv_2=RULE_ID
-	{
-		newLeafNode(otherlv_2, grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationCrossReference_2_0()); 
-	}
+		{ 
+	        newCompositeNode(grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationCrossReference_2_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_3='(' 
@@ -699,10 +701,12 @@ ruleEventExpression returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getEventExpressionRule());
 	        }
         }
-	otherlv_6=RULE_ID
-	{
-		newLeafNode(otherlv_6, grammarAccess.getEventExpressionAccess().getActualParametersEObjectCrossReference_4_1_1_0()); 
-	}
+		{ 
+	        newCompositeNode(grammarAccess.getEventExpressionAccess().getActualParametersEObjectCrossReference_4_1_1_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 ))*)?	otherlv_7=')' 
@@ -776,10 +780,12 @@ ruleEventRelation returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getEventRelationRule());
 	        }
         }
-	otherlv_0=RULE_ID
-	{
-		newLeafNode(otherlv_0, grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationCrossReference_0_0()); 
-	}
+		{ 
+	        newCompositeNode(grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationCrossReference_0_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_1='(' 

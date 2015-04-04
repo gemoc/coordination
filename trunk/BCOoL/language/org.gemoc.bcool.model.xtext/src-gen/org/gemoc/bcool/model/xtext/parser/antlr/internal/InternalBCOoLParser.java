@@ -1668,27 +1668,25 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEventExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:635:1: ruleEventExpression returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (otherlv_2= RULE_ID ) ) otherlv_3= '(' ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* )? otherlv_7= ')' ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:635:1: ruleEventExpression returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( ( ruleQualifiedName ) ) otherlv_3= '(' ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_7= ')' ) ;
     public final EObject ruleEventExpression() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_0_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
         Token otherlv_3=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
-        Token otherlv_6=null;
         Token otherlv_7=null;
 
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:638:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (otherlv_2= RULE_ID ) ) otherlv_3= '(' ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* )? otherlv_7= ')' ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:639:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (otherlv_2= RULE_ID ) ) otherlv_3= '(' ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* )? otherlv_7= ')' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:638:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( ( ruleQualifiedName ) ) otherlv_3= '(' ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_7= ')' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:639:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( ( ruleQualifiedName ) ) otherlv_3= '(' ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_7= ')' )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:639:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (otherlv_2= RULE_ID ) ) otherlv_3= '(' ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* )? otherlv_7= ')' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:639:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (otherlv_2= RULE_ID ) ) otherlv_3= '(' ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* )? otherlv_7= ')'
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:639:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( ( ruleQualifiedName ) ) otherlv_3= '(' ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_7= ')' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:639:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( ( ruleQualifiedName ) ) otherlv_3= '(' ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_7= ')'
             {
             // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:639:2: ( (lv_name_0_0= RULE_ID ) )
             // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:640:1: (lv_name_0_0= RULE_ID )
@@ -1726,11 +1724,11 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getEventExpressionAccess().getEqualsSignKeyword_1());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:661:1: ( (otherlv_2= RULE_ID ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:662:1: (otherlv_2= RULE_ID )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:661:1: ( ( ruleQualifiedName ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:662:1: ( ruleQualifiedName )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:662:1: (otherlv_2= RULE_ID )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:663:3: otherlv_2= RULE_ID
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:662:1: ( ruleQualifiedName )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:663:3: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
 
@@ -1739,11 +1737,20 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEventExpression1304); if (state.failed) return current;
             if ( state.backtracking==0 ) {
+               
+              	        newCompositeNode(grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationCrossReference_2_0()); 
+              	    
+            }
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleEventExpression1307);
+            ruleQualifiedName();
 
-              		newLeafNode(otherlv_2, grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationCrossReference_2_0()); 
-              	
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               
+              	        afterParserOrEnumRuleCall();
+              	    
             }
 
             }
@@ -1751,13 +1758,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleEventExpression1316); if (state.failed) return current;
+            otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleEventExpression1319); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getEventExpressionAccess().getLeftParenthesisKeyword_3());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:678:1: ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )* )?
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:680:1: ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( ( ruleQualifiedName ) ) )* )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1766,13 +1773,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:678:2: ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )*
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:680:2: ( (otherlv_4= RULE_ID ) ) (otherlv_5= ',' ( ( ruleQualifiedName ) ) )*
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:678:2: ( (otherlv_4= RULE_ID ) )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:679:1: (otherlv_4= RULE_ID )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:680:2: ( (otherlv_4= RULE_ID ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:681:1: (otherlv_4= RULE_ID )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:679:1: (otherlv_4= RULE_ID )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:680:3: otherlv_4= RULE_ID
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:681:1: (otherlv_4= RULE_ID )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:682:3: otherlv_4= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
@@ -1781,7 +1788,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       	        }
                               
                     }
-                    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEventExpression1337); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEventExpression1340); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		newLeafNode(otherlv_4, grammarAccess.getEventExpressionAccess().getActualParametersEObjectCrossReference_4_0_0()); 
@@ -1793,7 +1800,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:691:2: (otherlv_5= ',' ( (otherlv_6= RULE_ID ) ) )*
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:693:2: (otherlv_5= ',' ( ( ruleQualifiedName ) ) )*
                     loop10:
                     do {
                         int alt10=2;
@@ -1806,19 +1813,19 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:691:4: otherlv_5= ',' ( (otherlv_6= RULE_ID ) )
+                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:693:4: otherlv_5= ',' ( ( ruleQualifiedName ) )
                     	    {
-                    	    otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleEventExpression1350); if (state.failed) return current;
+                    	    otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleEventExpression1353); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_5, grammarAccess.getEventExpressionAccess().getCommaKeyword_4_1_0());
                     	          
                     	    }
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:695:1: ( (otherlv_6= RULE_ID ) )
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:696:1: (otherlv_6= RULE_ID )
+                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:697:1: ( ( ruleQualifiedName ) )
+                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:698:1: ( ruleQualifiedName )
                     	    {
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:696:1: (otherlv_6= RULE_ID )
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:697:3: otherlv_6= RULE_ID
+                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:698:1: ( ruleQualifiedName )
+                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:699:3: ruleQualifiedName
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -1827,11 +1834,20 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     	      	        }
                     	              
                     	    }
-                    	    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEventExpression1370); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
+                    	       
+                    	      	        newCompositeNode(grammarAccess.getEventExpressionAccess().getActualParametersEObjectCrossReference_4_1_1_0()); 
+                    	      	    
+                    	    }
+                    	    pushFollow(FOLLOW_ruleQualifiedName_in_ruleEventExpression1376);
+                    	    ruleQualifiedName();
 
-                    	      		newLeafNode(otherlv_6, grammarAccess.getEventExpressionAccess().getActualParametersEObjectCrossReference_4_1_1_0()); 
-                    	      	
+                    	    state._fsp--;
+                    	    if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+                    	       
+                    	      	        afterParserOrEnumRuleCall();
+                    	      	    
                     	    }
 
                     	    }
@@ -1854,7 +1870,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,20,FOLLOW_20_in_ruleEventExpression1386); if (state.failed) return current;
+            otherlv_7=(Token)match(input,20,FOLLOW_20_in_ruleEventExpression1392); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_7, grammarAccess.getEventExpressionAccess().getRightParenthesisKeyword_5());
@@ -1883,7 +1899,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCoordinationRule"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:720:1: entryRuleCoordinationRule returns [EObject current=null] : iv_ruleCoordinationRule= ruleCoordinationRule EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:724:1: entryRuleCoordinationRule returns [EObject current=null] : iv_ruleCoordinationRule= ruleCoordinationRule EOF ;
     public final EObject entryRuleCoordinationRule() throws RecognitionException {
         EObject current = null;
 
@@ -1891,13 +1907,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:721:2: (iv_ruleCoordinationRule= ruleCoordinationRule EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:722:2: iv_ruleCoordinationRule= ruleCoordinationRule EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:725:2: (iv_ruleCoordinationRule= ruleCoordinationRule EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:726:2: iv_ruleCoordinationRule= ruleCoordinationRule EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getCoordinationRuleRule()); 
             }
-            pushFollow(FOLLOW_ruleCoordinationRule_in_entryRuleCoordinationRule1422);
+            pushFollow(FOLLOW_ruleCoordinationRule_in_entryRuleCoordinationRule1428);
             iv_ruleCoordinationRule=ruleCoordinationRule();
 
             state._fsp--;
@@ -1905,7 +1921,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleCoordinationRule; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCoordinationRule1432); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCoordinationRule1438); if (state.failed) return current;
 
             }
 
@@ -1923,7 +1939,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCoordinationRule"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:729:1: ruleCoordinationRule returns [EObject current=null] : ( (lv_eventRelations_0_0= ruleEventRelation ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:733:1: ruleCoordinationRule returns [EObject current=null] : ( (lv_eventRelations_0_0= ruleEventRelation ) ) ;
     public final EObject ruleCoordinationRule() throws RecognitionException {
         EObject current = null;
 
@@ -1933,21 +1949,21 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:732:28: ( ( (lv_eventRelations_0_0= ruleEventRelation ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:733:1: ( (lv_eventRelations_0_0= ruleEventRelation ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:736:28: ( ( (lv_eventRelations_0_0= ruleEventRelation ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:737:1: ( (lv_eventRelations_0_0= ruleEventRelation ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:733:1: ( (lv_eventRelations_0_0= ruleEventRelation ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:734:1: (lv_eventRelations_0_0= ruleEventRelation )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:737:1: ( (lv_eventRelations_0_0= ruleEventRelation ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:738:1: (lv_eventRelations_0_0= ruleEventRelation )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:734:1: (lv_eventRelations_0_0= ruleEventRelation )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:735:3: lv_eventRelations_0_0= ruleEventRelation
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:738:1: (lv_eventRelations_0_0= ruleEventRelation )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:739:3: lv_eventRelations_0_0= ruleEventRelation
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getCoordinationRuleAccess().getEventRelationsEventRelationParserRuleCall_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleEventRelation_in_ruleCoordinationRule1477);
+            pushFollow(FOLLOW_ruleEventRelation_in_ruleCoordinationRule1483);
             lv_eventRelations_0_0=ruleEventRelation();
 
             state._fsp--;
@@ -1991,7 +2007,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEventRelation"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:759:1: entryRuleEventRelation returns [EObject current=null] : iv_ruleEventRelation= ruleEventRelation EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:763:1: entryRuleEventRelation returns [EObject current=null] : iv_ruleEventRelation= ruleEventRelation EOF ;
     public final EObject entryRuleEventRelation() throws RecognitionException {
         EObject current = null;
 
@@ -1999,13 +2015,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:760:2: (iv_ruleEventRelation= ruleEventRelation EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:761:2: iv_ruleEventRelation= ruleEventRelation EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:764:2: (iv_ruleEventRelation= ruleEventRelation EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:765:2: iv_ruleEventRelation= ruleEventRelation EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getEventRelationRule()); 
             }
-            pushFollow(FOLLOW_ruleEventRelation_in_entryRuleEventRelation1512);
+            pushFollow(FOLLOW_ruleEventRelation_in_entryRuleEventRelation1518);
             iv_ruleEventRelation=ruleEventRelation();
 
             state._fsp--;
@@ -2013,7 +2029,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleEventRelation; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEventRelation1522); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEventRelation1528); if (state.failed) return current;
 
             }
 
@@ -2031,11 +2047,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEventRelation"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:768:1: ruleEventRelation returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '(' ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_5= ')' ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:772:1: ruleEventRelation returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) otherlv_1= '(' ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_5= ')' ) ;
     public final EObject ruleEventRelation() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
         Token otherlv_1=null;
         Token otherlv_3=null;
         Token otherlv_5=null;
@@ -2043,17 +2058,17 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:771:28: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '(' ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_5= ')' ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:772:1: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '(' ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_5= ')' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:775:28: ( ( ( ( ruleQualifiedName ) ) otherlv_1= '(' ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_5= ')' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:776:1: ( ( ( ruleQualifiedName ) ) otherlv_1= '(' ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_5= ')' )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:772:1: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '(' ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_5= ')' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:772:2: ( (otherlv_0= RULE_ID ) ) otherlv_1= '(' ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_5= ')'
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:776:1: ( ( ( ruleQualifiedName ) ) otherlv_1= '(' ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_5= ')' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:776:2: ( ( ruleQualifiedName ) ) otherlv_1= '(' ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )? otherlv_5= ')'
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:772:2: ( (otherlv_0= RULE_ID ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:773:1: (otherlv_0= RULE_ID )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:776:2: ( ( ruleQualifiedName ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:777:1: ( ruleQualifiedName )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:773:1: (otherlv_0= RULE_ID )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:774:3: otherlv_0= RULE_ID
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:777:1: ( ruleQualifiedName )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:778:3: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
 
@@ -2062,11 +2077,20 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEventRelation1567); if (state.failed) return current;
             if ( state.backtracking==0 ) {
+               
+              	        newCompositeNode(grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationCrossReference_0_0()); 
+              	    
+            }
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleEventRelation1576);
+            ruleQualifiedName();
 
-              		newLeafNode(otherlv_0, grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationCrossReference_0_0()); 
-              	
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               
+              	        afterParserOrEnumRuleCall();
+              	    
             }
 
             }
@@ -2074,13 +2098,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,18,FOLLOW_18_in_ruleEventRelation1579); if (state.failed) return current;
+            otherlv_1=(Token)match(input,18,FOLLOW_18_in_ruleEventRelation1588); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getEventRelationAccess().getLeftParenthesisKeyword_1());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:789:1: ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )?
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:795:1: ( ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )* )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2089,13 +2113,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             }
             switch (alt13) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:789:2: ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )*
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:795:2: ( ( ruleQualifiedName ) ) (otherlv_3= ',' ( ( ruleQualifiedName ) ) )*
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:789:2: ( ( ruleQualifiedName ) )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:790:1: ( ruleQualifiedName )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:795:2: ( ( ruleQualifiedName ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:796:1: ( ruleQualifiedName )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:790:1: ( ruleQualifiedName )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:791:3: ruleQualifiedName
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:796:1: ( ruleQualifiedName )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:797:3: ruleQualifiedName
                     {
                     if ( state.backtracking==0 ) {
 
@@ -2109,7 +2133,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getEventRelationAccess().getActualParametersECLDefCSCrossReference_2_0_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleQualifiedName_in_ruleEventRelation1603);
+                    pushFollow(FOLLOW_ruleQualifiedName_in_ruleEventRelation1612);
                     ruleQualifiedName();
 
                     state._fsp--;
@@ -2125,7 +2149,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:804:2: (otherlv_3= ',' ( ( ruleQualifiedName ) ) )*
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:810:2: (otherlv_3= ',' ( ( ruleQualifiedName ) ) )*
                     loop12:
                     do {
                         int alt12=2;
@@ -2138,19 +2162,19 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:804:4: otherlv_3= ',' ( ( ruleQualifiedName ) )
+                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:810:4: otherlv_3= ',' ( ( ruleQualifiedName ) )
                     	    {
-                    	    otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleEventRelation1616); if (state.failed) return current;
+                    	    otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleEventRelation1625); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_3, grammarAccess.getEventRelationAccess().getCommaKeyword_2_1_0());
                     	          
                     	    }
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:808:1: ( ( ruleQualifiedName ) )
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:809:1: ( ruleQualifiedName )
+                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:814:1: ( ( ruleQualifiedName ) )
+                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:815:1: ( ruleQualifiedName )
                     	    {
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:809:1: ( ruleQualifiedName )
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:810:3: ruleQualifiedName
+                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:815:1: ( ruleQualifiedName )
+                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:816:3: ruleQualifiedName
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -2164,7 +2188,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     	      	        newCompositeNode(grammarAccess.getEventRelationAccess().getActualParametersECLDefCSCrossReference_2_1_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleQualifiedName_in_ruleEventRelation1639);
+                    	    pushFollow(FOLLOW_ruleQualifiedName_in_ruleEventRelation1648);
                     	    ruleQualifiedName();
 
                     	    state._fsp--;
@@ -2195,7 +2219,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,20,FOLLOW_20_in_ruleEventRelation1655); if (state.failed) return current;
+            otherlv_5=(Token)match(input,20,FOLLOW_20_in_ruleEventRelation1664); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getEventRelationAccess().getRightParenthesisKeyword_3());
@@ -2224,7 +2248,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleImportLibRule"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:835:1: entryRuleImportLibRule returns [EObject current=null] : iv_ruleImportLibRule= ruleImportLibRule EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:841:1: entryRuleImportLibRule returns [EObject current=null] : iv_ruleImportLibRule= ruleImportLibRule EOF ;
     public final EObject entryRuleImportLibRule() throws RecognitionException {
         EObject current = null;
 
@@ -2232,13 +2256,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:836:2: (iv_ruleImportLibRule= ruleImportLibRule EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:837:2: iv_ruleImportLibRule= ruleImportLibRule EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:842:2: (iv_ruleImportLibRule= ruleImportLibRule EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:843:2: iv_ruleImportLibRule= ruleImportLibRule EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getImportLibRuleRule()); 
             }
-            pushFollow(FOLLOW_ruleImportLibRule_in_entryRuleImportLibRule1691);
+            pushFollow(FOLLOW_ruleImportLibRule_in_entryRuleImportLibRule1700);
             iv_ruleImportLibRule=ruleImportLibRule();
 
             state._fsp--;
@@ -2246,7 +2270,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleImportLibRule; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImportLibRule1701); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImportLibRule1710); if (state.failed) return current;
 
             }
 
@@ -2264,7 +2288,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleImportLibRule"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:844:1: ruleImportLibRule returns [EObject current=null] : (otherlv_0= 'ImportLib' ( (lv_importURI_1_0= RULE_STRING ) ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:850:1: ruleImportLibRule returns [EObject current=null] : (otherlv_0= 'ImportLib' ( (lv_importURI_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleImportLibRule() throws RecognitionException {
         EObject current = null;
 
@@ -2274,25 +2298,25 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:847:28: ( (otherlv_0= 'ImportLib' ( (lv_importURI_1_0= RULE_STRING ) ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:848:1: (otherlv_0= 'ImportLib' ( (lv_importURI_1_0= RULE_STRING ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:853:28: ( (otherlv_0= 'ImportLib' ( (lv_importURI_1_0= RULE_STRING ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:854:1: (otherlv_0= 'ImportLib' ( (lv_importURI_1_0= RULE_STRING ) ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:848:1: (otherlv_0= 'ImportLib' ( (lv_importURI_1_0= RULE_STRING ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:848:3: otherlv_0= 'ImportLib' ( (lv_importURI_1_0= RULE_STRING ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:854:1: (otherlv_0= 'ImportLib' ( (lv_importURI_1_0= RULE_STRING ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:854:3: otherlv_0= 'ImportLib' ( (lv_importURI_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,29,FOLLOW_29_in_ruleImportLibRule1738); if (state.failed) return current;
+            otherlv_0=(Token)match(input,29,FOLLOW_29_in_ruleImportLibRule1747); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getImportLibRuleAccess().getImportLibKeyword_0());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:852:1: ( (lv_importURI_1_0= RULE_STRING ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:853:1: (lv_importURI_1_0= RULE_STRING )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:858:1: ( (lv_importURI_1_0= RULE_STRING ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:859:1: (lv_importURI_1_0= RULE_STRING )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:853:1: (lv_importURI_1_0= RULE_STRING )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:854:3: lv_importURI_1_0= RULE_STRING
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:859:1: (lv_importURI_1_0= RULE_STRING )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:860:3: lv_importURI_1_0= RULE_STRING
             {
-            lv_importURI_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleImportLibRule1755); if (state.failed) return current;
+            lv_importURI_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleImportLibRule1764); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_importURI_1_0, grammarAccess.getImportLibRuleAccess().getImportURISTRINGTerminalRuleCall_1_0()); 
@@ -2339,7 +2363,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleImportInterfaceRule"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:878:1: entryRuleImportInterfaceRule returns [EObject current=null] : iv_ruleImportInterfaceRule= ruleImportInterfaceRule EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:884:1: entryRuleImportInterfaceRule returns [EObject current=null] : iv_ruleImportInterfaceRule= ruleImportInterfaceRule EOF ;
     public final EObject entryRuleImportInterfaceRule() throws RecognitionException {
         EObject current = null;
 
@@ -2347,13 +2371,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:879:2: (iv_ruleImportInterfaceRule= ruleImportInterfaceRule EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:880:2: iv_ruleImportInterfaceRule= ruleImportInterfaceRule EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:885:2: (iv_ruleImportInterfaceRule= ruleImportInterfaceRule EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:886:2: iv_ruleImportInterfaceRule= ruleImportInterfaceRule EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getImportInterfaceRuleRule()); 
             }
-            pushFollow(FOLLOW_ruleImportInterfaceRule_in_entryRuleImportInterfaceRule1796);
+            pushFollow(FOLLOW_ruleImportInterfaceRule_in_entryRuleImportInterfaceRule1805);
             iv_ruleImportInterfaceRule=ruleImportInterfaceRule();
 
             state._fsp--;
@@ -2361,7 +2385,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleImportInterfaceRule; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImportInterfaceRule1806); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImportInterfaceRule1815); if (state.failed) return current;
 
             }
 
@@ -2379,7 +2403,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleImportInterfaceRule"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:887:1: ruleImportInterfaceRule returns [EObject current=null] : (otherlv_0= 'ImportInterface' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= 'as' ( (lv_name_3_0= RULE_ID ) ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:893:1: ruleImportInterfaceRule returns [EObject current=null] : (otherlv_0= 'ImportInterface' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= 'as' ( (lv_name_3_0= RULE_ID ) ) ) ;
     public final EObject ruleImportInterfaceRule() throws RecognitionException {
         EObject current = null;
 
@@ -2391,25 +2415,25 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:890:28: ( (otherlv_0= 'ImportInterface' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= 'as' ( (lv_name_3_0= RULE_ID ) ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:891:1: (otherlv_0= 'ImportInterface' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= 'as' ( (lv_name_3_0= RULE_ID ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:896:28: ( (otherlv_0= 'ImportInterface' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= 'as' ( (lv_name_3_0= RULE_ID ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:897:1: (otherlv_0= 'ImportInterface' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= 'as' ( (lv_name_3_0= RULE_ID ) ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:891:1: (otherlv_0= 'ImportInterface' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= 'as' ( (lv_name_3_0= RULE_ID ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:891:3: otherlv_0= 'ImportInterface' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= 'as' ( (lv_name_3_0= RULE_ID ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:897:1: (otherlv_0= 'ImportInterface' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= 'as' ( (lv_name_3_0= RULE_ID ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:897:3: otherlv_0= 'ImportInterface' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= 'as' ( (lv_name_3_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleImportInterfaceRule1843); if (state.failed) return current;
+            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleImportInterfaceRule1852); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getImportInterfaceRuleAccess().getImportInterfaceKeyword_0());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:895:1: ( (lv_importURI_1_0= RULE_STRING ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:896:1: (lv_importURI_1_0= RULE_STRING )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:901:1: ( (lv_importURI_1_0= RULE_STRING ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:902:1: (lv_importURI_1_0= RULE_STRING )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:896:1: (lv_importURI_1_0= RULE_STRING )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:897:3: lv_importURI_1_0= RULE_STRING
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:902:1: (lv_importURI_1_0= RULE_STRING )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:903:3: lv_importURI_1_0= RULE_STRING
             {
-            lv_importURI_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleImportInterfaceRule1860); if (state.failed) return current;
+            lv_importURI_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleImportInterfaceRule1869); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_importURI_1_0, grammarAccess.getImportInterfaceRuleAccess().getImportURISTRINGTerminalRuleCall_1_0()); 
@@ -2433,19 +2457,19 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,31,FOLLOW_31_in_ruleImportInterfaceRule1877); if (state.failed) return current;
+            otherlv_2=(Token)match(input,31,FOLLOW_31_in_ruleImportInterfaceRule1886); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getImportInterfaceRuleAccess().getAsKeyword_2());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:917:1: ( (lv_name_3_0= RULE_ID ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:918:1: (lv_name_3_0= RULE_ID )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:923:1: ( (lv_name_3_0= RULE_ID ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:924:1: (lv_name_3_0= RULE_ID )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:918:1: (lv_name_3_0= RULE_ID )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:919:3: lv_name_3_0= RULE_ID
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:924:1: (lv_name_3_0= RULE_ID )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:925:3: lv_name_3_0= RULE_ID
             {
-            lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleImportInterfaceRule1894); if (state.failed) return current;
+            lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleImportInterfaceRule1903); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_name_3_0, grammarAccess.getImportInterfaceRuleAccess().getNameIDTerminalRuleCall_3_0()); 
@@ -2492,7 +2516,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGImportStatement"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:945:1: entryRuleGImportStatement returns [EObject current=null] : iv_ruleGImportStatement= ruleGImportStatement EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:951:1: entryRuleGImportStatement returns [EObject current=null] : iv_ruleGImportStatement= ruleGImportStatement EOF ;
     public final EObject entryRuleGImportStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2500,13 +2524,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:946:2: (iv_ruleGImportStatement= ruleGImportStatement EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:947:2: iv_ruleGImportStatement= ruleGImportStatement EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:952:2: (iv_ruleGImportStatement= ruleGImportStatement EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:953:2: iv_ruleGImportStatement= ruleGImportStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGImportStatementRule()); 
             }
-            pushFollow(FOLLOW_ruleGImportStatement_in_entryRuleGImportStatement1937);
+            pushFollow(FOLLOW_ruleGImportStatement_in_entryRuleGImportStatement1946);
             iv_ruleGImportStatement=ruleGImportStatement();
 
             state._fsp--;
@@ -2514,7 +2538,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGImportStatement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGImportStatement1947); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGImportStatement1956); if (state.failed) return current;
 
             }
 
@@ -2532,7 +2556,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGImportStatement"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:954:1: ruleGImportStatement returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:960:1: ruleGImportStatement returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleGImportStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2542,25 +2566,25 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:957:28: ( (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:958:1: (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:963:28: ( (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:964:1: (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:958:1: (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:958:3: otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:964:1: (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:964:3: otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,32,FOLLOW_32_in_ruleGImportStatement1984); if (state.failed) return current;
+            otherlv_0=(Token)match(input,32,FOLLOW_32_in_ruleGImportStatement1993); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getGImportStatementAccess().getImportKeyword_0());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:962:1: ( (lv_importURI_1_0= RULE_STRING ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:963:1: (lv_importURI_1_0= RULE_STRING )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:968:1: ( (lv_importURI_1_0= RULE_STRING ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:969:1: (lv_importURI_1_0= RULE_STRING )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:963:1: (lv_importURI_1_0= RULE_STRING )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:964:3: lv_importURI_1_0= RULE_STRING
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:969:1: (lv_importURI_1_0= RULE_STRING )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:970:3: lv_importURI_1_0= RULE_STRING
             {
-            lv_importURI_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleGImportStatement2001); if (state.failed) return current;
+            lv_importURI_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleGImportStatement2010); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_importURI_1_0, grammarAccess.getGImportStatementAccess().getImportURISTRINGTerminalRuleCall_1_0()); 
@@ -2607,7 +2631,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:988:1: entryRuleGExpression returns [EObject current=null] : iv_ruleGExpression= ruleGExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:994:1: entryRuleGExpression returns [EObject current=null] : iv_ruleGExpression= ruleGExpression EOF ;
     public final EObject entryRuleGExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2615,13 +2639,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:989:2: (iv_ruleGExpression= ruleGExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:990:2: iv_ruleGExpression= ruleGExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:995:2: (iv_ruleGExpression= ruleGExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:996:2: iv_ruleGExpression= ruleGExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGExpression_in_entryRuleGExpression2042);
+            pushFollow(FOLLOW_ruleGExpression_in_entryRuleGExpression2051);
             iv_ruleGExpression=ruleGExpression();
 
             state._fsp--;
@@ -2629,7 +2653,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGExpression2052); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGExpression2061); if (state.failed) return current;
 
             }
 
@@ -2647,7 +2671,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:997:1: ruleGExpression returns [EObject current=null] : this_GOrExpression_0= ruleGOrExpression ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1003:1: ruleGExpression returns [EObject current=null] : this_GOrExpression_0= ruleGOrExpression ;
     public final EObject ruleGExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2657,15 +2681,15 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1000:28: (this_GOrExpression_0= ruleGOrExpression )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1002:5: this_GOrExpression_0= ruleGOrExpression
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1006:28: (this_GOrExpression_0= ruleGOrExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1008:5: this_GOrExpression_0= ruleGOrExpression
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getGExpressionAccess().getGOrExpressionParserRuleCall()); 
                   
             }
-            pushFollow(FOLLOW_ruleGOrExpression_in_ruleGExpression2098);
+            pushFollow(FOLLOW_ruleGOrExpression_in_ruleGExpression2107);
             this_GOrExpression_0=ruleGOrExpression();
 
             state._fsp--;
@@ -2696,7 +2720,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGOrExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1018:1: entryRuleGOrExpression returns [EObject current=null] : iv_ruleGOrExpression= ruleGOrExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1024:1: entryRuleGOrExpression returns [EObject current=null] : iv_ruleGOrExpression= ruleGOrExpression EOF ;
     public final EObject entryRuleGOrExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2704,13 +2728,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1019:2: (iv_ruleGOrExpression= ruleGOrExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1020:2: iv_ruleGOrExpression= ruleGOrExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1025:2: (iv_ruleGOrExpression= ruleGOrExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1026:2: iv_ruleGOrExpression= ruleGOrExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGOrExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGOrExpression_in_entryRuleGOrExpression2132);
+            pushFollow(FOLLOW_ruleGOrExpression_in_entryRuleGOrExpression2141);
             iv_ruleGOrExpression=ruleGOrExpression();
 
             state._fsp--;
@@ -2718,7 +2742,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGOrExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGOrExpression2142); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGOrExpression2151); if (state.failed) return current;
 
             }
 
@@ -2736,7 +2760,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGOrExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1027:1: ruleGOrExpression returns [EObject current=null] : (this_GXorExpression_0= ruleGXorExpression ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )* ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1033:1: ruleGOrExpression returns [EObject current=null] : (this_GXorExpression_0= ruleGXorExpression ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )* ) ;
     public final EObject ruleGOrExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2750,18 +2774,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1030:28: ( (this_GXorExpression_0= ruleGXorExpression ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )* ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1031:1: (this_GXorExpression_0= ruleGXorExpression ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1036:28: ( (this_GXorExpression_0= ruleGXorExpression ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )* ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1037:1: (this_GXorExpression_0= ruleGXorExpression ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )* )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1031:1: (this_GXorExpression_0= ruleGXorExpression ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )* )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1032:5: this_GXorExpression_0= ruleGXorExpression ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1037:1: (this_GXorExpression_0= ruleGXorExpression ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1038:5: this_GXorExpression_0= ruleGXorExpression ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getGOrExpressionAccess().getGXorExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleGXorExpression_in_ruleGOrExpression2189);
+            pushFollow(FOLLOW_ruleGXorExpression_in_ruleGOrExpression2198);
             this_GXorExpression_0=ruleGXorExpression();
 
             state._fsp--;
@@ -2772,7 +2796,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1040:1: ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1046:1: ( () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) ) )*
             loop14:
             do {
                 int alt14=2;
@@ -2785,10 +2809,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1040:2: () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1046:2: () ( (lv_operator_2_0= ruleGOrOperator ) ) ( (lv_rightOperand_3_0= ruleGXorExpression ) )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1040:2: ()
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1041:5: 
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1046:2: ()
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1047:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -2800,18 +2824,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1046:2: ( (lv_operator_2_0= ruleGOrOperator ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1047:1: (lv_operator_2_0= ruleGOrOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1052:2: ( (lv_operator_2_0= ruleGOrOperator ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1053:1: (lv_operator_2_0= ruleGOrOperator )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1047:1: (lv_operator_2_0= ruleGOrOperator )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1048:3: lv_operator_2_0= ruleGOrOperator
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1053:1: (lv_operator_2_0= ruleGOrOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1054:3: lv_operator_2_0= ruleGOrOperator
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGOrExpressionAccess().getOperatorGOrOperatorEnumRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGOrOperator_in_ruleGOrExpression2219);
+            	    pushFollow(FOLLOW_ruleGOrOperator_in_ruleGOrExpression2228);
             	    lv_operator_2_0=ruleGOrOperator();
 
             	    state._fsp--;
@@ -2835,18 +2859,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1064:2: ( (lv_rightOperand_3_0= ruleGXorExpression ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1065:1: (lv_rightOperand_3_0= ruleGXorExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1070:2: ( (lv_rightOperand_3_0= ruleGXorExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1071:1: (lv_rightOperand_3_0= ruleGXorExpression )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1065:1: (lv_rightOperand_3_0= ruleGXorExpression )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1066:3: lv_rightOperand_3_0= ruleGXorExpression
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1071:1: (lv_rightOperand_3_0= ruleGXorExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1072:3: lv_rightOperand_3_0= ruleGXorExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGOrExpressionAccess().getRightOperandGXorExpressionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGXorExpression_in_ruleGOrExpression2240);
+            	    pushFollow(FOLLOW_ruleGXorExpression_in_ruleGOrExpression2249);
             	    lv_rightOperand_3_0=ruleGXorExpression();
 
             	    state._fsp--;
@@ -2902,7 +2926,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGXorExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1090:1: entryRuleGXorExpression returns [EObject current=null] : iv_ruleGXorExpression= ruleGXorExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1096:1: entryRuleGXorExpression returns [EObject current=null] : iv_ruleGXorExpression= ruleGXorExpression EOF ;
     public final EObject entryRuleGXorExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2910,13 +2934,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1091:2: (iv_ruleGXorExpression= ruleGXorExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1092:2: iv_ruleGXorExpression= ruleGXorExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1097:2: (iv_ruleGXorExpression= ruleGXorExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1098:2: iv_ruleGXorExpression= ruleGXorExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGXorExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGXorExpression_in_entryRuleGXorExpression2278);
+            pushFollow(FOLLOW_ruleGXorExpression_in_entryRuleGXorExpression2287);
             iv_ruleGXorExpression=ruleGXorExpression();
 
             state._fsp--;
@@ -2924,7 +2948,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGXorExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGXorExpression2288); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGXorExpression2297); if (state.failed) return current;
 
             }
 
@@ -2942,7 +2966,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGXorExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1099:1: ruleGXorExpression returns [EObject current=null] : (this_GAndExpression_0= ruleGAndExpression ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )* ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1105:1: ruleGXorExpression returns [EObject current=null] : (this_GAndExpression_0= ruleGAndExpression ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )* ) ;
     public final EObject ruleGXorExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2956,18 +2980,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1102:28: ( (this_GAndExpression_0= ruleGAndExpression ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )* ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1103:1: (this_GAndExpression_0= ruleGAndExpression ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1108:28: ( (this_GAndExpression_0= ruleGAndExpression ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )* ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1109:1: (this_GAndExpression_0= ruleGAndExpression ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )* )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1103:1: (this_GAndExpression_0= ruleGAndExpression ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )* )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1104:5: this_GAndExpression_0= ruleGAndExpression ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1109:1: (this_GAndExpression_0= ruleGAndExpression ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1110:5: this_GAndExpression_0= ruleGAndExpression ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getGXorExpressionAccess().getGAndExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleGAndExpression_in_ruleGXorExpression2335);
+            pushFollow(FOLLOW_ruleGAndExpression_in_ruleGXorExpression2344);
             this_GAndExpression_0=ruleGAndExpression();
 
             state._fsp--;
@@ -2978,7 +3002,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1112:1: ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1118:1: ( () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) ) )*
             loop15:
             do {
                 int alt15=2;
@@ -2991,10 +3015,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                 switch (alt15) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1112:2: () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1118:2: () ( (lv_operator_2_0= ruleGXorOperator ) ) ( (lv_rightOperand_3_0= ruleGAndExpression ) )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1112:2: ()
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1113:5: 
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1118:2: ()
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1119:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3006,18 +3030,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1118:2: ( (lv_operator_2_0= ruleGXorOperator ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1119:1: (lv_operator_2_0= ruleGXorOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1124:2: ( (lv_operator_2_0= ruleGXorOperator ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1125:1: (lv_operator_2_0= ruleGXorOperator )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1119:1: (lv_operator_2_0= ruleGXorOperator )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1120:3: lv_operator_2_0= ruleGXorOperator
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1125:1: (lv_operator_2_0= ruleGXorOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1126:3: lv_operator_2_0= ruleGXorOperator
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGXorExpressionAccess().getOperatorGXorOperatorEnumRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGXorOperator_in_ruleGXorExpression2365);
+            	    pushFollow(FOLLOW_ruleGXorOperator_in_ruleGXorExpression2374);
             	    lv_operator_2_0=ruleGXorOperator();
 
             	    state._fsp--;
@@ -3041,18 +3065,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1136:2: ( (lv_rightOperand_3_0= ruleGAndExpression ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1137:1: (lv_rightOperand_3_0= ruleGAndExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1142:2: ( (lv_rightOperand_3_0= ruleGAndExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1143:1: (lv_rightOperand_3_0= ruleGAndExpression )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1137:1: (lv_rightOperand_3_0= ruleGAndExpression )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1138:3: lv_rightOperand_3_0= ruleGAndExpression
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1143:1: (lv_rightOperand_3_0= ruleGAndExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1144:3: lv_rightOperand_3_0= ruleGAndExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGXorExpressionAccess().getRightOperandGAndExpressionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGAndExpression_in_ruleGXorExpression2386);
+            	    pushFollow(FOLLOW_ruleGAndExpression_in_ruleGXorExpression2395);
             	    lv_rightOperand_3_0=ruleGAndExpression();
 
             	    state._fsp--;
@@ -3108,7 +3132,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGAndExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1162:1: entryRuleGAndExpression returns [EObject current=null] : iv_ruleGAndExpression= ruleGAndExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1168:1: entryRuleGAndExpression returns [EObject current=null] : iv_ruleGAndExpression= ruleGAndExpression EOF ;
     public final EObject entryRuleGAndExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3116,13 +3140,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1163:2: (iv_ruleGAndExpression= ruleGAndExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1164:2: iv_ruleGAndExpression= ruleGAndExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1169:2: (iv_ruleGAndExpression= ruleGAndExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1170:2: iv_ruleGAndExpression= ruleGAndExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGAndExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGAndExpression_in_entryRuleGAndExpression2424);
+            pushFollow(FOLLOW_ruleGAndExpression_in_entryRuleGAndExpression2433);
             iv_ruleGAndExpression=ruleGAndExpression();
 
             state._fsp--;
@@ -3130,7 +3154,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGAndExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGAndExpression2434); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGAndExpression2443); if (state.failed) return current;
 
             }
 
@@ -3148,7 +3172,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGAndExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1171:1: ruleGAndExpression returns [EObject current=null] : (this_GEqualityExpression_0= ruleGEqualityExpression ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )* ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1177:1: ruleGAndExpression returns [EObject current=null] : (this_GEqualityExpression_0= ruleGEqualityExpression ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )* ) ;
     public final EObject ruleGAndExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3162,18 +3186,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1174:28: ( (this_GEqualityExpression_0= ruleGEqualityExpression ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )* ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1175:1: (this_GEqualityExpression_0= ruleGEqualityExpression ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1180:28: ( (this_GEqualityExpression_0= ruleGEqualityExpression ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )* ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1181:1: (this_GEqualityExpression_0= ruleGEqualityExpression ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )* )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1175:1: (this_GEqualityExpression_0= ruleGEqualityExpression ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )* )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1176:5: this_GEqualityExpression_0= ruleGEqualityExpression ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1181:1: (this_GEqualityExpression_0= ruleGEqualityExpression ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1182:5: this_GEqualityExpression_0= ruleGEqualityExpression ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getGAndExpressionAccess().getGEqualityExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleGEqualityExpression_in_ruleGAndExpression2481);
+            pushFollow(FOLLOW_ruleGEqualityExpression_in_ruleGAndExpression2490);
             this_GEqualityExpression_0=ruleGEqualityExpression();
 
             state._fsp--;
@@ -3184,7 +3208,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1184:1: ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1190:1: ( () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) ) )*
             loop16:
             do {
                 int alt16=2;
@@ -3197,10 +3221,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                 switch (alt16) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1184:2: () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1190:2: () ( (lv_operator_2_0= ruleGAndOperator ) ) ( (lv_rightOperand_3_0= ruleGEqualityExpression ) )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1184:2: ()
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1185:5: 
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1190:2: ()
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1191:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3212,18 +3236,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1190:2: ( (lv_operator_2_0= ruleGAndOperator ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1191:1: (lv_operator_2_0= ruleGAndOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1196:2: ( (lv_operator_2_0= ruleGAndOperator ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1197:1: (lv_operator_2_0= ruleGAndOperator )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1191:1: (lv_operator_2_0= ruleGAndOperator )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1192:3: lv_operator_2_0= ruleGAndOperator
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1197:1: (lv_operator_2_0= ruleGAndOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1198:3: lv_operator_2_0= ruleGAndOperator
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGAndExpressionAccess().getOperatorGAndOperatorEnumRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGAndOperator_in_ruleGAndExpression2511);
+            	    pushFollow(FOLLOW_ruleGAndOperator_in_ruleGAndExpression2520);
             	    lv_operator_2_0=ruleGAndOperator();
 
             	    state._fsp--;
@@ -3247,18 +3271,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1208:2: ( (lv_rightOperand_3_0= ruleGEqualityExpression ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1209:1: (lv_rightOperand_3_0= ruleGEqualityExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1214:2: ( (lv_rightOperand_3_0= ruleGEqualityExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1215:1: (lv_rightOperand_3_0= ruleGEqualityExpression )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1209:1: (lv_rightOperand_3_0= ruleGEqualityExpression )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1210:3: lv_rightOperand_3_0= ruleGEqualityExpression
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1215:1: (lv_rightOperand_3_0= ruleGEqualityExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1216:3: lv_rightOperand_3_0= ruleGEqualityExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGAndExpressionAccess().getRightOperandGEqualityExpressionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGEqualityExpression_in_ruleGAndExpression2532);
+            	    pushFollow(FOLLOW_ruleGEqualityExpression_in_ruleGAndExpression2541);
             	    lv_rightOperand_3_0=ruleGEqualityExpression();
 
             	    state._fsp--;
@@ -3314,7 +3338,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGEqualityExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1234:1: entryRuleGEqualityExpression returns [EObject current=null] : iv_ruleGEqualityExpression= ruleGEqualityExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1240:1: entryRuleGEqualityExpression returns [EObject current=null] : iv_ruleGEqualityExpression= ruleGEqualityExpression EOF ;
     public final EObject entryRuleGEqualityExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3322,13 +3346,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1235:2: (iv_ruleGEqualityExpression= ruleGEqualityExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1236:2: iv_ruleGEqualityExpression= ruleGEqualityExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1241:2: (iv_ruleGEqualityExpression= ruleGEqualityExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1242:2: iv_ruleGEqualityExpression= ruleGEqualityExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGEqualityExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGEqualityExpression_in_entryRuleGEqualityExpression2570);
+            pushFollow(FOLLOW_ruleGEqualityExpression_in_entryRuleGEqualityExpression2579);
             iv_ruleGEqualityExpression=ruleGEqualityExpression();
 
             state._fsp--;
@@ -3336,7 +3360,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGEqualityExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGEqualityExpression2580); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGEqualityExpression2589); if (state.failed) return current;
 
             }
 
@@ -3354,7 +3378,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGEqualityExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1243:1: ruleGEqualityExpression returns [EObject current=null] : (this_GRelationExpression_0= ruleGRelationExpression ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )* ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1249:1: ruleGEqualityExpression returns [EObject current=null] : (this_GRelationExpression_0= ruleGRelationExpression ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )* ) ;
     public final EObject ruleGEqualityExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3368,18 +3392,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1246:28: ( (this_GRelationExpression_0= ruleGRelationExpression ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )* ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1247:1: (this_GRelationExpression_0= ruleGRelationExpression ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1252:28: ( (this_GRelationExpression_0= ruleGRelationExpression ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )* ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1253:1: (this_GRelationExpression_0= ruleGRelationExpression ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )* )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1247:1: (this_GRelationExpression_0= ruleGRelationExpression ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )* )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1248:5: this_GRelationExpression_0= ruleGRelationExpression ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1253:1: (this_GRelationExpression_0= ruleGRelationExpression ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1254:5: this_GRelationExpression_0= ruleGRelationExpression ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getGEqualityExpressionAccess().getGRelationExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleGRelationExpression_in_ruleGEqualityExpression2627);
+            pushFollow(FOLLOW_ruleGRelationExpression_in_ruleGEqualityExpression2636);
             this_GRelationExpression_0=ruleGRelationExpression();
 
             state._fsp--;
@@ -3390,7 +3414,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1256:1: ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1262:1: ( () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) ) )*
             loop17:
             do {
                 int alt17=2;
@@ -3403,10 +3427,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                 switch (alt17) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1256:2: () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1262:2: () ( (lv_operator_2_0= ruleGEqualityOperator ) ) ( (lv_rightOperand_3_0= ruleGRelationExpression ) )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1256:2: ()
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1257:5: 
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1262:2: ()
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1263:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3418,18 +3442,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1262:2: ( (lv_operator_2_0= ruleGEqualityOperator ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1263:1: (lv_operator_2_0= ruleGEqualityOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1268:2: ( (lv_operator_2_0= ruleGEqualityOperator ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1269:1: (lv_operator_2_0= ruleGEqualityOperator )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1263:1: (lv_operator_2_0= ruleGEqualityOperator )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1264:3: lv_operator_2_0= ruleGEqualityOperator
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1269:1: (lv_operator_2_0= ruleGEqualityOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1270:3: lv_operator_2_0= ruleGEqualityOperator
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGEqualityExpressionAccess().getOperatorGEqualityOperatorEnumRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGEqualityOperator_in_ruleGEqualityExpression2657);
+            	    pushFollow(FOLLOW_ruleGEqualityOperator_in_ruleGEqualityExpression2666);
             	    lv_operator_2_0=ruleGEqualityOperator();
 
             	    state._fsp--;
@@ -3453,18 +3477,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1280:2: ( (lv_rightOperand_3_0= ruleGRelationExpression ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1281:1: (lv_rightOperand_3_0= ruleGRelationExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1286:2: ( (lv_rightOperand_3_0= ruleGRelationExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1287:1: (lv_rightOperand_3_0= ruleGRelationExpression )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1281:1: (lv_rightOperand_3_0= ruleGRelationExpression )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1282:3: lv_rightOperand_3_0= ruleGRelationExpression
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1287:1: (lv_rightOperand_3_0= ruleGRelationExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1288:3: lv_rightOperand_3_0= ruleGRelationExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGEqualityExpressionAccess().getRightOperandGRelationExpressionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGRelationExpression_in_ruleGEqualityExpression2678);
+            	    pushFollow(FOLLOW_ruleGRelationExpression_in_ruleGEqualityExpression2687);
             	    lv_rightOperand_3_0=ruleGRelationExpression();
 
             	    state._fsp--;
@@ -3520,7 +3544,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGRelationExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1306:1: entryRuleGRelationExpression returns [EObject current=null] : iv_ruleGRelationExpression= ruleGRelationExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1312:1: entryRuleGRelationExpression returns [EObject current=null] : iv_ruleGRelationExpression= ruleGRelationExpression EOF ;
     public final EObject entryRuleGRelationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3528,13 +3552,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1307:2: (iv_ruleGRelationExpression= ruleGRelationExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1308:2: iv_ruleGRelationExpression= ruleGRelationExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1313:2: (iv_ruleGRelationExpression= ruleGRelationExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1314:2: iv_ruleGRelationExpression= ruleGRelationExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGRelationExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGRelationExpression_in_entryRuleGRelationExpression2716);
+            pushFollow(FOLLOW_ruleGRelationExpression_in_entryRuleGRelationExpression2725);
             iv_ruleGRelationExpression=ruleGRelationExpression();
 
             state._fsp--;
@@ -3542,7 +3566,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGRelationExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGRelationExpression2726); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGRelationExpression2735); if (state.failed) return current;
 
             }
 
@@ -3560,7 +3584,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGRelationExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1315:1: ruleGRelationExpression returns [EObject current=null] : (this_GAdditionExpression_0= ruleGAdditionExpression ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )* ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1321:1: ruleGRelationExpression returns [EObject current=null] : (this_GAdditionExpression_0= ruleGAdditionExpression ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )* ) ;
     public final EObject ruleGRelationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3574,18 +3598,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1318:28: ( (this_GAdditionExpression_0= ruleGAdditionExpression ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )* ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1319:1: (this_GAdditionExpression_0= ruleGAdditionExpression ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1324:28: ( (this_GAdditionExpression_0= ruleGAdditionExpression ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )* ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1325:1: (this_GAdditionExpression_0= ruleGAdditionExpression ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )* )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1319:1: (this_GAdditionExpression_0= ruleGAdditionExpression ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )* )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1320:5: this_GAdditionExpression_0= ruleGAdditionExpression ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1325:1: (this_GAdditionExpression_0= ruleGAdditionExpression ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1326:5: this_GAdditionExpression_0= ruleGAdditionExpression ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getGRelationExpressionAccess().getGAdditionExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleGAdditionExpression_in_ruleGRelationExpression2773);
+            pushFollow(FOLLOW_ruleGAdditionExpression_in_ruleGRelationExpression2782);
             this_GAdditionExpression_0=ruleGAdditionExpression();
 
             state._fsp--;
@@ -3596,7 +3620,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1328:1: ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1334:1: ( () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) ) )*
             loop18:
             do {
                 int alt18=2;
@@ -3609,10 +3633,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                 switch (alt18) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1328:2: () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1334:2: () ( (lv_operator_2_0= ruleGRelationOperator ) ) ( (lv_rightOperand_3_0= ruleGAdditionExpression ) )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1328:2: ()
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1329:5: 
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1334:2: ()
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1335:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3624,18 +3648,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1334:2: ( (lv_operator_2_0= ruleGRelationOperator ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1335:1: (lv_operator_2_0= ruleGRelationOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1340:2: ( (lv_operator_2_0= ruleGRelationOperator ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1341:1: (lv_operator_2_0= ruleGRelationOperator )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1335:1: (lv_operator_2_0= ruleGRelationOperator )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1336:3: lv_operator_2_0= ruleGRelationOperator
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1341:1: (lv_operator_2_0= ruleGRelationOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1342:3: lv_operator_2_0= ruleGRelationOperator
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGRelationExpressionAccess().getOperatorGRelationOperatorEnumRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGRelationOperator_in_ruleGRelationExpression2803);
+            	    pushFollow(FOLLOW_ruleGRelationOperator_in_ruleGRelationExpression2812);
             	    lv_operator_2_0=ruleGRelationOperator();
 
             	    state._fsp--;
@@ -3659,18 +3683,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1352:2: ( (lv_rightOperand_3_0= ruleGAdditionExpression ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1353:1: (lv_rightOperand_3_0= ruleGAdditionExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1358:2: ( (lv_rightOperand_3_0= ruleGAdditionExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1359:1: (lv_rightOperand_3_0= ruleGAdditionExpression )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1353:1: (lv_rightOperand_3_0= ruleGAdditionExpression )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1354:3: lv_rightOperand_3_0= ruleGAdditionExpression
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1359:1: (lv_rightOperand_3_0= ruleGAdditionExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1360:3: lv_rightOperand_3_0= ruleGAdditionExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGRelationExpressionAccess().getRightOperandGAdditionExpressionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGAdditionExpression_in_ruleGRelationExpression2824);
+            	    pushFollow(FOLLOW_ruleGAdditionExpression_in_ruleGRelationExpression2833);
             	    lv_rightOperand_3_0=ruleGAdditionExpression();
 
             	    state._fsp--;
@@ -3726,7 +3750,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGAdditionExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1378:1: entryRuleGAdditionExpression returns [EObject current=null] : iv_ruleGAdditionExpression= ruleGAdditionExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1384:1: entryRuleGAdditionExpression returns [EObject current=null] : iv_ruleGAdditionExpression= ruleGAdditionExpression EOF ;
     public final EObject entryRuleGAdditionExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3734,13 +3758,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1379:2: (iv_ruleGAdditionExpression= ruleGAdditionExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1380:2: iv_ruleGAdditionExpression= ruleGAdditionExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1385:2: (iv_ruleGAdditionExpression= ruleGAdditionExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1386:2: iv_ruleGAdditionExpression= ruleGAdditionExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGAdditionExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGAdditionExpression_in_entryRuleGAdditionExpression2862);
+            pushFollow(FOLLOW_ruleGAdditionExpression_in_entryRuleGAdditionExpression2871);
             iv_ruleGAdditionExpression=ruleGAdditionExpression();
 
             state._fsp--;
@@ -3748,7 +3772,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGAdditionExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGAdditionExpression2872); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGAdditionExpression2881); if (state.failed) return current;
 
             }
 
@@ -3766,7 +3790,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGAdditionExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1387:1: ruleGAdditionExpression returns [EObject current=null] : (this_GMultiplicationExpression_0= ruleGMultiplicationExpression ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )* ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1393:1: ruleGAdditionExpression returns [EObject current=null] : (this_GMultiplicationExpression_0= ruleGMultiplicationExpression ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )* ) ;
     public final EObject ruleGAdditionExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3780,18 +3804,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1390:28: ( (this_GMultiplicationExpression_0= ruleGMultiplicationExpression ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )* ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1391:1: (this_GMultiplicationExpression_0= ruleGMultiplicationExpression ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1396:28: ( (this_GMultiplicationExpression_0= ruleGMultiplicationExpression ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )* ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1397:1: (this_GMultiplicationExpression_0= ruleGMultiplicationExpression ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )* )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1391:1: (this_GMultiplicationExpression_0= ruleGMultiplicationExpression ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )* )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1392:5: this_GMultiplicationExpression_0= ruleGMultiplicationExpression ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1397:1: (this_GMultiplicationExpression_0= ruleGMultiplicationExpression ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1398:5: this_GMultiplicationExpression_0= ruleGMultiplicationExpression ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getGAdditionExpressionAccess().getGMultiplicationExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleGMultiplicationExpression_in_ruleGAdditionExpression2919);
+            pushFollow(FOLLOW_ruleGMultiplicationExpression_in_ruleGAdditionExpression2928);
             this_GMultiplicationExpression_0=ruleGMultiplicationExpression();
 
             state._fsp--;
@@ -3802,7 +3826,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1400:1: ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1406:1: ( () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) ) )*
             loop19:
             do {
                 int alt19=2;
@@ -3815,10 +3839,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                 switch (alt19) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1400:2: () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1406:2: () ( (lv_operator_2_0= ruleGAdditionOperator ) ) ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1400:2: ()
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1401:5: 
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1406:2: ()
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1407:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -3830,18 +3854,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1406:2: ( (lv_operator_2_0= ruleGAdditionOperator ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1407:1: (lv_operator_2_0= ruleGAdditionOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1412:2: ( (lv_operator_2_0= ruleGAdditionOperator ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1413:1: (lv_operator_2_0= ruleGAdditionOperator )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1407:1: (lv_operator_2_0= ruleGAdditionOperator )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1408:3: lv_operator_2_0= ruleGAdditionOperator
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1413:1: (lv_operator_2_0= ruleGAdditionOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1414:3: lv_operator_2_0= ruleGAdditionOperator
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGAdditionExpressionAccess().getOperatorGAdditionOperatorEnumRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGAdditionOperator_in_ruleGAdditionExpression2949);
+            	    pushFollow(FOLLOW_ruleGAdditionOperator_in_ruleGAdditionExpression2958);
             	    lv_operator_2_0=ruleGAdditionOperator();
 
             	    state._fsp--;
@@ -3865,18 +3889,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1424:2: ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1425:1: (lv_rightOperand_3_0= ruleGMultiplicationExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1430:2: ( (lv_rightOperand_3_0= ruleGMultiplicationExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1431:1: (lv_rightOperand_3_0= ruleGMultiplicationExpression )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1425:1: (lv_rightOperand_3_0= ruleGMultiplicationExpression )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1426:3: lv_rightOperand_3_0= ruleGMultiplicationExpression
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1431:1: (lv_rightOperand_3_0= ruleGMultiplicationExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1432:3: lv_rightOperand_3_0= ruleGMultiplicationExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGAdditionExpressionAccess().getRightOperandGMultiplicationExpressionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGMultiplicationExpression_in_ruleGAdditionExpression2970);
+            	    pushFollow(FOLLOW_ruleGMultiplicationExpression_in_ruleGAdditionExpression2979);
             	    lv_rightOperand_3_0=ruleGMultiplicationExpression();
 
             	    state._fsp--;
@@ -3932,7 +3956,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGMultiplicationExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1450:1: entryRuleGMultiplicationExpression returns [EObject current=null] : iv_ruleGMultiplicationExpression= ruleGMultiplicationExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1456:1: entryRuleGMultiplicationExpression returns [EObject current=null] : iv_ruleGMultiplicationExpression= ruleGMultiplicationExpression EOF ;
     public final EObject entryRuleGMultiplicationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3940,13 +3964,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1451:2: (iv_ruleGMultiplicationExpression= ruleGMultiplicationExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1452:2: iv_ruleGMultiplicationExpression= ruleGMultiplicationExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1457:2: (iv_ruleGMultiplicationExpression= ruleGMultiplicationExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1458:2: iv_ruleGMultiplicationExpression= ruleGMultiplicationExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGMultiplicationExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGMultiplicationExpression_in_entryRuleGMultiplicationExpression3008);
+            pushFollow(FOLLOW_ruleGMultiplicationExpression_in_entryRuleGMultiplicationExpression3017);
             iv_ruleGMultiplicationExpression=ruleGMultiplicationExpression();
 
             state._fsp--;
@@ -3954,7 +3978,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGMultiplicationExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGMultiplicationExpression3018); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGMultiplicationExpression3027); if (state.failed) return current;
 
             }
 
@@ -3972,7 +3996,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGMultiplicationExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1459:1: ruleGMultiplicationExpression returns [EObject current=null] : (this_GNegationExpression_0= ruleGNegationExpression ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )* ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1465:1: ruleGMultiplicationExpression returns [EObject current=null] : (this_GNegationExpression_0= ruleGNegationExpression ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )* ) ;
     public final EObject ruleGMultiplicationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -3986,18 +4010,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1462:28: ( (this_GNegationExpression_0= ruleGNegationExpression ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )* ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1463:1: (this_GNegationExpression_0= ruleGNegationExpression ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1468:28: ( (this_GNegationExpression_0= ruleGNegationExpression ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )* ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1469:1: (this_GNegationExpression_0= ruleGNegationExpression ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )* )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1463:1: (this_GNegationExpression_0= ruleGNegationExpression ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )* )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1464:5: this_GNegationExpression_0= ruleGNegationExpression ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1469:1: (this_GNegationExpression_0= ruleGNegationExpression ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1470:5: this_GNegationExpression_0= ruleGNegationExpression ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getGMultiplicationExpressionAccess().getGNegationExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleGNegationExpression_in_ruleGMultiplicationExpression3065);
+            pushFollow(FOLLOW_ruleGNegationExpression_in_ruleGMultiplicationExpression3074);
             this_GNegationExpression_0=ruleGNegationExpression();
 
             state._fsp--;
@@ -4008,7 +4032,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1472:1: ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1478:1: ( () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) ) )*
             loop20:
             do {
                 int alt20=2;
@@ -4021,10 +4045,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                 switch (alt20) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1472:2: () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1478:2: () ( (lv_operator_2_0= ruleGMultiplicationOperator ) ) ( (lv_rightOperand_3_0= ruleGNegationExpression ) )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1472:2: ()
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1473:5: 
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1478:2: ()
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1479:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -4036,18 +4060,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1478:2: ( (lv_operator_2_0= ruleGMultiplicationOperator ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1479:1: (lv_operator_2_0= ruleGMultiplicationOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1484:2: ( (lv_operator_2_0= ruleGMultiplicationOperator ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1485:1: (lv_operator_2_0= ruleGMultiplicationOperator )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1479:1: (lv_operator_2_0= ruleGMultiplicationOperator )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1480:3: lv_operator_2_0= ruleGMultiplicationOperator
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1485:1: (lv_operator_2_0= ruleGMultiplicationOperator )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1486:3: lv_operator_2_0= ruleGMultiplicationOperator
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGMultiplicationExpressionAccess().getOperatorGMultiplicationOperatorEnumRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGMultiplicationOperator_in_ruleGMultiplicationExpression3095);
+            	    pushFollow(FOLLOW_ruleGMultiplicationOperator_in_ruleGMultiplicationExpression3104);
             	    lv_operator_2_0=ruleGMultiplicationOperator();
 
             	    state._fsp--;
@@ -4071,18 +4095,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1496:2: ( (lv_rightOperand_3_0= ruleGNegationExpression ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1497:1: (lv_rightOperand_3_0= ruleGNegationExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1502:2: ( (lv_rightOperand_3_0= ruleGNegationExpression ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1503:1: (lv_rightOperand_3_0= ruleGNegationExpression )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1497:1: (lv_rightOperand_3_0= ruleGNegationExpression )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1498:3: lv_rightOperand_3_0= ruleGNegationExpression
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1503:1: (lv_rightOperand_3_0= ruleGNegationExpression )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1504:3: lv_rightOperand_3_0= ruleGNegationExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getGMultiplicationExpressionAccess().getRightOperandGNegationExpressionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleGNegationExpression_in_ruleGMultiplicationExpression3116);
+            	    pushFollow(FOLLOW_ruleGNegationExpression_in_ruleGMultiplicationExpression3125);
             	    lv_rightOperand_3_0=ruleGNegationExpression();
 
             	    state._fsp--;
@@ -4138,7 +4162,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGNegationExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1522:1: entryRuleGNegationExpression returns [EObject current=null] : iv_ruleGNegationExpression= ruleGNegationExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1528:1: entryRuleGNegationExpression returns [EObject current=null] : iv_ruleGNegationExpression= ruleGNegationExpression EOF ;
     public final EObject entryRuleGNegationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4146,13 +4170,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1523:2: (iv_ruleGNegationExpression= ruleGNegationExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1524:2: iv_ruleGNegationExpression= ruleGNegationExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1529:2: (iv_ruleGNegationExpression= ruleGNegationExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1530:2: iv_ruleGNegationExpression= ruleGNegationExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGNegationExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGNegationExpression_in_entryRuleGNegationExpression3154);
+            pushFollow(FOLLOW_ruleGNegationExpression_in_entryRuleGNegationExpression3163);
             iv_ruleGNegationExpression=ruleGNegationExpression();
 
             state._fsp--;
@@ -4160,7 +4184,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGNegationExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGNegationExpression3164); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGNegationExpression3173); if (state.failed) return current;
 
             }
 
@@ -4178,7 +4202,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGNegationExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1531:1: ruleGNegationExpression returns [EObject current=null] : (this_GNavigationExpression_0= ruleGNavigationExpression | ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1537:1: ruleGNegationExpression returns [EObject current=null] : (this_GNavigationExpression_0= ruleGNavigationExpression | ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) ) ) ;
     public final EObject ruleGNegationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4192,10 +4216,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1534:28: ( (this_GNavigationExpression_0= ruleGNavigationExpression | ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1535:1: (this_GNavigationExpression_0= ruleGNavigationExpression | ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1540:28: ( (this_GNavigationExpression_0= ruleGNavigationExpression | ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1541:1: (this_GNavigationExpression_0= ruleGNavigationExpression | ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1535:1: (this_GNavigationExpression_0= ruleGNavigationExpression | ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1541:1: (this_GNavigationExpression_0= ruleGNavigationExpression | ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) ) )
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -4214,14 +4238,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             }
             switch (alt21) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1536:5: this_GNavigationExpression_0= ruleGNavigationExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1542:5: this_GNavigationExpression_0= ruleGNavigationExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getGNegationExpressionAccess().getGNavigationExpressionParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGNavigationExpression_in_ruleGNegationExpression3211);
+                    pushFollow(FOLLOW_ruleGNavigationExpression_in_ruleGNegationExpression3220);
                     this_GNavigationExpression_0=ruleGNavigationExpression();
 
                     state._fsp--;
@@ -4236,13 +4260,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1545:6: ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1551:6: ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1545:6: ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1545:7: () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1551:6: ( () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1551:7: () ( (lv_operator_2_0= ruleGNegationOperator ) ) ( (lv_operand_3_0= ruleGNavigationExpression ) )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1545:7: ()
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1546:5: 
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1551:7: ()
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1552:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4254,18 +4278,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1551:2: ( (lv_operator_2_0= ruleGNegationOperator ) )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1552:1: (lv_operator_2_0= ruleGNegationOperator )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1557:2: ( (lv_operator_2_0= ruleGNegationOperator ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1558:1: (lv_operator_2_0= ruleGNegationOperator )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1552:1: (lv_operator_2_0= ruleGNegationOperator )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1553:3: lv_operator_2_0= ruleGNegationOperator
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1558:1: (lv_operator_2_0= ruleGNegationOperator )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1559:3: lv_operator_2_0= ruleGNegationOperator
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getGNegationExpressionAccess().getOperatorGNegationOperatorEnumRuleCall_1_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleGNegationOperator_in_ruleGNegationExpression3247);
+                    pushFollow(FOLLOW_ruleGNegationOperator_in_ruleGNegationExpression3256);
                     lv_operator_2_0=ruleGNegationOperator();
 
                     state._fsp--;
@@ -4289,18 +4313,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1569:2: ( (lv_operand_3_0= ruleGNavigationExpression ) )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1570:1: (lv_operand_3_0= ruleGNavigationExpression )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1575:2: ( (lv_operand_3_0= ruleGNavigationExpression ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1576:1: (lv_operand_3_0= ruleGNavigationExpression )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1570:1: (lv_operand_3_0= ruleGNavigationExpression )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1571:3: lv_operand_3_0= ruleGNavigationExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1576:1: (lv_operand_3_0= ruleGNavigationExpression )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1577:3: lv_operand_3_0= ruleGNavigationExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getGNegationExpressionAccess().getOperandGNavigationExpressionParserRuleCall_1_2_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleGNavigationExpression_in_ruleGNegationExpression3268);
+                    pushFollow(FOLLOW_ruleGNavigationExpression_in_ruleGNegationExpression3277);
                     lv_operand_3_0=ruleGNavigationExpression();
 
                     state._fsp--;
@@ -4353,7 +4377,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGNavigationExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1595:1: entryRuleGNavigationExpression returns [EObject current=null] : iv_ruleGNavigationExpression= ruleGNavigationExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1601:1: entryRuleGNavigationExpression returns [EObject current=null] : iv_ruleGNavigationExpression= ruleGNavigationExpression EOF ;
     public final EObject entryRuleGNavigationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4361,13 +4385,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1596:2: (iv_ruleGNavigationExpression= ruleGNavigationExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1597:2: iv_ruleGNavigationExpression= ruleGNavigationExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1602:2: (iv_ruleGNavigationExpression= ruleGNavigationExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1603:2: iv_ruleGNavigationExpression= ruleGNavigationExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGNavigationExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGNavigationExpression_in_entryRuleGNavigationExpression3305);
+            pushFollow(FOLLOW_ruleGNavigationExpression_in_entryRuleGNavigationExpression3314);
             iv_ruleGNavigationExpression=ruleGNavigationExpression();
 
             state._fsp--;
@@ -4375,7 +4399,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGNavigationExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGNavigationExpression3315); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGNavigationExpression3324); if (state.failed) return current;
 
             }
 
@@ -4393,7 +4417,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGNavigationExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1604:1: ruleGNavigationExpression returns [EObject current=null] : (this_GReferenceExpression_0= ruleGReferenceExpression ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )* ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1610:1: ruleGNavigationExpression returns [EObject current=null] : (this_GReferenceExpression_0= ruleGReferenceExpression ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )* ) ;
     public final EObject ruleGNavigationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4404,18 +4428,18 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1607:28: ( (this_GReferenceExpression_0= ruleGReferenceExpression ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )* ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1608:1: (this_GReferenceExpression_0= ruleGReferenceExpression ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1613:28: ( (this_GReferenceExpression_0= ruleGReferenceExpression ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )* ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1614:1: (this_GReferenceExpression_0= ruleGReferenceExpression ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )* )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1608:1: (this_GReferenceExpression_0= ruleGReferenceExpression ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )* )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1609:5: this_GReferenceExpression_0= ruleGReferenceExpression ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1614:1: (this_GReferenceExpression_0= ruleGReferenceExpression ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1615:5: this_GReferenceExpression_0= ruleGReferenceExpression ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getGNavigationExpressionAccess().getGReferenceExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleGReferenceExpression_in_ruleGNavigationExpression3362);
+            pushFollow(FOLLOW_ruleGReferenceExpression_in_ruleGNavigationExpression3371);
             this_GReferenceExpression_0=ruleGReferenceExpression();
 
             state._fsp--;
@@ -4426,7 +4450,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1617:1: ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1623:1: ( () ruleNavigationOperator ( (otherlv_3= RULE_ID ) ) )*
             loop22:
             do {
                 int alt22=2;
@@ -4439,10 +4463,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                 switch (alt22) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1617:2: () ruleNavigationOperator ( (otherlv_3= RULE_ID ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1623:2: () ruleNavigationOperator ( (otherlv_3= RULE_ID ) )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1617:2: ()
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1618:5: 
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1623:2: ()
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1624:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -4459,7 +4483,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	              newCompositeNode(grammarAccess.getGNavigationExpressionAccess().getNavigationOperatorParserRuleCall_1_1()); 
             	          
             	    }
-            	    pushFollow(FOLLOW_ruleNavigationOperator_in_ruleGNavigationExpression3387);
+            	    pushFollow(FOLLOW_ruleNavigationOperator_in_ruleGNavigationExpression3396);
             	    ruleNavigationOperator();
 
             	    state._fsp--;
@@ -4469,11 +4493,11 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	              afterParserOrEnumRuleCall();
             	          
             	    }
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1631:1: ( (otherlv_3= RULE_ID ) )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1632:1: (otherlv_3= RULE_ID )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1637:1: ( (otherlv_3= RULE_ID ) )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1638:1: (otherlv_3= RULE_ID )
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1632:1: (otherlv_3= RULE_ID )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1633:3: otherlv_3= RULE_ID
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1638:1: (otherlv_3= RULE_ID )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1639:3: otherlv_3= RULE_ID
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -4482,7 +4506,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	      	        }
             	              
             	    }
-            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGNavigationExpression3406); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGNavigationExpression3415); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		newLeafNode(otherlv_3, grammarAccess.getGNavigationExpressionAccess().getReferencedEObjectEObjectCrossReference_1_2_0()); 
@@ -4526,7 +4550,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGReferenceExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1652:1: entryRuleGReferenceExpression returns [EObject current=null] : iv_ruleGReferenceExpression= ruleGReferenceExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1658:1: entryRuleGReferenceExpression returns [EObject current=null] : iv_ruleGReferenceExpression= ruleGReferenceExpression EOF ;
     public final EObject entryRuleGReferenceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4534,13 +4558,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1653:2: (iv_ruleGReferenceExpression= ruleGReferenceExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1654:2: iv_ruleGReferenceExpression= ruleGReferenceExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1659:2: (iv_ruleGReferenceExpression= ruleGReferenceExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1660:2: iv_ruleGReferenceExpression= ruleGReferenceExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGReferenceExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGReferenceExpression_in_entryRuleGReferenceExpression3444);
+            pushFollow(FOLLOW_ruleGReferenceExpression_in_entryRuleGReferenceExpression3453);
             iv_ruleGReferenceExpression=ruleGReferenceExpression();
 
             state._fsp--;
@@ -4548,7 +4572,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGReferenceExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGReferenceExpression3454); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGReferenceExpression3463); if (state.failed) return current;
 
             }
 
@@ -4566,7 +4590,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGReferenceExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1661:1: ruleGReferenceExpression returns [EObject current=null] : (this_GPrimaryExpression_0= ruleGPrimaryExpression | ( () ( (otherlv_2= RULE_ID ) ) ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1667:1: ruleGReferenceExpression returns [EObject current=null] : (this_GPrimaryExpression_0= ruleGPrimaryExpression | ( () ( (otherlv_2= RULE_ID ) ) ) ) ;
     public final EObject ruleGReferenceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4577,10 +4601,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1664:28: ( (this_GPrimaryExpression_0= ruleGPrimaryExpression | ( () ( (otherlv_2= RULE_ID ) ) ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1665:1: (this_GPrimaryExpression_0= ruleGPrimaryExpression | ( () ( (otherlv_2= RULE_ID ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1670:28: ( (this_GPrimaryExpression_0= ruleGPrimaryExpression | ( () ( (otherlv_2= RULE_ID ) ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1671:1: (this_GPrimaryExpression_0= ruleGPrimaryExpression | ( () ( (otherlv_2= RULE_ID ) ) ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1665:1: (this_GPrimaryExpression_0= ruleGPrimaryExpression | ( () ( (otherlv_2= RULE_ID ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1671:1: (this_GPrimaryExpression_0= ruleGPrimaryExpression | ( () ( (otherlv_2= RULE_ID ) ) ) )
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -4599,14 +4623,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             }
             switch (alt23) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1666:5: this_GPrimaryExpression_0= ruleGPrimaryExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1672:5: this_GPrimaryExpression_0= ruleGPrimaryExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getGReferenceExpressionAccess().getGPrimaryExpressionParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGPrimaryExpression_in_ruleGReferenceExpression3501);
+                    pushFollow(FOLLOW_ruleGPrimaryExpression_in_ruleGReferenceExpression3510);
                     this_GPrimaryExpression_0=ruleGPrimaryExpression();
 
                     state._fsp--;
@@ -4621,13 +4645,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1675:6: ( () ( (otherlv_2= RULE_ID ) ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1681:6: ( () ( (otherlv_2= RULE_ID ) ) )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1675:6: ( () ( (otherlv_2= RULE_ID ) ) )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1675:7: () ( (otherlv_2= RULE_ID ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1681:6: ( () ( (otherlv_2= RULE_ID ) ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1681:7: () ( (otherlv_2= RULE_ID ) )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1675:7: ()
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1676:5: 
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1681:7: ()
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1682:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4639,11 +4663,11 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1681:2: ( (otherlv_2= RULE_ID ) )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1682:1: (otherlv_2= RULE_ID )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1687:2: ( (otherlv_2= RULE_ID ) )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1688:1: (otherlv_2= RULE_ID )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1682:1: (otherlv_2= RULE_ID )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1683:3: otherlv_2= RULE_ID
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1688:1: (otherlv_2= RULE_ID )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1689:3: otherlv_2= RULE_ID
                     {
                     if ( state.backtracking==0 ) {
 
@@ -4652,7 +4676,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                       	        }
                               
                     }
-                    otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGReferenceExpression3536); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGReferenceExpression3545); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		newLeafNode(otherlv_2, grammarAccess.getGReferenceExpressionAccess().getReferencedEObjectEObjectCrossReference_1_1_0()); 
@@ -4693,7 +4717,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGPrimaryExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1702:1: entryRuleGPrimaryExpression returns [EObject current=null] : iv_ruleGPrimaryExpression= ruleGPrimaryExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1708:1: entryRuleGPrimaryExpression returns [EObject current=null] : iv_ruleGPrimaryExpression= ruleGPrimaryExpression EOF ;
     public final EObject entryRuleGPrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4701,13 +4725,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1703:2: (iv_ruleGPrimaryExpression= ruleGPrimaryExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1704:2: iv_ruleGPrimaryExpression= ruleGPrimaryExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1709:2: (iv_ruleGPrimaryExpression= ruleGPrimaryExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1710:2: iv_ruleGPrimaryExpression= ruleGPrimaryExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGPrimaryExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGPrimaryExpression_in_entryRuleGPrimaryExpression3573);
+            pushFollow(FOLLOW_ruleGPrimaryExpression_in_entryRuleGPrimaryExpression3582);
             iv_ruleGPrimaryExpression=ruleGPrimaryExpression();
 
             state._fsp--;
@@ -4715,7 +4739,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGPrimaryExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGPrimaryExpression3583); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGPrimaryExpression3592); if (state.failed) return current;
 
             }
 
@@ -4733,7 +4757,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGPrimaryExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1711:1: ruleGPrimaryExpression returns [EObject current=null] : (this_GStringExpression_0= ruleGStringExpression | this_GBooleanExpression_1= ruleGBooleanExpression | this_GNumericExpression_2= ruleGNumericExpression | this_GEnumLiteralExpression_3= ruleGEnumLiteralExpression | this_GIfExpression_4= ruleGIfExpression | this_GBraceExpression_5= ruleGBraceExpression ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1717:1: ruleGPrimaryExpression returns [EObject current=null] : (this_GStringExpression_0= ruleGStringExpression | this_GBooleanExpression_1= ruleGBooleanExpression | this_GNumericExpression_2= ruleGNumericExpression | this_GEnumLiteralExpression_3= ruleGEnumLiteralExpression | this_GIfExpression_4= ruleGIfExpression | this_GBraceExpression_5= ruleGBraceExpression ) ;
     public final EObject ruleGPrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4753,10 +4777,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1714:28: ( (this_GStringExpression_0= ruleGStringExpression | this_GBooleanExpression_1= ruleGBooleanExpression | this_GNumericExpression_2= ruleGNumericExpression | this_GEnumLiteralExpression_3= ruleGEnumLiteralExpression | this_GIfExpression_4= ruleGIfExpression | this_GBraceExpression_5= ruleGBraceExpression ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1715:1: (this_GStringExpression_0= ruleGStringExpression | this_GBooleanExpression_1= ruleGBooleanExpression | this_GNumericExpression_2= ruleGNumericExpression | this_GEnumLiteralExpression_3= ruleGEnumLiteralExpression | this_GIfExpression_4= ruleGIfExpression | this_GBraceExpression_5= ruleGBraceExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1720:28: ( (this_GStringExpression_0= ruleGStringExpression | this_GBooleanExpression_1= ruleGBooleanExpression | this_GNumericExpression_2= ruleGNumericExpression | this_GEnumLiteralExpression_3= ruleGEnumLiteralExpression | this_GIfExpression_4= ruleGIfExpression | this_GBraceExpression_5= ruleGBraceExpression ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1721:1: (this_GStringExpression_0= ruleGStringExpression | this_GBooleanExpression_1= ruleGBooleanExpression | this_GNumericExpression_2= ruleGNumericExpression | this_GEnumLiteralExpression_3= ruleGEnumLiteralExpression | this_GIfExpression_4= ruleGIfExpression | this_GBraceExpression_5= ruleGBraceExpression )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1715:1: (this_GStringExpression_0= ruleGStringExpression | this_GBooleanExpression_1= ruleGBooleanExpression | this_GNumericExpression_2= ruleGNumericExpression | this_GEnumLiteralExpression_3= ruleGEnumLiteralExpression | this_GIfExpression_4= ruleGIfExpression | this_GBraceExpression_5= ruleGBraceExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1721:1: (this_GStringExpression_0= ruleGStringExpression | this_GBooleanExpression_1= ruleGBooleanExpression | this_GNumericExpression_2= ruleGNumericExpression | this_GEnumLiteralExpression_3= ruleGEnumLiteralExpression | this_GIfExpression_4= ruleGIfExpression | this_GBraceExpression_5= ruleGBraceExpression )
             int alt24=6;
             switch ( input.LA(1) ) {
             case RULE_STRING:
@@ -4800,14 +4824,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             switch (alt24) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1716:5: this_GStringExpression_0= ruleGStringExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1722:5: this_GStringExpression_0= ruleGStringExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getGPrimaryExpressionAccess().getGStringExpressionParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGStringExpression_in_ruleGPrimaryExpression3630);
+                    pushFollow(FOLLOW_ruleGStringExpression_in_ruleGPrimaryExpression3639);
                     this_GStringExpression_0=ruleGStringExpression();
 
                     state._fsp--;
@@ -4822,14 +4846,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1726:5: this_GBooleanExpression_1= ruleGBooleanExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1732:5: this_GBooleanExpression_1= ruleGBooleanExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getGPrimaryExpressionAccess().getGBooleanExpressionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGBooleanExpression_in_ruleGPrimaryExpression3657);
+                    pushFollow(FOLLOW_ruleGBooleanExpression_in_ruleGPrimaryExpression3666);
                     this_GBooleanExpression_1=ruleGBooleanExpression();
 
                     state._fsp--;
@@ -4844,14 +4868,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1736:5: this_GNumericExpression_2= ruleGNumericExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1742:5: this_GNumericExpression_2= ruleGNumericExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getGPrimaryExpressionAccess().getGNumericExpressionParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGNumericExpression_in_ruleGPrimaryExpression3684);
+                    pushFollow(FOLLOW_ruleGNumericExpression_in_ruleGPrimaryExpression3693);
                     this_GNumericExpression_2=ruleGNumericExpression();
 
                     state._fsp--;
@@ -4866,14 +4890,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1746:5: this_GEnumLiteralExpression_3= ruleGEnumLiteralExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1752:5: this_GEnumLiteralExpression_3= ruleGEnumLiteralExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getGPrimaryExpressionAccess().getGEnumLiteralExpressionParserRuleCall_3()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGEnumLiteralExpression_in_ruleGPrimaryExpression3711);
+                    pushFollow(FOLLOW_ruleGEnumLiteralExpression_in_ruleGPrimaryExpression3720);
                     this_GEnumLiteralExpression_3=ruleGEnumLiteralExpression();
 
                     state._fsp--;
@@ -4888,14 +4912,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1756:5: this_GIfExpression_4= ruleGIfExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1762:5: this_GIfExpression_4= ruleGIfExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getGPrimaryExpressionAccess().getGIfExpressionParserRuleCall_4()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGIfExpression_in_ruleGPrimaryExpression3738);
+                    pushFollow(FOLLOW_ruleGIfExpression_in_ruleGPrimaryExpression3747);
                     this_GIfExpression_4=ruleGIfExpression();
 
                     state._fsp--;
@@ -4910,14 +4934,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1766:5: this_GBraceExpression_5= ruleGBraceExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1772:5: this_GBraceExpression_5= ruleGBraceExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getGPrimaryExpressionAccess().getGBraceExpressionParserRuleCall_5()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGBraceExpression_in_ruleGPrimaryExpression3765);
+                    pushFollow(FOLLOW_ruleGBraceExpression_in_ruleGPrimaryExpression3774);
                     this_GBraceExpression_5=ruleGBraceExpression();
 
                     state._fsp--;
@@ -4954,7 +4978,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGStringExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1782:1: entryRuleGStringExpression returns [EObject current=null] : iv_ruleGStringExpression= ruleGStringExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1788:1: entryRuleGStringExpression returns [EObject current=null] : iv_ruleGStringExpression= ruleGStringExpression EOF ;
     public final EObject entryRuleGStringExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4962,13 +4986,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1783:2: (iv_ruleGStringExpression= ruleGStringExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1784:2: iv_ruleGStringExpression= ruleGStringExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1789:2: (iv_ruleGStringExpression= ruleGStringExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1790:2: iv_ruleGStringExpression= ruleGStringExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGStringExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGStringExpression_in_entryRuleGStringExpression3800);
+            pushFollow(FOLLOW_ruleGStringExpression_in_entryRuleGStringExpression3809);
             iv_ruleGStringExpression=ruleGStringExpression();
 
             state._fsp--;
@@ -4976,7 +5000,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGStringExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGStringExpression3810); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGStringExpression3819); if (state.failed) return current;
 
             }
 
@@ -4994,7 +5018,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGStringExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1791:1: ruleGStringExpression returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_STRING ) ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1797:1: ruleGStringExpression returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleGStringExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5003,14 +5027,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1794:28: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1795:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1800:28: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1801:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1795:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1795:2: () ( (lv_value_1_0= RULE_STRING ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1801:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1801:2: () ( (lv_value_1_0= RULE_STRING ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1795:2: ()
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1796:5: 
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1801:2: ()
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1802:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5022,13 +5046,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1801:2: ( (lv_value_1_0= RULE_STRING ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1802:1: (lv_value_1_0= RULE_STRING )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1807:2: ( (lv_value_1_0= RULE_STRING ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1808:1: (lv_value_1_0= RULE_STRING )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1802:1: (lv_value_1_0= RULE_STRING )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1803:3: lv_value_1_0= RULE_STRING
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1808:1: (lv_value_1_0= RULE_STRING )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1809:3: lv_value_1_0= RULE_STRING
             {
-            lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleGStringExpression3861); if (state.failed) return current;
+            lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleGStringExpression3870); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_1_0, grammarAccess.getGStringExpressionAccess().getValueSTRINGTerminalRuleCall_1_0()); 
@@ -5075,7 +5099,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGBooleanExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1827:1: entryRuleGBooleanExpression returns [EObject current=null] : iv_ruleGBooleanExpression= ruleGBooleanExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1833:1: entryRuleGBooleanExpression returns [EObject current=null] : iv_ruleGBooleanExpression= ruleGBooleanExpression EOF ;
     public final EObject entryRuleGBooleanExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5083,13 +5107,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1828:2: (iv_ruleGBooleanExpression= ruleGBooleanExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1829:2: iv_ruleGBooleanExpression= ruleGBooleanExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1834:2: (iv_ruleGBooleanExpression= ruleGBooleanExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1835:2: iv_ruleGBooleanExpression= ruleGBooleanExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGBooleanExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGBooleanExpression_in_entryRuleGBooleanExpression3902);
+            pushFollow(FOLLOW_ruleGBooleanExpression_in_entryRuleGBooleanExpression3911);
             iv_ruleGBooleanExpression=ruleGBooleanExpression();
 
             state._fsp--;
@@ -5097,7 +5121,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGBooleanExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGBooleanExpression3912); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGBooleanExpression3921); if (state.failed) return current;
 
             }
 
@@ -5115,7 +5139,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGBooleanExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1836:1: ruleGBooleanExpression returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_BOOLEAN ) ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1842:1: ruleGBooleanExpression returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_BOOLEAN ) ) ) ;
     public final EObject ruleGBooleanExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5124,14 +5148,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1839:28: ( ( () ( (lv_value_1_0= RULE_BOOLEAN ) ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1840:1: ( () ( (lv_value_1_0= RULE_BOOLEAN ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1845:28: ( ( () ( (lv_value_1_0= RULE_BOOLEAN ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1846:1: ( () ( (lv_value_1_0= RULE_BOOLEAN ) ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1840:1: ( () ( (lv_value_1_0= RULE_BOOLEAN ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1840:2: () ( (lv_value_1_0= RULE_BOOLEAN ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1846:1: ( () ( (lv_value_1_0= RULE_BOOLEAN ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1846:2: () ( (lv_value_1_0= RULE_BOOLEAN ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1840:2: ()
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1841:5: 
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1846:2: ()
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1847:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5143,13 +5167,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1846:2: ( (lv_value_1_0= RULE_BOOLEAN ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1847:1: (lv_value_1_0= RULE_BOOLEAN )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1852:2: ( (lv_value_1_0= RULE_BOOLEAN ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1853:1: (lv_value_1_0= RULE_BOOLEAN )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1847:1: (lv_value_1_0= RULE_BOOLEAN )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1848:3: lv_value_1_0= RULE_BOOLEAN
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1853:1: (lv_value_1_0= RULE_BOOLEAN )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1854:3: lv_value_1_0= RULE_BOOLEAN
             {
-            lv_value_1_0=(Token)match(input,RULE_BOOLEAN,FOLLOW_RULE_BOOLEAN_in_ruleGBooleanExpression3963); if (state.failed) return current;
+            lv_value_1_0=(Token)match(input,RULE_BOOLEAN,FOLLOW_RULE_BOOLEAN_in_ruleGBooleanExpression3972); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_1_0, grammarAccess.getGBooleanExpressionAccess().getValueBOOLEANTerminalRuleCall_1_0()); 
@@ -5196,7 +5220,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGNumericExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1872:1: entryRuleGNumericExpression returns [EObject current=null] : iv_ruleGNumericExpression= ruleGNumericExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1878:1: entryRuleGNumericExpression returns [EObject current=null] : iv_ruleGNumericExpression= ruleGNumericExpression EOF ;
     public final EObject entryRuleGNumericExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5204,13 +5228,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1873:2: (iv_ruleGNumericExpression= ruleGNumericExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1874:2: iv_ruleGNumericExpression= ruleGNumericExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1879:2: (iv_ruleGNumericExpression= ruleGNumericExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1880:2: iv_ruleGNumericExpression= ruleGNumericExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGNumericExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGNumericExpression_in_entryRuleGNumericExpression4004);
+            pushFollow(FOLLOW_ruleGNumericExpression_in_entryRuleGNumericExpression4013);
             iv_ruleGNumericExpression=ruleGNumericExpression();
 
             state._fsp--;
@@ -5218,7 +5242,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGNumericExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGNumericExpression4014); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGNumericExpression4023); if (state.failed) return current;
 
             }
 
@@ -5236,7 +5260,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGNumericExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1881:1: ruleGNumericExpression returns [EObject current=null] : (this_GIntegerExpression_0= ruleGIntegerExpression | this_GDoubleExpression_1= ruleGDoubleExpression ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1887:1: ruleGNumericExpression returns [EObject current=null] : (this_GIntegerExpression_0= ruleGIntegerExpression | this_GDoubleExpression_1= ruleGDoubleExpression ) ;
     public final EObject ruleGNumericExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5248,10 +5272,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1884:28: ( (this_GIntegerExpression_0= ruleGIntegerExpression | this_GDoubleExpression_1= ruleGDoubleExpression ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1885:1: (this_GIntegerExpression_0= ruleGIntegerExpression | this_GDoubleExpression_1= ruleGDoubleExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1890:28: ( (this_GIntegerExpression_0= ruleGIntegerExpression | this_GDoubleExpression_1= ruleGDoubleExpression ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1891:1: (this_GIntegerExpression_0= ruleGIntegerExpression | this_GDoubleExpression_1= ruleGDoubleExpression )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1885:1: (this_GIntegerExpression_0= ruleGIntegerExpression | this_GDoubleExpression_1= ruleGDoubleExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1891:1: (this_GIntegerExpression_0= ruleGIntegerExpression | this_GDoubleExpression_1= ruleGDoubleExpression )
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -5270,14 +5294,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             }
             switch (alt25) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1886:5: this_GIntegerExpression_0= ruleGIntegerExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1892:5: this_GIntegerExpression_0= ruleGIntegerExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getGNumericExpressionAccess().getGIntegerExpressionParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGIntegerExpression_in_ruleGNumericExpression4061);
+                    pushFollow(FOLLOW_ruleGIntegerExpression_in_ruleGNumericExpression4070);
                     this_GIntegerExpression_0=ruleGIntegerExpression();
 
                     state._fsp--;
@@ -5292,14 +5316,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1896:5: this_GDoubleExpression_1= ruleGDoubleExpression
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1902:5: this_GDoubleExpression_1= ruleGDoubleExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getGNumericExpressionAccess().getGDoubleExpressionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleGDoubleExpression_in_ruleGNumericExpression4088);
+                    pushFollow(FOLLOW_ruleGDoubleExpression_in_ruleGNumericExpression4097);
                     this_GDoubleExpression_1=ruleGDoubleExpression();
 
                     state._fsp--;
@@ -5336,7 +5360,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGIntegerExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1912:1: entryRuleGIntegerExpression returns [EObject current=null] : iv_ruleGIntegerExpression= ruleGIntegerExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1918:1: entryRuleGIntegerExpression returns [EObject current=null] : iv_ruleGIntegerExpression= ruleGIntegerExpression EOF ;
     public final EObject entryRuleGIntegerExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5344,13 +5368,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1913:2: (iv_ruleGIntegerExpression= ruleGIntegerExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1914:2: iv_ruleGIntegerExpression= ruleGIntegerExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1919:2: (iv_ruleGIntegerExpression= ruleGIntegerExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1920:2: iv_ruleGIntegerExpression= ruleGIntegerExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGIntegerExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGIntegerExpression_in_entryRuleGIntegerExpression4123);
+            pushFollow(FOLLOW_ruleGIntegerExpression_in_entryRuleGIntegerExpression4132);
             iv_ruleGIntegerExpression=ruleGIntegerExpression();
 
             state._fsp--;
@@ -5358,7 +5382,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGIntegerExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGIntegerExpression4133); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGIntegerExpression4142); if (state.failed) return current;
 
             }
 
@@ -5376,7 +5400,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGIntegerExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1921:1: ruleGIntegerExpression returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_INT ) ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1927:1: ruleGIntegerExpression returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_INT ) ) ) ;
     public final EObject ruleGIntegerExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5385,14 +5409,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1924:28: ( ( () ( (lv_value_1_0= RULE_INT ) ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1925:1: ( () ( (lv_value_1_0= RULE_INT ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1930:28: ( ( () ( (lv_value_1_0= RULE_INT ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1931:1: ( () ( (lv_value_1_0= RULE_INT ) ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1925:1: ( () ( (lv_value_1_0= RULE_INT ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1925:2: () ( (lv_value_1_0= RULE_INT ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1931:1: ( () ( (lv_value_1_0= RULE_INT ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1931:2: () ( (lv_value_1_0= RULE_INT ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1925:2: ()
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1926:5: 
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1931:2: ()
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1932:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5404,13 +5428,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1931:2: ( (lv_value_1_0= RULE_INT ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1932:1: (lv_value_1_0= RULE_INT )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1937:2: ( (lv_value_1_0= RULE_INT ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1938:1: (lv_value_1_0= RULE_INT )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1932:1: (lv_value_1_0= RULE_INT )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1933:3: lv_value_1_0= RULE_INT
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1938:1: (lv_value_1_0= RULE_INT )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1939:3: lv_value_1_0= RULE_INT
             {
-            lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleGIntegerExpression4184); if (state.failed) return current;
+            lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleGIntegerExpression4193); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_1_0, grammarAccess.getGIntegerExpressionAccess().getValueINTTerminalRuleCall_1_0()); 
@@ -5457,7 +5481,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGDoubleExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1957:1: entryRuleGDoubleExpression returns [EObject current=null] : iv_ruleGDoubleExpression= ruleGDoubleExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1963:1: entryRuleGDoubleExpression returns [EObject current=null] : iv_ruleGDoubleExpression= ruleGDoubleExpression EOF ;
     public final EObject entryRuleGDoubleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5465,13 +5489,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1958:2: (iv_ruleGDoubleExpression= ruleGDoubleExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1959:2: iv_ruleGDoubleExpression= ruleGDoubleExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1964:2: (iv_ruleGDoubleExpression= ruleGDoubleExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1965:2: iv_ruleGDoubleExpression= ruleGDoubleExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGDoubleExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGDoubleExpression_in_entryRuleGDoubleExpression4225);
+            pushFollow(FOLLOW_ruleGDoubleExpression_in_entryRuleGDoubleExpression4234);
             iv_ruleGDoubleExpression=ruleGDoubleExpression();
 
             state._fsp--;
@@ -5479,7 +5503,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGDoubleExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGDoubleExpression4235); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGDoubleExpression4244); if (state.failed) return current;
 
             }
 
@@ -5497,7 +5521,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGDoubleExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1966:1: ruleGDoubleExpression returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_DOUBLE ) ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1972:1: ruleGDoubleExpression returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_DOUBLE ) ) ) ;
     public final EObject ruleGDoubleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5506,14 +5530,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1969:28: ( ( () ( (lv_value_1_0= RULE_DOUBLE ) ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1970:1: ( () ( (lv_value_1_0= RULE_DOUBLE ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1975:28: ( ( () ( (lv_value_1_0= RULE_DOUBLE ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1976:1: ( () ( (lv_value_1_0= RULE_DOUBLE ) ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1970:1: ( () ( (lv_value_1_0= RULE_DOUBLE ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1970:2: () ( (lv_value_1_0= RULE_DOUBLE ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1976:1: ( () ( (lv_value_1_0= RULE_DOUBLE ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1976:2: () ( (lv_value_1_0= RULE_DOUBLE ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1970:2: ()
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1971:5: 
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1976:2: ()
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1977:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5525,13 +5549,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1976:2: ( (lv_value_1_0= RULE_DOUBLE ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1977:1: (lv_value_1_0= RULE_DOUBLE )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1982:2: ( (lv_value_1_0= RULE_DOUBLE ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1983:1: (lv_value_1_0= RULE_DOUBLE )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1977:1: (lv_value_1_0= RULE_DOUBLE )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1978:3: lv_value_1_0= RULE_DOUBLE
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1983:1: (lv_value_1_0= RULE_DOUBLE )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1984:3: lv_value_1_0= RULE_DOUBLE
             {
-            lv_value_1_0=(Token)match(input,RULE_DOUBLE,FOLLOW_RULE_DOUBLE_in_ruleGDoubleExpression4286); if (state.failed) return current;
+            lv_value_1_0=(Token)match(input,RULE_DOUBLE,FOLLOW_RULE_DOUBLE_in_ruleGDoubleExpression4295); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_1_0, grammarAccess.getGDoubleExpressionAccess().getValueDOUBLETerminalRuleCall_1_0()); 
@@ -5578,7 +5602,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGEnumLiteralExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2002:1: entryRuleGEnumLiteralExpression returns [EObject current=null] : iv_ruleGEnumLiteralExpression= ruleGEnumLiteralExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2008:1: entryRuleGEnumLiteralExpression returns [EObject current=null] : iv_ruleGEnumLiteralExpression= ruleGEnumLiteralExpression EOF ;
     public final EObject entryRuleGEnumLiteralExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5586,13 +5610,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2003:2: (iv_ruleGEnumLiteralExpression= ruleGEnumLiteralExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2004:2: iv_ruleGEnumLiteralExpression= ruleGEnumLiteralExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2009:2: (iv_ruleGEnumLiteralExpression= ruleGEnumLiteralExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2010:2: iv_ruleGEnumLiteralExpression= ruleGEnumLiteralExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGEnumLiteralExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGEnumLiteralExpression_in_entryRuleGEnumLiteralExpression4327);
+            pushFollow(FOLLOW_ruleGEnumLiteralExpression_in_entryRuleGEnumLiteralExpression4336);
             iv_ruleGEnumLiteralExpression=ruleGEnumLiteralExpression();
 
             state._fsp--;
@@ -5600,7 +5624,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGEnumLiteralExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGEnumLiteralExpression4337); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGEnumLiteralExpression4346); if (state.failed) return current;
 
             }
 
@@ -5618,7 +5642,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGEnumLiteralExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2011:1: ruleGEnumLiteralExpression returns [EObject current=null] : ( () otherlv_1= '#' ( ( ruleQualifiedName ) ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2017:1: ruleGEnumLiteralExpression returns [EObject current=null] : ( () otherlv_1= '#' ( ( ruleQualifiedName ) ) ) ;
     public final EObject ruleGEnumLiteralExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5627,14 +5651,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2014:28: ( ( () otherlv_1= '#' ( ( ruleQualifiedName ) ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2015:1: ( () otherlv_1= '#' ( ( ruleQualifiedName ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2020:28: ( ( () otherlv_1= '#' ( ( ruleQualifiedName ) ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2021:1: ( () otherlv_1= '#' ( ( ruleQualifiedName ) ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2015:1: ( () otherlv_1= '#' ( ( ruleQualifiedName ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2015:2: () otherlv_1= '#' ( ( ruleQualifiedName ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2021:1: ( () otherlv_1= '#' ( ( ruleQualifiedName ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2021:2: () otherlv_1= '#' ( ( ruleQualifiedName ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2015:2: ()
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2016:5: 
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2021:2: ()
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2022:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5646,17 +5670,17 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,33,FOLLOW_33_in_ruleGEnumLiteralExpression4383); if (state.failed) return current;
+            otherlv_1=(Token)match(input,33,FOLLOW_33_in_ruleGEnumLiteralExpression4392); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getGEnumLiteralExpressionAccess().getNumberSignKeyword_1());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2025:1: ( ( ruleQualifiedName ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2026:1: ( ruleQualifiedName )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2031:1: ( ( ruleQualifiedName ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2032:1: ( ruleQualifiedName )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2026:1: ( ruleQualifiedName )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2027:3: ruleQualifiedName
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2032:1: ( ruleQualifiedName )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2033:3: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
 
@@ -5670,7 +5694,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getGEnumLiteralExpressionAccess().getValueEEnumLiteralCrossReference_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleGEnumLiteralExpression4406);
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleGEnumLiteralExpression4415);
             ruleQualifiedName();
 
             state._fsp--;
@@ -5709,7 +5733,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGIfExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2048:1: entryRuleGIfExpression returns [EObject current=null] : iv_ruleGIfExpression= ruleGIfExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2054:1: entryRuleGIfExpression returns [EObject current=null] : iv_ruleGIfExpression= ruleGIfExpression EOF ;
     public final EObject entryRuleGIfExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5717,13 +5741,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2049:2: (iv_ruleGIfExpression= ruleGIfExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2050:2: iv_ruleGIfExpression= ruleGIfExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2055:2: (iv_ruleGIfExpression= ruleGIfExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2056:2: iv_ruleGIfExpression= ruleGIfExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGIfExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGIfExpression_in_entryRuleGIfExpression4442);
+            pushFollow(FOLLOW_ruleGIfExpression_in_entryRuleGIfExpression4451);
             iv_ruleGIfExpression=ruleGIfExpression();
 
             state._fsp--;
@@ -5731,7 +5755,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGIfExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGIfExpression4452); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGIfExpression4461); if (state.failed) return current;
 
             }
 
@@ -5749,7 +5773,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGIfExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2057:1: ruleGIfExpression returns [EObject current=null] : ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleGExpression ) ) otherlv_3= 'then' ( (lv_thenExpression_4_0= ruleGExpression ) ) otherlv_5= 'else' ( (lv_elseExpression_6_0= ruleGExpression ) ) otherlv_7= 'endif' ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2063:1: ruleGIfExpression returns [EObject current=null] : ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleGExpression ) ) otherlv_3= 'then' ( (lv_thenExpression_4_0= ruleGExpression ) ) otherlv_5= 'else' ( (lv_elseExpression_6_0= ruleGExpression ) ) otherlv_7= 'endif' ) ;
     public final EObject ruleGIfExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5767,14 +5791,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2060:28: ( ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleGExpression ) ) otherlv_3= 'then' ( (lv_thenExpression_4_0= ruleGExpression ) ) otherlv_5= 'else' ( (lv_elseExpression_6_0= ruleGExpression ) ) otherlv_7= 'endif' ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2061:1: ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleGExpression ) ) otherlv_3= 'then' ( (lv_thenExpression_4_0= ruleGExpression ) ) otherlv_5= 'else' ( (lv_elseExpression_6_0= ruleGExpression ) ) otherlv_7= 'endif' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2066:28: ( ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleGExpression ) ) otherlv_3= 'then' ( (lv_thenExpression_4_0= ruleGExpression ) ) otherlv_5= 'else' ( (lv_elseExpression_6_0= ruleGExpression ) ) otherlv_7= 'endif' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2067:1: ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleGExpression ) ) otherlv_3= 'then' ( (lv_thenExpression_4_0= ruleGExpression ) ) otherlv_5= 'else' ( (lv_elseExpression_6_0= ruleGExpression ) ) otherlv_7= 'endif' )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2061:1: ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleGExpression ) ) otherlv_3= 'then' ( (lv_thenExpression_4_0= ruleGExpression ) ) otherlv_5= 'else' ( (lv_elseExpression_6_0= ruleGExpression ) ) otherlv_7= 'endif' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2061:2: () otherlv_1= 'if' ( (lv_condition_2_0= ruleGExpression ) ) otherlv_3= 'then' ( (lv_thenExpression_4_0= ruleGExpression ) ) otherlv_5= 'else' ( (lv_elseExpression_6_0= ruleGExpression ) ) otherlv_7= 'endif'
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2067:1: ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleGExpression ) ) otherlv_3= 'then' ( (lv_thenExpression_4_0= ruleGExpression ) ) otherlv_5= 'else' ( (lv_elseExpression_6_0= ruleGExpression ) ) otherlv_7= 'endif' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2067:2: () otherlv_1= 'if' ( (lv_condition_2_0= ruleGExpression ) ) otherlv_3= 'then' ( (lv_thenExpression_4_0= ruleGExpression ) ) otherlv_5= 'else' ( (lv_elseExpression_6_0= ruleGExpression ) ) otherlv_7= 'endif'
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2061:2: ()
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2062:5: 
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2067:2: ()
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2068:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -5786,24 +5810,24 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,34,FOLLOW_34_in_ruleGIfExpression4498); if (state.failed) return current;
+            otherlv_1=(Token)match(input,34,FOLLOW_34_in_ruleGIfExpression4507); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getGIfExpressionAccess().getIfKeyword_1());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2071:1: ( (lv_condition_2_0= ruleGExpression ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2072:1: (lv_condition_2_0= ruleGExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2077:1: ( (lv_condition_2_0= ruleGExpression ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2078:1: (lv_condition_2_0= ruleGExpression )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2072:1: (lv_condition_2_0= ruleGExpression )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2073:3: lv_condition_2_0= ruleGExpression
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2078:1: (lv_condition_2_0= ruleGExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2079:3: lv_condition_2_0= ruleGExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getGIfExpressionAccess().getConditionGExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleGExpression_in_ruleGIfExpression4519);
+            pushFollow(FOLLOW_ruleGExpression_in_ruleGIfExpression4528);
             lv_condition_2_0=ruleGExpression();
 
             state._fsp--;
@@ -5827,24 +5851,24 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,35,FOLLOW_35_in_ruleGIfExpression4531); if (state.failed) return current;
+            otherlv_3=(Token)match(input,35,FOLLOW_35_in_ruleGIfExpression4540); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getGIfExpressionAccess().getThenKeyword_3());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2093:1: ( (lv_thenExpression_4_0= ruleGExpression ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2094:1: (lv_thenExpression_4_0= ruleGExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2099:1: ( (lv_thenExpression_4_0= ruleGExpression ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2100:1: (lv_thenExpression_4_0= ruleGExpression )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2094:1: (lv_thenExpression_4_0= ruleGExpression )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2095:3: lv_thenExpression_4_0= ruleGExpression
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2100:1: (lv_thenExpression_4_0= ruleGExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2101:3: lv_thenExpression_4_0= ruleGExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getGIfExpressionAccess().getThenExpressionGExpressionParserRuleCall_4_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleGExpression_in_ruleGIfExpression4552);
+            pushFollow(FOLLOW_ruleGExpression_in_ruleGIfExpression4561);
             lv_thenExpression_4_0=ruleGExpression();
 
             state._fsp--;
@@ -5868,24 +5892,24 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,36,FOLLOW_36_in_ruleGIfExpression4564); if (state.failed) return current;
+            otherlv_5=(Token)match(input,36,FOLLOW_36_in_ruleGIfExpression4573); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getGIfExpressionAccess().getElseKeyword_5());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2115:1: ( (lv_elseExpression_6_0= ruleGExpression ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2116:1: (lv_elseExpression_6_0= ruleGExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2121:1: ( (lv_elseExpression_6_0= ruleGExpression ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2122:1: (lv_elseExpression_6_0= ruleGExpression )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2116:1: (lv_elseExpression_6_0= ruleGExpression )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2117:3: lv_elseExpression_6_0= ruleGExpression
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2122:1: (lv_elseExpression_6_0= ruleGExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2123:3: lv_elseExpression_6_0= ruleGExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getGIfExpressionAccess().getElseExpressionGExpressionParserRuleCall_6_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleGExpression_in_ruleGIfExpression4585);
+            pushFollow(FOLLOW_ruleGExpression_in_ruleGIfExpression4594);
             lv_elseExpression_6_0=ruleGExpression();
 
             state._fsp--;
@@ -5909,7 +5933,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,37,FOLLOW_37_in_ruleGIfExpression4597); if (state.failed) return current;
+            otherlv_7=(Token)match(input,37,FOLLOW_37_in_ruleGIfExpression4606); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_7, grammarAccess.getGIfExpressionAccess().getEndifKeyword_7());
@@ -5938,7 +5962,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGBraceExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2145:1: entryRuleGBraceExpression returns [EObject current=null] : iv_ruleGBraceExpression= ruleGBraceExpression EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2151:1: entryRuleGBraceExpression returns [EObject current=null] : iv_ruleGBraceExpression= ruleGBraceExpression EOF ;
     public final EObject entryRuleGBraceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5946,13 +5970,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2146:2: (iv_ruleGBraceExpression= ruleGBraceExpression EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2147:2: iv_ruleGBraceExpression= ruleGBraceExpression EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2152:2: (iv_ruleGBraceExpression= ruleGBraceExpression EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2153:2: iv_ruleGBraceExpression= ruleGBraceExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGBraceExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleGBraceExpression_in_entryRuleGBraceExpression4633);
+            pushFollow(FOLLOW_ruleGBraceExpression_in_entryRuleGBraceExpression4642);
             iv_ruleGBraceExpression=ruleGBraceExpression();
 
             state._fsp--;
@@ -5960,7 +5984,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGBraceExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGBraceExpression4643); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGBraceExpression4652); if (state.failed) return current;
 
             }
 
@@ -5978,7 +6002,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGBraceExpression"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2154:1: ruleGBraceExpression returns [EObject current=null] : ( () otherlv_1= '(' ( (lv_innerExpression_2_0= ruleGExpression ) ) otherlv_3= ')' ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2160:1: ruleGBraceExpression returns [EObject current=null] : ( () otherlv_1= '(' ( (lv_innerExpression_2_0= ruleGExpression ) ) otherlv_3= ')' ) ;
     public final EObject ruleGBraceExpression() throws RecognitionException {
         EObject current = null;
 
@@ -5990,14 +6014,14 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2157:28: ( ( () otherlv_1= '(' ( (lv_innerExpression_2_0= ruleGExpression ) ) otherlv_3= ')' ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2158:1: ( () otherlv_1= '(' ( (lv_innerExpression_2_0= ruleGExpression ) ) otherlv_3= ')' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2163:28: ( ( () otherlv_1= '(' ( (lv_innerExpression_2_0= ruleGExpression ) ) otherlv_3= ')' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2164:1: ( () otherlv_1= '(' ( (lv_innerExpression_2_0= ruleGExpression ) ) otherlv_3= ')' )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2158:1: ( () otherlv_1= '(' ( (lv_innerExpression_2_0= ruleGExpression ) ) otherlv_3= ')' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2158:2: () otherlv_1= '(' ( (lv_innerExpression_2_0= ruleGExpression ) ) otherlv_3= ')'
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2164:1: ( () otherlv_1= '(' ( (lv_innerExpression_2_0= ruleGExpression ) ) otherlv_3= ')' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2164:2: () otherlv_1= '(' ( (lv_innerExpression_2_0= ruleGExpression ) ) otherlv_3= ')'
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2158:2: ()
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2159:5: 
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2164:2: ()
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2165:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -6009,24 +6033,24 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,18,FOLLOW_18_in_ruleGBraceExpression4689); if (state.failed) return current;
+            otherlv_1=(Token)match(input,18,FOLLOW_18_in_ruleGBraceExpression4698); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getGBraceExpressionAccess().getLeftParenthesisKeyword_1());
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2168:1: ( (lv_innerExpression_2_0= ruleGExpression ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2169:1: (lv_innerExpression_2_0= ruleGExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2174:1: ( (lv_innerExpression_2_0= ruleGExpression ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2175:1: (lv_innerExpression_2_0= ruleGExpression )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2169:1: (lv_innerExpression_2_0= ruleGExpression )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2170:3: lv_innerExpression_2_0= ruleGExpression
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2175:1: (lv_innerExpression_2_0= ruleGExpression )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2176:3: lv_innerExpression_2_0= ruleGExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getGBraceExpressionAccess().getInnerExpressionGExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleGExpression_in_ruleGBraceExpression4710);
+            pushFollow(FOLLOW_ruleGExpression_in_ruleGBraceExpression4719);
             lv_innerExpression_2_0=ruleGExpression();
 
             state._fsp--;
@@ -6050,7 +6074,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,20,FOLLOW_20_in_ruleGBraceExpression4722); if (state.failed) return current;
+            otherlv_3=(Token)match(input,20,FOLLOW_20_in_ruleGBraceExpression4731); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getGBraceExpressionAccess().getRightParenthesisKeyword_3());
@@ -6079,7 +6103,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNavigationOperator"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2198:1: entryRuleNavigationOperator returns [String current=null] : iv_ruleNavigationOperator= ruleNavigationOperator EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2204:1: entryRuleNavigationOperator returns [String current=null] : iv_ruleNavigationOperator= ruleNavigationOperator EOF ;
     public final String entryRuleNavigationOperator() throws RecognitionException {
         String current = null;
 
@@ -6087,13 +6111,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2199:2: (iv_ruleNavigationOperator= ruleNavigationOperator EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2200:2: iv_ruleNavigationOperator= ruleNavigationOperator EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2205:2: (iv_ruleNavigationOperator= ruleNavigationOperator EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2206:2: iv_ruleNavigationOperator= ruleNavigationOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNavigationOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleNavigationOperator_in_entryRuleNavigationOperator4759);
+            pushFollow(FOLLOW_ruleNavigationOperator_in_entryRuleNavigationOperator4768);
             iv_ruleNavigationOperator=ruleNavigationOperator();
 
             state._fsp--;
@@ -6101,7 +6125,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNavigationOperator.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNavigationOperator4770); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNavigationOperator4779); if (state.failed) return current;
 
             }
 
@@ -6119,7 +6143,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNavigationOperator"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2207:1: ruleNavigationOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '.' | kw= '->' ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2213:1: ruleNavigationOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '.' | kw= '->' ) ;
     public final AntlrDatatypeRuleToken ruleNavigationOperator() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6128,10 +6152,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2210:28: ( (kw= '.' | kw= '->' ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2211:1: (kw= '.' | kw= '->' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2216:28: ( (kw= '.' | kw= '->' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2217:1: (kw= '.' | kw= '->' )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2211:1: (kw= '.' | kw= '->' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2217:1: (kw= '.' | kw= '->' )
             int alt26=2;
             int LA26_0 = input.LA(1);
 
@@ -6150,9 +6174,9 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             }
             switch (alt26) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2212:2: kw= '.'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2218:2: kw= '.'
                     {
-                    kw=(Token)match(input,38,FOLLOW_38_in_ruleNavigationOperator4808); if (state.failed) return current;
+                    kw=(Token)match(input,38,FOLLOW_38_in_ruleNavigationOperator4817); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -6163,9 +6187,9 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2219:2: kw= '->'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2225:2: kw= '->'
                     {
-                    kw=(Token)match(input,39,FOLLOW_39_in_ruleNavigationOperator4827); if (state.failed) return current;
+                    kw=(Token)match(input,39,FOLLOW_39_in_ruleNavigationOperator4836); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -6198,7 +6222,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2232:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2238:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -6206,13 +6230,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2233:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2234:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2239:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2240:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQualifiedNameRule()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName4868);
+            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName4877);
             iv_ruleQualifiedName=ruleQualifiedName();
 
             state._fsp--;
@@ -6220,7 +6244,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleQualifiedName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName4879); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName4888); if (state.failed) return current;
 
             }
 
@@ -6238,7 +6262,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedName"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2241:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2247:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6249,13 +6273,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2244:28: ( (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2245:1: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2250:28: ( (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2251:1: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2245:1: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2245:6: this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2251:1: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2251:6: this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName4919); if (state.failed) return current;
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName4928); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		current.merge(this_ID_0);
@@ -6266,7 +6290,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                   newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
                   
             }
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2252:1: ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2258:1: ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
             loop27:
             do {
                 int alt27=2;
@@ -6291,12 +6315,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
                 switch (alt27) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2252:2: ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2258:2: ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID
             	    {
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2252:2: ( ( '.' )=>kw= '.' )
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2252:3: ( '.' )=>kw= '.'
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2258:2: ( ( '.' )=>kw= '.' )
+            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2258:3: ( '.' )=>kw= '.'
             	    {
-            	    kw=(Token)match(input,38,FOLLOW_38_in_ruleQualifiedName4947); if (state.failed) return current;
+            	    kw=(Token)match(input,38,FOLLOW_38_in_ruleQualifiedName4956); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6306,7 +6330,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName4963); if (state.failed) return current;
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName4972); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		current.merge(this_ID_2);
@@ -6349,7 +6373,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGAndOperator"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2275:1: ruleGAndOperator returns [Enumerator current=null] : (enumLiteral_0= 'and' ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2281:1: ruleGAndOperator returns [Enumerator current=null] : (enumLiteral_0= 'and' ) ;
     public final Enumerator ruleGAndOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6357,13 +6381,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2277:28: ( (enumLiteral_0= 'and' ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2278:1: (enumLiteral_0= 'and' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2283:28: ( (enumLiteral_0= 'and' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2284:1: (enumLiteral_0= 'and' )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2278:1: (enumLiteral_0= 'and' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2278:3: enumLiteral_0= 'and'
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2284:1: (enumLiteral_0= 'and' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2284:3: enumLiteral_0= 'and'
             {
-            enumLiteral_0=(Token)match(input,40,FOLLOW_40_in_ruleGAndOperator5023); if (state.failed) return current;
+            enumLiteral_0=(Token)match(input,40,FOLLOW_40_in_ruleGAndOperator5032); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current = grammarAccess.getGAndOperatorAccess().getANDEnumLiteralDeclaration().getEnumLiteral().getInstance();
@@ -6393,7 +6417,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGXorOperator"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2288:1: ruleGXorOperator returns [Enumerator current=null] : (enumLiteral_0= 'xor' ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2294:1: ruleGXorOperator returns [Enumerator current=null] : (enumLiteral_0= 'xor' ) ;
     public final Enumerator ruleGXorOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6401,13 +6425,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2290:28: ( (enumLiteral_0= 'xor' ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2291:1: (enumLiteral_0= 'xor' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2296:28: ( (enumLiteral_0= 'xor' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2297:1: (enumLiteral_0= 'xor' )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2291:1: (enumLiteral_0= 'xor' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2291:3: enumLiteral_0= 'xor'
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2297:1: (enumLiteral_0= 'xor' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2297:3: enumLiteral_0= 'xor'
             {
-            enumLiteral_0=(Token)match(input,41,FOLLOW_41_in_ruleGXorOperator5066); if (state.failed) return current;
+            enumLiteral_0=(Token)match(input,41,FOLLOW_41_in_ruleGXorOperator5075); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current = grammarAccess.getGXorOperatorAccess().getXOREnumLiteralDeclaration().getEnumLiteral().getInstance();
@@ -6437,7 +6461,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGOrOperator"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2301:1: ruleGOrOperator returns [Enumerator current=null] : (enumLiteral_0= 'or' ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2307:1: ruleGOrOperator returns [Enumerator current=null] : (enumLiteral_0= 'or' ) ;
     public final Enumerator ruleGOrOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6445,13 +6469,13 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2303:28: ( (enumLiteral_0= 'or' ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2304:1: (enumLiteral_0= 'or' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2309:28: ( (enumLiteral_0= 'or' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2310:1: (enumLiteral_0= 'or' )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2304:1: (enumLiteral_0= 'or' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2304:3: enumLiteral_0= 'or'
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2310:1: (enumLiteral_0= 'or' )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2310:3: enumLiteral_0= 'or'
             {
-            enumLiteral_0=(Token)match(input,42,FOLLOW_42_in_ruleGOrOperator5109); if (state.failed) return current;
+            enumLiteral_0=(Token)match(input,42,FOLLOW_42_in_ruleGOrOperator5118); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current = grammarAccess.getGOrOperatorAccess().getOREnumLiteralDeclaration().getEnumLiteral().getInstance();
@@ -6481,7 +6505,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGEqualityOperator"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2314:1: ruleGEqualityOperator returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<>' ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2320:1: ruleGEqualityOperator returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<>' ) ) ;
     public final Enumerator ruleGEqualityOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6490,10 +6514,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2316:28: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<>' ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2317:1: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<>' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2322:28: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<>' ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2323:1: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<>' ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2317:1: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<>' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2323:1: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<>' ) )
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -6512,12 +6536,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             }
             switch (alt28) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2317:2: (enumLiteral_0= '=' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2323:2: (enumLiteral_0= '=' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2317:2: (enumLiteral_0= '=' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2317:4: enumLiteral_0= '='
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2323:2: (enumLiteral_0= '=' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2323:4: enumLiteral_0= '='
                     {
-                    enumLiteral_0=(Token)match(input,28,FOLLOW_28_in_ruleGEqualityOperator5153); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,28,FOLLOW_28_in_ruleGEqualityOperator5162); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGEqualityOperatorAccess().getEQUALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -6531,12 +6555,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2323:6: (enumLiteral_1= '<>' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2329:6: (enumLiteral_1= '<>' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2323:6: (enumLiteral_1= '<>' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2323:8: enumLiteral_1= '<>'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2329:6: (enumLiteral_1= '<>' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2329:8: enumLiteral_1= '<>'
                     {
-                    enumLiteral_1=(Token)match(input,43,FOLLOW_43_in_ruleGEqualityOperator5170); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,43,FOLLOW_43_in_ruleGEqualityOperator5179); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGEqualityOperatorAccess().getNOTEQUALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -6572,7 +6596,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGRelationOperator"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2333:1: ruleGRelationOperator returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2339:1: ruleGRelationOperator returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) ) ;
     public final Enumerator ruleGRelationOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6583,10 +6607,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2335:28: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2336:1: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2341:28: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2342:1: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2336:1: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2342:1: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) )
             int alt29=4;
             switch ( input.LA(1) ) {
             case 44:
@@ -6619,12 +6643,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
             switch (alt29) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2336:2: (enumLiteral_0= '<' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2342:2: (enumLiteral_0= '<' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2336:2: (enumLiteral_0= '<' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2336:4: enumLiteral_0= '<'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2342:2: (enumLiteral_0= '<' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2342:4: enumLiteral_0= '<'
                     {
-                    enumLiteral_0=(Token)match(input,44,FOLLOW_44_in_ruleGRelationOperator5215); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,44,FOLLOW_44_in_ruleGRelationOperator5224); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGRelationOperatorAccess().getLESSEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -6638,12 +6662,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2342:6: (enumLiteral_1= '>' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2348:6: (enumLiteral_1= '>' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2342:6: (enumLiteral_1= '>' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2342:8: enumLiteral_1= '>'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2348:6: (enumLiteral_1= '>' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2348:8: enumLiteral_1= '>'
                     {
-                    enumLiteral_1=(Token)match(input,45,FOLLOW_45_in_ruleGRelationOperator5232); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,45,FOLLOW_45_in_ruleGRelationOperator5241); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGRelationOperatorAccess().getGREATEREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -6657,12 +6681,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2348:6: (enumLiteral_2= '<=' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2354:6: (enumLiteral_2= '<=' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2348:6: (enumLiteral_2= '<=' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2348:8: enumLiteral_2= '<='
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2354:6: (enumLiteral_2= '<=' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2354:8: enumLiteral_2= '<='
                     {
-                    enumLiteral_2=(Token)match(input,46,FOLLOW_46_in_ruleGRelationOperator5249); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,46,FOLLOW_46_in_ruleGRelationOperator5258); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGRelationOperatorAccess().getLESSEQUALEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -6676,12 +6700,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2354:6: (enumLiteral_3= '>=' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2360:6: (enumLiteral_3= '>=' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2354:6: (enumLiteral_3= '>=' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2354:8: enumLiteral_3= '>='
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2360:6: (enumLiteral_3= '>=' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2360:8: enumLiteral_3= '>='
                     {
-                    enumLiteral_3=(Token)match(input,47,FOLLOW_47_in_ruleGRelationOperator5266); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,47,FOLLOW_47_in_ruleGRelationOperator5275); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGRelationOperatorAccess().getGREATEREQUALEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -6717,7 +6741,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGAdditionOperator"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2364:1: ruleGAdditionOperator returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2370:1: ruleGAdditionOperator returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) ;
     public final Enumerator ruleGAdditionOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6726,10 +6750,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2366:28: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2367:1: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2372:28: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2373:1: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2367:1: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2373:1: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -6748,12 +6772,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             }
             switch (alt30) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2367:2: (enumLiteral_0= '+' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2373:2: (enumLiteral_0= '+' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2367:2: (enumLiteral_0= '+' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2367:4: enumLiteral_0= '+'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2373:2: (enumLiteral_0= '+' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2373:4: enumLiteral_0= '+'
                     {
-                    enumLiteral_0=(Token)match(input,48,FOLLOW_48_in_ruleGAdditionOperator5311); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,48,FOLLOW_48_in_ruleGAdditionOperator5320); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGAdditionOperatorAccess().getADDITIONEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -6767,12 +6791,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2373:6: (enumLiteral_1= '-' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2379:6: (enumLiteral_1= '-' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2373:6: (enumLiteral_1= '-' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2373:8: enumLiteral_1= '-'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2379:6: (enumLiteral_1= '-' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2379:8: enumLiteral_1= '-'
                     {
-                    enumLiteral_1=(Token)match(input,49,FOLLOW_49_in_ruleGAdditionOperator5328); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,49,FOLLOW_49_in_ruleGAdditionOperator5337); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGAdditionOperatorAccess().getSUBTRACTIONEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -6808,7 +6832,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGMultiplicationOperator"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2383:1: ruleGMultiplicationOperator returns [Enumerator current=null] : ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2389:1: ruleGMultiplicationOperator returns [Enumerator current=null] : ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) ) ;
     public final Enumerator ruleGMultiplicationOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6817,10 +6841,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2385:28: ( ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2386:1: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2391:28: ( ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2392:1: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2386:1: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2392:1: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) )
             int alt31=2;
             int LA31_0 = input.LA(1);
 
@@ -6839,12 +6863,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             }
             switch (alt31) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2386:2: (enumLiteral_0= '*' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2392:2: (enumLiteral_0= '*' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2386:2: (enumLiteral_0= '*' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2386:4: enumLiteral_0= '*'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2392:2: (enumLiteral_0= '*' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2392:4: enumLiteral_0= '*'
                     {
-                    enumLiteral_0=(Token)match(input,50,FOLLOW_50_in_ruleGMultiplicationOperator5373); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,50,FOLLOW_50_in_ruleGMultiplicationOperator5382); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGMultiplicationOperatorAccess().getMULTIPLICATIONEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -6858,12 +6882,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2392:6: (enumLiteral_1= '/' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2398:6: (enumLiteral_1= '/' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2392:6: (enumLiteral_1= '/' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2392:8: enumLiteral_1= '/'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2398:6: (enumLiteral_1= '/' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2398:8: enumLiteral_1= '/'
                     {
-                    enumLiteral_1=(Token)match(input,51,FOLLOW_51_in_ruleGMultiplicationOperator5390); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,51,FOLLOW_51_in_ruleGMultiplicationOperator5399); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGMultiplicationOperatorAccess().getDIVISIONEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -6899,7 +6923,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGNegationOperator"
-    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2402:1: ruleGNegationOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'not' ) | (enumLiteral_1= '~' ) ) ;
+    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2408:1: ruleGNegationOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'not' ) | (enumLiteral_1= '~' ) ) ;
     public final Enumerator ruleGNegationOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6908,10 +6932,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2404:28: ( ( (enumLiteral_0= 'not' ) | (enumLiteral_1= '~' ) ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2405:1: ( (enumLiteral_0= 'not' ) | (enumLiteral_1= '~' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2410:28: ( ( (enumLiteral_0= 'not' ) | (enumLiteral_1= '~' ) ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2411:1: ( (enumLiteral_0= 'not' ) | (enumLiteral_1= '~' ) )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2405:1: ( (enumLiteral_0= 'not' ) | (enumLiteral_1= '~' ) )
+            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2411:1: ( (enumLiteral_0= 'not' ) | (enumLiteral_1= '~' ) )
             int alt32=2;
             int LA32_0 = input.LA(1);
 
@@ -6930,12 +6954,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             }
             switch (alt32) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2405:2: (enumLiteral_0= 'not' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2411:2: (enumLiteral_0= 'not' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2405:2: (enumLiteral_0= 'not' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2405:4: enumLiteral_0= 'not'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2411:2: (enumLiteral_0= 'not' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2411:4: enumLiteral_0= 'not'
                     {
-                    enumLiteral_0=(Token)match(input,52,FOLLOW_52_in_ruleGNegationOperator5435); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,52,FOLLOW_52_in_ruleGNegationOperator5444); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGNegationOperatorAccess().getNEGATIONEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -6949,12 +6973,12 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2411:6: (enumLiteral_1= '~' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2417:6: (enumLiteral_1= '~' )
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2411:6: (enumLiteral_1= '~' )
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2411:8: enumLiteral_1= '~'
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2417:6: (enumLiteral_1= '~' )
+                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2417:8: enumLiteral_1= '~'
                     {
-                    enumLiteral_1=(Token)match(input,53,FOLLOW_53_in_ruleGNegationOperator5452); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,53,FOLLOW_53_in_ruleGNegationOperator5461); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getGNegationOperatorAccess().getMINUSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -6990,10 +7014,10 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred1_InternalBCOoL
     public final void synpred1_InternalBCOoL_fragment() throws RecognitionException {   
-        // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2252:3: ( '.' )
-        // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2253:2: '.'
+        // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2258:3: ( '.' )
+        // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2259:2: '.'
         {
-        match(input,38,FOLLOW_38_in_synpred1_InternalBCOoL4938); if (state.failed) return ;
+        match(input,38,FOLLOW_38_in_synpred1_InternalBCOoL4947); if (state.failed) return ;
 
         }
     }
@@ -7074,155 +7098,155 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleEventExpression1225 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleEventExpression1267 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_28_in_ruleEventExpression1284 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEventExpression1304 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleEventExpression1316 = new BitSet(new long[]{0x0000000000100010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEventExpression1337 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_19_in_ruleEventExpression1350 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEventExpression1370 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_20_in_ruleEventExpression1386 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCoordinationRule_in_entryRuleCoordinationRule1422 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCoordinationRule1432 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEventRelation_in_ruleCoordinationRule1477 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEventRelation_in_entryRuleEventRelation1512 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEventRelation1522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEventRelation1567 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleEventRelation1579 = new BitSet(new long[]{0x0000000000100010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleEventRelation1603 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_19_in_ruleEventRelation1616 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleEventRelation1639 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_20_in_ruleEventRelation1655 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImportLibRule_in_entryRuleImportLibRule1691 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImportLibRule1701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleImportLibRule1738 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleImportLibRule1755 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImportInterfaceRule_in_entryRuleImportInterfaceRule1796 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImportInterfaceRule1806 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleImportInterfaceRule1843 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleImportInterfaceRule1860 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleImportInterfaceRule1877 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleImportInterfaceRule1894 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGImportStatement_in_entryRuleGImportStatement1937 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGImportStatement1947 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleGImportStatement1984 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleGImportStatement2001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGExpression_in_entryRuleGExpression2042 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGExpression2052 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGOrExpression_in_ruleGExpression2098 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGOrExpression_in_entryRuleGOrExpression2132 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGOrExpression2142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGXorExpression_in_ruleGOrExpression2189 = new BitSet(new long[]{0x0000040000000002L});
-    public static final BitSet FOLLOW_ruleGOrOperator_in_ruleGOrExpression2219 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGXorExpression_in_ruleGOrExpression2240 = new BitSet(new long[]{0x0000040000000002L});
-    public static final BitSet FOLLOW_ruleGXorExpression_in_entryRuleGXorExpression2278 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGXorExpression2288 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGAndExpression_in_ruleGXorExpression2335 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_ruleGXorOperator_in_ruleGXorExpression2365 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGAndExpression_in_ruleGXorExpression2386 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_ruleGAndExpression_in_entryRuleGAndExpression2424 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGAndExpression2434 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGEqualityExpression_in_ruleGAndExpression2481 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_ruleGAndOperator_in_ruleGAndExpression2511 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGEqualityExpression_in_ruleGAndExpression2532 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_ruleGEqualityExpression_in_entryRuleGEqualityExpression2570 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGEqualityExpression2580 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGRelationExpression_in_ruleGEqualityExpression2627 = new BitSet(new long[]{0x0000080010000002L});
-    public static final BitSet FOLLOW_ruleGEqualityOperator_in_ruleGEqualityExpression2657 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGRelationExpression_in_ruleGEqualityExpression2678 = new BitSet(new long[]{0x0000080010000002L});
-    public static final BitSet FOLLOW_ruleGRelationExpression_in_entryRuleGRelationExpression2716 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGRelationExpression2726 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGAdditionExpression_in_ruleGRelationExpression2773 = new BitSet(new long[]{0x0000F00000000002L});
-    public static final BitSet FOLLOW_ruleGRelationOperator_in_ruleGRelationExpression2803 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGAdditionExpression_in_ruleGRelationExpression2824 = new BitSet(new long[]{0x0000F00000000002L});
-    public static final BitSet FOLLOW_ruleGAdditionExpression_in_entryRuleGAdditionExpression2862 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGAdditionExpression2872 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGMultiplicationExpression_in_ruleGAdditionExpression2919 = new BitSet(new long[]{0x0003000000000002L});
-    public static final BitSet FOLLOW_ruleGAdditionOperator_in_ruleGAdditionExpression2949 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGMultiplicationExpression_in_ruleGAdditionExpression2970 = new BitSet(new long[]{0x0003000000000002L});
-    public static final BitSet FOLLOW_ruleGMultiplicationExpression_in_entryRuleGMultiplicationExpression3008 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGMultiplicationExpression3018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGNegationExpression_in_ruleGMultiplicationExpression3065 = new BitSet(new long[]{0x000C000000000002L});
-    public static final BitSet FOLLOW_ruleGMultiplicationOperator_in_ruleGMultiplicationExpression3095 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGNegationExpression_in_ruleGMultiplicationExpression3116 = new BitSet(new long[]{0x000C000000000002L});
-    public static final BitSet FOLLOW_ruleGNegationExpression_in_entryRuleGNegationExpression3154 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGNegationExpression3164 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGNavigationExpression_in_ruleGNegationExpression3211 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGNegationOperator_in_ruleGNegationExpression3247 = new BitSet(new long[]{0x00000006000401F0L});
-    public static final BitSet FOLLOW_ruleGNavigationExpression_in_ruleGNegationExpression3268 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGNavigationExpression_in_entryRuleGNavigationExpression3305 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGNavigationExpression3315 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGReferenceExpression_in_ruleGNavigationExpression3362 = new BitSet(new long[]{0x000000C000000002L});
-    public static final BitSet FOLLOW_ruleNavigationOperator_in_ruleGNavigationExpression3387 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleGNavigationExpression3406 = new BitSet(new long[]{0x000000C000000002L});
-    public static final BitSet FOLLOW_ruleGReferenceExpression_in_entryRuleGReferenceExpression3444 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGReferenceExpression3454 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGPrimaryExpression_in_ruleGReferenceExpression3501 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleGReferenceExpression3536 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGPrimaryExpression_in_entryRuleGPrimaryExpression3573 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGPrimaryExpression3583 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGStringExpression_in_ruleGPrimaryExpression3630 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGBooleanExpression_in_ruleGPrimaryExpression3657 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGNumericExpression_in_ruleGPrimaryExpression3684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGEnumLiteralExpression_in_ruleGPrimaryExpression3711 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGIfExpression_in_ruleGPrimaryExpression3738 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGBraceExpression_in_ruleGPrimaryExpression3765 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGStringExpression_in_entryRuleGStringExpression3800 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGStringExpression3810 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleGStringExpression3861 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGBooleanExpression_in_entryRuleGBooleanExpression3902 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGBooleanExpression3912 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_BOOLEAN_in_ruleGBooleanExpression3963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGNumericExpression_in_entryRuleGNumericExpression4004 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGNumericExpression4014 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGIntegerExpression_in_ruleGNumericExpression4061 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGDoubleExpression_in_ruleGNumericExpression4088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGIntegerExpression_in_entryRuleGIntegerExpression4123 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGIntegerExpression4133 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleGIntegerExpression4184 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGDoubleExpression_in_entryRuleGDoubleExpression4225 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGDoubleExpression4235 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_DOUBLE_in_ruleGDoubleExpression4286 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGEnumLiteralExpression_in_entryRuleGEnumLiteralExpression4327 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGEnumLiteralExpression4337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleGEnumLiteralExpression4383 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleGEnumLiteralExpression4406 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGIfExpression_in_entryRuleGIfExpression4442 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGIfExpression4452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleGIfExpression4498 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGExpression_in_ruleGIfExpression4519 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_ruleGIfExpression4531 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGExpression_in_ruleGIfExpression4552 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_ruleGIfExpression4564 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGExpression_in_ruleGIfExpression4585 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_ruleGIfExpression4597 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGBraceExpression_in_entryRuleGBraceExpression4633 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGBraceExpression4643 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleGBraceExpression4689 = new BitSet(new long[]{0x00300006000401F0L});
-    public static final BitSet FOLLOW_ruleGExpression_in_ruleGBraceExpression4710 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleGBraceExpression4722 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNavigationOperator_in_entryRuleNavigationOperator4759 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNavigationOperator4770 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleNavigationOperator4808 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleNavigationOperator4827 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName4868 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName4879 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName4919 = new BitSet(new long[]{0x0000004000000002L});
-    public static final BitSet FOLLOW_38_in_ruleQualifiedName4947 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName4963 = new BitSet(new long[]{0x0000004000000002L});
-    public static final BitSet FOLLOW_40_in_ruleGAndOperator5023 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleGXorOperator5066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleGOrOperator5109 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleGEqualityOperator5153 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleGEqualityOperator5170 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleGRelationOperator5215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleGRelationOperator5232 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleGRelationOperator5249 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleGRelationOperator5266 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleGAdditionOperator5311 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleGAdditionOperator5328 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleGMultiplicationOperator5373 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleGMultiplicationOperator5390 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleGNegationOperator5435 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleGNegationOperator5452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_synpred1_InternalBCOoL4938 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleEventExpression1307 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleEventExpression1319 = new BitSet(new long[]{0x0000000000100010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEventExpression1340 = new BitSet(new long[]{0x0000000000180000L});
+    public static final BitSet FOLLOW_19_in_ruleEventExpression1353 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleEventExpression1376 = new BitSet(new long[]{0x0000000000180000L});
+    public static final BitSet FOLLOW_20_in_ruleEventExpression1392 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCoordinationRule_in_entryRuleCoordinationRule1428 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCoordinationRule1438 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEventRelation_in_ruleCoordinationRule1483 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEventRelation_in_entryRuleEventRelation1518 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEventRelation1528 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleEventRelation1576 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleEventRelation1588 = new BitSet(new long[]{0x0000000000100010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleEventRelation1612 = new BitSet(new long[]{0x0000000000180000L});
+    public static final BitSet FOLLOW_19_in_ruleEventRelation1625 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleEventRelation1648 = new BitSet(new long[]{0x0000000000180000L});
+    public static final BitSet FOLLOW_20_in_ruleEventRelation1664 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImportLibRule_in_entryRuleImportLibRule1700 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImportLibRule1710 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleImportLibRule1747 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleImportLibRule1764 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImportInterfaceRule_in_entryRuleImportInterfaceRule1805 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImportInterfaceRule1815 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleImportInterfaceRule1852 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleImportInterfaceRule1869 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleImportInterfaceRule1886 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleImportInterfaceRule1903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGImportStatement_in_entryRuleGImportStatement1946 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGImportStatement1956 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleGImportStatement1993 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleGImportStatement2010 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGExpression_in_entryRuleGExpression2051 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGExpression2061 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGOrExpression_in_ruleGExpression2107 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGOrExpression_in_entryRuleGOrExpression2141 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGOrExpression2151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGXorExpression_in_ruleGOrExpression2198 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_ruleGOrOperator_in_ruleGOrExpression2228 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGXorExpression_in_ruleGOrExpression2249 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_ruleGXorExpression_in_entryRuleGXorExpression2287 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGXorExpression2297 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGAndExpression_in_ruleGXorExpression2344 = new BitSet(new long[]{0x0000020000000002L});
+    public static final BitSet FOLLOW_ruleGXorOperator_in_ruleGXorExpression2374 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGAndExpression_in_ruleGXorExpression2395 = new BitSet(new long[]{0x0000020000000002L});
+    public static final BitSet FOLLOW_ruleGAndExpression_in_entryRuleGAndExpression2433 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGAndExpression2443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGEqualityExpression_in_ruleGAndExpression2490 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_ruleGAndOperator_in_ruleGAndExpression2520 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGEqualityExpression_in_ruleGAndExpression2541 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_ruleGEqualityExpression_in_entryRuleGEqualityExpression2579 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGEqualityExpression2589 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGRelationExpression_in_ruleGEqualityExpression2636 = new BitSet(new long[]{0x0000080010000002L});
+    public static final BitSet FOLLOW_ruleGEqualityOperator_in_ruleGEqualityExpression2666 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGRelationExpression_in_ruleGEqualityExpression2687 = new BitSet(new long[]{0x0000080010000002L});
+    public static final BitSet FOLLOW_ruleGRelationExpression_in_entryRuleGRelationExpression2725 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGRelationExpression2735 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGAdditionExpression_in_ruleGRelationExpression2782 = new BitSet(new long[]{0x0000F00000000002L});
+    public static final BitSet FOLLOW_ruleGRelationOperator_in_ruleGRelationExpression2812 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGAdditionExpression_in_ruleGRelationExpression2833 = new BitSet(new long[]{0x0000F00000000002L});
+    public static final BitSet FOLLOW_ruleGAdditionExpression_in_entryRuleGAdditionExpression2871 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGAdditionExpression2881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGMultiplicationExpression_in_ruleGAdditionExpression2928 = new BitSet(new long[]{0x0003000000000002L});
+    public static final BitSet FOLLOW_ruleGAdditionOperator_in_ruleGAdditionExpression2958 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGMultiplicationExpression_in_ruleGAdditionExpression2979 = new BitSet(new long[]{0x0003000000000002L});
+    public static final BitSet FOLLOW_ruleGMultiplicationExpression_in_entryRuleGMultiplicationExpression3017 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGMultiplicationExpression3027 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGNegationExpression_in_ruleGMultiplicationExpression3074 = new BitSet(new long[]{0x000C000000000002L});
+    public static final BitSet FOLLOW_ruleGMultiplicationOperator_in_ruleGMultiplicationExpression3104 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGNegationExpression_in_ruleGMultiplicationExpression3125 = new BitSet(new long[]{0x000C000000000002L});
+    public static final BitSet FOLLOW_ruleGNegationExpression_in_entryRuleGNegationExpression3163 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGNegationExpression3173 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGNavigationExpression_in_ruleGNegationExpression3220 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGNegationOperator_in_ruleGNegationExpression3256 = new BitSet(new long[]{0x00000006000401F0L});
+    public static final BitSet FOLLOW_ruleGNavigationExpression_in_ruleGNegationExpression3277 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGNavigationExpression_in_entryRuleGNavigationExpression3314 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGNavigationExpression3324 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGReferenceExpression_in_ruleGNavigationExpression3371 = new BitSet(new long[]{0x000000C000000002L});
+    public static final BitSet FOLLOW_ruleNavigationOperator_in_ruleGNavigationExpression3396 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleGNavigationExpression3415 = new BitSet(new long[]{0x000000C000000002L});
+    public static final BitSet FOLLOW_ruleGReferenceExpression_in_entryRuleGReferenceExpression3453 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGReferenceExpression3463 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGPrimaryExpression_in_ruleGReferenceExpression3510 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleGReferenceExpression3545 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGPrimaryExpression_in_entryRuleGPrimaryExpression3582 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGPrimaryExpression3592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGStringExpression_in_ruleGPrimaryExpression3639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGBooleanExpression_in_ruleGPrimaryExpression3666 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGNumericExpression_in_ruleGPrimaryExpression3693 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGEnumLiteralExpression_in_ruleGPrimaryExpression3720 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGIfExpression_in_ruleGPrimaryExpression3747 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGBraceExpression_in_ruleGPrimaryExpression3774 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGStringExpression_in_entryRuleGStringExpression3809 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGStringExpression3819 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleGStringExpression3870 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGBooleanExpression_in_entryRuleGBooleanExpression3911 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGBooleanExpression3921 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_BOOLEAN_in_ruleGBooleanExpression3972 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGNumericExpression_in_entryRuleGNumericExpression4013 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGNumericExpression4023 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGIntegerExpression_in_ruleGNumericExpression4070 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGDoubleExpression_in_ruleGNumericExpression4097 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGIntegerExpression_in_entryRuleGIntegerExpression4132 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGIntegerExpression4142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleGIntegerExpression4193 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGDoubleExpression_in_entryRuleGDoubleExpression4234 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGDoubleExpression4244 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_DOUBLE_in_ruleGDoubleExpression4295 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGEnumLiteralExpression_in_entryRuleGEnumLiteralExpression4336 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGEnumLiteralExpression4346 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleGEnumLiteralExpression4392 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleGEnumLiteralExpression4415 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGIfExpression_in_entryRuleGIfExpression4451 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGIfExpression4461 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleGIfExpression4507 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGExpression_in_ruleGIfExpression4528 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_35_in_ruleGIfExpression4540 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGExpression_in_ruleGIfExpression4561 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_ruleGIfExpression4573 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGExpression_in_ruleGIfExpression4594 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_ruleGIfExpression4606 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGBraceExpression_in_entryRuleGBraceExpression4642 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGBraceExpression4652 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_ruleGBraceExpression4698 = new BitSet(new long[]{0x00300006000401F0L});
+    public static final BitSet FOLLOW_ruleGExpression_in_ruleGBraceExpression4719 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleGBraceExpression4731 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNavigationOperator_in_entryRuleNavigationOperator4768 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNavigationOperator4779 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleNavigationOperator4817 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleNavigationOperator4836 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName4877 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName4888 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName4928 = new BitSet(new long[]{0x0000004000000002L});
+    public static final BitSet FOLLOW_38_in_ruleQualifiedName4956 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName4972 = new BitSet(new long[]{0x0000004000000002L});
+    public static final BitSet FOLLOW_40_in_ruleGAndOperator5032 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleGXorOperator5075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleGOrOperator5118 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleGEqualityOperator5162 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleGEqualityOperator5179 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleGRelationOperator5224 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleGRelationOperator5241 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleGRelationOperator5258 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleGRelationOperator5275 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleGAdditionOperator5320 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleGAdditionOperator5337 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleGMultiplicationOperator5382 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleGMultiplicationOperator5399 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleGNegationOperator5444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleGNegationOperator5461 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_synpred1_InternalBCOoL4947 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -87,7 +87,7 @@ Workflow {
     		}
     
     		// old scoping and exporting API
-    		// fragment = scoping.ImportURIScopingFragment auto-inject {}
+    		 //fragment = scoping.ImportURIScopingFragment auto-inject {}
     		// fragment = exporting.SimpleNamesFragment auto-inject {}
     
     		// scoping and exporting API
@@ -127,13 +127,13 @@ Workflow {
     		fragment = types.TypesGeneratorFragment auto-inject {}
     
     		// generates the required bindings only if the grammar inherits from Xbase
-    		//fragment = xbase.XbaseGeneratorFragment auto-inject {}
+    		fragment = xbase.XbaseGeneratorFragment auto-inject {}
     		
     		// generates the required bindings only if the grammar inherits from Xtype
-    		//fragment = xbase.XtypeGeneratorFragment auto-inject {}
+    		fragment = xbase.XtypeGeneratorFragment auto-inject {}
     
     		// provides a preference page for template proposals
-    		fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
+    		//fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
     
     		// provides a compare view
     		fragment = compare.CompareFragment auto-inject {}
