@@ -16,6 +16,10 @@ import org.eclipse.xtext.scoping.IScope
 import org.gemoc.bcool.model.bcool.BCoolOperatorArg
 import org.gemoc.bcool.model.xtext.helpers.BCoolXtextHelper
 import org.gemoc.gel.gexpressions.xtext.scoping.GExpressionsScopeProvider
+import org.gemoc.bcool.model.bcool.EventRelation
+import org.gemoc.bcool.model.bcool.BCoolCompositionRule
+import org.gemoc.bcool.model.bcool.CoordinationRule
+import org.gemoc.bcool.model.bcool.RelationDeclaration
 
 /**
  * This class contains custom scoping description.
@@ -38,7 +42,17 @@ class BCOoLScopeProvider extends GExpressionsScopeProvider {
 
 		return getScopeOfNavigableElementsForType(context, outerScope)
 	}
+	
+	
+		//def protected dispatch IScope getNavigationScopeForCoordRule(RelationDeclaration operatorArgument, IScope outerScope) {
+        //return operatorArgument.delegateGetScope(operatorArgument.)
+		//loadEclResourceIfNecessary(eclEvent)
+       //operator.getNavigationScopeForEObject(outerScope)
+		//val EClassifier context = getEClassifierFromName(eclEvent)
 
+		//return getScopeOfNavigableElementsForType(context, outerScope)
+	//}
+	
 	/**
 	 * Load the ECL resource owning the given ECL event if not already done.
 	 */

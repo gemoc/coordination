@@ -10,4 +10,6 @@
   	<version>0.0.1-SNAPSHOT</version>
   </parent>
   <version>1.0.0-SNAPSHOT</version>
+  <description>This project contains the  Xtext project of BCOoL</description>
+  <url>http://bcool.inria.fr</url>
 </project>
