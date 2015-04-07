@@ -419,7 +419,7 @@ ruleBCoolCompositionRule returns [EObject current=null]
     {
     	newLeafNode(otherlv_6, grammarAccess.getBCoolCompositionRuleAccess().getRightParenthesisKeyword_5());
     }
-	otherlv_7='MatchingCorrespondance :' 
+	otherlv_7='MatchingCorrespondance:' 
     {
     	newLeafNode(otherlv_7, grammarAccess.getBCoolCompositionRuleAccess().getMatchingCorrespondanceKeyword_6());
     }
@@ -530,12 +530,10 @@ ruleBCoolOperatorArg returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getBCoolOperatorArgRule());
 	        }
         }
-		{ 
-	        newCompositeNode(grammarAccess.getBCoolOperatorArgAccess().getDSEECLDefCSCrossReference_4_0()); 
-	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
+	otherlv_4=RULE_ID
+	{
+		newLeafNode(otherlv_4, grammarAccess.getBCoolOperatorArgAccess().getDSEECLDefCSCrossReference_4_0()); 
+	}
 
 )
 ))
@@ -665,12 +663,10 @@ ruleEventExpression returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getEventExpressionRule());
 	        }
         }
-		{ 
-	        newCompositeNode(grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationCrossReference_2_0()); 
-	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationCrossReference_2_0()); 
+	}
 
 )
 )	otherlv_3='(' 
@@ -701,12 +697,10 @@ ruleEventExpression returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getEventExpressionRule());
 	        }
         }
-		{ 
-	        newCompositeNode(grammarAccess.getEventExpressionAccess().getActualParametersEObjectCrossReference_4_1_1_0()); 
-	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
+	otherlv_6=RULE_ID
+	{
+		newLeafNode(otherlv_6, grammarAccess.getEventExpressionAccess().getActualParametersEObjectCrossReference_4_1_1_0()); 
+	}
 
 )
 ))*)?	otherlv_7=')' 
@@ -774,23 +768,31 @@ ruleEventRelation returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getEventRelationAccess().getEventRelationAction_0(),
+            $current);
+    }
+)(	otherlv_1='Relation' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getEventRelationAccess().getRelationKeyword_1());
+    }
+)?(
 (
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getEventRelationRule());
 	        }
         }
-		{ 
-	        newCompositeNode(grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationCrossReference_0_0()); 
-	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationCrossReference_2_0()); 
+	}
 
 )
-)	otherlv_1='(' 
+)	otherlv_3='(' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getEventRelationAccess().getLeftParenthesisKeyword_1());
+    	newLeafNode(otherlv_3, grammarAccess.getEventRelationAccess().getLeftParenthesisKeyword_3());
     }
 ((
 (
@@ -799,17 +801,15 @@ ruleEventRelation returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getEventRelationRule());
 	        }
         }
-		{ 
-	        newCompositeNode(grammarAccess.getEventRelationAccess().getActualParametersECLDefCSCrossReference_2_0_0()); 
-	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
+	otherlv_4=RULE_ID
+	{
+		newLeafNode(otherlv_4, grammarAccess.getEventRelationAccess().getActualParametersECLDefCSCrossReference_4_0_0()); 
+	}
 
 )
-)(	otherlv_3=',' 
+)(	otherlv_5=',' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getEventRelationAccess().getCommaKeyword_2_1_0());
+    	newLeafNode(otherlv_5, grammarAccess.getEventRelationAccess().getCommaKeyword_4_1_0());
     }
 (
 (
@@ -818,17 +818,15 @@ ruleEventRelation returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getEventRelationRule());
 	        }
         }
-		{ 
-	        newCompositeNode(grammarAccess.getEventRelationAccess().getActualParametersECLDefCSCrossReference_2_1_1_0()); 
-	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
+	otherlv_6=RULE_ID
+	{
+		newLeafNode(otherlv_6, grammarAccess.getEventRelationAccess().getActualParametersECLDefCSCrossReference_4_1_1_0()); 
+	}
 
 )
-))*)?	otherlv_5=')' 
+))*)?	otherlv_7=')' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getEventRelationAccess().getRightParenthesisKeyword_3());
+    	newLeafNode(otherlv_7, grammarAccess.getEventRelationAccess().getRightParenthesisKeyword_5());
     }
 )
 ;

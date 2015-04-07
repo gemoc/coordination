@@ -4,6 +4,7 @@
 package org.gemoc.bcool.model.xtext;
 
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
@@ -31,4 +32,10 @@ public class BCOoLRuntimeModule extends org.gemoc.bcool.model.xtext.AbstractBCOo
 //		return BCOoLScopeProvider.class;
 //	}
 	
+	//@Override
+	//public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+	//	return NullGlobalScopeProvider.class;
+	//}
+	
 }
+

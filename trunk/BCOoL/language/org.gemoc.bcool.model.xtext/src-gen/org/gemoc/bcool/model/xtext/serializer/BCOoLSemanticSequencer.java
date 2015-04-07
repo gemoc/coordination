@@ -504,7 +504,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID Interface=[ImportInterfaceStatement|ID] DSE=[ECLDefCS|QualifiedName])
+	 *     (name=ID Interface=[ImportInterfaceStatement|ID] DSE=[ECLDefCS|ID])
 	 */
 	protected void sequence_BCoolOperatorArg(EObject context, BCoolOperatorArg semanticObject) {
 		if(errorAcceptor != null) {
@@ -519,7 +519,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getBCoolOperatorArgAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getBCoolOperatorArgAccess().getInterfaceImportInterfaceStatementIDTerminalRuleCall_2_0_1(), semanticObject.getInterface());
-		feeder.accept(grammarAccess.getBCoolOperatorArgAccess().getDSEECLDefCSQualifiedNameParserRuleCall_4_0_1(), semanticObject.getDSE());
+		feeder.accept(grammarAccess.getBCoolOperatorArgAccess().getDSEECLDefCSIDTerminalRuleCall_4_0_1(), semanticObject.getDSE());
 		feeder.finish();
 	}
 	
@@ -560,7 +560,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID declaration=[ExpressionDeclaration|QualifiedName] (actualParameters+=[EObject|ID] actualParameters+=[EObject|QualifiedName]*)?)
+	 *     (name=ID declaration=[ExpressionDeclaration|ID] (actualParameters+=[EObject|ID] actualParameters+=[EObject|ID]*)?)
 	 */
 	protected void sequence_EventExpression(EObject context, EventExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -569,7 +569,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (declaration=[RelationDeclaration|QualifiedName] (actualParameters+=[ECLDefCS|QualifiedName] actualParameters+=[ECLDefCS|QualifiedName]*)?)
+	 *     (declaration=[RelationDeclaration|ID] (actualParameters+=[ECLDefCS|ID] actualParameters+=[ECLDefCS|ID]*)?)
 	 */
 	protected void sequence_EventRelation(EObject context, EventRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

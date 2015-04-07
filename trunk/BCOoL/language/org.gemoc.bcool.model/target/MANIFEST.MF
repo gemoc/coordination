@@ -11,7 +11,7 @@ Export-Package: org.gemoc.bcool.model.bcool,org.gemoc.bcool.model.bcoo
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
-Bundle-Version: 0.1.0.201503311134
+Bundle-Version: 0.1.0.201504041601
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-ManifestVersion: 2

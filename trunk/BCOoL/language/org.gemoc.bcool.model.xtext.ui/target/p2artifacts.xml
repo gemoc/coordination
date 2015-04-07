@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='2'>
-  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.model.xtext.ui' version='1.0.0.201504031413'>
+  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.model.xtext.ui' version='1.0.0.201504041601'>
     <properties size='5'>
-      <property name='artifact.size' value='120382'/>
-      <property name='download.size' value='120382'/>
+      <property name='artifact.size' value='118888'/>
+      <property name='download.size' value='118888'/>
       <property name='maven-groupId' value='org.gemoc.bcool.framework'/>
       <property name='maven-artifactId' value='org.gemoc.bcool.model.xtext.ui'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
   </artifact>
-  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.model.xtext.ui.source' version='1.0.0.201504031413'>
+  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.model.xtext.ui.source' version='1.0.0.201504041601'>
     <properties size='6'>
-      <property name='artifact.size' value='87437'/>
-      <property name='download.size' value='87437'/>
+      <property name='artifact.size' value='86460'/>
+      <property name='download.size' value='86460'/>
       <property name='maven-groupId' value='org.gemoc.bcool.framework'/>
       <property name='maven-artifactId' value='org.gemoc.bcool.model.xtext.ui'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
