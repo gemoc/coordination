@@ -58,7 +58,7 @@ CoordinationRule returns CoordinationRule:
 
 EventRelation returns EventRelation:
 	{EventRelation}
-	("Relation")? declaration=[RelationDeclaration|ID] '(' (actualParameters+=[ecl::ECLDefCS|ID] (',' actualParameters+=[ecl::ECLDefCS|ID])*)? ')'
+	("Relation")? declaration=[RelationDeclaration|QualifiedName] '(' (actualParameters+=[ecl::ECLDefCS|ID] (',' actualParameters+=[ecl::ECLDefCS|ID])*)? ')'
 ;
  
 

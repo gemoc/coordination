@@ -569,7 +569,7 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (declaration=[RelationDeclaration|ID] (actualParameters+=[ECLDefCS|ID] actualParameters+=[ECLDefCS|ID]*)?)
+	 *     (declaration=[RelationDeclaration|QualifiedName] (actualParameters+=[ECLDefCS|ID] actualParameters+=[ECLDefCS|ID]*)?)
 	 */
 	protected void sequence_EventRelation(EObject context, EventRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
