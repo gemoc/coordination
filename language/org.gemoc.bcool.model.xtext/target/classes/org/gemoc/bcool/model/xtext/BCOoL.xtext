@@ -49,7 +49,7 @@ MatchingRule returns MatchingRule:
 
 EventExpression returns EventExpression:
 	//name=ID '=' declaration=[ExpressionDeclaration|ID]'(' (actualParameters+=STRING (',' actualParameters+=STRING)*)? ')'
-	name=ID '=' declaration=[ExpressionDeclaration|ID] '(' (actualParameters+=[ecore::EObject|ID] (',' actualParameters+=[ecore::EObject|ID])*)? ')'
+	name=ID '=' declaration=[ExpressionDeclaration|QualifiedName] '(' (actualParameters+=[ecore::EObject|ID] (',' actualParameters+=[ecore::EObject|QualifiedName])*)? ')'
 ;
 
 CoordinationRule returns CoordinationRule:
@@ -57,7 +57,7 @@ CoordinationRule returns CoordinationRule:
 ;
 
 EventRelation returns EventRelation:
-	declaration=[RelationDeclaration|ID] '(' (actualParameters+=[ecl::ECLDefCS|QualifiedName] (',' actualParameters+=[ecl::ECLDefCS|QualifiedName])*)? ')'
+	declaration=[RelationDeclaration|QualifiedName] '(' (actualParameters+=[ecl::ECLDefCS|QualifiedName] (',' actualParameters+=[ecl::ECLDefCS|QualifiedName])*)? ')'
 ;
  
 

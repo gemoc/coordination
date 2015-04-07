@@ -3,6 +3,8 @@
 */
 package org.gemoc.bcool.model.xtext.ui.labeling
 
+import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider
+
 //import org.eclipse.xtext.resource.IEObjectDescription
 
 /**
@@ -10,7 +12,7 @@ package org.gemoc.bcool.model.xtext.ui.labeling
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class BCOoLDescriptionLabelProvider extends org.eclipse.xtext.xbase.ui.labeling.XbaseDescriptionLabelProvider {
+class BCOoLDescriptionLabelProvider extends DefaultDescriptionLabelProvider {
 
 	// Labels and icons can be computed like this:
 	

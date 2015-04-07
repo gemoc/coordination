@@ -31,13 +31,13 @@ globalEventExpressionRule returns EventExpression:
 
 BCoolCompositionRule returns BCoolCompositionRule: 
 	'Operator' name=ID '(' BCoolOperatorArgs+=BCoolOperatorArg (',' BCoolOperatorArgs+=BCoolOperatorArg)* ')'
-					   'MatchingCorrespondance :' matchingRule=MatchingRule
+					   'MatchingCorrespondance:' matchingRule=MatchingRule
 					    coordinationRule=CoordinationRule
 	'end operator;'
 ;
 
 BCoolOperatorArg returns BCoolOperatorArg: 
-	 name=ID ' : ' Interface=[ImportInterfaceStatement] '::'  DSE=[ecl::ECLDefCS|QualifiedName]
+	 name=ID ' : ' Interface=[ImportInterfaceStatement] '::'  DSE=[ecl::ECLDefCS|ID]
 ;
 
 
@@ -49,7 +49,7 @@ MatchingRule returns MatchingRule:
 
 EventExpression returns EventExpression:
 	//name=ID '=' declaration=[ExpressionDeclaration|ID]'(' (actualParameters+=STRING (',' actualParameters+=STRING)*)? ')'
-	name=ID '=' declaration=[ExpressionDeclaration|QualifiedName] '(' (actualParameters+=[ecore::EObject|ID] (',' actualParameters+=[ecore::EObject|QualifiedName])*)? ')'
+	name=ID '=' declaration=[ExpressionDeclaration|ID] '(' (actualParameters+=[ecore::EObject|ID] (',' actualParameters+=[ecore::EObject|ID])*)? ')'
 ;
 
 CoordinationRule returns CoordinationRule:
@@ -57,7 +57,8 @@ CoordinationRule returns CoordinationRule:
 ;
 
 EventRelation returns EventRelation:
-	declaration=[RelationDeclaration|QualifiedName] '(' (actualParameters+=[ecl::ECLDefCS|QualifiedName] (',' actualParameters+=[ecl::ECLDefCS|QualifiedName])*)? ')'
+	{EventRelation}
+	("Relation")? declaration=[RelationDeclaration|ID] '(' (actualParameters+=[ecl::ECLDefCS|ID] (',' actualParameters+=[ecl::ECLDefCS|ID])*)? ')'
 ;
  
 

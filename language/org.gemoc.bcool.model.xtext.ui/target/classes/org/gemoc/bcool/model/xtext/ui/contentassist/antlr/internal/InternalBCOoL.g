@@ -6125,8 +6125,8 @@ rule__EventExpression__DeclarationAssignment_2
 (
 { before(grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationCrossReference_2_0()); }
 (
-{ before(grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationIDTerminalRuleCall_2_0_1()); }
-	RULE_ID{ after(grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationIDTerminalRuleCall_2_0_1()); }
+{ before(grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationQualifiedNameParserRuleCall_2_0_1()); }
+	ruleQualifiedName{ after(grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationQualifiedNameParserRuleCall_2_0_1()); }
 )
 { after(grammarAccess.getEventExpressionAccess().getDeclarationExpressionDeclarationCrossReference_2_0()); }
 )
@@ -6163,8 +6163,8 @@ rule__EventExpression__ActualParametersAssignment_4_1_1
 (
 { before(grammarAccess.getEventExpressionAccess().getActualParametersEObjectCrossReference_4_1_1_0()); }
 (
-{ before(grammarAccess.getEventExpressionAccess().getActualParametersEObjectIDTerminalRuleCall_4_1_1_0_1()); }
-	RULE_ID{ after(grammarAccess.getEventExpressionAccess().getActualParametersEObjectIDTerminalRuleCall_4_1_1_0_1()); }
+{ before(grammarAccess.getEventExpressionAccess().getActualParametersEObjectQualifiedNameParserRuleCall_4_1_1_0_1()); }
+	ruleQualifiedName{ after(grammarAccess.getEventExpressionAccess().getActualParametersEObjectQualifiedNameParserRuleCall_4_1_1_0_1()); }
 )
 { after(grammarAccess.getEventExpressionAccess().getActualParametersEObjectCrossReference_4_1_1_0()); }
 )
@@ -6197,8 +6197,8 @@ rule__EventRelation__DeclarationAssignment_0
 (
 { before(grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationCrossReference_0_0()); }
 (
-{ before(grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationIDTerminalRuleCall_0_0_1()); }
-	RULE_ID{ after(grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationIDTerminalRuleCall_0_0_1()); }
+{ before(grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationQualifiedNameParserRuleCall_0_0_1()); }
+	ruleQualifiedName{ after(grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationQualifiedNameParserRuleCall_0_0_1()); }
 )
 { after(grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationCrossReference_0_0()); }
 )

@@ -60,8 +60,8 @@ public class BCOoLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEventExpressionAccess().getGroup_4(), "rule__EventExpression__Group_4__0");
 					put(grammarAccess.getEventExpressionAccess().getGroup_4_1(), "rule__EventExpression__Group_4_1__0");
 					put(grammarAccess.getEventRelationAccess().getGroup(), "rule__EventRelation__Group__0");
-					put(grammarAccess.getEventRelationAccess().getGroup_2(), "rule__EventRelation__Group_2__0");
-					put(grammarAccess.getEventRelationAccess().getGroup_2_1(), "rule__EventRelation__Group_2_1__0");
+					put(grammarAccess.getEventRelationAccess().getGroup_4(), "rule__EventRelation__Group_4__0");
+					put(grammarAccess.getEventRelationAccess().getGroup_4_1(), "rule__EventRelation__Group_4_1__0");
 					put(grammarAccess.getImportLibRuleAccess().getGroup(), "rule__ImportLibRule__Group__0");
 					put(grammarAccess.getImportInterfaceRuleAccess().getGroup(), "rule__ImportInterfaceRule__Group__0");
 					put(grammarAccess.getGProgramAccess().getGroup(), "rule__GProgram__Group__0");
@@ -119,9 +119,9 @@ public class BCOoLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEventExpressionAccess().getActualParametersAssignment_4_0(), "rule__EventExpression__ActualParametersAssignment_4_0");
 					put(grammarAccess.getEventExpressionAccess().getActualParametersAssignment_4_1_1(), "rule__EventExpression__ActualParametersAssignment_4_1_1");
 					put(grammarAccess.getCoordinationRuleAccess().getEventRelationsAssignment(), "rule__CoordinationRule__EventRelationsAssignment");
-					put(grammarAccess.getEventRelationAccess().getDeclarationAssignment_0(), "rule__EventRelation__DeclarationAssignment_0");
-					put(grammarAccess.getEventRelationAccess().getActualParametersAssignment_2_0(), "rule__EventRelation__ActualParametersAssignment_2_0");
-					put(grammarAccess.getEventRelationAccess().getActualParametersAssignment_2_1_1(), "rule__EventRelation__ActualParametersAssignment_2_1_1");
+					put(grammarAccess.getEventRelationAccess().getDeclarationAssignment_2(), "rule__EventRelation__DeclarationAssignment_2");
+					put(grammarAccess.getEventRelationAccess().getActualParametersAssignment_4_0(), "rule__EventRelation__ActualParametersAssignment_4_0");
+					put(grammarAccess.getEventRelationAccess().getActualParametersAssignment_4_1_1(), "rule__EventRelation__ActualParametersAssignment_4_1_1");
 					put(grammarAccess.getImportLibRuleAccess().getImportURIAssignment_1(), "rule__ImportLibRule__ImportURIAssignment_1");
 					put(grammarAccess.getImportInterfaceRuleAccess().getImportURIAssignment_1(), "rule__ImportInterfaceRule__ImportURIAssignment_1");
 					put(grammarAccess.getImportInterfaceRuleAccess().getNameAssignment_3(), "rule__ImportInterfaceRule__NameAssignment_3");
