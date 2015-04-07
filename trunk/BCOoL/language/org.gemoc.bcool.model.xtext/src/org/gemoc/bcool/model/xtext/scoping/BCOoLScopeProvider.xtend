@@ -49,11 +49,11 @@ class BCOoLScopeProvider extends GExpressionsScopeProvider {
 	
 
 	
-	def IScope scope_EventRelation_declaration(EventRelation reference, EReference eRef) {
-		return new FilteringScope(delegateGetScope(reference, eRef), new Predicate<IEObjectDescription>() {
-                               override public boolean apply(IEObjectDescription input) {
-                                       if (input.EClass.name.equals("EventRelation")) { return true } else { return false }}});
-	}
+//	def IScope scope_EventRelation_declaration(EventRelation reference, EReference eRef) {
+//		return new FilteringScope(delegateGetScope(reference, eRef), new Predicate<IEObjectDescription>() {
+ //                              override public boolean apply(IEObjectDescription input) {
+  //                                     if (input.EClass.name.equals("EventRelation")) { return true } else { return false }}});
+//	}
 	
 	
 		//def protected dispatch IScope getNavigationScopeForEventRelation(CoordinationRule context, EventRelation reference)) {

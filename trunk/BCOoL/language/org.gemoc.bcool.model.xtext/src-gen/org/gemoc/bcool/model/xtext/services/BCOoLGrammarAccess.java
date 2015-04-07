@@ -454,7 +454,7 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRelationKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cDeclarationAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cDeclarationRelationDeclarationCrossReference_2_0 = (CrossReference)cDeclarationAssignment_2.eContents().get(0);
-		private final RuleCall cDeclarationRelationDeclarationIDTerminalRuleCall_2_0_1 = (RuleCall)cDeclarationRelationDeclarationCrossReference_2_0.eContents().get(1);
+		private final RuleCall cDeclarationRelationDeclarationQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cDeclarationRelationDeclarationCrossReference_2_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Assignment cActualParametersAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
@@ -468,11 +468,11 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//EventRelation:
-		//	{EventRelation} "Relation"? declaration=[RelationDeclaration] "(" (actualParameters+=[ecl::ECLDefCS] (","
-		//	actualParameters+=[ecl::ECLDefCS])*)? ")";
+		//	{EventRelation} "Relation"? declaration=[RelationDeclaration|QualifiedName] "(" (actualParameters+=[ecl::ECLDefCS]
+		//	("," actualParameters+=[ecl::ECLDefCS])*)? ")";
 		public ParserRule getRule() { return rule; }
 
-		//{EventRelation} "Relation"? declaration=[RelationDeclaration] "(" (actualParameters+=[ecl::ECLDefCS] (","
+		//{EventRelation} "Relation"? declaration=[RelationDeclaration|QualifiedName] "(" (actualParameters+=[ecl::ECLDefCS] (","
 		//actualParameters+=[ecl::ECLDefCS])*)? ")"
 		public Group getGroup() { return cGroup; }
 
@@ -482,14 +482,14 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Relation"?
 		public Keyword getRelationKeyword_1() { return cRelationKeyword_1; }
 
-		//declaration=[RelationDeclaration]
+		//declaration=[RelationDeclaration|QualifiedName]
 		public Assignment getDeclarationAssignment_2() { return cDeclarationAssignment_2; }
 
-		//[RelationDeclaration]
+		//[RelationDeclaration|QualifiedName]
 		public CrossReference getDeclarationRelationDeclarationCrossReference_2_0() { return cDeclarationRelationDeclarationCrossReference_2_0; }
 
-		//ID
-		public RuleCall getDeclarationRelationDeclarationIDTerminalRuleCall_2_0_1() { return cDeclarationRelationDeclarationIDTerminalRuleCall_2_0_1; }
+		//QualifiedName
+		public RuleCall getDeclarationRelationDeclarationQualifiedNameParserRuleCall_2_0_1() { return cDeclarationRelationDeclarationQualifiedNameParserRuleCall_2_0_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
@@ -744,8 +744,8 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EventRelation:
-	//	{EventRelation} "Relation"? declaration=[RelationDeclaration] "(" (actualParameters+=[ecl::ECLDefCS] (","
-	//	actualParameters+=[ecl::ECLDefCS])*)? ")";
+	//	{EventRelation} "Relation"? declaration=[RelationDeclaration|QualifiedName] "(" (actualParameters+=[ecl::ECLDefCS]
+	//	("," actualParameters+=[ecl::ECLDefCS])*)? ")";
 	public EventRelationElements getEventRelationAccess() {
 		return pEventRelation;
 	}

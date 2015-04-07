@@ -784,10 +784,12 @@ ruleEventRelation returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getEventRelationRule());
 	        }
         }
-	otherlv_2=RULE_ID
-	{
-		newLeafNode(otherlv_2, grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationCrossReference_2_0()); 
-	}
+		{ 
+	        newCompositeNode(grammarAccess.getEventRelationAccess().getDeclarationRelationDeclarationCrossReference_2_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_3='(' 
