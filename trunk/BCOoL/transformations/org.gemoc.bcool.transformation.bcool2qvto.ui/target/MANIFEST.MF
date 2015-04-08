@@ -6,7 +6,7 @@ Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
 Bundle-Vendor: Eclipse Modeling Project
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 1.0.0.201503311134
+Bundle-Version: 1.0.0.201504072052
 Bundle-Name: Acceleo Bcool2qvto Module IDE Plug-in
 Bundle-Activator: org.gemoc.bcool.transformation.bcool2qvto.ui.Activat
  or

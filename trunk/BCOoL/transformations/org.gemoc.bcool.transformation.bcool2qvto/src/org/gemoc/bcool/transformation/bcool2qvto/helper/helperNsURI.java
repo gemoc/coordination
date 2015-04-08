@@ -9,7 +9,9 @@ import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
@@ -44,6 +46,8 @@ import org.gemoc.gel.gexpressions.GAndExpression;
 import org.gemoc.gel.gexpressions.GBraceExpression;
 import org.gemoc.gel.gexpressions.GEqualityExpression;
 import org.gemoc.gel.gexpressions.GIntegerExpression;
+import org.gemoc.gel.gexpressions.GNavigationExpression;
+import org.gemoc.gel.gexpressions.GReferenceExpression;
 import org.gemoc.gel.gexpressions.GStringExpression;
 import org.gemoc.gel.gexpressions.GexpressionsFactory;
 import org.gemoc.gel.gexpressions.xtext.GExpressionsStandaloneSetup;
@@ -206,102 +210,59 @@ public class helperNsURI {
 	}
 	
 	
-	public String XexpressiontoString (XExpression exp ){
-	String leftoper = "";
-	String rightoper = "";
-	String binaryoperstr = "";
-	
-		if (exp instanceof XBinaryOperation) {
-			XBinaryOperation binaryoper = (XBinaryOperation) exp;
-			XExpression _leftOperand = ((XBinaryOperation)exp).getLeftOperand();
-			XMemberFeatureCall left = ((XMemberFeatureCall) _leftOperand);
-			XExpression _memberCallTarget = left.getMemberCallTarget();
-	        XMemberFeatureCall atributo = ((XMemberFeatureCall) _memberCallTarget);
-	        XExpression _memberCallTarget_1 = atributo.getMemberCallTarget();
-	        XMemberFeatureCall contexto = ((XMemberFeatureCall) _memberCallTarget_1);
-	        XExpression _memberCallTarget_2 = contexto.getMemberCallTarget();
-	        XFeatureCall dse = ((XFeatureCall) _memberCallTarget_2);
-	        leftoper = dse.getConcreteSyntaxFeatureName() + "." + atributo.getConcreteSyntaxFeatureName();
-			
-	        XExpression _rightOperand = ((XBinaryOperation)exp).getRightOperand();
-			XMemberFeatureCall right = ((XMemberFeatureCall) _rightOperand);
-			XExpression _memberCallTargetright = right.getMemberCallTarget();
-	        XMemberFeatureCall atributoright = ((XMemberFeatureCall) _memberCallTargetright);
-	        XExpression _memberCallTarget_1right = atributoright.getMemberCallTarget();
-	        XMemberFeatureCall contextoright = ((XMemberFeatureCall) _memberCallTarget_1right);
-	        XExpression _memberCallTarget_2right = contextoright.getMemberCallTarget();
-	        XFeatureCall dseright = ((XFeatureCall) _memberCallTarget_2right);
-	        rightoper = dseright.getConcreteSyntaxFeatureName() + "." + atributoright.getConcreteSyntaxFeatureName();
-	        
-	        binaryoperstr = binaryoper.getConcreteSyntaxFeatureName();
-	        if (binaryoperstr.startsWith("==")) {return leftoper+ "=" + rightoper;  }
-	        if (binaryoperstr.startsWith("!=")) {return leftoper+ "<>" + rightoper;  }
-	        
-	        
-		}
-		return "not valid XExpression";
+   // given a GNavigationExpression returns the serialization 
+	public String GOperandtoString (GNavigationExpression operand){
+		 String m = "";
+		 GNavigationExpression test1 = (GNavigationExpression) operand;
+		 while (true)
+		  {
+			  if (test1.getReferencedEObject() instanceof EAttribute) {
+				  EAttribute nameatt = (EAttribute) test1.getReferencedEObject();
+				  m =  "."  + nameatt.getName()  +  m;
+			  } else if (test1.getReferencedEObject() instanceof EReference) {
+				  EReference nameatt = (EReference) test1.getReferencedEObject();
+				  m =  "."  + nameatt.getName()  +  m;
+			  }
+			  
+			  if (test1.getBody() instanceof GReferenceExpression) break;
+			  
+			  test1 = (GNavigationExpression) test1.getBody();	 
+		  }
+		 
+		 GReferenceExpression test2 = (GReferenceExpression) test1.getBody();
+		 BCoolOperatorArg nameatt = (BCoolOperatorArg) test2.getReferencedEObject();
+		 m =  nameatt.getName()  +  m;
+		 return m;
 	}
 	
+	
 	public String GexpressiontoString (GExpression exp ){
-		//GEqualityExpression binaryoper = null;
-		//GAndExpression tmpoper = null;
-		String s = "";
-		String m = "";
-		  GExpressionsStandaloneSetup setup = new GExpressionsStandaloneSetup();
-		
-		   Injector injector = setup.createInjectorAndDoEMFRegistration();
-	       Serializer serializer = injector.getInstance(Serializer.class);
-	       //GEqualityExpression  gexp = (GEqualityExpression) exp;
-	       
-	      // GexpressionsFactory factory = GexpressionsFactory.eINSTANCE;
-           //GAdditionExpression exph = factory.createGAdditionExpression();
-           //GIntegerExpression un = factory.createGIntegerExpression();
-           //un.setValue(1);
-           //GStringExpression deux = factory.createGStringExpression();
-           //deux.setValue("deux");
-           //exph.setLeftOperand(un);
-           //exph.setRightOperand(deux);
-	       
-	      // GExpression gexpp = gexp.;
-	       
-	      try {  
+	String serial = "";
+		try {  
 	    	  
 	    	  if (exp instanceof GEqualityExpression) {
 	    		GEqualityExpression  gexp = (GEqualityExpression) exp;
-	    		  m = serializer.serialize(gexp.getLeftOperand());
-	    		  m = m + "=";
-	    		  m = m + serializer.serialize(gexp.getRightOperand());
+	    		GNavigationExpression leftoper = (GNavigationExpression) gexp.getLeftOperand();
+	    		GNavigationExpression rightoper = (GNavigationExpression) gexp.getRightOperand();
+	    		serial =  GOperandtoString (leftoper);
+	    		serial = serial + "="+ GOperandtoString (rightoper);
 	    	  } else if (exp instanceof GAndExpression) {
-	    		  GAndExpression  gexpand = (GAndExpression) exp;
-	    		  m = serializer.serialize(gexpand.getLeftOperand());
-	    		  m = m + "and";
-	    		  m = m + serializer.serialize(gexpand.getRightOperand());
+	    		  GAndExpression   gexp = (GAndExpression) exp;
+		    	  GNavigationExpression leftoper = (GNavigationExpression) gexp.getLeftOperand();
+		    	  GNavigationExpression rightoper = (GNavigationExpression) gexp.getRightOperand();
+		    	  serial =  GOperandtoString (leftoper);
+		    	  serial = serial + "=" + GOperandtoString (rightoper);
 	    	  }else if (exp instanceof GBraceExpression){
-	    		  GBraceExpression  gexpra = (GBraceExpression) exp;
-	    		  m = serializer.serialize(gexpra.getInnerExpression());
-	    		//  m = m + "and";
-	    		 // m = m + serializer.serialize(gexpra.getRightOperand());
-	    		  
+	    		  // TODO!!!
+	    		  GBraceExpression  gexp = (GBraceExpression) exp;
 	    	  }
 	    		
-	    		//  binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
-	    		 // if (gexp.getInnerExpression() instanceof GAndExpression) {
-	    		//	  tmpoper  = (GAndExpression) gexp.getInnerExpression();
-	    		//	  s = serializer.serialize(tmpoper);
-	    		 // } else {
-	    			//  binaryoper = (GEqualityExpression) gexp.getInnerExpression();	
-	    			//  s = serializer.serialize(binaryoper);
-	    		 // }
-	    	  
 	    	 
-			
 	    	  } catch (Exception ex) { // fall back:  
 	    		  ex.printStackTrace();
-	    		  //s = gexp.getInnerExpression().toString(); 
-	    		  //s =  exp.getClass().getSimpleName()+'@'+exp.hashCode();  
+	    		  serial = "Bad GExpression serialization!";
 	    	  }
-		s = m.replace(" ", "");
-		return s;
+		return serial;
 	}
 	
 	
