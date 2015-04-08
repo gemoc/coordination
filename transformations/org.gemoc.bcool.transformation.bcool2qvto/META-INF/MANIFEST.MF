@@ -24,4 +24,6 @@ Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Export-Package: org.gemoc.bcool.transformation.bcool2qvto.common,
  org.gemoc.bcool.transformation.bcool2qvto.helper
+Bundle-ClassPath: bin/,
+ .
 
