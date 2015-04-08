@@ -6,13 +6,14 @@ package org.gemoc.bcool.model.xtext.ui.labeling
 import com.google.inject.Inject
 import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.xtext.common.types.JvmOperation
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
 /**
  * Provides labels for a EObjects.
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class BCOoLLabelProvider extends org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider {
+class BCOoLLabelProvider extends DefaultEObjectLabelProvider {
 
 	@Inject
 	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
