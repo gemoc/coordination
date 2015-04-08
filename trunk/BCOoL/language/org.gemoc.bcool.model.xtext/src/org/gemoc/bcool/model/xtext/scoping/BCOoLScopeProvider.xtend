@@ -46,9 +46,12 @@ class BCOoLScopeProvider extends GExpressionsScopeProvider {
 
 		return getScopeOfNavigableElementsForType(context, outerScope)
 	}
-	
 
-	
+//	
+// TODO:
+// If we eleminate the QualifyName to look for the EventRelaation, then, we have to write correctly the scoping.
+// This can help for sketching.	
+//
 //	def IScope scope_EventRelation_declaration(EventRelation reference, EReference eRef) {
 //		return new FilteringScope(delegateGetScope(reference, eRef), new Predicate<IEObjectDescription>() {
  //                              override public boolean apply(IEObjectDescription input) {

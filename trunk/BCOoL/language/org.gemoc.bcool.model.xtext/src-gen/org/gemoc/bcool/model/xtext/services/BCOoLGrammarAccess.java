@@ -355,7 +355,7 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cDeclarationAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cDeclarationExpressionDeclarationCrossReference_2_0 = (CrossReference)cDeclarationAssignment_2.eContents().get(0);
-		private final RuleCall cDeclarationExpressionDeclarationIDTerminalRuleCall_2_0_1 = (RuleCall)cDeclarationExpressionDeclarationCrossReference_2_0.eContents().get(1);
+		private final RuleCall cDeclarationExpressionDeclarationQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cDeclarationExpressionDeclarationCrossReference_2_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Assignment cActualParametersAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
@@ -369,12 +369,12 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//EventExpression: //name=ID '=' declaration=[ExpressionDeclaration|ID]'(' (actualParameters+=STRING (',' actualParameters+=STRING)*)? ')'
-		//	name=ID "=" declaration=[ExpressionDeclaration] "(" (actualParameters+=[ecore::EObject] (","
+		//	name=ID "=" declaration=[ExpressionDeclaration|QualifiedName] "(" (actualParameters+=[ecore::EObject] (","
 		//	actualParameters+=[ecore::EObject])*)? ")";
 		public ParserRule getRule() { return rule; }
 
 		////name=ID '=' declaration=[ExpressionDeclaration|ID]'(' (actualParameters+=STRING (',' actualParameters+=STRING)*)? ')'
-		//name=ID "=" declaration=[ExpressionDeclaration] "(" (actualParameters+=[ecore::EObject] (","
+		//name=ID "=" declaration=[ExpressionDeclaration|QualifiedName] "(" (actualParameters+=[ecore::EObject] (","
 		//actualParameters+=[ecore::EObject])*)? ")"
 		public Group getGroup() { return cGroup; }
 
@@ -388,14 +388,14 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
-		//declaration=[ExpressionDeclaration]
+		//declaration=[ExpressionDeclaration|QualifiedName]
 		public Assignment getDeclarationAssignment_2() { return cDeclarationAssignment_2; }
 
-		//[ExpressionDeclaration]
+		//[ExpressionDeclaration|QualifiedName]
 		public CrossReference getDeclarationExpressionDeclarationCrossReference_2_0() { return cDeclarationExpressionDeclarationCrossReference_2_0; }
 
-		//ID
-		public RuleCall getDeclarationExpressionDeclarationIDTerminalRuleCall_2_0_1() { return cDeclarationExpressionDeclarationIDTerminalRuleCall_2_0_1; }
+		//QualifiedName
+		public RuleCall getDeclarationExpressionDeclarationQualifiedNameParserRuleCall_2_0_1() { return cDeclarationExpressionDeclarationQualifiedNameParserRuleCall_2_0_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
@@ -451,78 +451,74 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EventRelation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cEventRelationAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cRelationKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cDeclarationAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cDeclarationRelationDeclarationCrossReference_2_0 = (CrossReference)cDeclarationAssignment_2.eContents().get(0);
-		private final RuleCall cDeclarationRelationDeclarationQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cDeclarationRelationDeclarationCrossReference_2_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cActualParametersAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final CrossReference cActualParametersECLDefCSCrossReference_4_0_0 = (CrossReference)cActualParametersAssignment_4_0.eContents().get(0);
-		private final RuleCall cActualParametersECLDefCSIDTerminalRuleCall_4_0_0_1 = (RuleCall)cActualParametersECLDefCSCrossReference_4_0_0.eContents().get(1);
-		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
-		private final Keyword cCommaKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cActualParametersAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final CrossReference cActualParametersECLDefCSCrossReference_4_1_1_0 = (CrossReference)cActualParametersAssignment_4_1_1.eContents().get(0);
-		private final RuleCall cActualParametersECLDefCSIDTerminalRuleCall_4_1_1_0_1 = (RuleCall)cActualParametersECLDefCSCrossReference_4_1_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cDeclarationAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cDeclarationRelationDeclarationCrossReference_1_0 = (CrossReference)cDeclarationAssignment_1.eContents().get(0);
+		private final RuleCall cDeclarationRelationDeclarationQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cDeclarationRelationDeclarationCrossReference_1_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cActualParametersAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final CrossReference cActualParametersECLDefCSCrossReference_3_0_0 = (CrossReference)cActualParametersAssignment_3_0.eContents().get(0);
+		private final RuleCall cActualParametersECLDefCSIDTerminalRuleCall_3_0_0_1 = (RuleCall)cActualParametersECLDefCSCrossReference_3_0_0.eContents().get(1);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cActualParametersAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final CrossReference cActualParametersECLDefCSCrossReference_3_1_1_0 = (CrossReference)cActualParametersAssignment_3_1_1.eContents().get(0);
+		private final RuleCall cActualParametersECLDefCSIDTerminalRuleCall_3_1_1_0_1 = (RuleCall)cActualParametersECLDefCSCrossReference_3_1_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//EventRelation:
-		//	{EventRelation} "Relation"? declaration=[RelationDeclaration|QualifiedName] "(" (actualParameters+=[ecl::ECLDefCS]
-		//	("," actualParameters+=[ecl::ECLDefCS])*)? ")";
+		//	{EventRelation} declaration=[RelationDeclaration|QualifiedName] "(" (actualParameters+=[ecl::ECLDefCS] (","
+		//	actualParameters+=[ecl::ECLDefCS])*)? ")";
 		public ParserRule getRule() { return rule; }
 
-		//{EventRelation} "Relation"? declaration=[RelationDeclaration|QualifiedName] "(" (actualParameters+=[ecl::ECLDefCS] (","
+		//{EventRelation} declaration=[RelationDeclaration|QualifiedName] "(" (actualParameters+=[ecl::ECLDefCS] (","
 		//actualParameters+=[ecl::ECLDefCS])*)? ")"
 		public Group getGroup() { return cGroup; }
 
 		//{EventRelation}
 		public Action getEventRelationAction_0() { return cEventRelationAction_0; }
 
-		//"Relation"?
-		public Keyword getRelationKeyword_1() { return cRelationKeyword_1; }
-
 		//declaration=[RelationDeclaration|QualifiedName]
-		public Assignment getDeclarationAssignment_2() { return cDeclarationAssignment_2; }
+		public Assignment getDeclarationAssignment_1() { return cDeclarationAssignment_1; }
 
 		//[RelationDeclaration|QualifiedName]
-		public CrossReference getDeclarationRelationDeclarationCrossReference_2_0() { return cDeclarationRelationDeclarationCrossReference_2_0; }
+		public CrossReference getDeclarationRelationDeclarationCrossReference_1_0() { return cDeclarationRelationDeclarationCrossReference_1_0; }
 
 		//QualifiedName
-		public RuleCall getDeclarationRelationDeclarationQualifiedNameParserRuleCall_2_0_1() { return cDeclarationRelationDeclarationQualifiedNameParserRuleCall_2_0_1; }
+		public RuleCall getDeclarationRelationDeclarationQualifiedNameParserRuleCall_1_0_1() { return cDeclarationRelationDeclarationQualifiedNameParserRuleCall_1_0_1; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 
 		//(actualParameters+=[ecl::ECLDefCS] ("," actualParameters+=[ecl::ECLDefCS])*)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//actualParameters+=[ecl::ECLDefCS]
-		public Assignment getActualParametersAssignment_4_0() { return cActualParametersAssignment_4_0; }
+		public Assignment getActualParametersAssignment_3_0() { return cActualParametersAssignment_3_0; }
 
 		//[ecl::ECLDefCS]
-		public CrossReference getActualParametersECLDefCSCrossReference_4_0_0() { return cActualParametersECLDefCSCrossReference_4_0_0; }
+		public CrossReference getActualParametersECLDefCSCrossReference_3_0_0() { return cActualParametersECLDefCSCrossReference_3_0_0; }
 
 		//ID
-		public RuleCall getActualParametersECLDefCSIDTerminalRuleCall_4_0_0_1() { return cActualParametersECLDefCSIDTerminalRuleCall_4_0_0_1; }
+		public RuleCall getActualParametersECLDefCSIDTerminalRuleCall_3_0_0_1() { return cActualParametersECLDefCSIDTerminalRuleCall_3_0_0_1; }
 
 		//("," actualParameters+=[ecl::ECLDefCS])*
-		public Group getGroup_4_1() { return cGroup_4_1; }
+		public Group getGroup_3_1() { return cGroup_3_1; }
 
 		//","
-		public Keyword getCommaKeyword_4_1_0() { return cCommaKeyword_4_1_0; }
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
 
 		//actualParameters+=[ecl::ECLDefCS]
-		public Assignment getActualParametersAssignment_4_1_1() { return cActualParametersAssignment_4_1_1; }
+		public Assignment getActualParametersAssignment_3_1_1() { return cActualParametersAssignment_3_1_1; }
 
 		//[ecl::ECLDefCS]
-		public CrossReference getActualParametersECLDefCSCrossReference_4_1_1_0() { return cActualParametersECLDefCSCrossReference_4_1_1_0; }
+		public CrossReference getActualParametersECLDefCSCrossReference_3_1_1_0() { return cActualParametersECLDefCSCrossReference_3_1_1_0; }
 
 		//ID
-		public RuleCall getActualParametersECLDefCSIDTerminalRuleCall_4_1_1_0_1() { return cActualParametersECLDefCSIDTerminalRuleCall_4_1_1_0_1; }
+		public RuleCall getActualParametersECLDefCSIDTerminalRuleCall_3_1_1_0_1() { return cActualParametersECLDefCSIDTerminalRuleCall_3_1_1_0_1; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 
 	public class ImportLibRuleElements extends AbstractParserRuleElementFinder {
@@ -723,7 +719,7 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EventExpression: //name=ID '=' declaration=[ExpressionDeclaration|ID]'(' (actualParameters+=STRING (',' actualParameters+=STRING)*)? ')'
-	//	name=ID "=" declaration=[ExpressionDeclaration] "(" (actualParameters+=[ecore::EObject] (","
+	//	name=ID "=" declaration=[ExpressionDeclaration|QualifiedName] "(" (actualParameters+=[ecore::EObject] (","
 	//	actualParameters+=[ecore::EObject])*)? ")";
 	public EventExpressionElements getEventExpressionAccess() {
 		return pEventExpression;
@@ -744,8 +740,8 @@ public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EventRelation:
-	//	{EventRelation} "Relation"? declaration=[RelationDeclaration|QualifiedName] "(" (actualParameters+=[ecl::ECLDefCS]
-	//	("," actualParameters+=[ecl::ECLDefCS])*)? ")";
+	//	{EventRelation} declaration=[RelationDeclaration|QualifiedName] "(" (actualParameters+=[ecl::ECLDefCS] (","
+	//	actualParameters+=[ecl::ECLDefCS])*)? ")";
 	public EventRelationElements getEventRelationAccess() {
 		return pEventRelation;
 	}
