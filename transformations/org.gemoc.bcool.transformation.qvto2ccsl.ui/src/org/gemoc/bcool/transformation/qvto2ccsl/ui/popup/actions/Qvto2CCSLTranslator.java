@@ -150,6 +150,8 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 	/**path
 	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
 	 */
+	// Here models are loaded from the parameters 
+	// I should split it into two groups here
 	public void selectionChanged(IAction action, ISelection selection) {
 		qvtoFile=null;
 		modelFile1=null;

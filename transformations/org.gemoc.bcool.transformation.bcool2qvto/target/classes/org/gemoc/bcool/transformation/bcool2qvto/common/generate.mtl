@@ -298,7 +298,7 @@ main() {
 		} endif;
 
 	[for (dse : BCoolOperatorArg | rule.BCoolOperatorArgs)]
-		}
+		};
 	[/for]
 [/for]
 

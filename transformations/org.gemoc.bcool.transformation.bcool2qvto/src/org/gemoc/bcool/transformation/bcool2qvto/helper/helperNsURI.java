@@ -235,6 +235,63 @@ public class helperNsURI {
 		 return m;
 	}
 	
+	// 
+	public String GEqualitytoString (GEqualityExpression exp)
+	{
+		String serial = "";
+		GNavigationExpression leftoper = (GNavigationExpression) exp.getLeftOperand();
+		GNavigationExpression rightoper = (GNavigationExpression) exp.getRightOperand();
+		serial =  GOperandtoString (leftoper);
+		serial = serial + "="+ GOperandtoString (rightoper);
+		return serial;
+	}
+	
+	
+	
+	
+	public String GBraceExpressiontoString (GBraceExpression exp)
+	{
+		String serial = "";
+		
+		if (exp.getInnerExpression() instanceof GEqualityExpression ){
+			GEqualityExpression  gexp = (GEqualityExpression) exp.getInnerExpression();
+			serial = "("+ GEqualitytoString (gexp)+")";
+		}
+		return serial;
+	}
+	
+	public String GAndtoString (GAndExpression exp)
+	{
+		String serial ="";
+		
+		// first the left operator
+		if (exp.getLeftOperand() instanceof GBraceExpression  ) {
+			GBraceExpression gexp = (GBraceExpression) exp.getLeftOperand();
+			serial =  GBraceExpressiontoString (gexp);
+		} else if (exp.getLeftOperand() instanceof GNavigationExpression ){
+			GNavigationExpression gexp = (GNavigationExpression) exp.getLeftOperand();
+			serial =  GOperandtoString (gexp);
+		} else if (exp.getLeftOperand() instanceof GAndExpression){
+			GAndExpression gexp = (GAndExpression) exp.getLeftOperand();
+			serial = serial + GAndtoString (gexp);
+		}
+
+		serial = serial +" and ";
+		
+		// next, the second operator
+		if (exp.getRightOperand() instanceof GBraceExpression  ) {
+			GBraceExpression gexp = (GBraceExpression) exp.getRightOperand();
+			serial =  serial + GBraceExpressiontoString (gexp);
+		} else if (exp.getRightOperand() instanceof GNavigationExpression ){
+			GNavigationExpression gexp = (GNavigationExpression) exp.getLeftOperand();
+			serial =  serial + GOperandtoString (gexp);
+		} else if (exp.getRightOperand() instanceof GAndExpression ){
+			GAndExpression gexp = (GAndExpression) exp.getRightOperand();
+			serial = serial + GAndtoString (gexp);
+		}
+		
+		return serial;
+	}
 	
 	public String GexpressiontoString (GExpression exp ){
 	String serial = "";
@@ -242,16 +299,10 @@ public class helperNsURI {
 	    	  
 	    	  if (exp instanceof GEqualityExpression) {
 	    		GEqualityExpression  gexp = (GEqualityExpression) exp;
-	    		GNavigationExpression leftoper = (GNavigationExpression) gexp.getLeftOperand();
-	    		GNavigationExpression rightoper = (GNavigationExpression) gexp.getRightOperand();
-	    		serial =  GOperandtoString (leftoper);
-	    		serial = serial + "="+ GOperandtoString (rightoper);
+	    		serial = GEqualitytoString (gexp);
 	    	  } else if (exp instanceof GAndExpression) {
 	    		  GAndExpression   gexp = (GAndExpression) exp;
-		    	  GNavigationExpression leftoper = (GNavigationExpression) gexp.getLeftOperand();
-		    	  GNavigationExpression rightoper = (GNavigationExpression) gexp.getRightOperand();
-		    	  serial =  GOperandtoString (leftoper);
-		    	  serial = serial + "=" + GOperandtoString (rightoper);
+	    		  serial = GAndtoString (gexp);
 	    	  }else if (exp instanceof GBraceExpression){
 	    		  // TODO!!!
 	    		  GBraceExpression  gexp = (GBraceExpression) exp;

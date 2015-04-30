@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="org.gemoc.bcool.transformation.bcool2qvto">
-    <property name="ECLIPSE_HOME" value="../../../../eclipses/abril2-2015"/>
+    <property name="ECLIPSE_HOME" value="../../../../eclipses/abril"/>
     <property name="ECLIPSE_WORKSPACE" value="../.."/>
 
     <!-- The classpath with only the dependencies used by the project -->
