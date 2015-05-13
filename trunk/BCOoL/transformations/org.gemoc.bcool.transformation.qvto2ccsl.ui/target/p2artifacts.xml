@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='2'>
-  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.transformation.qvto2ccsl.ui' version='1.0.0.201504072052'>
+  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.transformation.qvto2ccsl.ui' version='1.0.0.201505061027'>
     <properties size='5'>
-      <property name='artifact.size' value='8327'/>
-      <property name='download.size' value='8327'/>
+      <property name='artifact.size' value='8330'/>
+      <property name='download.size' value='8330'/>
       <property name='maven-groupId' value='org.gemoc.bcool.framework'/>
       <property name='maven-artifactId' value='org.gemoc.bcool.transformation.qvto2ccsl.ui'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
   </artifact>
-  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.transformation.qvto2ccsl.ui.source' version='1.0.0.201504072052'>
+  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.transformation.qvto2ccsl.ui.source' version='1.0.0.201505061027'>
     <properties size='6'>
-      <property name='artifact.size' value='4841'/>
-      <property name='download.size' value='4841'/>
+      <property name='artifact.size' value='4904'/>
+      <property name='download.size' value='4904'/>
       <property name='maven-groupId' value='org.gemoc.bcool.framework'/>
       <property name='maven-artifactId' value='org.gemoc.bcool.transformation.qvto2ccsl.ui'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>

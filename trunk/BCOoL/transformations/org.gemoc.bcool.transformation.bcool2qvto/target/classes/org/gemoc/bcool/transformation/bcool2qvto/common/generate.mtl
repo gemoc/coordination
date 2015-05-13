@@ -37,7 +37,7 @@ transformation do[aBCoolSpecification.name/]_To_CCSL(
 	[if (im.importURI.endsWith('ecl'))]
 inM[i/] : inMM[i/],
 	[/if]
-[/for] out TimeModel);
+[/for] inout outCCSLModel : TimeModel);
 
 
 
@@ -56,6 +56,7 @@ query retrieveinM[i/]MoCCClocks() {
 
 property theCCSLSpec			:TimeModel::CCSLModel::ClockConstraintSystem = null;
 property theMainBlock			:TimeModel::CCSLModel::Block				 = null;
+property theSubBlock 			:TimeModel::CCSLModel::Block				 = null;
 
 property Kernel_Integer 	: TimeModel::BasicType::Type		= null;
 property Kernel_Clock_Type 	: TimeModel::BasicType::Type		= null;
@@ -128,7 +129,7 @@ query identifyUserRelations() {
 		value := self.round();
 
 		end{
-			theMainBlock.elements += result;
+			theSubBlock.elements += result;
 		}
 	}
 
@@ -137,7 +138,7 @@ query identifyUserRelations() {
 		name:= n;
 		type:= Kernel_Clock_Type;
 		end {
-			theMainBlock.elements += result;
+			theSubBlock.elements += result;
 		}
 	}
 
@@ -162,8 +163,24 @@ main() {
 		[/let]
 	[/let]
 [/for]
-	//just to create the ccsl model
-	map [aBCoolSpecification.name/]2CCSL();
+		
+	
+		[comment] We create a CCSL spec and we add a new block [/comment]
+		
+		if outCCSLModel.objectsOfType(TimeModel::CCSLModel::ClockConstraintSystem)->isEmpty() then
+	 		map [aBCoolSpecification.name/]2CCSLMainBlock()
+		else { 
+	    		theCCSLSpec := outCCSLModel.objectsOfType(TimeModel::CCSLModel::ClockConstraintSystem)->asSequence()->first();
+	    		theMainBlock := theCCSLSpec.superBlock;
+			}endif;
+	
+		map [aBCoolSpecification.name/]2CCSLSubBlock();
+				
+		[comment] we create new sub block [/comment]
+		theMainBlock.subBlock += theSubBlock;
+		theSubBlock.container := theMainBlock;
+
+
 
 [for (operator : BCoolOperator | aBCoolSpecification.bcoolOperators)]
 	[for (globaldse: DefPropertyCS| operator.globalDSEs)]
@@ -226,9 +243,9 @@ main() {
 				[for (filterarg : EObject  | filter.actualParameters)]
 					[let dsename : String = filterarg.DSEtoString() ]
 						 [if filterarg.eContainer().oclIsTypeOf(BCoolOperator)]
-							 theMainBlock.elements['['/]name = [dsename/] [']'/]->first().oclAsType(TimeModel::Clock)
+							 theSubBlock.elements['['/]name = [dsename/] [']'/]->first().oclAsType(TimeModel::Clock)
 						 [elseif filterarg.oclIsTypeOf(EventExpression)]
-							theMainBlock.expressions['['/]name = '[dsename/]'+[dsename/] [']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
+							theSubBlock.expressions['['/]name = '[dsename/]'+[dsename/] [']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 						 [elseif filterarg.oclIsTypeOf(IntegerElement)]
 							 tmp->map Real2Integer("[dsename/]")->asSequence()->first()
 						[elseif filterarg.oclIsTypeOf(BCoolOperatorArg)]
@@ -268,10 +285,10 @@ main() {
 				[let dsename : String = coordruleparam.DSEtoString() ]
 					[comment]	It is an global Event [/comment]
 					[if coordruleparam.eContainer().oclIsTypeOf(BCoolOperator)]
-						 theMainBlock.elements['['/]name = [dsename/] [']'/]->first().oclAsType(TimeModel::Clock)
+						 theSubBlock.elements['['/]name = [dsename/] [']'/]->first().oclAsType(TimeModel::Clock)
 					[comment]	It is a Event Expression [/comment]
 					[elseif coordruleparam.oclIsTypeOf(EventExpression)]
-						theMainBlock.expressions['['/]name = '[dsename/]'+[dsename/] [']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
+						theSubBlock.expressions['['/]name = '[dsename/]'+[dsename/] [']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 					[comment]	It is DSE[/comment]
 					[elseif coordruleparam.oclIsTypeOf(BCoolOperatorArg)]
 						 [let dsename0 : BCoolOperatorArg = coordruleparam]
@@ -301,7 +318,6 @@ main() {
 		};
 	[/for]
 [/for]
-
 }
 
 
@@ -340,7 +356,7 @@ main() {
 				[/let]
 				[/for]
 			end{
-			theMainBlock.expressions += result;
+			theSubBlock.expressions += result;
 		}	
 	}
 	[/for]
@@ -389,7 +405,7 @@ mapping [rule.name/] (
 			[/let]
 
 end{
-			theMainBlock.relations += result;
+			theSubBlock.relations += result;
 		}	
 			
 }
@@ -398,7 +414,7 @@ end{
 [comment ] I return the instance of clock for a given name [/comment]
 [comment ] NOTE: the _abstract is not filled! [/comment]
 mapping DSEtoClock (iname: String) : TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-	[comment ] First, I check if it is a clock [/comment]
+	
 	[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 	[let modelNumber : EInt = i]
 		if inM[i/]Clocks['['/]name = iname[']'/]->notEmpty() then 
@@ -406,27 +422,42 @@ mapping DSEtoClock (iname: String) : TimeModel::CCSLModel::ClockExpressionAndRel
 		endif;
 	[/let]
 	[/for]
-	[comment ] Second, I check if it is an EventExpression [/comment]
+	
 	if theMainBlock.expressions['['/]name = iname[']'/]->notEmpty() then
 		bindable := theMainBlock.expressions['['/]name = iname[']'/]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 	endif;
 
-	[comment ] Finally, I check if it is a global event [/comment]
+
 	if theMainBlock.elements['['/]name = iname[']'/]->notEmpty() then
 		bindable := theMainBlock.elements['['/]name = iname[']'/]->first().oclAsType(TimeModel::Clock)
 	endif;
-	[comment ] If not, I return nil [/comment]
+}
 
+[comment ] This mapping creates a new sublock is based on the name of the inputs models, it constains all the contrains generated by the application of operators [/comment]
+mapping [aBCoolSpecification.name/]2CCSLSubBlock() : TimeModel::CCSLModel::Block {
+	theSubBlock := result;
+	name:="";
+	
+	[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
+	[let modelNumber : EInt = i]
+			name:= name + getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).substring(getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('/')+1, getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1);
+	
+		if outCCSLModel.objectsOfType(TimeModel::ImportStatement)->asSequence()->select(i | i.importURI = inM[i/]MoCCPath )->isEmpty() then {
+		theCCSLSpec.imports+= object TimeModel::ImportStatement{
+			importURI := inM[i/]MoCCPath;
+			alias := getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).substring(getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('/')+1, getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1);
+			}; 
+		} endif;
 
+	[/let]
+	[/for]
+	name := name + "sublock"; 
 }
 
 
 
 
-
-
-
-	mapping [aBCoolSpecification.name/]2CCSL() : TimeModel::CCSLModel::ClockConstraintSystem {
+	mapping [aBCoolSpecification.name/]2CCSLMainBlock() : TimeModel::CCSLModel::ClockConstraintSystem {
 	    theCCSLSpec := result;
 	    name := '[aBCoolSpecification.name/]Coordination';
 	    theMainBlock :=object TimeModel::CCSLModel::Block{
@@ -458,13 +489,6 @@ mapping DSEtoClock (iname: String) : TimeModel::CCSLModel::ClockExpressionAndRel
 	[/let]
 	[/let]
 	[/for]
-
-[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
-	imports+= object TimeModel::ImportStatement{
-			importURI := inM[i/]MoCCPath;
-			alias := 'inM[i/]';	
-		}; 
-[/for]
 
 }
 
@@ -911,6 +935,8 @@ TimeModel::EventKind::start;
 [query public DSEtoString (arg0 : EObject) : String
 	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'DSEtoString(org.eclipse.emf.ecore.EObject)', Sequence{arg0}) /]
 
+[query public getrootfromInterface (arg0 : ImportInterfaceStatement) : String
+	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getrootfromInterface(org.gemoc.bcool.model.bcool.ImportInterfaceStatement)', Sequence{arg0}) /]
 
 
 [query public getDSEIndex(arg0 : EObject, aBCoolSpec : BCoolSpecification ) : String

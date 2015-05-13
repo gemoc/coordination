@@ -176,6 +176,13 @@ public class helperNsURI {
 	}
 	
 	
+	public String getrootfromInterface (ImportInterfaceStatement importInterfaceStatement){
+		String uri = getNSURI (importInterfaceStatement);
+		
+		return "";
+	}
+	
+	
 	public String getModelPath(EObject d){
 		String res ="";
 			res = d.eResource().getURI().toFileString();
@@ -344,6 +351,7 @@ public class helperNsURI {
 			}
 
 		return "naddda";
-	}	
+	}
+	
 	
 }

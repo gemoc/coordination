@@ -13,7 +13,7 @@ Bundle-Vendor: Eclipse Modeling Project
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: bin/,.
-Bundle-Version: 1.0.0.201504072052
+Bundle-Version: 1.0.0.201505061027
 Bundle-Name: Acceleo Bcool2qvto Module Runtime Plug-in
 Bundle-Activator: org.gemoc.bcool.transformation.bcool2qvto.Activator
 Bundle-ManifestVersion: 2
