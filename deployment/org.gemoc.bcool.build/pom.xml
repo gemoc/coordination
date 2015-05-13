@@ -204,13 +204,13 @@
   		../../workspace-bcool/org.gemoc.bcool.model.xtext.ui
   	</module>
   	<module>
-  		../../../../gemoc-git/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions
+  		../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions
   	</module>
   	<module>
-  		../../../../gemoc-git/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions.xtext
+  		../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions.xtext
   	</module>
   	<module>
-  		../../../../gemoc-git/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions.xtext.ui
+  		../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions.xtext.ui
   	</module>
   	  	<module>
   		../../workspace-bcool-qvto/org.gemoc.bcool.transformation.bcool2qvto
