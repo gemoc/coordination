@@ -15,30 +15,30 @@ modeltype TimeModel uses 'http://fr.inria.aoste.timemodel';
 	
 
 transformation doSyncProductTfsmwithfUML_To_CCSL(
-inM2 : inMM1,
-inM1 : inMM2,
- out TimeModel);
+inM1 : inMM1,
+inM2 : inMM2,
+ inout outCCSLModel : TimeModel);
 
+configuration property inM1MoCCPath : String;
+configuration property inM2MoCCPath : String;	
 
-
-property inM1MoCCPath : String = getModelPath(inM1.rootObjects()->asSequence()->first().oclAsType(EObject)).substring(1, getModelPath(inM1.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1)+'_MoCC.extendedCCSL';
+//property inM1MoCCPath : String = getModelPath(inM1.rootObjects()->asSequence()->first().oclAsType(EObject)).substring(1, getModelPath(inM1.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1)+'_MoCC.extendedCCSL';
 property inM1Clocks	:	Sequence(TimeModel::Clock) = Sequence{};
 query retrieveinM1MoCCClocks() {
 	inM1Clocks += getLibObjects(inM1MoCCPath)[TimeModel::Clock];
-	
 	return;
 }
-property inM2MoCCPath : String = getModelPath(inM2.rootObjects()->asSequence()->first().oclAsType(EObject)).substring(1, getModelPath(inM2.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1)+'_MoCC.extendedCCSL';
+//property inM2MoCCPath : String = getModelPath(inM2.rootObjects()->asSequence()->first().oclAsType(EObject)).substring(1, getModelPath(inM2.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1)+'_MoCC.extendedCCSL';
 property inM2Clocks	:	Sequence(TimeModel::Clock) = Sequence{};
 query retrieveinM2MoCCClocks() {
 	inM2Clocks += getLibObjects(inM2MoCCPath)[TimeModel::Clock];
-	
 	return;
 }
 
 
 property theCCSLSpec			:TimeModel::CCSLModel::ClockConstraintSystem = null;
 property theMainBlock			:TimeModel::CCSLModel::Block				 = null;
+property theSubBlock 			:TimeModel::CCSLModel::Block				 = null;
 
 property Kernel_Integer 	: TimeModel::BasicType::Type		= null;
 property Kernel_Clock_Type 	: TimeModel::BasicType::Type		= null;
@@ -358,7 +358,7 @@ query identifyUserRelations() {
 		value := self.round();
 
 		end{
-			theMainBlock.elements += result;
+			theSubBlock.elements += result;
 		}
 	}
 
@@ -367,7 +367,7 @@ query identifyUserRelations() {
 		name:= n;
 		type:= Kernel_Clock_Type;
 		end {
-			theMainBlock.elements += result;
+			theSubBlock.elements += result;
 		}
 	}
 
@@ -400,8 +400,22 @@ main() {
 			inM2.objectsOfType(inMM2::Action).getstartActionMSEofMM2();
 			inM2.objectsOfType(inMM2::Action).getfinishActionMSEofMM2();
 			inM2.objectsOfType(inMM2::MessageEvent).getcallMSEofMM2();
-	//just to create the ccsl model
-	map SyncProductTfsmwithfUML2CCSL();
+		
+	
+		
+		if outCCSLModel.objectsOfType(TimeModel::CCSLModel::ClockConstraintSystem)->isEmpty() then
+	 		map SyncProductTfsmwithfUML2CCSLMainBlock()
+		else { 
+	    		theCCSLSpec := outCCSLModel.objectsOfType(TimeModel::CCSLModel::ClockConstraintSystem)->asSequence()->first();
+	    		theMainBlock := theCCSLSpec.superBlock;
+			}endif;
+	
+		map SyncProductTfsmwithfUML2CCSLSubBlock();
+				
+		theMainBlock.subBlock += theSubBlock;
+		theSubBlock.container := theMainBlock;
+
+
 
 
 			
@@ -415,26 +429,17 @@ main() {
 
 			
 
-		if (dse1.name=dse2.name) then {
-		
-			
+		if (dse1.name = dse2.name) then {
 			map MatchingandCoordinationSharedEvents (
-						
 									inM2Clocks[name =  dse1.name + '_startAction']->first().oclAsType(TimeModel::Clock)
-
-			
 					,
-						
 									inM1Clocks[name =  dse2.name + '_occurs']->first().oclAsType(TimeModel::Clock)
-
-			
 			
 			);
 		} endif;
 
-		}
-		}
-
+		};
+		};
 }
 
 
@@ -464,36 +469,59 @@ mapping MatchingandCoordinationSharedEvents (
 					};
 
 end{
-			theMainBlock.relations += result;
+			theSubBlock.relations += result;
 		}	
 			
 }
 
 mapping DSEtoClock (iname: String) : TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+	
 		if inM1Clocks[name = iname]->notEmpty() then 
 			bindable := inM1Clocks[name = iname]->first().oclAsType(TimeModel::Clock)
 		endif;
 		if inM2Clocks[name = iname]->notEmpty() then 
 			bindable := inM2Clocks[name = iname]->first().oclAsType(TimeModel::Clock)
 		endif;
+	
 	if theMainBlock.expressions[name = iname]->notEmpty() then
 		bindable := theMainBlock.expressions[name = iname]->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::Expression)
 	endif;
 
+
 	if theMainBlock.elements[name = iname]->notEmpty() then
 		bindable := theMainBlock.elements[name = iname]->first().oclAsType(TimeModel::Clock)
 	endif;
+}
 
+mapping SyncProductTfsmwithfUML2CCSLSubBlock() : TimeModel::CCSLModel::Block {
+	theSubBlock := result;
+	name:="";
+	
+			name:= name + getModelPath(inM1.rootObjects()->asSequence()->first().oclAsType(EObject)).substring(getModelPath(inM1.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('/')+1, getModelPath(inM1.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1);
+	
+		if outCCSLModel.objectsOfType(TimeModel::ImportStatement)->asSequence()->select(i | i.importURI = inM1MoCCPath )->isEmpty() then {
+		theCCSLSpec.imports+= object TimeModel::ImportStatement{
+			importURI := inM1MoCCPath;
+			alias := getModelPath(inM1.rootObjects()->asSequence()->first().oclAsType(EObject)).substring(getModelPath(inM1.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('/')+1, getModelPath(inM1.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1);
+			}; 
+		} endif;
 
+			name:= name + getModelPath(inM2.rootObjects()->asSequence()->first().oclAsType(EObject)).substring(getModelPath(inM2.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('/')+1, getModelPath(inM2.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1);
+	
+		if outCCSLModel.objectsOfType(TimeModel::ImportStatement)->asSequence()->select(i | i.importURI = inM2MoCCPath )->isEmpty() then {
+		theCCSLSpec.imports+= object TimeModel::ImportStatement{
+			importURI := inM2MoCCPath;
+			alias := getModelPath(inM2.rootObjects()->asSequence()->first().oclAsType(EObject)).substring(getModelPath(inM2.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('/')+1, getModelPath(inM2.rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1);
+			}; 
+		} endif;
+
+	name := name + "sublock"; 
 }
 
 
 
 
-
-
-
-	mapping SyncProductTfsmwithfUML2CCSL() : TimeModel::CCSLModel::ClockConstraintSystem {
+	mapping SyncProductTfsmwithfUML2CCSLMainBlock() : TimeModel::CCSLModel::ClockConstraintSystem {
 	    theCCSLSpec := result;
 	    name := 'SyncProductTfsmwithfUMLCoordination';
 	    theMainBlock :=object TimeModel::CCSLModel::Block{
@@ -531,15 +559,6 @@ mapping DSEtoClock (iname: String) : TimeModel::CCSLModel::ClockExpressionAndRel
 	imports+= object TimeModel::ImportStatement{
 			importURI := 'platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/lib4RT.ccslLib';
 			alias := 'model_2_3';	
-		}; 
-
-	imports+= object TimeModel::ImportStatement{
-			importURI := inM1MoCCPath;
-			alias := 'inM1';	
-		}; 
-	imports+= object TimeModel::ImportStatement{
-			importURI := inM2MoCCPath;
-			alias := 'inM2';	
 		}; 
 
 }

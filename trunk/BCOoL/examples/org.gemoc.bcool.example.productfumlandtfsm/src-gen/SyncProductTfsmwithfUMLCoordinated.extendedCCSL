@@ -7,16 +7,20 @@ ClockConstraintSystem SyncProductTfsmwithfUMLCoordination {
 		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as model_2_1 ;
 		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as model_2_2 ;
 		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/interfaces/lib4RT.ccslLib" as model_2_3 ;
-		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/models/BDC_MoCC.extendedCCSL" as inM1 ;
-		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/models/BMC_MoCC.extendedCCSL" as inM2 ;
+		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/models/BDC_MoCC.extendedCCSL" as BDC ;
+		import "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/models/BMC_MoCC.extendedCCSL" as BMC ;
 	}
 	entryBlock mainBlock
 	Block mainBlock {
-		Relation MatchingandCoordinationSharedEventsdoClose_startActiondoClose_occurs [ RendezVous ]
-		( ClockA -> "Model::mainBlock::doClose_startAction",
-		ClockB -> "BarrierControl::mainBlock::doClose_occurs" )
-		Relation MatchingandCoordinationSharedEventsclosed_startActionclosed_occurs [ RendezVous ]
-		( ClockA -> "Model::mainBlock::closed_startAction",
-		ClockB -> "BarrierControl::mainBlock::closed_occurs" )
+		Block BDCBMCsublock {
+			Relation MatchingandCoordinationSharedEventsdoClose_startActiondoClose_occurs [ RendezVous ]
+			( ClockA -> "Model::mainBlock::doClose_startAction",
+			ClockB -> "BarrierControl::mainBlock::doClose_occurs" )
+			Relation MatchingandCoordinationSharedEventsclosed_startActionclosed_occurs [ RendezVous ]
+			( ClockA -> "Model::mainBlock::closed_startAction",
+			ClockB -> "BarrierControl::mainBlock::closed_occurs" )
+		}
+		Block BMCBDCsublock {
+		}
 	}
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_ksQfkG47EeS088ocKCpvkA" selectedViews="_mCAKgG47EeS088ocKCpvkA _mCR3UG47EeS088ocKCpvkA _mCWv0G47EeS088ocKCpvkA _mCfSsG47EeS088ocKCpvkA _mCi9EG47EeS088ocKCpvkA" version="8.1.1">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/filter/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/filter http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_ksQfkG47EeS088ocKCpvkA" selectedViews="_mCAKgG47EeS088ocKCpvkA _mCR3UG47EeS088ocKCpvkA _mCWv0G47EeS088ocKCpvkA _mCfSsG47EeS088ocKCpvkA _mCi9EG47EeS088ocKCpvkA" version="8.1.1">
   <models xmi:type="uml:Model" href="BMC.uml#_twUaICaeEeOS_s08y94Udg"/>
   <models xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   <models xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
@@ -541,9 +541,6 @@
           <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_VFWKOG49EeS088ocKCpvkA" name="target1 : [1]" width="2" height="2">
             <target xmi:type="uml:InputPin" href="BMC.uml#_IyvcIOrqEeKeMtIUuWEFqQ"/>
             <semanticElements xmi:type="uml:InputPin" href="BMC.uml#_IyvcIOrqEeKeMtIUuWEFqQ"/>
-            <decorations xmi:type="viewpoint:Decoration" xmi:id="_VFWKOW49EeS088ocKCpvkA">
-              <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='InconsistentPin']"/>
-            </decorations>
             <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
             <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
             <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -663,9 +660,6 @@
           <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_VFWKaG49EeS088ocKCpvkA" name="target2 : [1]" width="2" height="2">
             <target xmi:type="uml:InputPin" href="BMC.uml#_eVChwO0gEeK0ZPAdheaO0Q"/>
             <semanticElements xmi:type="uml:InputPin" href="BMC.uml#_eVChwO0gEeK0ZPAdheaO0Q"/>
-            <decorations xmi:type="viewpoint:Decoration" xmi:id="_VFWKaW49EeS088ocKCpvkA">
-              <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='InconsistentPin']"/>
-            </decorations>
             <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
             <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
             <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -689,7 +683,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@containerMappings[name='AD_Activity']/@subContainerMappings[name='AD_ExecutableNode']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKc249EeS088ocKCpvkA" outgoingEdges="_VFWKyW49EeS088ocKCpvkA" width="3" height="3" resizeKind="NSEW">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKc249EeS088ocKCpvkA" name="InitialNode1" outgoingEdges="_VFWKyW49EeS088ocKCpvkA" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="uml:InitialNode" href="BMC.uml#_J-V8oOl2EeKsIfZXhui_7g"/>
           <semanticElements xmi:type="uml:InitialNode" href="BMC.uml#_J-V8oOl2EeKsIfZXhui_7g"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -702,7 +696,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@containerMappings[name='AD_Activity']/@subNodeMappings[name='AD_ControlNode']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKd249EeS088ocKCpvkA" outgoingEdges="_VFWKsG49EeS088ocKCpvkA _VFWKtW49EeS088ocKCpvkA" incomingEdges="_VFWKq249EeS088ocKCpvkA" width="3" height="3">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKd249EeS088ocKCpvkA" name="IsDownDecision" outgoingEdges="_VFWKsG49EeS088ocKCpvkA _VFWKtW49EeS088ocKCpvkA" incomingEdges="_VFWKq249EeS088ocKCpvkA" width="3" height="3">
           <target xmi:type="uml:DecisionNode" href="BMC.uml#_yGnMEOyiEeKUJNNbSM5AWw"/>
           <semanticElements xmi:type="uml:DecisionNode" href="BMC.uml#_yGnMEOyiEeKUJNNbSM5AWw"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -716,7 +710,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@containerMappings[name='AD_Activity']/@subNodeMappings[name='AD_ControlNode']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKfG49EeS088ocKCpvkA" outgoingEdges="_VFWKpm49EeS088ocKCpvkA" incomingEdges="_VFWKoW49EeS088ocKCpvkA _VFWKtW49EeS088ocKCpvkA" width="2" height="2">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKfG49EeS088ocKCpvkA" name="MergeDown" outgoingEdges="_VFWKpm49EeS088ocKCpvkA" incomingEdges="_VFWKoW49EeS088ocKCpvkA _VFWKtW49EeS088ocKCpvkA" width="2" height="2">
           <target xmi:type="uml:MergeNode" href="BMC.uml#_JrrY4OyjEeKUJNNbSM5AWw"/>
           <semanticElements xmi:type="uml:MergeNode" href="BMC.uml#_JrrY4OyjEeKUJNNbSM5AWw"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -730,7 +724,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@containerMappings[name='AD_Activity']/@subNodeMappings[name='AD_ControlNode']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKgW49EeS088ocKCpvkA" outgoingEdges="_VFWK0249EeS088ocKCpvkA" incomingEdges="_VFWKzm49EeS088ocKCpvkA _VFWK4m49EeS088ocKCpvkA" width="2" height="2">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKgW49EeS088ocKCpvkA" name="MergeUp" outgoingEdges="_VFWK0249EeS088ocKCpvkA" incomingEdges="_VFWKzm49EeS088ocKCpvkA _VFWK4m49EeS088ocKCpvkA" width="2" height="2">
           <target xmi:type="uml:MergeNode" href="BMC.uml#_clByIO0fEeK0ZPAdheaO0Q"/>
           <semanticElements xmi:type="uml:MergeNode" href="BMC.uml#_clByIO0fEeK0ZPAdheaO0Q"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -744,7 +738,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@containerMappings[name='AD_Activity']/@subNodeMappings[name='AD_ControlNode']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKhm49EeS088ocKCpvkA" outgoingEdges="_VFWK3W49EeS088ocKCpvkA _VFWK4m49EeS088ocKCpvkA" incomingEdges="_VFWK2G49EeS088ocKCpvkA" width="3" height="3">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKhm49EeS088ocKCpvkA" name="IsUpDecision" outgoingEdges="_VFWK3W49EeS088ocKCpvkA _VFWK4m49EeS088ocKCpvkA" incomingEdges="_VFWK2G49EeS088ocKCpvkA" width="3" height="3">
           <target xmi:type="uml:DecisionNode" href="BMC.uml#_TGrL4O0gEeK0ZPAdheaO0Q"/>
           <semanticElements xmi:type="uml:DecisionNode" href="BMC.uml#_TGrL4O0gEeK0ZPAdheaO0Q"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -758,7 +752,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@containerMappings[name='AD_Activity']/@subNodeMappings[name='AD_ControlNode']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKi249EeS088ocKCpvkA" outgoingEdges="_ahyIQG4-EeS088ocKCpvkA _bZ-7kG4-EeS088ocKCpvkA" incomingEdges="_VFWKyW49EeS088ocKCpvkA" width="3" height="1" resizeKind="EAST_WEST">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKi249EeS088ocKCpvkA" name="ForkNode1" outgoingEdges="_ahyIQG4-EeS088ocKCpvkA _bZ-7kG4-EeS088ocKCpvkA" incomingEdges="_VFWKyW49EeS088ocKCpvkA" width="3" height="1" resizeKind="EAST_WEST">
           <target xmi:type="uml:ForkNode" href="BMC.uml#_rLIqcO0gEeK0ZPAdheaO0Q"/>
           <semanticElements xmi:type="uml:ForkNode" href="BMC.uml#_rLIqcO0gEeK0ZPAdheaO0Q"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -772,7 +766,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@containerMappings[name='AD_Activity']/@subNodeMappings[name='AD_ControlNode']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKkG49EeS088ocKCpvkA" incomingEdges="_VFWK7G49EeS088ocKCpvkA" width="3" height="3" resizeKind="NSEW">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKkG49EeS088ocKCpvkA" name="ActivityFinalNode1" incomingEdges="_VFWK7G49EeS088ocKCpvkA" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="uml:ActivityFinalNode" href="BMC.uml#_Kf0V4O-0EeKLx60JPwBiQA"/>
           <semanticElements xmi:type="uml:ActivityFinalNode" href="BMC.uml#_Kf0V4O-0EeKLx60JPwBiQA"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -785,7 +779,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@containerMappings[name='AD_Activity']/@subNodeMappings[name='AD_ControlNode']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKlG49EeS088ocKCpvkA" outgoingEdges="_VFWK7G49EeS088ocKCpvkA" incomingEdges="_VFWKv249EeS088ocKCpvkA _VFWKxG49EeS088ocKCpvkA" width="2" height="1" resizeKind="EAST_WEST">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_VFWKlG49EeS088ocKCpvkA" name="JoinNode1" outgoingEdges="_VFWK7G49EeS088ocKCpvkA" incomingEdges="_VFWKv249EeS088ocKCpvkA _VFWKxG49EeS088ocKCpvkA" width="2" height="1" resizeKind="EAST_WEST">
           <target xmi:type="uml:JoinNode" href="BMC.uml#_LOV0ICesEeOJBZOPH_DMVw"/>
           <semanticElements xmi:type="uml:JoinNode" href="BMC.uml#_LOV0ICesEeOJBZOPH_DMVw"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -826,7 +820,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@containerMappings[name='AD_Activity']/@subNodeMappings[name='AD_AcceptEventAction']"/>
         </ownedDiagramElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKoW49EeS088ocKCpvkA" sourceNode="_VFWKT249EeS088ocKCpvkA" targetNode="_VFWKfG49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKoW49EeS088ocKCpvkA" name=" ControlFlow38" sourceNode="_VFWKT249EeS088ocKCpvkA" targetNode="_VFWKfG49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_OmnB0OyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_OmnB0OyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_Omno4OyjEeKUJNNbSM5AWw"/>
@@ -839,7 +833,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKpm49EeS088ocKCpvkA" sourceNode="_VFWKfG49EeS088ocKCpvkA" targetNode="_VFWKQ249EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKpm49EeS088ocKCpvkA" name=" ControlFlow39" sourceNode="_VFWKfG49EeS088ocKCpvkA" targetNode="_VFWKQ249EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_SKyTMOyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_SKyTMOyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_SKy6QOyjEeKUJNNbSM5AWw"/>
@@ -852,7 +846,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKq249EeS088ocKCpvkA" sourceNode="_VFWKQ249EeS088ocKCpvkA" targetNode="_VFWKd249EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKq249EeS088ocKCpvkA" name=" ControlFlow40" sourceNode="_VFWKQ249EeS088ocKCpvkA" targetNode="_VFWKd249EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_UumTwOyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_UumTwOyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_Uunh4OyjEeKUJNNbSM5AWw"/>
@@ -865,7 +859,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKsG49EeS088ocKCpvkA" sourceNode="_VFWKd249EeS088ocKCpvkA" targetNode="_VFWKSW49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKsG49EeS088ocKCpvkA" name=" ControlFlow41" sourceNode="_VFWKd249EeS088ocKCpvkA" targetNode="_VFWKSW49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_WHSlAOyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_WHSlAOyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_WHTMEOyjEeKUJNNbSM5AWw"/>
@@ -878,7 +872,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKtW49EeS088ocKCpvkA" sourceNode="_VFWKd249EeS088ocKCpvkA" targetNode="_VFWKfG49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKtW49EeS088ocKCpvkA" name=" ControlFlow42" sourceNode="_VFWKd249EeS088ocKCpvkA" targetNode="_VFWKfG49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_XWuMkOyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_XWuMkOyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_XWuzoOyjEeKUJNNbSM5AWw"/>
@@ -891,7 +885,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKum49EeS088ocKCpvkA" sourceNode="_VFWKSW49EeS088ocKCpvkA" targetNode="_VFWKN249EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKum49EeS088ocKCpvkA" name=" ControlFlow43" sourceNode="_VFWKSW49EeS088ocKCpvkA" targetNode="_VFWKN249EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_cojSkOyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_cojSkOyjEeKUJNNbSM5AWw"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_coj5oOyjEeKUJNNbSM5AWw"/>
@@ -904,7 +898,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKv249EeS088ocKCpvkA" sourceNode="_VFWKN249EeS088ocKCpvkA" targetNode="_VFWKlG49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKv249EeS088ocKCpvkA" name=" ControlFlow44" sourceNode="_VFWKN249EeS088ocKCpvkA" targetNode="_VFWKlG49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_yCs_MO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_yCs_MO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_yCtmQO0gEeK0ZPAdheaO0Q"/>
@@ -917,7 +911,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKxG49EeS088ocKCpvkA" sourceNode="_VFWKZ249EeS088ocKCpvkA" targetNode="_VFWKlG49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKxG49EeS088ocKCpvkA" name=" ControlFlow45" sourceNode="_VFWKZ249EeS088ocKCpvkA" targetNode="_VFWKlG49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_ysuzoO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_ysuzoO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_ysvasO0gEeK0ZPAdheaO0Q"/>
@@ -930,7 +924,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKyW49EeS088ocKCpvkA" sourceNode="_VFWKc249EeS088ocKCpvkA" targetNode="_VFWKi249EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKyW49EeS088ocKCpvkA" name=" ControlFlow47" sourceNode="_VFWKc249EeS088ocKCpvkA" targetNode="_VFWKi249EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_0jjLUO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_0jjLUO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_0jjyYO0gEeK0ZPAdheaO0Q"/>
@@ -943,7 +937,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKzm49EeS088ocKCpvkA" sourceNode="_VFWKVW49EeS088ocKCpvkA" targetNode="_VFWKgW49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWKzm49EeS088ocKCpvkA" name=" ControlFlow51" sourceNode="_VFWKVW49EeS088ocKCpvkA" targetNode="_VFWKgW49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_4ZFScO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_4ZFScO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_4ZF5gO0gEeK0ZPAdheaO0Q"/>
@@ -956,7 +950,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK0249EeS088ocKCpvkA" sourceNode="_VFWKgW49EeS088ocKCpvkA" targetNode="_VFWKW249EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK0249EeS088ocKCpvkA" name=" ControlFlow52" sourceNode="_VFWKgW49EeS088ocKCpvkA" targetNode="_VFWKW249EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_5AjiIO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_5AjiIO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_5AkJMO0gEeK0ZPAdheaO0Q"/>
@@ -969,7 +963,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK2G49EeS088ocKCpvkA" sourceNode="_VFWKW249EeS088ocKCpvkA" targetNode="_VFWKhm49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK2G49EeS088ocKCpvkA" name=" ControlFlow53" sourceNode="_VFWKW249EeS088ocKCpvkA" targetNode="_VFWKhm49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_5xvHcO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_5xvHcO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_5xvugO0gEeK0ZPAdheaO0Q"/>
@@ -982,7 +976,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK3W49EeS088ocKCpvkA" sourceNode="_VFWKhm49EeS088ocKCpvkA" targetNode="_VFWKYW49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK3W49EeS088ocKCpvkA" name=" ControlFlow54" sourceNode="_VFWKhm49EeS088ocKCpvkA" targetNode="_VFWKYW49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_6kvRsO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_6kvRsO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_6kv4wO0gEeK0ZPAdheaO0Q"/>
@@ -995,7 +989,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK4m49EeS088ocKCpvkA" sourceNode="_VFWKhm49EeS088ocKCpvkA" targetNode="_VFWKgW49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK4m49EeS088ocKCpvkA" name=" ControlFlow55" sourceNode="_VFWKhm49EeS088ocKCpvkA" targetNode="_VFWKgW49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_7Z4J8O0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_7Z4J8O0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_7Z4xAO0gEeK0ZPAdheaO0Q"/>
@@ -1008,7 +1002,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK5249EeS088ocKCpvkA" sourceNode="_VFWKYW49EeS088ocKCpvkA" targetNode="_VFWKZ249EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK5249EeS088ocKCpvkA" name=" ControlFlow56" sourceNode="_VFWKYW49EeS088ocKCpvkA" targetNode="_VFWKZ249EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_9QY_oO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_9QY_oO0gEeK0ZPAdheaO0Q"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_9QY_oe0gEeK0ZPAdheaO0Q"/>
@@ -1021,7 +1015,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK7G49EeS088ocKCpvkA" sourceNode="_VFWKlG49EeS088ocKCpvkA" targetNode="_VFWKkG49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_VFWK7G49EeS088ocKCpvkA" name=" ControlFlow57" sourceNode="_VFWKlG49EeS088ocKCpvkA" targetNode="_VFWKkG49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_OC-TkO-0EeKLx60JPwBiQA"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_OC-TkO-0EeKLx60JPwBiQA"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_OC-6oO-0EeKLx60JPwBiQA"/>
@@ -1034,7 +1028,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_ahyIQG4-EeS088ocKCpvkA" sourceNode="_VFWKi249EeS088ocKCpvkA" targetNode="_VFWKVW49EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_ahyIQG4-EeS088ocKCpvkA" name=" ForkNode1_To_startBarrierUp" sourceNode="_VFWKi249EeS088ocKCpvkA" targetNode="_VFWKVW49EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_afHOwG4-EeS088ocKCpvkA"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_afHOwG4-EeS088ocKCpvkA"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_af1AcG4-EeS088ocKCpvkA"/>
@@ -1047,7 +1041,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_bZ-7kG4-EeS088ocKCpvkA" sourceNode="_VFWKi249EeS088ocKCpvkA" targetNode="_VFWKT249EeS088ocKCpvkA">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_bZ-7kG4-EeS088ocKCpvkA" name=" ForkNode1_To_startBarrierDown" sourceNode="_VFWKi249EeS088ocKCpvkA" targetNode="_VFWKT249EeS088ocKCpvkA">
         <target xmi:type="uml:ControlFlow" href="BMC.uml#_bZvD8G4-EeS088ocKCpvkA"/>
         <semanticElements xmi:type="uml:ControlFlow" href="BMC.uml#_bZvD8G4-EeS088ocKCpvkA"/>
         <semanticElements xmi:type="uml:LiteralBoolean" href="BMC.uml#_bZwSEG4-EeS088ocKCpvkA"/>
@@ -1061,6 +1055,7 @@
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer/@edgeMappings[name='AD_ControlFlow']"/>
       </ownedDiagramElements>
       <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']"/>
+      <activatedFilters xmi:type="filter:CompositeFilterDescription" href="platform:/plugin/org.polarsys.kitalpha.ad.integration.sirius/description/ad.odesign#//@ownedViewpoints[name='ad']/@ownedRepresentations[name='AD%20diagram']/@filters[name='ModelExtensionFilter']"/>
       <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_VFWK8W49EeS088ocKCpvkA"/>
       <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@defaultLayer"/>
       <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activity%20Diagram']/@additionalLayers[name='Comments']"/>
@@ -1514,6 +1509,7 @@
         </ownedDiagramElements>
       </ownedDiagramElements>
       <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Dashboard']/@ownedRepresentations[name='Dashboard']"/>
+      <activatedFilters xmi:type="filter:CompositeFilterDescription" href="platform:/plugin/org.polarsys.kitalpha.ad.integration.sirius/description/ad.odesign#//@ownedViewpoints[name='ad']/@ownedRepresentations[name='AD%20diagram']/@filters[name='ModelExtensionFilter']"/>
       <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_mHvmUG47EeS088ocKCpvkA"/>
       <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Dashboard']/@ownedRepresentations[name='Dashboard']/@defaultLayer"/>
       <target xmi:type="uml:Model" href="BMC.uml#_twUaICaeEeOS_s08y94Udg"/>
