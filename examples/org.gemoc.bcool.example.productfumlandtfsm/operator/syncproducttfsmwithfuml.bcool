@@ -9,7 +9,7 @@ ImportInterface "platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/i
 Spec test 
 
 Operator  MatchingandCoordinationSharedEvents (dse1 : activity::startAction , dse2 : tfsm::occurs)
-MatchingCorrespondance : when  (dse1.name = dse2.name) ;
+	MatchingCorrespondance: when  (dse1.name = dse2.name) ;
 		CoordinationRule:
-			RendezVous(dse1, dse2)
+			facilities.RendezVous(dse1, dse2)
 end operator; 

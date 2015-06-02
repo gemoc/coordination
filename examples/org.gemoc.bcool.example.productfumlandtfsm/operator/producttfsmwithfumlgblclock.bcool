@@ -15,6 +15,6 @@ MatchingCorrespondance : when (dse1.name = dse2.name );
 		CoordinationRule:
 			Event syncA = SampleBy (globalclock, dse1);
 			Event syncB = SampleBy (globalclock, dse2);
-			
-			RendezVous(syncA, syncB)
+			 
+			RendezVous(syncA, syncB) 
 end operator;
