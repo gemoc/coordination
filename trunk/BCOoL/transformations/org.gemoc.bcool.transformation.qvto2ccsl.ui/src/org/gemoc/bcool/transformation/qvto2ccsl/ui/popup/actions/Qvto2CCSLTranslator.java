@@ -1,5 +1,6 @@
 package org.gemoc.bcool.transformation.qvto2ccsl.ui.popup.actions;
 
+import java.awt.Component;
 import java.awt.List;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,10 +39,6 @@ import fr.inria.aoste.timesquare.ccslkernel.parser.xtext.ExtendedCCSLStandaloneS
 public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 
 	private IFile qvtoFile=null;
-	private XtextResourceSet aModelResourceSet=null;
-	private XtextResourceSet outputResourceSet=null;
-	
-	
 	private ArrayList<IFile> modelfiles = new ArrayList<IFile>();
 	
 	
@@ -60,8 +57,10 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 
 	/**
 	 * just initialization stuff from xtext for an ecl resource
+	 * @param aModelResourceSet 
+	 * @param outputResourceSet 
 	 */
-	private void initializeXtext(){
+	private void initializeXtext(XtextResourceSet aModelResourceSet, XtextResourceSet outputResourceSet){
 		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
 		Injector injector = ess.createInjector();
 		// instanciate a resource set
@@ -76,35 +75,38 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 	 * @see IActionDelegate#run(IAction)
 	 */
 	public void run(IAction action) {
-		initializeXtext();
+		 String qvtUriString0 = qvtoFile.getProject().getName()+"/"+qvtoFile.getProjectRelativePath().toOSString();
+		 URI transformationURI = URI.createFileURI(qvtoFile.getLocation().toOSString());
+		 
+		 int numberOfCharToRemove1 = qvtUriString0.length() - transformationURI.fileExtension().length() -1;
+		 String outputPathStringtotal = qvtUriString0.substring(0, numberOfCharToRemove1)+"Coordinated.extendedCCSL";
+		 URI outputUritotal = URI.createPlatformResourceURI(outputPathStringtotal,false);
+		 
+		applyQVTo(transformationURI,modelfiles,outputUritotal);
+	}
 
-		//qvto uri
-		String qvtoUriString = qvtoFile.getLocation().toOSString();
-	    URI transformationURI = URI.createFileURI(qvtoUriString);
+	public  Resource applyQVTo(URI transformationURI, ArrayList<IFile> inputModelfiles, URI outputmodelURI) {
+		XtextResourceSet aModelResourceSet=null;
+		XtextResourceSet outputResourceSet=null;
+		initializeXtext(aModelResourceSet,outputResourceSet);
 	    
 	    // output file
-	    String qvtUriString0 = qvtoFile.getProject().getName()+"/"+qvtoFile.getProjectRelativePath().toOSString();
-	    int numberOfCharToRemove1 = qvtUriString0.length() - transformationURI.fileExtension().length() -1;
-	    String outputPathStringtotal = qvtUriString0.substring(0, numberOfCharToRemove1)+"Coordinated.extendedCCSL";
-		
-	    URI outputUritotal = URI.createPlatformResourceURI(outputPathStringtotal,false);
+	   
 	    Resource outputResourcetotal=null;
-	    try{
-	    	outputResourcetotal = outputResourceSet.createResource(outputUritotal);
+		try{
+	    	outputResourcetotal = outputResourceSet.createResource(outputmodelURI);
 	    }catch( Exception e){
 	    	System.out.println(e);
-	    	outputResourcetotal = outputResourceSet.createResource(outputUritotal);
+	    	outputResourcetotal = outputResourceSet.createResource(outputmodelURI);
 	    };
 	    
 	    //executor and context
 	    TransformationExecutor executor = new TransformationExecutor(transformationURI);
 	    ModelExtent output = new BasicModelExtent();
-	    
 	    // trace of the applicacion of the operators
 	    HashMap<IFile,Boolean> tracemodels = new HashMap<IFile, Boolean>();
-	    
 	    // ugly since it should be check the parameters
-		for (IFile model1 : modelfiles) {
+		for (IFile model1 : inputModelfiles) {
 		    //model1 resource
 		    String model1UriString = model1.getProject().getName()+"/"+model1.getProjectRelativePath().toOSString();
 		    URI model1Uri = URI.createPlatformResourceURI(model1UriString,false);
@@ -113,7 +115,7 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 		    loadResource(model1Resource);
 		    ModelExtent input1 = new BasicModelExtent(model1Resource.getContents());
 		    
-			for (IFile model2 : modelfiles)	{
+			for (IFile model2 : inputModelfiles)	{
 				
 				//model2 resource
 			    String model2UriString = model2.getProject().getName()+"/"+model2.getProjectRelativePath().toOSString();
@@ -155,9 +157,9 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	    
-	 
-
+		
+		return outputResourcetotal;
+		
 	}
 
 	protected void loadResource(Resource model2Resource) {
