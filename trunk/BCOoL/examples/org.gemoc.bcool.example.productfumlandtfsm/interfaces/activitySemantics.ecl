@@ -65,8 +65,7 @@ package UML
 			
 		inv waitControlToExecutenotComingfrom:
 		((self.incoming->size() > 0) and (self.incoming->asSequence().source->select(n| (n).oclIsKindOf(ControlNode))->size() > 0))   implies
-			let incomingFinished : Event = self.incoming->asSequence()->first().source.oclAsType(ControlNode).finishIt in --problem
-			(Relation Causes(incomingFinished, self.startAction))
+			(Relation Causes(self.incoming->asSequence().source->select(n| (n).oclIsKindOf(ControlNode))->first().oclAsType(ControlNode).finishIt, self.startAction))
 		
 		inv StartAlternatesWithFinish:
 			Relation Alternates(self.startAction,self.finishAction)
@@ -99,7 +98,7 @@ package UML
 --		    	(Relation Causes(lastFinalNode,self.finishActivity))
 		
 		inv lastSingleFinalNodeStopActivity:
-		    let finalNodes : OrderedSet(UML::FinalNode) = self.node->select(n|(n).oclIsKindOf(FinalNode)).oclAsType(FinalNode)->asOrderedSet() in
+		    let finalNodes : OrderedSet(FinalNode) = self.node->select(n|(n).oclIsKindOf(FinalNode)).oclAsType(FinalNode)->asOrderedSet() in
 			((finalNodes)->size()=1) implies
 			     (Relation Causes((finalNodes)->first().finishIt,self.finishActivity))
 		

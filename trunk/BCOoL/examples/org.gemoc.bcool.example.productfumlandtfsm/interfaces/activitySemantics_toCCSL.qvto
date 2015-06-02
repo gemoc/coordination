@@ -101,73 +101,61 @@ main() {
 
 		
 
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ InputPin ]->map dataRead2Clock();
+		////[ InputPin ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), InputPin.oclAsType(EClass)).oclAsType(InputPin)->map dataRead2Clock();
 		
 
 
 		
 
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ OutputPin ]->map dataWrite2Clock();
+		////[ OutputPin ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), OutputPin.oclAsType(EClass)).oclAsType(OutputPin)->map dataWrite2Clock();
 		
 
 
 		
 
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ ControlNode ]->map startIt2Clock();
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ ControlNode ]->map finishIt2Clock();
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ ControlNode ]->map temporalEvent2Clock();
+		////[ ControlNode ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ControlNode.oclAsType(EClass)).oclAsType(ControlNode)->map startIt2Clock();
+		////[ ControlNode ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ControlNode.oclAsType(EClass)).oclAsType(ControlNode)->map finishIt2Clock();
+		////[ ControlNode ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ControlNode.oclAsType(EClass)).oclAsType(ControlNode)->map temporalEvent2Clock();
 		
 
 
 		
 
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ Activity ]->map startActivity2Clock();
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ Activity ]->map finishActivity2Clock();
+		////[ Activity ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Activity.oclAsType(EClass)).oclAsType(Activity)->map startActivity2Clock();
+		////[ Activity ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Activity.oclAsType(EClass)).oclAsType(Activity)->map finishActivity2Clock();
 		
 
 
 		
 
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ Action ]->map startAction2Clock();
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ Action ]->map finishAction2Clock();
+		////[ Action ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Action.oclAsType(EClass)).oclAsType(Action)->map startAction2Clock();
+		////[ Action ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Action.oclAsType(EClass)).oclAsType(Action)->map finishAction2Clock();
 		
 
 
 		
 
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ MessageEvent ]->map call2Clock();
+		////[ MessageEvent ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MessageEvent.oclAsType(EClass)).oclAsType(MessageEvent)->map call2Clock();
 		
 
 
-		
-
-		
-
-
-		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ AcceptEventAction ]->map attachCallEventAfterStartBeforeFinish342attachCallEventAfterStartBeforeFinish();
-		
-		
-
-		
-
-
-		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ SendSignalAction ]->map attachSignalEventAfterStartBeforeFinish362attachSignalEventAfterStartBeforeFinish();
-		
 		
 
 		
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ ObjectFlow ]->map consumeonlyIfproduced122consumeonlyIfproduced();
-		
-		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ ObjectFlow ]->map consumeMeansStart122consumeMeansStart();
-		
-		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ ObjectFlow ]->map consumeMeansControl122consumeMeansControl();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), AcceptEventAction.oclAsType(EClass)).oclAsType(AcceptEventAction)->map attachCallEventAfterStartBeforeFinish342attachCallEventAfterStartBeforeFinish();
 		
 		
 
@@ -175,13 +163,7 @@ main() {
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ Action ]->map waitControlToExecutenotNotComingfromControlNode622waitControlToExecutenotNotComingfromControlNode();
-		
-		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ Action ]->map waitControlToExecutenotComingfrom622waitControlToExecutenotComingfrom();
-		
-		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ Action ]->map StartAlternatesWithFinish12StartAlternatesWithFinish();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), SendSignalAction.oclAsType(EClass)).oclAsType(SendSignalAction)->map attachSignalEventAfterStartBeforeFinish362attachSignalEventAfterStartBeforeFinish();
 		
 		
 
@@ -189,30 +171,13 @@ main() {
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ Activity ]->map startCausesInit242startCausesInit();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ObjectFlow.oclAsType(EClass)).oclAsType(ObjectFlow)->map consumeonlyIfproduced122consumeonlyIfproduced();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ Activity ]->map lastSingleFinalNodeStopActivity362lastSingleFinalNodeStopActivity();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ObjectFlow.oclAsType(EClass)).oclAsType(ObjectFlow)->map consumeMeansStart122consumeMeansStart();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ Activity ]->map noReEntrance112noReEntrance();
-		
-		
-
-		
-
-
-		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ DecisionNode ]->map DecisionCausalitiesOutgoingActions722DecisionCausalitiesOutgoingActions();
-		
-		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ DecisionNode ]->map DecisionCausalitiesOutgoingControlNodesActions1372DecisionCausalitiesOutgoingControlNodesActions();
-		
-		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ DecisionNode ]->map DecisionCausalitiesOutgoingActionsAlternates502DecisionCausalitiesOutgoingActionsAlternates();
-		
-		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ DecisionNode ]->map DecisionCausalitiesOutgoingControlNodesActionsAlternates1352DecisionCausalitiesOutgoingControlNodesActionsAlternates();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ObjectFlow.oclAsType(EClass)).oclAsType(ObjectFlow)->map consumeMeansControl122consumeMeansControl();
 		
 		
 
@@ -220,10 +185,13 @@ main() {
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ MergeNode ]->map MergeCausalitiesforTwoActions452MergeCausalitiesforTwoActions();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Action.oclAsType(EClass)).oclAsType(Action)->map waitControlToExecutenotNotComingfromControlNode622waitControlToExecutenotNotComingfromControlNode();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ MergeNode ]->map MergeCausalitiesforActionAndDecition1082MergeCausalitiesforActionAndDecition();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Action.oclAsType(EClass)).oclAsType(Action)->map waitControlToExecutenotComingfrom422waitControlToExecutenotComingfrom();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Action.oclAsType(EClass)).oclAsType(Action)->map StartAlternatesWithFinish12StartAlternatesWithFinish();
 		
 		
 
@@ -231,13 +199,55 @@ main() {
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ ControlNode ]->map instantaneousExecution12instantaneousExecution();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Activity.oclAsType(EClass)).oclAsType(Activity)->map startCausesInit242startCausesInit();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ ControlNode ]->map waitInputToControlFromAction842waitInputToControlFromAction();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Activity.oclAsType(EClass)).oclAsType(Activity)->map lastSingleFinalNodeStopActivity362lastSingleFinalNodeStopActivity();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject))[ ControlNode ]->map waitInputFromMergeNode572waitInputFromMergeNode();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Activity.oclAsType(EClass)).oclAsType(Activity)->map noReEntrance112noReEntrance();
+		
+		
+
+		
+
+
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), DecisionNode.oclAsType(EClass)).oclAsType(DecisionNode)->map DecisionCausalitiesOutgoingActions722DecisionCausalitiesOutgoingActions();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), DecisionNode.oclAsType(EClass)).oclAsType(DecisionNode)->map DecisionCausalitiesOutgoingControlNodesActions1372DecisionCausalitiesOutgoingControlNodesActions();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), DecisionNode.oclAsType(EClass)).oclAsType(DecisionNode)->map DecisionCausalitiesOutgoingActionsAlternates502DecisionCausalitiesOutgoingActionsAlternates();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), DecisionNode.oclAsType(EClass)).oclAsType(DecisionNode)->map DecisionCausalitiesOutgoingControlNodesActionsAlternates1352DecisionCausalitiesOutgoingControlNodesActionsAlternates();
+		
+		
+
+		
+
+
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MergeNode.oclAsType(EClass)).oclAsType(MergeNode)->map MergeCausalitiesforTwoActions452MergeCausalitiesforTwoActions();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MergeNode.oclAsType(EClass)).oclAsType(MergeNode)->map MergeCausalitiesforActionAndDecition1082MergeCausalitiesforActionAndDecition();
+		
+		
+
+		
+
+
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ControlNode.oclAsType(EClass)).oclAsType(ControlNode)->map instantaneousExecution12instantaneousExecution();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ControlNode.oclAsType(EClass)).oclAsType(ControlNode)->map waitInputToControlFromAction842waitInputToControlFromAction();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ControlNode.oclAsType(EClass)).oclAsType(ControlNode)->map waitInputFromMergeNode572waitInputFromMergeNode();
 		
 	}
 
@@ -256,12 +266,16 @@ main() {
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 				 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = an1.name+'_startAction']->first();
-					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+		 			bindable := theMainBlock.elements[name = an1.name+'_startAction']->first();
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = an2.name+'_startAction']->first();
-					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 		end{
 			theMainBlock.expressions += result;
@@ -274,12 +288,16 @@ main() {
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.expressions[name = expr.name]->first();
-					 _abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = an.name+'_startAction']->first();
 					
-					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 		end{
 			theMainBlock.expressions += result;
@@ -319,15 +337,17 @@ main() {
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = self.outgoing->asSequence().target->select(n|(n).oclIsKindOf(Action))->asSequence()->first().oclAsType(Action).name+'_startAction']->first();
-					var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
-					var seqAbstract : Sequence(Stdlib::Element) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence();
-					_abstract := seqAbstract->at(size-1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = self.outgoing->asSequence().target->select(n|(n).oclIsKindOf(ControlNode))->asSequence()->first().oclAsType(ControlNode).name+'_temporalEvent']->first();
-					var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
-					var seqAbstract : Sequence(Stdlib::Element) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence();
-					_abstract := seqAbstract->at(size-2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 		end{
 			theMainBlock.expressions += result;
@@ -343,12 +363,16 @@ main() {
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 				 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = an1.name+'_finishAction']->first();
-					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+		 			bindable := theMainBlock.elements[name = an1.name+'_finishAction']->first();
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = an2.name+'_finishAction']->first();
-					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 		end{
 			theMainBlock.expressions += result;
@@ -361,12 +385,16 @@ main() {
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.expressions[name = expr.name]->first();
-					 _abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = an.name+'_finishAction']->first();
 					
-					_abstract := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 		end{
 			theMainBlock.expressions += result;
@@ -406,15 +434,17 @@ main() {
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = self.incoming->asSequence().source->select(n|(n).oclIsKindOf(Action))->asSequence()->first().oclAsType(Action).name+'_finishAction']->first();
-					var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
-					var seqAbstract : Sequence(Stdlib::Element) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence();
-					_abstract := seqAbstract->at(size-1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = self.name+'_temporalEvent']->first();
-					var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
-					var seqAbstract : Sequence(Stdlib::Element) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence();
-					_abstract := seqAbstract->at(size-2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 				};
 		end{
 			theMainBlock.expressions += result;
@@ -610,14 +640,14 @@ main() {
 	
 		mapping inMM1::AcceptEventAction::attachCallEventAfterStartBeforeFinish342attachCallEventAfterStartBeforeFinish(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 			when { 
-			  let triggers: OrderedSet(UML::Trigger) = self.trigger->select(e| (e).event.oclIsKindOf(MessageEvent))->asOrderedSet() in
+			  let triggers: OrderedSet(uml::Trigger) = self.trigger->select(e| (e).event.oclIsKindOf(MessageEvent))->asOrderedSet() in
 				((triggers)->size()>0) 
 				
 }
 		{
 		 	name := self.name+"AfterBeforeHappens_attachCallEventAfterStartBeforeFinish";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "AfterBeforeHappens")->first();
-					var triggers : OrderedSet(UML::Trigger) := self.trigger->select(e| (e).event.oclIsKindOf(MessageEvent))->asOrderedSet();
+					var triggers : OrderedSet(uml::Trigger) := self.trigger->select(e| (e).event.oclIsKindOf(MessageEvent))->asOrderedSet();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = self.oclAsType(Action).name+'_startAction']->first();
 					_abstract := seqOfAbstractEntity[name = 'ClockBefore']->first();
@@ -639,14 +669,14 @@ main() {
 	
 		mapping inMM1::SendSignalAction::attachSignalEventAfterStartBeforeFinish362attachSignalEventAfterStartBeforeFinish(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 			when { 
-			  let signalEvents: OrderedSet(UML::SignalEvent) = (SignalEvent).allInstances()->asOrderedSet() in
+			  let signalEvents: OrderedSet(uml::SignalEvent) = (SignalEvent).allInstances()->asOrderedSet() in
 				((signalEvents)->select(n| (n).signal = self.signal)->size()>0) 
 				
 }
 		{
 		 	name := self.name+"AfterBeforeHappens_attachSignalEventAfterStartBeforeFinish";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "AfterBeforeHappens")->first();
-					var signalEvents : OrderedSet(UML::SignalEvent) := (SignalEvent).allInstances()->asOrderedSet();
+					var signalEvents : OrderedSet(uml::SignalEvent) := (SignalEvent).allInstances()->asOrderedSet();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = self.oclAsType(Action).name+'_startAction']->first();
 					_abstract := seqOfAbstractEntity[name = 'ClockBefore']->first();
@@ -752,7 +782,7 @@ main() {
 		}
 		
 	
-		mapping inMM1::Action::waitControlToExecutenotComingfrom622waitControlToExecutenotComingfrom(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::Action::waitControlToExecutenotComingfrom422waitControlToExecutenotComingfrom(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 			when { 
 				((self.incoming->size() > 0) and (self.incoming->asSequence().source->select(n| (n).oclIsKindOf(ControlNode))->size() > 0)) 
 				
@@ -761,7 +791,7 @@ main() {
 		 	name := self.name+"Causes_waitControlToExecutenotComingfrom";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Causes")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-							bindable := theMainBlock.elements[name = self.incoming->asSequence()->first().source.oclAsType(ControlNode).name+'_finishIt']->first();
+					bindable := theMainBlock.elements[name = self.incoming->asSequence().source->select(n| (n).oclIsKindOf(ControlNode))->first().oclAsType(ControlNode).name+'_finishIt']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -815,14 +845,14 @@ main() {
 	
 		mapping inMM1::Activity::lastSingleFinalNodeStopActivity362lastSingleFinalNodeStopActivity(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 			when { 
-			  let finalNodes : OrderedSet(UML::FinalNode) = self.node->select(n|(n).oclIsKindOf(FinalNode)).oclAsType(FinalNode)->asOrderedSet() in
+			  let finalNodes : OrderedSet(FinalNode) = self.node->select(n|(n).oclIsKindOf(FinalNode)).oclAsType(FinalNode)->asOrderedSet() in
 				((finalNodes)->size()=1) 
 				
 }
 		{
 		 	name := self.name+"Causes_lastSingleFinalNodeStopActivity";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Causes")->first();
-					var finalNodes : OrderedSet(UML::FinalNode) := self.node->select(n|(n).oclIsKindOf(FinalNode)).oclAsType(FinalNode)->asOrderedSet();
+					var finalNodes : OrderedSet(FinalNode) := self.node->select(n|(n).oclIsKindOf(FinalNode)).oclAsType(FinalNode)->asOrderedSet();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = (finalNodes)->first().name+'_finishIt']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Causes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
