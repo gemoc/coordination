@@ -55,21 +55,7 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
 	}
 
-	/**
-	 * just initialization stuff from xtext for an ecl resource
-	 * @param aModelResourceSet 
-	 * @param outputResourceSet 
-	 */
-	private void initializeXtext(XtextResourceSet aModelResourceSet, XtextResourceSet outputResourceSet){
-		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
-		Injector injector = ess.createInjector();
-		// instanciate a resource set
-		aModelResourceSet = injector.getInstance(XtextResourceSet.class);
-		outputResourceSet = injector.getInstance(XtextResourceSet.class);
-		//set.setClasspathURIContext(getClasspathURIContext());
-		aModelResourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
-		ExtendedCCSLStandaloneSetup.doSetup();
-	}
+
 	
 	/**
 	 * @see IActionDelegate#run(IAction)
@@ -88,7 +74,14 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 	public  Resource applyQVTo(URI transformationURI, ArrayList<IFile> inputModelfiles, URI outputmodelURI) {
 		XtextResourceSet aModelResourceSet=null;
 		XtextResourceSet outputResourceSet=null;
-		initializeXtext(aModelResourceSet,outputResourceSet);
+		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
+		Injector injector = ess.createInjector();
+		// instanciate a resource set
+		aModelResourceSet = injector.getInstance(XtextResourceSet.class);
+		outputResourceSet = injector.getInstance(XtextResourceSet.class);
+		//set.setClasspathURIContext(getClasspathURIContext());
+		aModelResourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
+		ExtendedCCSLStandaloneSetup.doSetup();
 	    
 	    // output file
 	   
@@ -135,6 +128,7 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 				    	ModelExtent input2 = new BasicModelExtent(model2Resource.getContents());
 				    	ExecutionContextImpl context = createExecutionContext(model1Uri, model2Uri);
 				    	ExecutionDiagnostic diagnostic = executor.execute(context, input1, input2 , output);
+				    	System.out.println(diagnostic);
 				    // models conforming different languages
 				    } else if  (!(model2Uri.fileExtension().equals(model1Uri.fileExtension()))) {
 				    	
