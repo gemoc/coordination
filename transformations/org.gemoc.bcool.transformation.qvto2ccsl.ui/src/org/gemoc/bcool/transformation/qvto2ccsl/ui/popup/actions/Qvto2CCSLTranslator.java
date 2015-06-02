@@ -36,8 +36,7 @@ import fr.inria.aoste.timesquare.ccslkernel.parser.xtext.ExtendedCCSLStandaloneS
 
 
 public class Qvto2CCSLTranslator implements IObjectActionDelegate {
-	private IFile modelFile1=null;
-	private IFile modelFile2=null;
+
 	private IFile qvtoFile=null;
 	private XtextResourceSet aModelResourceSet=null;
 	private XtextResourceSet outputResourceSet=null;
@@ -99,7 +98,6 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 	    
 	    //executor and context
 	    TransformationExecutor executor = new TransformationExecutor(transformationURI);
-	    ExecutionContextImpl context = new ExecutionContextImpl();
 	    ModelExtent output = new BasicModelExtent();
 	    
 	    // trace of the applicacion of the operators
@@ -112,65 +110,38 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 		    URI model1Uri = URI.createPlatformResourceURI(model1UriString,false);
 		    Resource model1Resource = aModelResourceSet.getResource(model1Uri, true);
 		   
-		    HashMap<Object, Object> saveOptions1 = new HashMap<Object, Object>();
-		    Builder aBuilder1 = SaveOptions.newBuilder();
-		    SaveOptions anOption1 = aBuilder1.getOptions();
-		    anOption1.addTo(saveOptions1);
-		    try {
-		    	model1Resource.load(saveOptions1);
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+		    loadResource(model1Resource);
 		    ModelExtent input1 = new BasicModelExtent(model1Resource.getContents());
 		    
-		    //tracemodels.put(model1, true);
-			//////////////////////////////////////////////////////////////////////////////
-			for (IFile model2 : modelfiles){
+			for (IFile model2 : modelfiles)	{
 				
 				//model2 resource
 			    String model2UriString = model2.getProject().getName()+"/"+model2.getProjectRelativePath().toOSString();
 			    URI model2Uri = URI.createPlatformResourceURI(model2UriString,false);
 			    Resource model2Resource = aModelResourceSet.getResource(model2Uri, true);
 				
-			    
 				if ((model1.getFullPath().toString().equals(model2.getFullPath().toString())))  {
 				}else{
 				
-				    // models conforming to same language, the transfo is aplicable only one time
+				    // models conforming to same language, the transfo is applicable only one time
 				    if  ((model2Uri.fileExtension().equals(model1Uri.fileExtension())) && (tracemodels.get(model2) == null)) {  
 				  
 				    	tracemodels.put(model1,true);
 				    	
-				    	HashMap<Object, Object> saveOptions2 = new HashMap<Object, Object>();
-				    	Builder aBuilder2 = SaveOptions.newBuilder();
-				    	SaveOptions anOption2 = aBuilder2.getOptions();
-				    	anOption2.addTo(saveOptions2);
-				    	try {
-				    		model2Resource.load(saveOptions2);
-				    	} catch (IOException e1) {
-				    		// TODO Auto-generated catch block
-				    		e1.printStackTrace();
-				    	}
+				    	loadResource(model2Resource);
 				    
 				    	ModelExtent input2 = new BasicModelExtent(model2Resource.getContents());
+				    	ExecutionContextImpl context = createExecutionContext(model1Uri, model2Uri);
 				    	ExecutionDiagnostic diagnostic = executor.execute(context, input1, input2 , output);
 				    // models conforming different languages
 				    } else if  (!(model2Uri.fileExtension().equals(model1Uri.fileExtension()))) {
-				    	HashMap<Object, Object> saveOptions2 = new HashMap<Object, Object>();
-				    	Builder aBuilder2 = SaveOptions.newBuilder();
-				    	SaveOptions anOption2 = aBuilder2.getOptions();
-				    	anOption2.addTo(saveOptions2);
-				    	try {
-				    		model2Resource.load(saveOptions2);
-				    	} catch (IOException e1) {
-				    		// TODO Auto-generated catch block
-				    		e1.printStackTrace();
-				    	}
-				    
+				    	
+				    	loadResource(model2Resource);
+				    	ExecutionContextImpl context = createExecutionContext(model1Uri, model2Uri);
+				    	
 				    	ModelExtent input2 = new BasicModelExtent(model2Resource.getContents());
 				    	ExecutionDiagnostic diagnostic = executor.execute(context, input1, input2 , output);
-				    	
+				    	System.out.println(diagnostic);
 				    }
 					
 				}
@@ -182,12 +153,35 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 		try {
 			outputResourcetotal.save(null);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    
 	 
 
+	}
+
+	protected void loadResource(Resource model2Resource) {
+		HashMap<Object, Object> saveOptions2 = new HashMap<Object, Object>();
+		Builder aBuilder2 = SaveOptions.newBuilder();
+		SaveOptions anOption2 = aBuilder2.getOptions();
+		anOption2.addTo(saveOptions2);
+		try {
+			model2Resource.load(saveOptions2);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	protected ExecutionContextImpl createExecutionContext(URI model1Uri,
+			URI model2Uri) {
+		ExecutionContextImpl context = new ExecutionContextImpl();
+		String model1Path = "platform:"+model1Uri.devicePath();
+		String model1MoCCPath = model1Path.substring(0,model1Path.lastIndexOf('.'))+"_MoCC.extendedCCSL";
+		String model2Path = "platform:"+model2Uri.devicePath();
+		String model2MoCCPath = model2Path.substring(0,model2Path.lastIndexOf('.'))+"_MoCC.extendedCCSL";
+		context.setConfigProperty("inM1MoCCPath", model1MoCCPath);
+		context.setConfigProperty("inM2MoCCPath", model2MoCCPath);
+		return context;
 	}
 
 	/**path
@@ -197,8 +191,6 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 	// I should split it into two groups here
 	public void selectionChanged(IAction action, ISelection selection) {
 		qvtoFile=null;
-		modelFile1=null;
-		modelFile2=null;
 		modelfiles.removeAll(modelfiles);
 		
 		if (selection instanceof StructuredSelection) {
@@ -211,11 +203,6 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 					if (f.getFileExtension().compareTo("qvto")==0){
 						qvtoFile = (IFile) o;
 					}else{
-						if (modelFile1 == null){
-							modelFile1 = (IFile) o;
-						}else{
-							modelFile2 = (IFile) o;
-						}
 						modelfiles.add((IFile) o);
 					}
 					
