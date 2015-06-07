@@ -918,10 +918,6 @@ TimeModel::EventKind::start;
 [query public getrootfromInterface (arg0 : ImportInterfaceStatement) : String
 	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getrootfromInterface(org.gemoc.bcool.model.bcool.ImportInterfaceStatement)', Sequence{arg0}) /]
 
-
-[query public getDSEIndex(arg0 : EObject, aBCoolSpec : BCoolSpecification ) : String
-	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getDSEIndex(org.eclipse.emf.ecore.EObject,org.gemoc.bcool.model.bcool.BCoolSpecification)', Sequence{arg0,aBCoolSpec}) /]
-
 [comment]
 
 [query public getCCSLTypeOf(aType: TypeRefCS): String =
