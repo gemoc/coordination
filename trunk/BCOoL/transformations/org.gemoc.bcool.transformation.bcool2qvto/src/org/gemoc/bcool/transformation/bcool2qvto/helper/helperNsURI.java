@@ -237,14 +237,30 @@ public class helperNsURI {
 		 return m;
 	}
 	
+	// GEqualitytoString:
 	// 
+	// Convert a GEquality expression to String. The operand can be either a NavigationExpression or String
+	// Other operands may cause an exception, e.g., Integer
+	//
 	public String GEqualitytoString (GEqualityExpression exp)
 	{
 		String serial = "";
-		GNavigationExpression leftoper = (GNavigationExpression) exp.getLeftOperand();
-		GNavigationExpression rightoper = (GNavigationExpression) exp.getRightOperand();
-		serial =  GOperandtoString (leftoper);
-		serial = serial + "="+ GOperandtoString (rightoper);
+		if (exp.getLeftOperand() instanceof GNavigationExpression) {
+			GNavigationExpression leftoper = (GNavigationExpression) exp.getLeftOperand();
+			serial =  GOperandtoString (leftoper);
+		} else if (exp.getLeftOperand() instanceof GStringExpression){
+			GStringExpression leftoper = (GStringExpression) exp.getLeftOperand();
+			serial = '"'+ leftoper.getValue() + '"';
+		}
+		
+		if (exp.getRightOperand() instanceof GNavigationExpression) {
+			GNavigationExpression rightoper = (GNavigationExpression) exp.getRightOperand();
+			serial =  serial + "=" +GOperandtoString (rightoper);
+		} else if (exp.getRightOperand() instanceof GStringExpression){
+			GStringExpression rightoper = (GStringExpression) exp.getRightOperand();
+			serial = serial + "=" + '"' + rightoper.getValue()+ '"';
+		}
+
 		return serial;
 	}
 	
