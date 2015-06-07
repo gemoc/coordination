@@ -210,32 +210,6 @@ public class helperNsURI {
 		return res;
 	}
 	
-	public String getDSEIndex(EObject arg0, BCoolSpecification aBCoolSpec){
-		//ECLDocument ecldoc = (ECLDocument) getEclDocument(aBCoolSpec.getImportsBehavioralInterface().get(0));
-		
-		//TreeIterator<EObject>  dses = ecldoc.eAllContents();
-		//DefCS dse0 = (DefCS) dses.next();
-		
-		//EList<PackageDeclarationCS> allpackages = ecldoc.getPackages();
-		//PackageDeclarationCS pdecl = allpackages.get(0);
-		//Package p = (Package) pdecl.getPackage();
-		//TreeIterator<EObject> it = ((EObject) pdecl).eAllContents();
-		// That is very very bad
-		DefPropertyCS dsetmp = (DefPropertyCS) arg0 ;
-		String s = dsetmp.getName();
-		if  (s.contains("startAction")) {
-			return "2";
-		}
-		
-		if  (s.contains("finishAction")) {
-			return "2";
-		}
-		
-		if  (s.contains("ticks")) {
-			return "1";
-		}
-		return "";
-	}
 	
 	
    // given a GNavigationExpression returns the serialization 
@@ -283,9 +257,16 @@ public class helperNsURI {
 		
 		if (exp.getInnerExpression() instanceof GEqualityExpression ){
 			GEqualityExpression  gexp = (GEqualityExpression) exp.getInnerExpression();
-			serial = "("+ GEqualitytoString (gexp)+")";
+			serial = "("+ GEqualitytoString (gexp)+ ")";
+		} else if (exp.getInnerExpression() instanceof GAndExpression) {
+			GAndExpression   gexp = (GAndExpression) exp.getInnerExpression();
+			serial = "(" + GAndtoString (gexp) + ")";
+		} else if (exp.getInnerExpression() instanceof GBraceExpression) {
+			GBraceExpression  gexp = (GBraceExpression) exp.getInnerExpression();
+			serial = "(" + GBraceExpressiontoString (gexp) + ")";
 		}
-		return serial;
+			
+		return serial;		
 	}
 	
 	public String GAndtoString (GAndExpression exp)
@@ -332,11 +313,10 @@ public class helperNsURI {
 	    		  GAndExpression   gexp = (GAndExpression) exp;
 	    		  serial = GAndtoString (gexp);
 	    	  }else if (exp instanceof GBraceExpression){
-	    		  // TODO!!!
 	    		  GBraceExpression  gexp = (GBraceExpression) exp;
+	    		  serial = GBraceExpressiontoString (gexp);
 	    	  }
 	    		
-	    	 
 	    	  } catch (Exception ex) { // fall back:  
 	    		  ex.printStackTrace();
 	    		  serial = "Bad GExpression serialization!";
