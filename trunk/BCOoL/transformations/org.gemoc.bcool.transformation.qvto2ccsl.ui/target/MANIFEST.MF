@@ -5,7 +5,7 @@ Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
  sion="2.3.0"
 Bundle-Vendor: Aoste INRIA/I3S
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 1.0.0.201505061027
+Bundle-Version: 1.0.0.201505131405
 Bundle-Name: cool qvto to ccsl Ui
 Bundle-ManifestVersion: 2
 Bundle-Activator: org.gemoc.bcool.transformation.qvto2ccsl.ui.Activato

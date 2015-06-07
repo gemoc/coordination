@@ -11,9 +11,13 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLDocumentCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefCS;
@@ -168,11 +172,28 @@ public class helperNsURI {
 		return "// This is the result of the compilation of a BCool spec";
 	}
 	
+	// getNSURI:
+	// return the corresponding NSURI for the ecore imported by the ecl
 	public String getNSURI(ImportInterfaceStatement importInterfaceStatement){
 	    ECLDocument eclDoc = getEclDocument(importInterfaceStatement);
 	    String oclimport = eclDoc.getOwnedImport().get(0).toString();
-	    return oclimport.substring(oclimport.indexOf('\'')+1, oclimport.lastIndexOf('\''));
-//	    return eclDoc.getOwnedImport().get(0).getUri();
+	    // I get the first import that corresponds with the metamodel
+	    oclimport = oclimport.substring(oclimport.indexOf('\'')+1, oclimport.lastIndexOf('\''));
+	    
+	    // Depending the kind of import we found differently the NSURI
+	    if (oclimport.endsWith(".ecore")) {
+	    	URI metaURI=URI.createURI(oclimport,false);
+	    	ResourceSet resourceSet = new ResourceSetImpl(); 
+	        Resource resource1 = resourceSet.getResource(metaURI, true);
+	        EPackage wdwPackage = (EPackage)resource1.getContents().get(0);
+	    	return wdwPackage.getNsURI();
+	    // It is a NSURI
+	    }else if (oclimport.startsWith("http:/")) {
+	    	return oclimport;
+	    // Not recognized
+	    }else {
+	    	return "bad metamodel in ecl";
+	    }
 	}
 	
 	
