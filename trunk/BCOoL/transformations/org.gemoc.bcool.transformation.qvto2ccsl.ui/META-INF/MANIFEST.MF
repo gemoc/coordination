@@ -13,5 +13,7 @@ Bundle-Activator: org.gemoc.bcool.transformation.qvto2ccsl.ui.Activator
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.gemoc.bcool.transformation.qvto2ccsl.ui;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,JavaSE-1.7
+Export-Package: org.gemoc.bcool.transformation.qvto2ccsl.ui,
+ org.gemoc.bcool.transformation.qvto2ccsl.ui.popup.actions
 
 
