@@ -98,10 +98,23 @@ query identifyUserRelations() {
 	[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 	[let anEclDoc : ECLDocument = im.getEclDocument()]
 		[for (imecl : ECL::ImportStatement | anEclDoc.imports)]
-	seqOfRelationDeclaration		+= getLibObjects("[imecl.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration[']'/];
-	seqOfAbstractEntity				+= getLibObjects("[imecl.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity[']'/];
-	seqOfExpressionDeclaration		+= getLibObjects("[imecl.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration[']'/];
-	kernelTypes 					+= getLibObjects("[imecl.importURI/]")['['/]TimeModel::BasicType::Type[']'/];
+		
+		[comment] If the interface is imported as plugin, the libraries used in the interface must be also imported as plugin [/comment]
+		[if im.importURI.startsWith('platform:/plugin') and imecl.importURI.startsWith('platform:/resource')]
+			[let uriecl : String = imecl.importURI.replace('platform:/resource', 'platform:/plugin')]
+				seqOfRelationDeclaration		+= getLibObjects("[uriecl/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration[']'/];
+				seqOfAbstractEntity				+= getLibObjects("[uriecl/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity[']'/];
+				seqOfExpressionDeclaration		+= getLibObjects("[uriecl/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration[']'/];
+				kernelTypes 					+= getLibObjects("[uriecl/]")['['/]TimeModel::BasicType::Type[']'/];
+			[/let]
+		[else]
+				seqOfRelationDeclaration		+= getLibObjects("[imecl.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration[']'/];
+				seqOfAbstractEntity				+= getLibObjects("[imecl.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity[']'/];
+				seqOfExpressionDeclaration		+= getLibObjects("[imecl.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration[']'/];
+				kernelTypes 					+= getLibObjects("[imecl.importURI/]")['['/]TimeModel::BasicType::Type[']'/];
+		[/if] 
+
+		
 		[/for]
 	[/let]
 	[/for]
@@ -109,10 +122,10 @@ query identifyUserRelations() {
 
 	[for (im : ImportLibStatement | aBCoolSpecification.importsLib)]
 	[if (im.importURI.endsWith('ccslLib'))]
-	seqOfRelationDeclaration		+= getLibObjects("[im.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration[']'/];
-	seqOfAbstractEntity				+= getLibObjects("[im.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity[']'/];
-	seqOfExpressionDeclaration		+= getLibObjects("[im.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration[']'/];
-	kernelTypes 					+= getLibObjects("[im.importURI/]")['['/]TimeModel::BasicType::Type[']'/];
+		seqOfRelationDeclaration		+= getLibObjects("[im.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration[']'/];
+		seqOfAbstractEntity				+= getLibObjects("[im.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity[']'/];
+		seqOfExpressionDeclaration		+= getLibObjects("[im.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration[']'/];
+		kernelTypes 					+= getLibObjects("[im.importURI/]")['['/]TimeModel::BasicType::Type[']'/];
 	[/if]
 	[/for]
 
@@ -344,14 +357,16 @@ main() {
 					name := name + [dsename/].name;
 				[/let]
 				[/for]
-			
+		
+		var seqAbstract : OrderedSet(Stdlib::Element) := seqOfExpressionDeclaration->select(rd | rd.name = "[filter.declaration.name/]")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration).parameters;
+
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "[filter.declaration.name/]")->first();
 				[for (filterparam : EObject | filter.actualParameters)]	
 				[let dsename : String = filterparam.DSEtoString() ]
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := [dsename/];
 					[let paramNumber : EInt = i]	
-						_abstract := seqOfExpressionDeclaration->select(rd | rd.name = "[filter.declaration.name/]")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at([paramNumber/]).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)
+						_abstract := seqAbstract->at([paramNumber/]).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)
 					[/let]
 					};
 				[/let]
@@ -390,15 +405,18 @@ mapping [rule.name/] (
 				[/for]
 			[/let]
 	
+			var seqAbstract : OrderedSet(Stdlib::Element) := seqOfRelationDeclaration->select(rd | rd.name = "[rule.coordinationRule.eventRelations.declaration.name/]")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration).parameters;
+			
 			type := seqOfRelationDeclaration->select(rd | rd.name = "[rule.coordinationRule.eventRelations.declaration.name/]")->first();
 			
 			[let coordrule : CoordinationRule = rule.coordinationRule]
+				[comment]	Problem with the number of paramters [/comment]
 				[for (coordruleparam : EObject | coordrule.eventRelations.actualParameters)]	
 				[let dsename : String = coordruleparam.DSEtoString() ]
 					bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 						bindable := [dsename/];
 					[let paramNumber : EInt = i]	
-						_abstract := seqOfRelationDeclaration->select(rd | rd.name = "[rule.coordinationRule.eventRelations.declaration.name/]")->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->at([paramNumber/]).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+						_abstract := seqAbstract->at([paramNumber/]).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
 					[/let]
 					};
 				[/let]
@@ -461,10 +479,22 @@ mapping [aBCoolSpecification.name/]2CCSLSubBlock() : TimeModel::CCSLModel::Block
 	[let importNumber : EInt = i]
 	[let anEclDoc : ECLDocument = im.getEclDocument()]
 		[for (imecl : ECL::ImportStatement | anEclDoc.imports)]
-	imports+= object TimeModel::ImportStatement{
+
+		[if im.importURI.startsWith('platform:/plugin') and imecl.importURI.startsWith('platform:/resource')]
+			[let uriecl : String = imecl.importURI.replace('platform:/resource', 'platform:/plugin')]
+				imports+= object TimeModel::ImportStatement{
+				importURI := '[uriecl/]';
+				alias := 'model_[importNumber/]_[i/]';	
+		}; 
+			[/let]
+		[else]
+			imports+= object TimeModel::ImportStatement{
 			importURI := '[imecl.importURI/]';
 			alias := 'model_[importNumber/]_[i/]';	
 		}; 
+
+		[/if]
+
 		[/for]
 	[/let]
 	[/let]
