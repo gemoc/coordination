@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="org.gemoc.bcool.transformation.bcool2qvto">
-    <property name="ECLIPSE_HOME" value="../../../../eclipses/junio"/>
+    <property name="ECLIPSE_HOME" value="../../../../eclipses/eclipse-junio2/gemoc_studio-linux.gtk.x86_64"/>
     <property name="ECLIPSE_WORKSPACE" value="../.."/>
 
     <!-- The classpath with only the dependencies used by the project -->
@@ -56,7 +56,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.10.2.v20150123-0452.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.10.0.v20150123-0452.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl_1.0.0.201504130849.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201504041129.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201506221404.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo_4.3.0.v20140520-1823.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo.common_4.3.0.v20140309-0644.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.net4j.util_3.4.0.v20140308-0604.jar"/>
