@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='2'>
-  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.model.xtext' version='1.0.0.201505061027'>
+  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.model.xtext' version='1.0.0.201507011535'>
     <properties size='5'>
       <property name='artifact.size' value='124871'/>
       <property name='download.size' value='124871'/>
@@ -10,7 +10,7 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
   </artifact>
-  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.model.xtext.source' version='1.0.0.201505061027'>
+  <artifact classifier='osgi.bundle' id='org.gemoc.bcool.model.xtext.source' version='1.0.0.201507011535'>
     <properties size='6'>
       <property name='artifact.size' value='78044'/>
       <property name='download.size' value='78044'/>
