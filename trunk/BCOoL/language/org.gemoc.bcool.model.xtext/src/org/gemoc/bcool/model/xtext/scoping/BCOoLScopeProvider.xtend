@@ -23,7 +23,10 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.impl.FilteringScope
 import org.eclipse.xtext.resource.IEObjectDescription
 import com.google.common.base.Predicate
-
+import fr.inria.aoste.timesquare.ECL.ECLDefCS
+import org.gemoc.bcool.model.bcool.ImportInterfaceStatement
+import org.eclipse.emf.ecore.ENamedElement
+import javax.swing.text.html.parser.Entity
 
 /**
  * This class contains custom scoping description.
@@ -34,7 +37,9 @@ import com.google.common.base.Predicate
  */
 class BCOoLScopeProvider extends GExpressionsScopeProvider {
 	private static Map<URI, Set<EClassifier>> eclClassifiersMapping = new HashMap()
+	
 
+		
 	/**
 	 * Scope for a BCool Operator argument (an ECL event under the hood). Present all the features and operations of the context in which it is defined.
 	 */
@@ -42,9 +47,22 @@ class BCOoLScopeProvider extends GExpressionsScopeProvider {
 		val eclEvent = operatorArgument.DSE
 		loadEclResourceIfNecessary(eclEvent)
 
-		val EClassifier context = getEClassifierFromName(eclEvent)
+		val  EClassifier context = getEClassifierFromName(eclEvent)
 
 		return getScopeOfNavigableElementsForType(context, outerScope)
+	}
+
+/**
+ * Scope for DSE. It presents only the DSE from the corresponding interface.
+ */
+def IScope scope_BCoolOperatorArg_DSE(BCoolOperatorArg reference, EReference eRef){
+	val interface = reference.interface
+	val importedURI =  interface.importURI.substring(0, interface.importURI.length)
+
+	return new FilteringScope(delegateGetScope(reference, eRef), new Predicate<IEObjectDescription>() {
+                               override public boolean apply(IEObjectDescription input) {
+                               			val r = input.EObjectURI.toString
+                                       if (r.contains(importedURI)) { return true } else { return false }}});
 	}
 
 //	
