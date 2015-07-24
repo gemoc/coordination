@@ -89,7 +89,7 @@ public class helperNsURI {
 				EclStandaloneSetup  ess= new EclStandaloneSetup();
 				Injector injector = ess.createInjector();
 			    XtextResourceSet aSet = injector.getInstance(XtextResourceSet.class);
-				aSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
+				aSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.FALSE);
 				EcoreUtil.resolveAll(aSet);
 				EclStandaloneSetup.doSetup();
 
@@ -175,11 +175,10 @@ public class helperNsURI {
 	// getNSURI:
 	// return the corresponding NSURI for the ecore imported by the ecl
 	public String getNSURI(ImportInterfaceStatement importInterfaceStatement){
-	    ECLDocument eclDoc = getEclDocument(importInterfaceStatement);
+		ECLDocument eclDoc = getEclDocument(importInterfaceStatement);
 	    String oclimport = eclDoc.getOwnedImport().get(0).toString();
 	    // I get the first import that corresponds with the metamodel
 	    oclimport = oclimport.substring(oclimport.indexOf('\'')+1, oclimport.lastIndexOf('\''));
-	    
 	    // Depending the kind of import we found differently the NSURI
 	    if (oclimport.endsWith(".ecore")) {
 	    	URI metaURI=URI.createURI(oclimport,false);
