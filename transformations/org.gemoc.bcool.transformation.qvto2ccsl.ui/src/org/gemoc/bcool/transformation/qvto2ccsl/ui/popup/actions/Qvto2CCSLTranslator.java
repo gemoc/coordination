@@ -115,8 +115,8 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 			    URI model2Uri = URI.createPlatformResourceURI(model2UriString,false);
 			    Resource model2Resource = aModelResourceSet.getResource(model2Uri, true);
 				
-				if ((model1.getFullPath().toString().equals(model2.getFullPath().toString())))  {
-				}else{
+				if ((model1.getFullPath().toString().compareTo((model2.getFullPath().toString()))) != 0)  
+				{
 				
 				    // models conforming to same language, the transfo is applicable only one time
 				    if  ((model2Uri.fileExtension().equals(model1Uri.fileExtension())) && (tracemodels.get(model2) == null)) {  
