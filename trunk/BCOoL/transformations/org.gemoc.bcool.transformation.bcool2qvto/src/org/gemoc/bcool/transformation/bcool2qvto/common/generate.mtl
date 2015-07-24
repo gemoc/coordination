@@ -15,7 +15,7 @@
 [template public generateElement(aBCoolSpecification : BCoolSpecification)]
 [comment @main/]
 [file (aBCoolSpecification.name.concat('.qvto'), false, 'UTF-8')]
-[aBCoolSpecification.resolveAll()/]
+[comment][aBCoolSpecification.resolveAll()/][/comment]
 import fr.inria.aoste.timesquare.ecl.EclQVToHelper;
 
 	
