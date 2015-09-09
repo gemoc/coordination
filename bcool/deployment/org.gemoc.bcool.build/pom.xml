@@ -193,33 +193,33 @@
 
   <modules>
   	
-  	<module>../../workspace-bcool/org.gemoc.bcool.model</module>
+  	<module>../../language/org.gemoc.bcool.model</module>
   	<module>../org.gemoc.bcool.license.feature</module>
   	<module>../org.gemoc.bcool.updatesite</module>
-  	<module>../../workspace-bcool/org.gemoc.bcool.feature</module>
-  	<module>../../workspace-bcool/org.gemoc.bcool.model.xtext</module>
-  	<module>../../workspace-bcool/org.gemoc.bcool.bcoollib</module>
-  	<module>../../workspace-bcool/org.gemoc.bcool.bcoollib.ui</module>
+  	<module>../../language/org.gemoc.bcool.feature</module>
+  	<module>../../language/org.gemoc.bcool.model.xtext</module>
+  	<module>../../language/org.gemoc.bcool.bcoollib</module>
+  	<module>../../language/org.gemoc.bcool.bcoollib.ui</module>
   	<module>
-  		../../workspace-bcool/org.gemoc.bcool.model.xtext.ui
+  		../../language/org.gemoc.bcool.model.xtext.ui
   	</module>
   	<module>
-  		../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions
+  		../../../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions
   	</module>
   	<module>
-  		../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions.xtext
+  		../../../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions.xtext
   	</module>
   	<module>
-  		../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions.xtext.ui
+  		../../../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions.xtext.ui
   	</module>
   	  	<module>
-  		../../workspace-bcool-qvto/org.gemoc.bcool.transformation.bcool2qvto
+  		../../transformations/org.gemoc.bcool.transformation.bcool2qvto
   	</module>
   	  	  	<module>
-  		../../workspace-bcool-qvto/org.gemoc.bcool.transformation.bcool2qvto.ui
+  		../../transformations/org.gemoc.bcool.transformation.bcool2qvto.ui
   	</module>
   	 <module>
-  		../../workspace-bcool-qvto/org.gemoc.bcool.transformation.qvto2ccsl.ui
+  		../../transformations/org.gemoc.bcool.transformation.qvto2ccsl.ui
   	</module>
   </modules>
   <description>Build project of BCOoL Framework</description>

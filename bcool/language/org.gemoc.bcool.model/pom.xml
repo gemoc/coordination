@@ -8,7 +8,7 @@
   	<groupId>org.gemoc.bcool.framework</groupId>
   	<artifactId>org.gemoc.bcool.build</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
-  	<relativePath>../../bcool-deployment/org.gemoc.bcool.build</relativePath>
+  	<relativePath>../../deployment/org.gemoc.bcool.build</relativePath>
   </parent>
   <version>0.1.0-SNAPSHOT</version>
 </project>
