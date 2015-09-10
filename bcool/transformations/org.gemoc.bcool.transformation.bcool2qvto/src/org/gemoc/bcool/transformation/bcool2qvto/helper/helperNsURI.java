@@ -36,7 +36,7 @@ import org.gemoc.bcool.model.bcool.BCoolOperatorArg;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.bcool.EventExpression;
 import org.gemoc.bcool.model.bcool.ImportInterfaceStatement;
-import org.gemoc.gel.gexpressions.GExpression;
+import org.gemoc.gexpressions.GExpression;
 
 import com.google.inject.Injector;
 
@@ -45,16 +45,16 @@ import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.IntegerEle
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.impl.IntegerImpl;
 import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
 
-import org.gemoc.gel.gexpressions.GAdditionExpression;
-import org.gemoc.gel.gexpressions.GAndExpression;
-import org.gemoc.gel.gexpressions.GBraceExpression;
-import org.gemoc.gel.gexpressions.GEqualityExpression;
-import org.gemoc.gel.gexpressions.GIntegerExpression;
-import org.gemoc.gel.gexpressions.GNavigationExpression;
-import org.gemoc.gel.gexpressions.GReferenceExpression;
-import org.gemoc.gel.gexpressions.GStringExpression;
-import org.gemoc.gel.gexpressions.GexpressionsFactory;
-import org.gemoc.gel.gexpressions.xtext.GExpressionsStandaloneSetup;
+import org.gemoc.gexpressions.GAdditionExpression;
+import org.gemoc.gexpressions.GAndExpression;
+import org.gemoc.gexpressions.GBraceExpression;
+import org.gemoc.gexpressions.GEqualityExpression;
+import org.gemoc.gexpressions.GIntegerExpression;
+import org.gemoc.gexpressions.GNavigationExpression;
+import org.gemoc.gexpressions.GReferenceExpression;
+import org.gemoc.gexpressions.GStringExpression;
+import org.gemoc.gexpressions.GexpressionsFactory;
+//import org.gemoc.gexpressions.xtext.GExpressionsStandaloneSetup;
 import org.eclipse.xtext.serializer.impl.Serializer;
 
 

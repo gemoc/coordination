@@ -8,7 +8,7 @@
 'http://www.eclipse.org/ocl/3.1.0/EssentialOCLCST',
 'http://fr.inria.aoste.timesquare.ecl',
 'http://www.eclipse.org/xtext/xbase/Xbase',
-'http://www.gemoc.org/gel/gexpressions',
+'http://www.gemoc.org/gexpressions',
 'http://fr.inria.aoste.timemodel.basicTypes'
 )]
 
@@ -940,7 +940,7 @@ TimeModel::EventKind::start;
 	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'resolveAll(org.gemoc.bcool.model.bcool.BCoolSpecification)', Sequence{arg0}) /]
 
 [query public GexpressiontoString (arg0 : GExpression) : String
-	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'GexpressiontoString(org.gemoc.gel.gexpressions.GExpression)', Sequence{arg0}) /]
+	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'GexpressiontoString(org.gemoc.gexpressions.GExpression)', Sequence{arg0}) /]
 
 [query public DSEtoString (arg0 : EObject) : String
 	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'DSEtoString(org.eclipse.emf.ecore.EObject)', Sequence{arg0}) /]

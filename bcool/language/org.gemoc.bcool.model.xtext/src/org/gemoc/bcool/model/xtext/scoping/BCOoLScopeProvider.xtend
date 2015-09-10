@@ -15,7 +15,7 @@ import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS
 import org.eclipse.xtext.scoping.IScope
 import org.gemoc.bcool.model.bcool.BCoolOperatorArg
 import org.gemoc.bcool.model.xtext.helpers.BCoolXtextHelper
-import org.gemoc.gel.gexpressions.xtext.scoping.GExpressionsScopeProvider
+import org.gemoc.gexpressions.xtext.scoping.GExpressionsScopeProvider
 import org.gemoc.bcool.model.bcool.RelationDeclaration
 import org.gemoc.bcool.model.bcool.CoordinationRule
 import org.gemoc.bcool.model.bcool.EventRelation
