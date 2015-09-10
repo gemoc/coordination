@@ -6,7 +6,7 @@
   <packaging>eclipse-plugin</packaging>
   
     <parent>
-	<relativePath>../../bcool-deployment/org.gemoc.bcool.build</relativePath>
+	<relativePath>../../deployment/org.gemoc.bcool.build</relativePath>
   	<groupId>org.gemoc.bcool.framework</groupId>
   	<artifactId>org.gemoc.bcool.build</artifactId>
   	<version>0.0.1-SNAPSHOT</version>

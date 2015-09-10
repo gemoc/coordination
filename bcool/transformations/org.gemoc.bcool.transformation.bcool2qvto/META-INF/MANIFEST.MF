@@ -22,7 +22,8 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
-Export-Package: org.gemoc.bcool.transformation.bcool2qvto.common,
+Export-Package: org.gemoc.bcool.transformation.bcool2qvto,
+ org.gemoc.bcool.transformation.bcool2qvto.common,
  org.gemoc.bcool.transformation.bcool2qvto.helper
 Bundle-ClassPath: bin/,
  .
