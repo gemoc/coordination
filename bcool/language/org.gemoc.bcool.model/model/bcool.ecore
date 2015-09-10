@@ -37,7 +37,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="filterEventExpressions"
         upperBound="-1" eType="#//EventExpression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
-        eType="ecore:EClass ../../org.gemoc.gel.gexpressions/model/gexpressions.ecore#//GExpression"
+        eType="ecore:EClass ../../org.gemoc.gexpressions/model/gexpressions.ecore#//GExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoordinationRule">

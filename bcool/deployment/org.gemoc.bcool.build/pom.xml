@@ -94,6 +94,19 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		
+				<repository>
+			<id>gel</id>
+			<url>https://ci.inria.fr/gemoc/job/gemoc-studio_gemoc_commons/lastSuccessfulBuild/artifact/gemoc_commons/releng/org.gemoc.gemoc_commons.repository/target/repository/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		
 	</repositories>
 
 
@@ -203,15 +216,7 @@
   	<module>
   		../../language/org.gemoc.bcool.model.xtext.ui
   	</module>
-  	<module>
-  		../../../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions
-  	</module>
-  	<module>
-  		../../../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions.xtext
-  	</module>
-  	<module>
-  		../../../../../../gemoc-git-abril/gemoc-dev/org/gemoc/GEL/org.gemoc.gel.gexpressions.xtext.ui
-  	</module>
+
   	  	<module>
   		../../transformations/org.gemoc.bcool.transformation.bcool2qvto
   	</module>
