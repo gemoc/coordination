@@ -12,7 +12,7 @@ import org.eclipse.xtext.*;
 import org.eclipse.xtext.service.GrammarProvider;
 import org.eclipse.xtext.service.AbstractElementFinder.*;
 
-import org.gemoc.gel.gexpressions.xtext.services.GExpressionsGrammarAccess;
+import org.gemoc.gexpressions.xtext.services.GExpressionsGrammarAccess;
 
 @Singleton
 public class BCOoLGrammarAccess extends AbstractGrammarElementFinder {
