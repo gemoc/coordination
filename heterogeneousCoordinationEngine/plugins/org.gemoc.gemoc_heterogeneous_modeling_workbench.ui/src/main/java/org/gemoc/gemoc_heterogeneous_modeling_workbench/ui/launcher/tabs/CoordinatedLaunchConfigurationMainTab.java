@@ -27,7 +27,6 @@ import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguratio
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
-import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 
