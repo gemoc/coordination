@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchManager;
@@ -19,10 +21,13 @@ import org.eclipse.ui.IEditorPart;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedModelExecutionContext;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguration;
 import org.gemoc.execution.engine.coordinator.commons.HeterogeneousEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
+import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocDebuggerServices;
+import org.gemoc.gemoc_modeling_workbench.ui.debug.AbstractGemocDebugger;
 import org.gemoc.gemoc_modeling_workbench.ui.debug.GemocModelDebugger;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
@@ -40,14 +45,14 @@ public class Launcher
 
 	public final static String MODEL_ID = "org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.debugModel";
 
-	private ArrayList<IExecutionEngine> _executionEngines;
+	private ArrayList<IConcurrentExecutionEngine> _executionEngines;
 
 	private HeterogeneousEngine heterogeneousEngine;
 
 	private CoordinatedModelExecutionContext executionContext;
 
 	@Override
-	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor)
+	public void launch(final ILaunchConfiguration configuration, final String mode, final ILaunch launch, IProgressMonitor monitor)
 			throws CoreException {	
 		try 
 		{
@@ -66,9 +71,41 @@ public class Launcher
 			}
 			executionContext = new CoordinatedModelExecutionContext(runConfiguration, executionMode);			
 			
-			heterogeneousEngine = new HeterogeneousEngine(executionContext.getCoordinationModelURI(), executionContext.getCoordinatedEngines());
-			
-			heterogeneousEngine.run();
+			heterogeneousEngine = new HeterogeneousEngine(executionContext, executionMode);
+			heterogeneousEngine.initialize((IExecutionContext) executionContext);
+			_executionEngines = heterogeneousEngine.get_coordinatedEngines();
+
+//			 And we start it within a dedicated job
+						Job job = new Job(getDebugJobName(configuration, getFirstInstruction(configuration))) {
+							@Override
+							protected IStatus run(IProgressMonitor monitor) {
+								// If we are debugging, we start
+								// the execution using the super class
+								// AbstractDSLLaunchConfigurationDelegateUI
+								// This will start yet another job and eventually start
+								// the engine
+								if (ILaunchManager.DEBUG_MODE.equals(mode)) {
+//									heterogeneousEngine.getExecutionContext().getExecutionPlatform().addEngineAddon(animator);
+									try {
+										Launcher.super.launch(configuration, mode, launch, monitor);
+										return new Status(IStatus.OK, getPluginID(), "Execution was launched successfully");
+									} catch (CoreException e) {
+										e.printStackTrace();
+										return new Status(IStatus.ERROR, getPluginID(), "Could not start debugger.");
+									}
+								}
+
+								// If we are not debugging, we simply start the engine
+								// from the current job
+								else {
+									heterogeneousEngine.start();
+									debug("Execution finished.");
+									return new Status(IStatus.OK, getPluginID(), "Execution was launched successfully");
+								}
+							}
+						};
+						debug("Initialization done, starting engine...");
+						job.schedule();
 
 		} 
 		catch (Exception e)
@@ -127,19 +164,22 @@ public class Launcher
 	protected IDSLDebugger getDebugger(ILaunchConfiguration configuration,
 			DSLDebugEventDispatcher dispatcher, EObject firstInstruction,
 			IProgressMonitor monitor) {
-		ArrayList<IDSLDebugger> allRes = new ArrayList<IDSLDebugger>();
-		for (IExecutionEngine _executionEngine: _executionEngines){
-			GemocModelDebugger res = new GemocModelDebugger(dispatcher, _executionEngine);
-			_executionEngine.getExecutionContext().getExecutionPlatform().addEngineAddon(res);
-			allRes.add(res);
-		}
-		return allRes.get(0);
+		AbstractGemocDebugger res = null;
+
+		if (heterogeneousEngine instanceof HeterogeneousEngine) {
+
+			res = new GemocModelDebugger(dispatcher, heterogeneousEngine);
+
+		} 
+
+		heterogeneousEngine.getExecutionContext().getExecutionPlatform().addEngineAddon(res);
+		return res;
 	}
 
 	@Override
 	protected String getDebugTargetName(ILaunchConfiguration configuration, EObject firstInstruction) 
 	{
-		return "Gemoc debug target";
+		return "Gemoc heterogeneous debug target";
 	}
 
 	@Override
@@ -153,7 +193,7 @@ public class Launcher
 	@Override
 	protected String getDebugJobName(ILaunchConfiguration configuration, EObject firstInstruction) 
 	{
-		return "Gemoc coordinated execution debug job";
+		return "Gemoc heterogeneous execution debug job";
 	}
 
 	@Override

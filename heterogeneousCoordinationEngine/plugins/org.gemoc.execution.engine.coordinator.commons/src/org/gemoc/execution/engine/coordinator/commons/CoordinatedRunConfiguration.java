@@ -5,12 +5,13 @@ import java.util.Collection;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.URI;
+import org.gemoc.execution.engine.commons.RunConfiguration;
 import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;
 import org.gemoc.gemoc_language_workbench.api.extensions.engine_addon.EngineAddonSpecificationExtension;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 
-public class CoordinatedRunConfiguration //implements IRunConfiguration
+public class CoordinatedRunConfiguration extends RunConfiguration
 {
 	
 	// main launch parameters
@@ -20,6 +21,7 @@ public class CoordinatedRunConfiguration //implements IRunConfiguration
 	
 	public CoordinatedRunConfiguration(ILaunchConfiguration launchConfiguration) throws CoreException
 	{
+		super(launchConfiguration);
 		_launchConfiguration = launchConfiguration;
 		extractInformation();
 	}
@@ -77,75 +79,64 @@ public class CoordinatedRunConfiguration //implements IRunConfiguration
 		return _ConfigurationURI2;
 	}
 
-//
-//	@Override
-//	public String getLanguageName() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//
-//	@Override
-//	public URI getExecutedModelURI() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//
-//	@Override
-//	public URI getExecutedModelAsMelangeURI() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//
-//	@Override
-//	public String getMelangeQuery() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//
-//	@Override
-//	public URI getAnimatorURI() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//
-//	@Override
-//	public int getAnimationDelay() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//
-//	@Override
-//	public int getDeadlockDetectionDepth() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//
+
+	@Override
+	public String getLanguageName() {
+		return "BCOoL";
+	}
+
+
+	@Override
+	public URI getExecutedModelURI() {
+		return getBcoolModelURI();
+	}
+
+
+	@Override
+	public URI getExecutedModelAsMelangeURI() {
+		return null;
+	}
+
+
+	@Override
+	public String getMelangeQuery() {
+		return null;
+	}
+
+
+	@Override
+	public URI getAnimatorURI() {
+		return null;
+	}
+
+
+	@Override
+	public int getAnimationDelay() {
+		return 0;
+	}
+
+
+	@Override
+	public int getDeadlockDetectionDepth() {
+		return -1;
+	}
+
+
 //	@Override
 //	public Collection<EngineAddonSpecificationExtension> getEngineAddonExtensions() {
 //		// TODO Auto-generated method stub
 //		return null;
 //	}
-//
-//
-//	@Override
-//	public String getDeciderName() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//
-//	@Override
-//	public String getExecutionEntryPoint() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//	
+
+
+
+
+
+	@Override
+	public String getExecutionEntryPoint() {
+		return null;
+	}
+
+
 
 }

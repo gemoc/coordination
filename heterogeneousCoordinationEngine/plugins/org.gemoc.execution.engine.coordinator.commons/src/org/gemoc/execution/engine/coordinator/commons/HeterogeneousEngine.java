@@ -1,6 +1,8 @@
 package org.gemoc.execution.engine.coordinator.commons;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,34 +11,28 @@ import javax.management.RuntimeErrorException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.progress.UIJob;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.gemoc.execution.engine.Activator;
-import org.gemoc.execution.engine.commons.DefaultExecutionPlatform;
+import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.core.AbstractExecutionEngine;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
+import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
+import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
+import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IFutureAction;
 import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_language_workbench.extensions.timesquare.moc.impl.CcslSolver;
-import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
 
 import com.google.inject.Injector;
 
@@ -52,23 +48,40 @@ import fr.inria.aoste.timesquare.ccslkernel.solver.TimeModel.SolverClock;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 
-public class HeterogeneousEngine {
+public class HeterogeneousEngine extends AbstractExecutionEngine implements IConcurrentExecutionEngine{//extends ConcurrentExecutionEngine{
 
 	protected ArrayList<IConcurrentExecutionEngine> _coordinatedEngines = new ArrayList<IConcurrentExecutionEngine>();
+	
+	public ArrayList<IConcurrentExecutionEngine> get_coordinatedEngines() {
+		return _coordinatedEngines;
+	}
+
 	protected CCSLKernelSolver _coordinationSolver;
 	protected ArrayList<CCSLKernelSolver> _t2Solvers;
-	private UIJob stepJob;
-	private UIJob uiJob;
+//	private UIJob stepJob;
+//	private UIJob uiJob;
+//	private EngineStatus engineStatus;
 	
-	public HeterogeneousEngine(URI coordinationURI, ArrayList<IExecutionEngine> coordinatedEngines) {
+	public HeterogeneousEngine(CoordinatedModelExecutionContext executionContext, ExecutionMode executionMode) throws EngineContextException {
+		
+		
+//		try
+//		{
+//			_logicalStepDecider = LogicalStepDeciderFactory.createDecider(executionContext.getRunConfiguration().getDeciderName(),executionMode);
+//		} catch (CoreException e)
+//		{
+//			EngineContextException exception = new EngineContextException(
+//					"Cannot initialize the execution context, see inner exception.", e);
+//			throw exception;
+//		}
+		ArrayList<IExecutionEngine> coordinatedEngines = executionContext.getCoordinatedEngines();
 		for(IExecutionEngine e : coordinatedEngines){
 			if (!(e instanceof IConcurrentExecutionEngine)){
-				throw new RuntimeErrorException(new Error("sorry, for now, only concurrent execuution engine are supported, please donate for more :p"));
+				throw new RuntimeErrorException(new Error("sorry, for now, only concurrent execution engines are supported, please donate for more :p"));
 			}
 			_coordinatedEngines.add((IConcurrentExecutionEngine)e);
 		}
 		_coordinationSolver = new CCSLKernelSolver();
-		
 		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
 		Injector injector = ess.createInjector();
 		// instanciate a resource set
@@ -77,7 +90,7 @@ public class HeterogeneousEngine {
 		ccslResourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
 		ExtendedCCSLStandaloneSetup.doSetup();
 		Resource coordinationResource=null;
-		coordinationResource = ccslResourceSet.createResource(coordinationURI);
+		coordinationResource = ccslResourceSet.createResource(executionContext.getCoordinationModelURI());
 		try {
 			coordinationResource.load(null);
 		} catch (IOException e1) {
@@ -85,7 +98,7 @@ public class HeterogeneousEngine {
 		}
 		
 		try {
-			String ccordinationPathName = coordinationURI.toString();
+			String ccordinationPathName = executionContext.getCoordinationModelURI().toString();
 			String tmpProjectName = ccordinationPathName.substring(1, ccordinationPathName.length());
 			String projectName = tmpProjectName.substring(0, tmpProjectName.indexOf('/'));
 			IProject coordinationProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
@@ -102,129 +115,206 @@ public class HeterogeneousEngine {
 			_t2Solvers.add(t2solverWrapper.getSolver());
 		}
 		
+//		notifyEngineAboutToStart();
+//		setEngineStatus(EngineStatus.RunStatus.Running);
+//		notifyEngineStarted();
+		
 	
-		//launche the UI
-		uiJob = new org.eclipse.ui.progress.UIJob("CoordinationEngine") {			
-			@Override
-			public IStatus runInUIThread(IProgressMonitor monitor)
-			{
-				
+//		//launche the UI
+//		uiJob = new org.eclipse.ui.progress.UIJob("CoordinationEngine") {			
+//			@Override
+//			public IStatus runInUIThread(IProgressMonitor monitor)
+//			{
+//				
+//
+//				Shell shell = new Shell (getDisplay());
+//				shell.setFocus();
+//				shell.setText("Coordinator UI");
+//				shell.setLayout(new GridLayout());
+//				final Button button = new Button (shell, SWT.ARROW_RIGHT);
+//				button.setLayoutData(new GridData(GridData.GRAB_VERTICAL | GridData.GRAB_HORIZONTAL | GridData.HORIZONTAL_ALIGN_CENTER));
+//				button.setText ("Do Step");
+//				/* Make the button toggle between three states */
+//				button.addListener (SWT.Selection, new Listener() {
+//					@Override
+//					public void handleEvent (Event e) {
+//						stepJob.schedule();
+////						try {
+////							stepJob.join();
+////						} catch (InterruptedException e1) {e1.printStackTrace();}
+//					}
+//				});
+//				
+//				final Button buttonStop = new Button (shell, SWT.ABORT);
+//				buttonStop.setLayoutData(new GridData(GridData.GRAB_VERTICAL | GridData.GRAB_HORIZONTAL | GridData.HORIZONTAL_ALIGN_CENTER));
+//				buttonStop.setText ("Abord");
+//				/* Make the button toggle between three states */
+//				buttonStop.addListener (SWT.Selection, new Listener() {
+//					@Override
+//					public void handleEvent (Event e) {
+//						for(IBasicExecutionEngine engine : _coordinatedEngines){
+//							((IExecutionEngine) engine).stop();
+//							((IExecutionEngine) engine).setEngineStatus(EngineStatus.RunStatus.Stopped);
+//							((IExecutionEngine) engine).notifyEngineStopped();
+//						}
+//					}
+//				});
+//				
+//				
+//				shell.setSize(300, 300);
+//				shell.open ();
+//				while (!shell.isDisposed ()) {
+//					if (!getDisplay().readAndDispatch ()) getDisplay().sleep ();
+//				}
+//				return new Status(IStatus.OK, Activator.PLUGIN_ID, "coordinator engine UI closed");
+//			}
+//			
+//		};
+//		
+//		
+//		//prepare the job to perform execution !
+//
+//		stepJob = new org.eclipse.ui.progress.UIJob("CoordinationEngine") {			
+//			@Override
+//			public IStatus runInUIThread(IProgressMonitor monitor)
+//			{
+//				try {
+//					_coordinationSolver.constructBDD();
+//				} catch (SimulationException e1) {e1.printStackTrace();}
+//				
+//				for(IConcurrentExecutionEngine engine : _coordinatedEngines){
+//					engine.computePossibleLogicalSteps();
+//					engine.updatePossibleLogicalSteps();
+//				}
+//				
+//				ArrayList<HeterogeneousLogicalStep> res=null;
+//				try {
+//					res = computeHeterogeneousLogicalStep();
+//				} catch (SimulationException e) {e.printStackTrace();}
+//				
+//				System.out.println(res);
+//				System.out.println(res.size());
+//				//here, in res, we have a list of "compliant step". A compliant step 
+//				//is an ordered set of integer corresponding to the step number of the 
+//				//solver with the same index in the coordinatedEngines list 
+//				if(res.size() == 0){
+//					System.err.println("no more solution can be found");
+//					for(IExecutionEngine engine : _coordinatedEngines){
+//						((AbstractExecutionEngine) engine).stop();
+//						((AbstractExecutionEngine) engine).setEngineStatus(EngineStatus.RunStatus.Stopped);
+//						((AbstractExecutionEngine) engine).notifyEngineStopped();
+//					}
+//					return new Status(IStatus.WARNING, Activator.PLUGIN_ID, "no more solution can be found");
+//				}
+//				
+//				
+//				double randomChoice = (Math.random()*1000)%(res.size());
+//				HeterogeneousLogicalStep selectedCompliantStep = res.get((int)(Math.floor((float)randomChoice)));
+//				for(int i=0; i < _coordinatedEngines.size(); i++){
+//					IConcurrentExecutionEngine oneEngine = _coordinatedEngines.get(i);
+//					int theLogicalStepToSelect = selectedCompliantStep.stepPositions.get(i);
+//					//if we chose the empty step, do nothing
+//					if(theLogicalStepToSelect==oneEngine.getPossibleLogicalSteps().size()){
+//						continue;
+//					}
+//					LogicalStep selectedLogicalStep = oneEngine.getPossibleLogicalSteps().get(theLogicalStepToSelect);
+//					oneEngine.setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
+//					oneEngine.notifyAboutToSelectLogicalStep();
+//					oneEngine.setSelectedLogicalStep(selectedLogicalStep);
+//					oneEngine.setEngineStatus(EngineStatus.RunStatus.Running);
+//					oneEngine.notifyLogicalStepSelected();
+//					// run all the event occurrences of this logical
+//					// step
+//
+//					oneEngine.notifyAboutToExecuteLogicalStep(selectedLogicalStep); 
+//					oneEngine.executeSelectedLogicalStep();
+//					oneEngine.notifyLogicalStepExecuted(selectedLogicalStep);
+//				
+//					// 3 - run the selected logical step
+//					// inform the solver that we will run this step
+//					if (selectedLogicalStep != null)
+//					{
+//						oneEngine.getSolver().applyLogicalStep(selectedLogicalStep);
+//						oneEngine.getEngineStatus().incrementNbLogicalStepRun();
+//					}
+//				}
+//				
+//				return new Status(IStatus.OK, Activator.PLUGIN_ID, "Execution step was successfull");
+//			}
+//		};
+//		
+//		uiJob.schedule();
 
-				Shell shell = new Shell (getDisplay());
-				shell.setFocus();
-				shell.setText("Coordinator UI");
-				shell.setLayout(new GridLayout());
-				final Button button = new Button (shell, SWT.ARROW_RIGHT);
-				button.setLayoutData(new GridData(GridData.GRAB_VERTICAL | GridData.GRAB_HORIZONTAL | GridData.HORIZONTAL_ALIGN_CENTER));
-				button.setText ("Do Step");
-				/* Make the button toggle between three states */
-				button.addListener (SWT.Selection, new Listener() {
-					@Override
-					public void handleEvent (Event e) {
-						stepJob.schedule();
-//						try {
-//							stepJob.join();
-//						} catch (InterruptedException e1) {e1.printStackTrace();}
-					}
-				});
-				
-				final Button buttonStop = new Button (shell, SWT.ABORT);
-				buttonStop.setLayoutData(new GridData(GridData.GRAB_VERTICAL | GridData.GRAB_HORIZONTAL | GridData.HORIZONTAL_ALIGN_CENTER));
-				buttonStop.setText ("Abord");
-				/* Make the button toggle between three states */
-				buttonStop.addListener (SWT.Selection, new Listener() {
-					@Override
-					public void handleEvent (Event e) {
-						for(IBasicExecutionEngine engine : _coordinatedEngines){
-							((IExecutionEngine) engine).stop();
-							((IExecutionEngine) engine).setEngineStatus(EngineStatus.RunStatus.Stopped);
-							((IExecutionEngine) engine).notifyEngineStopped();
-						}
-					}
-				});
-				
-				
-				shell.setSize(300, 300);
-				shell.open ();
-				while (!shell.isDisposed ()) {
-					if (!getDisplay().readAndDispatch ()) getDisplay().sleep ();
-				}
-				return new Status(IStatus.OK, Activator.PLUGIN_ID, "coordinator engine UI closed");
-			}
-			
-		};
+	}
+	@Override
+	public void initialize(IExecutionContext executionContext){
 		
+		if (!(executionContext instanceof CoordinatedModelExecutionContext))
+			throw new IllegalArgumentException("executionContext must be a CoordinatedModelExecutionContext when used in an HeterogeneousExecutionEngine");
 		
-		//prepare the job to perform execution !
+		_executionContext = executionContext;
+		CoordinatedModelExecutionContext coordinatedExecutionContext = (CoordinatedModelExecutionContext)_executionContext;
+		
+		this.changeLogicalStepDecider(coordinatedExecutionContext.getLogicalStepDecider());
+		
+//		notifyEngineAboutToStart();
+//		Activator.getDefault().gemocRunningEngineRegistry.registerEngine("Coordinator", this);
+//		notifyEngineStarted();
 
-		stepJob = new org.eclipse.ui.progress.UIJob("CoordinationEngine") {			
-			@Override
-			public IStatus runInUIThread(IProgressMonitor monitor)
-			{
-				try {
-					_coordinationSolver.constructBDD();
-				} catch (SimulationException e1) {e1.printStackTrace();}
-				
-				for(IConcurrentExecutionEngine engine : _coordinatedEngines){
-					engine.computePossibleLogicalSteps();
-					engine.updatePossibleLogicalSteps();
-				}
-				
-				ArrayList<CompliantLogicalSteps> res=null;
-				try {
-					res = computeCompliantLogicalSteps();
-				} catch (SimulationException e) {e.printStackTrace();}
-				
-				System.out.println(res);
-				System.out.println(res.size());
-				//here, in res, we have a list of "compliant step". A compliant step 
-				//is an ordered set of integer corresponding to the step number of the 
-				//solver with the same index in the coordinatedEngines list 
-				if(res.size() == 0){
-					System.err.println("no more solution can be found");
-					for(IExecutionEngine engine : _coordinatedEngines){
-						((AbstractExecutionEngine) engine).stop();
-						((AbstractExecutionEngine) engine).setEngineStatus(EngineStatus.RunStatus.Stopped);
-						((AbstractExecutionEngine) engine).notifyEngineStopped();
-					}
-					return new Status(IStatus.WARNING, Activator.PLUGIN_ID, "no more solution can be found");
-				}
-				
-				
-				double randomChoice = (Math.random()*1000)%(res.size());
-				CompliantLogicalSteps selectedCompliantStep = res.get((int)(Math.floor((float)randomChoice)));
-				for(int i=0; i < _coordinatedEngines.size(); i++){
-					IConcurrentExecutionEngine oneEngine = _coordinatedEngines.get(i);
-					int theLogicalStepToSelect = selectedCompliantStep.get(i);
-					//if we chose the empty step, do nothing
-					if(theLogicalStepToSelect==oneEngine.getPossibleLogicalSteps().size()){
-						continue;
-					}
-					LogicalStep selectedLogicalStep = oneEngine.getPossibleLogicalSteps().get(theLogicalStepToSelect);
-					oneEngine.setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
-					oneEngine.notifyAboutToSelectLogicalStep();
-					oneEngine.setSelectedLogicalStep(selectedLogicalStep);
-					oneEngine.setEngineStatus(EngineStatus.RunStatus.Running);
-					oneEngine.notifyLogicalStepSelected();
-					// run all the event occurrences of this logical
-					// step
-
-					oneEngine.notifyAboutToExecuteLogicalStep(selectedLogicalStep); 
-					oneEngine.executeSelectedLogicalStep();
-					oneEngine.notifyLogicalStepExecuted(selectedLogicalStep);
-				
-					// 3 - run the selected logical step
-					// inform the solver that we will run this step
-					if (selectedLogicalStep != null)
-					{
-						oneEngine.getSolver().applyLogicalStep(selectedLogicalStep);
-						oneEngine.getEngineStatus().incrementNbLogicalStepRun();
-					}
-				}
-				
-				return new Status(IStatus.OK, Activator.PLUGIN_ID, "Execution step was successfull");
+		setEngineStatus(EngineStatus.RunStatus.Running);
+		
+		Activator.getDefault().info("*** Heterogeneous Coordination Engine initialization done. ***");
+	}
+	
+//	@Override
+	public void notifyEngineStatusChanged(RunStatus newStatus) {
+		if (_coordinatedEngines.size() == 0){
+			return;
+		}
+		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) {
+			try {
+				addon.engineStatusChanged(this, newStatus);
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
 			}
-		};	
+		}
+	}
+	
+	@Override
+	public void notifyEngineAboutToStart() {
+		if (_coordinatedEngines.size() == 0){
+			return;
+		}
+		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) {
+			try {
+				addon.engineAboutToStart(this);
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
+			}
+		}
+	}
+	
+	@Override
+	public void notifyEngineStarted() {
+		if (_coordinatedEngines.size() == 0){
+			return;
+		}
+		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) {
+			try {
+				addon.engineStarted(this);
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
+			}
+		}
+	}
+	
+	public CoordinatedModelExecutionContext getCoordinatedModelExecutionContext(){
+		
+		IExecutionContext context = getExecutionContext();
+		if(context instanceof CoordinatedModelExecutionContext){
+			return (CoordinatedModelExecutionContext) context;
+		}
+		else return null;
 	}
 	
 	public SolverClock getCoordinatedSolverClockFromCoordinationSolverClock(Clock in, int engineNumber){
@@ -243,12 +333,11 @@ public class HeterogeneousEngine {
 	/**
 	 * TODO: this only work for two coordinated engines... not sure how to generalize that
 	 * 
-	 * TODO: we should add the case were  none of the clock managed by a solver ticks (i.e., one of the execution engine is stalled)
 	 * @return
 	 * @throws SimulationException 
 	 */
-	public ArrayList<CompliantLogicalSteps> computeCompliantLogicalSteps() throws SimulationException{
-		ArrayList<CompliantLogicalSteps> res = new ArrayList<CompliantLogicalSteps>();
+	public ArrayList<HeterogeneousLogicalStep> computeHeterogeneousLogicalStep() throws SimulationException{
+		ArrayList<HeterogeneousLogicalStep> res = new ArrayList<HeterogeneousLogicalStep>();
 		
 		IConcurrentExecutionEngine engine0 = _coordinatedEngines.get(0);
 		IConcurrentExecutionEngine engine1 = _coordinatedEngines.get(1);
@@ -266,12 +355,14 @@ public class HeterogeneousEngine {
 				addConstraintsFromOneStepOfOneEngine(1, logicalStepsOf1.get(logicalStepNumberIn1));
 
 				if (_coordinationSolver.hasSolution()){
-					CompliantLogicalSteps theStepsUsed = new CompliantLogicalSteps();
-					theStepsUsed.add(logicalStepNumberIn0);
-					theStepsUsed.add(logicalStepNumberIn1);
+					HeterogeneousLogicalStep theStepsUsed = new HeterogeneousLogicalStep();
+					theStepsUsed.logicalSteps.add(logicalStepsOf0.get(logicalStepNumberIn0));
+					theStepsUsed.stepPositions.add(logicalStepNumberIn0);
+					theStepsUsed.logicalSteps.add(logicalStepsOf1.get(logicalStepNumberIn1));
+					theStepsUsed.stepPositions.add(logicalStepNumberIn1);
 					res.add(theStepsUsed);
 				}else{
-					System.out.println("incompatible couple of LS: "+logicalStepNumberIn0+" ; "+logicalStepNumberIn1);
+//					System.out.println("incompatible couple of LS: "+logicalStepNumberIn0+" ; "+logicalStepNumberIn1);
 				}
 				_coordinationSolver.revertForceClockEffect();
 			}
@@ -307,7 +398,7 @@ public class HeterogeneousEngine {
 					if (!trueClocks.contains(rc)){
 						_coordinationSolver.forceClockAbscence((SolverClock) rc);
 					}else{
-						System.out.println("already forced to true"+rc);
+//						System.out.println("already forced to true"+rc);
 					}
 				}
 			}
@@ -315,31 +406,76 @@ public class HeterogeneousEngine {
 	}
 	
 	
-	
-	public void run() {
+	class EngineRunnable implements Runnable {
 		
-		
-		uiJob.schedule();
-		
-//		
-//		
-//		while (!oneEngineStopped()) 
-//		{
-//			stepJob.schedule();
-//			try {
-//				stepJob.join();
-//			} catch (InterruptedException e) {e.printStackTrace();}
-//		}
-//		
-//		
-//		
-//		
-//		uiJob.cancel();
+		public void run() {
+			engineStatus.setNbLogicalStepRun(0);
+			try 
+			{
+				while (!_isStopped || !oneEngineStopped()) 
+				{					
+					performExecutionStep();							
+				} 
+			} catch (Throwable e) {
+				throw new RuntimeException(e);
+			}
+		}
 
+	}
+	
+	public void performExecutionStep() {
 		
+		if (_heterogeneousLogicalSteps.size() == 0) {
+			Activator.getDefault().debug("No more LogicalStep to run");
+			stop();
+		} else {
+			//Activator.getDefault().debug("\t\t ---------------- LogicalStep " + count);
+			LogicalStep selectedLogicalStep = selectAndExecuteLogicalStep();						
+			// 3 - run the selected logical step
+			// inform the solver that we will run this step
+			if (selectedLogicalStep != null)
+			{
+//				executeSelectedLogicalStep();
+				engineStatus.setNbLogicalStepRun(engineStatus.getNbLogicalStepRun()+1);
+				computePossibleLogicalSteps();
+			} else {
+				// no logical step was selected, this is most probably due to a preempt on the LogicalStepDecider  and a change of Decider, 
+				//notify Addons that we'll rerun this ExecutionStep
+				//recomputePossibleLogicalSteps();
+			}
+		}
 	}
 	
 	
+	private LogicalStep selectAndExecuteLogicalStep() {
+		setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
+		notifyAboutToSelectLogicalStep();
+		LogicalStep selectedLogicalStep = null;
+		try {
+//			double randomChoice = (Math.random()*1000)%(_heterogeneousLogicalSteps.size());
+//			System.out.println("size is "+_heterogeneousLogicalSteps.size()+" choice is "+ randomChoice);
+//			HeterogeneousLogicalStep _selectedCompliantStep = _heterogeneousLogicalSteps.get((int)(Math.floor((float)randomChoice)));
+			for(IConcurrentExecutionEngine eng : get_coordinatedEngines()){
+				eng.getLogicalStepDecider().preempt();
+			}
+			selectedLogicalStep = //_selectedCompliantStep;
+					getLogicalStepDecider().decide(this, getPossibleLogicalSteps());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		if (selectedLogicalStep != null)
+		{
+			setSelectedLogicalStep(selectedLogicalStep);
+			setEngineStatus(EngineStatus.RunStatus.Running);
+			notifyLogicalStepSelected();
+			// run all the event occurrences of this logical
+			// step
+		//	notifyAboutToExecuteLogicalStep(selectedLogicalStep);
+			executeSelectedLogicalStep();
+			notifyLogicalStepExecuted(selectedLogicalStep);
+		}
+		return selectedLogicalStep;
+	}
 	private boolean oneEngineStopped() {
 		for(IExecutionEngine anEngine : _coordinatedEngines){
 			if (((AbstractExecutionEngine)anEngine).getRunningStatus()==RunStatus.Stopped){
@@ -368,21 +504,256 @@ public class HeterogeneousEngine {
 	
 	
 	
-	/**
-	 * this is a list of integer where each integer is index of the logical step of its solver. 
-	 * The index of the integer itself represents the associated solver index in the _coordinatedEngines list 
-	 */
-	class CompliantLogicalSteps extends ArrayList<Integer>{
 
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 7306227694056928033L;
+	
+	protected ArrayList<HeterogeneousLogicalStep> _heterogeneousLogicalSteps = new ArrayList<HeterogeneousLogicalStep>();
+	
+	public void computePossibleLogicalSteps(){
+		try {
+			_coordinationSolver.constructBDD();
+		} catch (SimulationException e1) {e1.printStackTrace();}
+		
+		for(IConcurrentExecutionEngine engine : _coordinatedEngines){
+			engine.computePossibleLogicalSteps();
+			engine.updatePossibleLogicalSteps();
+		}
+		
+		_heterogeneousLogicalSteps = null;
+		try {
+			_heterogeneousLogicalSteps = computeHeterogeneousLogicalStep();
+		} catch (SimulationException e) {e.printStackTrace();}
+		
+		_selectedCompliantStep = _heterogeneousLogicalSteps.get(0);
+		System.out.println(_heterogeneousLogicalSteps);
+		System.out.println(_heterogeneousLogicalSteps.size());
+		//here, in _HeterogeneousLogicalStep, we have a list of "compliant step". A compliant step 
+		//is an ordered set of integer corresponding to the step number 
 	}
 
+	protected HeterogeneousLogicalStep _selectedCompliantStep = null;
+//	private Collection<? extends LogicalStep> _possibleLogicalSteps = new ArrayList<LogicalStep>();
+	
+	@Override
+	public LogicalStep getSelectedLogicalStep() 
+	{
+		synchronized (this) {
+			return (LogicalStep) _selectedCompliantStep;
+		}
+	}
+	
+	@Override
+	public void setSelectedLogicalStep(LogicalStep selectedStep) 
+	{
+		if (!(selectedStep instanceof HeterogeneousLogicalStep))
+		{
+			throw new RuntimeErrorException(new Error("you try to set a step to a coordinator engine, it should be instance of HeterogeneousLogicalStep and not of"+selectedStep.getClass().getCanonicalName()));
+		}
+		synchronized (this) {
+			_selectedCompliantStep = (HeterogeneousLogicalStep) selectedStep;
+		}
+	}
+	
+	@Override
+	public List<LogicalStep> getPossibleLogicalSteps() 
+	{
+		//synchronized (this)
+//		{
+			return new ArrayList<LogicalStep>(_heterogeneousLogicalSteps);
+//		}
+	}
 
+	@Override
+	public void stop() 
+	{
+		if (!_isStopped)
+		{
+			notifyAboutToStop(); // notification occurs only if not already stopped
+			_isStopped = true;
+//			setSelectedLogicalStep(null);
+			if (getLogicalStepDecider() != null)
+			{
+				// unlock decider if this is a user decider
+				getLogicalStepDecider().preempt();
+			}
+			for(IBasicExecutionEngine engine : _coordinatedEngines){
+				((IExecutionEngine) engine).stop();
+				((IExecutionEngine) engine).setEngineStatus(EngineStatus.RunStatus.Stopped);
+				((IExecutionEngine) engine).notifyEngineStopped();
+			}
+		}
+	}
 
+	@Override
+	public void recomputePossibleLogicalSteps()
+	{
+		for(IConcurrentExecutionEngine engine : _coordinatedEngines){
+			engine.getSolver().revertForceClockEffect();
+			engine.updatePossibleLogicalSteps();	
+			engine.notifyProposedLogicalStepsChanged();
+		}
+		computePossibleLogicalSteps();
+	}
+	
+	
 
+	
+	public void executeSelectedLogicalStep(){
+		for(int i=0; i < _coordinatedEngines.size(); i++){
+			IConcurrentExecutionEngine oneEngine = _coordinatedEngines.get(i);
+			int theLogicalStepToSelect = _selectedCompliantStep.stepPositions.get(i);
+			//if we chose the empty step, do nothing
+			if(theLogicalStepToSelect==(oneEngine.getPossibleLogicalSteps().size())){
+				continue;
+			}
+			LogicalStep selectedLogicalStep = oneEngine.getPossibleLogicalSteps().get(theLogicalStepToSelect);
+			oneEngine.setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
+			oneEngine.notifyAboutToSelectLogicalStep();
+			oneEngine.setSelectedLogicalStep(selectedLogicalStep);
+			oneEngine.setEngineStatus(EngineStatus.RunStatus.Running);
+			oneEngine.notifyLogicalStepSelected();
+			// run all the event occurrences of this logical
+			// step
 
+		//	oneEngine.notifyAboutToExecuteLogicalStep(selectedLogicalStep); 
+			oneEngine.executeSelectedLogicalStep();
+			oneEngine.notifyLogicalStepExecuted(selectedLogicalStep);
+		
+			// 3 - run the selected logical step
+			// inform the solver that we will run this step
+			if (selectedLogicalStep != null)
+			{
+				oneEngine.getSolver().applyLogicalStep(selectedLogicalStep);
+				oneEngine.getEngineStatus().incrementNbLogicalStepRun();
+			}
+		}
+		
+		return ;//new Status(IStatus.OK, Activator.PLUGIN_ID, "Execution step was successfull");
+	}
+	
+	public String getName() {
+		return "Gemoc engine " + _executionContext.getRunConfiguration().getExecutedModelURI();
+	}
+	
+	@Override
+	public void start(){
+		if (!_started) {
+			_started = true;
+			Runnable r = new Runnable() {
+
+				@Override
+				public void run() {
+					try {
+						notifyEngineAboutToStart();
+						Activator.getDefault().gemocRunningEngineRegistry.registerEngine(getName(), HeterogeneousEngine.this);
+						setEngineStatus(EngineStatus.RunStatus.Running);
+						computePossibleLogicalSteps();
+						notifyEngineStarted();
+						getRunnable().run();
+					} catch (Throwable e) {
+						e.printStackTrace();
+						Activator.getDefault().error("Exception received " + e.getMessage() + ", stopping engine.", e);
+						StringWriter sw = new StringWriter();
+						e.printStackTrace(new PrintWriter(sw));
+						String exceptionAsString = sw.toString();
+
+						Activator.getDefault().error(exceptionAsString);
+					} finally {
+						// make sure to notify the stop if this wasn't an
+						// external call to stop() that lead us here.
+						// ie. normal end of the mode execution
+						stop();
+						setEngineStatus(EngineStatus.RunStatus.Stopped);
+						notifyEngineStopped();
+					}
+				}
+			};
+			thread = new Thread(r, engineKindName()+" " + _executionContext.getRunConfiguration().getExecutedModelURI());
+			thread.start();
+		}
+	}
+	
+//	@Override
+	protected Runnable getRunnable() 
+	{
+//		performExecutionStep();
+		return new EngineRunnable();
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	
+	@Override
+	public String engineKindName() {
+		return "GEMOC heterogeneous Coordination Engine";
+	}
+
+	@Override
+	public IConcurrentExecutionContext getConcurrentExecutionContext() {
+		return (IConcurrentExecutionContext) _executionContext;
+	}
+	@Override
+	public void updatePossibleLogicalSteps() {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public void addFutureAction(IFutureAction action) {
+	}
+	@Override
+	public ILogicalStepDecider getLogicalStepDecider() {
+		return ((CoordinatedModelExecutionContext)_executionContext).get_logicalStepDecider();
+	}
+	
+	@Override
+	public void changeLogicalStepDecider(ILogicalStepDecider newDecider) {
+		((CoordinatedModelExecutionContext)_executionContext).set_logicalStepDecider(newDecider);
+	}
+	@Override
+	public ISolver getSolver() {
+		return null;
+	}
+	@Override
+	public void setSolver(ISolver solver) {
+		
+	}
+	@Override
+	public ICodeExecutor getCodeExecutor() {
+		return null;
+	}
+	@Override
+	public void notifyLogicalStepSelected() {
+		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
+		{
+			try {
+				addon.logicalStepSelected(this, getSelectedLogicalStep());
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon "+addon+", "+e.getMessage(), e);
+			}
+		}	
+	}
+	@Override
+	public void notifyAboutToSelectLogicalStep() {
+		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
+		{
+			try {
+				addon.aboutToSelectLogicalStep(this, getPossibleLogicalSteps());
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon "+addon+", "+e.getMessage(), e);
+			}
+		}
+		
+	}
+	@Override
+	public void notifyProposedLogicalStepsChanged(){
+		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
+		{
+			try {
+				addon.proposedLogicalStepsChanged(this, getPossibleLogicalSteps());
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon "+addon+", "+e.getMessage(), e);
+			}
+		}
+	}
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	
 }

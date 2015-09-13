@@ -16,12 +16,16 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 import org.gemoc.commons.eclipse.emf.URIHelper;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
+import org.gemoc.execution.engine.commons.RunConfiguration;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguration;
+import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
+import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;
 
@@ -34,7 +38,8 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	protected Text _bcoolLocationText;
 	protected Text _firstConfigurationLocationText;
 	protected Text _secondConfigurationLocationText;
-	
+	protected Combo _deciderCombo;
+
 	
 	protected ArrayList<LaunchConfigurationTab> _modelConfigurations;
 	public int GRID_DEFAULT_WIDTH = 200;
@@ -65,6 +70,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 			_bcoolLocationText.setText(URIHelper.removePlatformScheme(runConfiguration.getBcoolModelURI()));
 			_firstConfigurationLocationText.setText(URIHelper.removePlatformScheme(runConfiguration.getConfigurationURI1()));
 			_secondConfigurationLocationText.setText(URIHelper.removePlatformScheme(runConfiguration.getConfigurationURI2()));
+			_deciderCombo.setText(runConfiguration.getDeciderName());
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
 		}
@@ -82,6 +88,8 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		configuration.setAttribute(
 				"Configuration2",
 				this._secondConfigurationLocationText.getText());
+		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
+
 		
 	}
 
@@ -114,7 +122,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	 * @return
 	 */
 	public Composite createModelLayout(Composite parent, Font font) {
-		createTextLabelLayout(parent, "Model to execute");
+		createTextLabelLayout(parent, "BCOoL specification");
 		// Model location text
 		_bcoolLocationText = new Text(parent, SWT.SINGLE | SWT.BORDER);
 		_bcoolLocationText.setLayoutData(createStandardLayout());
@@ -177,6 +185,25 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 				}
 			}
 		});	
+		
+		createTextLabelLayout(parent, "Decider");
+		_deciderCombo = new Combo(parent, SWT.BORDER);
+		_deciderCombo.setLayoutData(createStandardLayout());
+
+		ArrayList<String> deciders = new ArrayList<>();
+		for (DeciderSpecificationExtension definition : DeciderSpecificationExtensionPoint.getSpecifications()) {
+			deciders.add(definition.getName());
+		}
+		// String[] deciderChoice = {
+		// RunConfiguration.DECIDER_SOLVER_PROPOSITION,
+		// RunConfiguration.DECIDER_RANDOM,
+		// RunConfiguration.DECIDER_ASKUSER,
+		// RunConfiguration.DECIDER_ASKUSER_STEP_BY_STEP };
+		String[] a = new String[deciders.size()];
+		_deciderCombo.setItems(deciders.toArray(a));
+		_deciderCombo.select(0);
+		_deciderCombo.addModifyListener(fBasicModifyListener);
+		
 		return parent;
 	}
 	

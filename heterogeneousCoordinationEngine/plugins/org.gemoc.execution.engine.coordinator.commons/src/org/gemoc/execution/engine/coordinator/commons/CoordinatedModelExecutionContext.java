@@ -17,30 +17,38 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
+import org.gemoc.execution.engine.commons.Activator;
 import org.gemoc.execution.engine.commons.EngineContextException;
-import org.gemoc.execution.engine.core.AbstractExecutionEngine;
+import org.gemoc.execution.engine.commons.LogicalStepDeciderFactory;
+import org.gemoc.execution.engine.core.ExecutionWorkspace;
+import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
+import org.gemoc.gemoc_language_workbench.api.core.IExecutionPlatform;
+import org.gemoc.gemoc_language_workbench.api.core.IExecutionWorkspace;
+import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtension;
 
 import com.google.inject.Injector;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.CCSLModelFactory;
 import fr.inria.aoste.timesquare.ccslkernel.parser.xtext.ExtendedCCSLStandaloneSetup;
+import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
 
-public class CoordinatedModelExecutionContext
+public class CoordinatedModelExecutionContext implements IExecutionContext
 {
 
 	private CoordinatedRunConfiguration _runConfiguration;
@@ -50,6 +58,24 @@ private XtextResourceSet coordinationModelResourceSet;
 private URI coordinationModelURI = null;
 
 private ArrayList<IExecutionEngine> coordinatedEngines = null;
+
+private ExecutionMode _executionMode;
+
+private ILogicalStepDecider _logicalStepDecider;
+
+public void set_logicalStepDecider(ILogicalStepDecider _logicalStepDecider) {
+	this._logicalStepDecider = _logicalStepDecider;
+}
+
+
+public ILogicalStepDecider get_logicalStepDecider() {
+	return _logicalStepDecider;
+}
+
+
+private HeterogeneousExecutionPlatform _executionPlatform = new HeterogeneousExecutionPlatform();
+
+private Resource _resourceBCOoL;
 
 public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 	return coordinatedEngines;
@@ -62,7 +88,22 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 
 	public CoordinatedModelExecutionContext(CoordinatedRunConfiguration runConfiguration, ExecutionMode executionMode) throws EngineContextException
 	{
+
 		_runConfiguration = runConfiguration;
+		_executionMode = executionMode;
+		try
+		{
+				_logicalStepDecider = LogicalStepDeciderFactory.createDecider(runConfiguration.getDeciderName(),
+						executionMode);
+			_executionWorkspace = new ExecutionWorkspace(_runConfiguration.getExecutedModelURI());
+			
+		} catch (CoreException e)
+		{
+			EngineContextException exception = new EngineContextException(
+					"Cannot initialize the execution context, see inner exception.", e);
+			throw exception;
+		}
+		
 		IProgressMonitor monitor = new NullProgressMonitor();
 		
 		//launch the configurations and get the associated engine		
@@ -126,7 +167,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		
 		coordinationModelURI = URI.createURI(coordinationModelPath);
 		
-		createCoordinationResourceAndSaveIt(coordinationModelURI);
+		_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
 		
 		GemocQvto2CCSLTranslator qvto2ccslTranslator = new GemocQvto2CCSLTranslator(); 
 
@@ -243,6 +284,94 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 	{
 		return _runConfiguration;
 	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//copy from ModelExecutioContext
+	
+	
+	private ResourceSet getResourceSet()
+	{
+		return null;
+	}
+
+	
+
+	@Override
+	public Resource getResourceModel()
+	{
+		return _resourceBCOoL;
+	}
+
+	@Override
+	public void dispose()
+	{
+		_logicalStepDecider.dispose();
+	}
+
+	public ILogicalStepDecider getLogicalStepDecider() {
+		return _logicalStepDecider;
+	}
+
+	
+	private IExecutionWorkspace _executionWorkspace;
+
+	@Override
+	public IExecutionWorkspace getWorkspace()
+	{
+		return _executionWorkspace;
+	}
+
+	@Override
+	public ExecutionMode getExecutionMode()
+	{
+		return _executionMode;
+	}
+
+
+	@Override
+	public ActionModel getFeedbackModel()
+	{
+		return null;
+	}
+
+	@Override
+	public IExecutionPlatform getExecutionPlatform()
+	{
+		return _executionPlatform;
+	}
+
+	@Override
+	public LanguageDefinitionExtension getLanguageDefinitionExtension()
+	{
+		return null;
+	}
+
+	
+
+
+
+	
+	
+	
+	
+	
+	
 	
 	
 }

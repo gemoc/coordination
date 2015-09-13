@@ -6,7 +6,7 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class Activator extends org.gemoc.execution.engine.Activator {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.gemoc.execution.engine.coordinator.commons"; //$NON-NLS-1$
@@ -18,6 +18,7 @@ public class Activator extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public Activator() {
+		super();
 	}
 
 	/*

@@ -32,7 +32,10 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.execution.engine,
  org.eclipse.swt,
  org.gemoc.execution.engine.commons,
- org.gemoc.executionengine.ccsljava.api;bundle-version="1.0.0"
+ org.gemoc.executionengine.ccsljava.api;bundle-version="1.0.0",
+ org.gemoc.executionengine.ccsljava.engine,
+ org.gemoc.commons.eclipse.pde;bundle-version="0.1.0",
+ org.gemoc.commons.eclipse;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.gemoc.execution.engine.coordinator.commons
