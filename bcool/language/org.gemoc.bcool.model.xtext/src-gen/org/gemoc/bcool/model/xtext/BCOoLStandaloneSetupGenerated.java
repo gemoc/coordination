@@ -17,7 +17,7 @@ import com.google.inject.Injector;
 public class BCOoLStandaloneSetupGenerated implements ISetup {
 
 	public Injector createInjectorAndDoEMFRegistration() {
-		org.gemoc.gel.gexpressions.xtext.GExpressionsStandaloneSetup.doSetup();
+		org.gemoc.gexpressions.xtext.GExpressionsStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);

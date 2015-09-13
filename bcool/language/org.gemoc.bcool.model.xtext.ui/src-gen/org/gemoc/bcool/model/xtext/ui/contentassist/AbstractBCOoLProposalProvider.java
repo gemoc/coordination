@@ -9,12 +9,12 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 
 /**
- * Represents a generated, default implementation of superclass {@link org.gemoc.gel.gexpressions.xtext.ui.contentassist.GExpressionsProposalProvider}.
+ * Represents a generated, default implementation of superclass {@link org.gemoc.gexpressions.xtext.ui.contentassist.GExpressionsProposalProvider}.
  * Methods are dynamically dispatched on the first parameter, i.e., you can override them 
  * with a more concrete subtype. 
  */
 @SuppressWarnings("all")
-public class AbstractBCOoLProposalProvider extends org.gemoc.gel.gexpressions.xtext.ui.contentassist.GExpressionsProposalProvider {
+public class AbstractBCOoLProposalProvider extends org.gemoc.gexpressions.xtext.ui.contentassist.GExpressionsProposalProvider {
 		
 	public void completeBCoolSpec_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);

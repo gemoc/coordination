@@ -50,17 +50,24 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>Xtext All-in-One</id>
-			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
+<!-- 		<repository> -->
+<!-- 			<id>Xtext All-in-One</id> -->
+<!-- 			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url> -->
+<!-- 			<layout>p2</layout> -->
+<!-- 			<releases> -->
+<!-- 				<enabled>true</enabled> -->
+<!-- 			</releases> -->
+<!-- 			<snapshots> -->
+<!-- 				<enabled>false</enabled> -->
+<!-- 			</snapshots> -->
+<!-- 		</repository> -->
+        <!-- refinement from "xtext all releases" -->
+        <repository>
+            <id>xtext releases 2.8.4</id>
+            <layout>p2</layout>
+            <url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.8.4/</url>
+        </repository>
+        
 		<repository>
 			<id>acceleo</id>
 			<url>http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2</url>
@@ -95,7 +102,7 @@
 			</snapshots>
 		</repository>
 		
-				<repository>
+		<repository>
 			<id>gel</id>
 			<url>https://ci.inria.fr/gemoc/job/gemoc-studio_gemoc_commons/lastSuccessfulBuild/artifact/gemoc_commons/releng/org.gemoc.gemoc_commons.repository/target/repository/</url>
 			<layout>p2</layout>

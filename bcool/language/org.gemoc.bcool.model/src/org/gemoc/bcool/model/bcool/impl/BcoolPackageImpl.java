@@ -26,7 +26,7 @@ import org.gemoc.bcool.model.bcool.MatchingRule;
 import org.gemoc.bcool.model.bcool.NamedElement;
 import org.gemoc.bcool.model.bcool.RelationDeclaration;
 import org.gemoc.bcool.model.bcool.RelationDefinition;
-import org.gemoc.gel.gexpressions.GexpressionsPackage;
+import org.gemoc.gexpressions.GexpressionsPackage;
 
 /**
  * <!-- begin-user-doc -->
