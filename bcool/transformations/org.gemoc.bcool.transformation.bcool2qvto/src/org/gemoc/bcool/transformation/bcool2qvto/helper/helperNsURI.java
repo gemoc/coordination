@@ -181,9 +181,16 @@ public class helperNsURI {
 	    oclimport = oclimport.substring(oclimport.indexOf('\'')+1, oclimport.lastIndexOf('\''));
 	    // Depending the kind of import we found differently the NSURI
 	    if (oclimport.endsWith(".ecore")) {
+	    	
+	    	// In ECL, if the .ecore is imported as resource, it is changed by plugin
+	    	// WARN: the BCOoL should not be in the same workbench that the languages
+	    	if (oclimport.startsWith("platform:/resource")) {
+	    		oclimport = oclimport.replace("resource","plugin");
+	    	}
 	    	URI metaURI=URI.createURI(oclimport,false);
 	    	ResourceSet resourceSet = new ResourceSetImpl(); 
 	        Resource resource1 = resourceSet.getResource(metaURI, true);
+	        
 	        EPackage wdwPackage = (EPackage)resource1.getContents().get(0);
 	    	return wdwPackage.getNsURI();
 	    // It is a NSURI
