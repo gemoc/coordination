@@ -251,22 +251,35 @@ public class helperNsURI {
 	public String GEqualitytoString (GEqualityExpression exp)
 	{
 		String serial = "";
+		String leftoperstr =  "";
+		String rightoperstr =  "";
+		
 		if (exp.getLeftOperand() instanceof GNavigationExpression) {
 			GNavigationExpression leftoper = (GNavigationExpression) exp.getLeftOperand();
-			serial =  GOperandtoString (leftoper);
+			leftoperstr =  GOperandtoString (leftoper);
 		} else if (exp.getLeftOperand() instanceof GStringExpression){
 			GStringExpression leftoper = (GStringExpression) exp.getLeftOperand();
-			serial = '"'+ leftoper.getValue() + '"';
+			leftoperstr = '"'+ leftoper.getValue() + '"';
 		}
 		
 		if (exp.getRightOperand() instanceof GNavigationExpression) {
 			GNavigationExpression rightoper = (GNavigationExpression) exp.getRightOperand();
-			serial =  serial + "=" +GOperandtoString (rightoper);
+			rightoperstr = GOperandtoString (rightoper); 
+			//serial =  serial + "=" +GOperandtoString (rightoper);
 		} else if (exp.getRightOperand() instanceof GStringExpression){
 			GStringExpression rightoper = (GStringExpression) exp.getRightOperand();
-			serial = serial + "=" + '"' + rightoper.getValue()+ '"';
+			//serial = serial + "=" + '"' + rightoper.getValue()+ '"';
+			rightoperstr = '"' + rightoper.getValue()+ '"'; 
+		}
+		
+		// Equal and Not Equal are the same GExpression
+		if (exp.getOperator().getName().contains("NOTEQUAL")) {
+				serial = leftoperstr + "<>" +  rightoperstr;
+		}else if (exp.getOperator().getName().contains("EQUAL")){
+			serial = leftoperstr + "=" +  rightoperstr;
 		}
 
+		
 		return serial;
 	}
 	
