@@ -52,6 +52,7 @@ import org.gemoc.gexpressions.GBraceExpression;
 import org.gemoc.gexpressions.GEqualityExpression;
 import org.gemoc.gexpressions.GIntegerExpression;
 import org.gemoc.gexpressions.GNavigationExpression;
+import org.gemoc.gexpressions.GNegationExpression;
 import org.gemoc.gexpressions.GReferenceExpression;
 import org.gemoc.gexpressions.GStringExpression;
 import org.gemoc.gexpressions.GexpressionsFactory;
@@ -315,10 +316,30 @@ public class helperNsURI {
 		} else if (exp.getInnerExpression() instanceof GBraceExpression) {
 			GBraceExpression  gexp = (GBraceExpression) exp.getInnerExpression();
 			serial = "(" + GBraceExpressiontoString (gexp) + ")";
+		} else if (exp.getInnerExpression() instanceof GNavigationExpression){
+  		  GNavigationExpression gexp = (GNavigationExpression) exp.getInnerExpression();
+  		  serial = "(" + GOperandtoString(gexp) + ")";
+		}else if (exp.getInnerExpression() instanceof GNegationExpression) {
+			GNegationExpression gexp = (GNegationExpression) exp.getInnerExpression();
+			 serial = "(" + GNegationExpressiontoString(gexp) + ")";
 		}
 			
 		return serial;		
 	}
+	
+	public String GNegationExpressiontoString(GNegationExpression exp) {
+		String serial = "";
+		
+		if (exp.getOperand() instanceof GBraceExpression){
+			GBraceExpression gexp = (GBraceExpression) exp.getOperand();
+			serial = "not" + GBraceExpressiontoString (gexp);
+		}else if (exp.getOperand() instanceof GNegationExpression ) {
+			GNegationExpression gexp2  = (GNegationExpression) exp.getOperand();
+			serial = GNegationExpressiontoString (gexp2);
+		}
+		return serial;
+	}
+	
 	
 	public String GAndtoString (GAndExpression exp)
 	{
@@ -333,7 +354,12 @@ public class helperNsURI {
 			serial =  GOperandtoString (gexp);
 		} else if (exp.getLeftOperand() instanceof GAndExpression){
 			GAndExpression gexp = (GAndExpression) exp.getLeftOperand();
-			serial = serial + GAndtoString (gexp);
+			serial = GAndtoString (gexp);
+		} else if (exp.getLeftOperand() instanceof GNegationExpression) {
+			GNegationExpression gexp = (GNegationExpression) exp.getLeftOperand();
+  		  	serial = GNegationExpressiontoString (gexp);
+			//GBraceExpression gexp2 = (GBraceExpression) gexp.getOperand();
+  		  	//serial = "not" + GBraceExpressiontoString (gexp2);
 		}
 
 		serial = serial +" and ";
@@ -348,6 +374,11 @@ public class helperNsURI {
 		} else if (exp.getRightOperand() instanceof GAndExpression ){
 			GAndExpression gexp = (GAndExpression) exp.getRightOperand();
 			serial = serial + GAndtoString (gexp);
+		} else if (exp.getRightOperand() instanceof GNegationExpression) {
+			GNegationExpression gexp = (GNegationExpression) exp.getRightOperand();
+			serial= serial + GNegationExpressiontoString (gexp);
+			//GBraceExpression gexp2 = (GBraceExpression) gexp.getOperand();
+  		  	//serial = "not" + GBraceExpressiontoString (gexp2);
 		}
 		
 		return serial;
@@ -366,6 +397,13 @@ public class helperNsURI {
 	    	  }else if (exp instanceof GBraceExpression){
 	    		  GBraceExpression  gexp = (GBraceExpression) exp;
 	    		  serial = GBraceExpressiontoString (gexp);
+	    	  }else if (exp instanceof GNavigationExpression){
+	    		  GNavigationExpression gexp = (GNavigationExpression) exp;
+	    		  serial = GOperandtoString(gexp);
+	    	  }else if (exp instanceof GNegationExpression){
+	    		  GNegationExpression gexp = (GNegationExpression) exp;
+	    		  //GBraceExpression gexp2 = (GBraceExpression) gexp.getOperand();
+	    		  serial = GNegationExpressiontoString (gexp);
 	    	  }
 	    		
 	    	  } catch (Exception ex) { // fall back:  
