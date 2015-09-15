@@ -47,6 +47,7 @@ import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
 
 import org.gemoc.gexpressions.GAdditionExpression;
 import org.gemoc.gexpressions.GAndExpression;
+import org.gemoc.gexpressions.GBooleanExpression;
 import org.gemoc.gexpressions.GBraceExpression;
 import org.gemoc.gexpressions.GEqualityExpression;
 import org.gemoc.gexpressions.GIntegerExpression;
@@ -260,8 +261,16 @@ public class helperNsURI {
 		} else if (exp.getLeftOperand() instanceof GStringExpression){
 			GStringExpression leftoper = (GStringExpression) exp.getLeftOperand();
 			leftoperstr = '"'+ leftoper.getValue() + '"';
+		} else if (exp.getLeftOperand() instanceof GBooleanExpression) {
+			GBooleanExpression leftoper = (GBooleanExpression) exp.getLeftOperand();
+			
+			if (leftoper.isValue()) {
+				leftoperstr = "true";
+			} else {leftoperstr = "false";}
+			
 		}
-		
+			
+
 		if (exp.getRightOperand() instanceof GNavigationExpression) {
 			GNavigationExpression rightoper = (GNavigationExpression) exp.getRightOperand();
 			rightoperstr = GOperandtoString (rightoper); 
@@ -270,6 +279,13 @@ public class helperNsURI {
 			GStringExpression rightoper = (GStringExpression) exp.getRightOperand();
 			//serial = serial + "=" + '"' + rightoper.getValue()+ '"';
 			rightoperstr = '"' + rightoper.getValue()+ '"'; 
+		} else if (exp.getRightOperand() instanceof GBooleanExpression) {
+			GBooleanExpression rightoper = (GBooleanExpression) exp.getRightOperand();
+			
+			if (rightoper.isValue()) {
+				rightoperstr  = "true";
+			} else {rightoperstr  = "false";}
+			
 		}
 		
 		// Equal and Not Equal are the same GExpression
