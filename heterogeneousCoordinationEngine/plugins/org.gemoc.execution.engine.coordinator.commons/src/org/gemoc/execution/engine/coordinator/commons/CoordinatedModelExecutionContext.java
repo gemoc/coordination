@@ -91,6 +91,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 
 		_runConfiguration = runConfiguration;
 		_executionMode = executionMode;
+		
 		try
 		{
 				_logicalStepDecider = LogicalStepDeciderFactory.createDecider(runConfiguration.getDeciderName(),
@@ -107,23 +108,24 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		IProgressMonitor monitor = new NullProgressMonitor();
 		
 		//launch the configurations and get the associated engine		
-		URI launch1URI = runConfiguration.getConfigurationURI1();
-		ILaunch startedLaunch1 = createAndLaunchConfiguration(executionMode, monitor, launch1URI);
-		
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		for (int i = 0; i < runConfiguration.getConfigurationURIs().size(); i++){
+			URI launchURI = runConfiguration.getConfigurationURIs().get(i);
+			createAndLaunchConfiguration(executionMode, monitor, launchURI);
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 		
-		URI launch2URI = runConfiguration.getConfigurationURI2();
-		ILaunch startedLaunch2 = createAndLaunchConfiguration(executionMode, monitor, launch2URI);
-		
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		URI launch2URI = runConfiguration.getConfigurationURI2();
+//		ILaunch startedLaunch2 = createAndLaunchConfiguration(executionMode, monitor, launch2URI);
+//		
+//		try {
+//			Thread.sleep(500);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 		
 		//		TODO: need a synchro to wait for the engine to start (otherwise it is not yet in the list)
 		
@@ -160,8 +162,14 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		IContainer gemocGenFolder = createQVToFromBCOoL(bcoolURI, monitor);
 		URI qvtoURI = getGeneratedQvtoURI(bcoolURI, gemocGenFolder);
 		
+		String launchNames = "";
+		for(int i = 0; i < _runConfiguration.getConfigurationURIs().size(); i++){
+			launchNames += _runConfiguration.getConfigurationURIs().get(i).lastSegment();
+		}
+		
 		String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
-				+ launch1URI.lastSegment() + launch2URI.lastSegment()+".timemodel"
+				+launchNames
+				+".timemodel"
 				;
 		
 		

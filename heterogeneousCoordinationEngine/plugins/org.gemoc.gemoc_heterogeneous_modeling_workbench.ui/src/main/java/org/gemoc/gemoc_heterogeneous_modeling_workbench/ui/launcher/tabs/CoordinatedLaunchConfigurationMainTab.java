@@ -6,6 +6,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -19,6 +20,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.gemoc.commons.eclipse.emf.URIHelper;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
@@ -35,9 +37,11 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	protected Composite _parent;
 	
 	protected Text _bcoolLocationText;
-	protected Text _firstConfigurationLocationText;
-	protected Text _secondConfigurationLocationText;
+	protected ArrayList<Text> _configurationLocationTexts = new ArrayList<Text>();
 	protected Combo _deciderCombo;
+	protected ArrayList<Button> _browseLocationButtons = new ArrayList<Button>();
+	protected ArrayList<Label> _configLabels = new ArrayList<Label>();
+	private int nb_configLocations = 0;
 
 	
 	protected ArrayList<LaunchConfigurationTab> _modelConfigurations;
@@ -66,10 +70,32 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		try 
 		{
 			CoordinatedRunConfiguration runConfiguration = new CoordinatedRunConfiguration(configuration);
+			nb_configLocations=0;
+			for(Button b : _browseLocationButtons){
+				b.dispose();
+			}
+			_browseLocationButtons.clear();
+			for(Text t : _configurationLocationTexts){
+				t.dispose();
+			}
+			_configurationLocationTexts.clear();
+			for(Label l : _configLabels){
+				l.dispose();
+			}
+			_configLabels.clear();
 			_bcoolLocationText.setText(URIHelper.removePlatformScheme(runConfiguration.getBcoolModelURI()));
-			_firstConfigurationLocationText.setText(URIHelper.removePlatformScheme(runConfiguration.getConfigurationURI1()));
-			_secondConfigurationLocationText.setText(URIHelper.removePlatformScheme(runConfiguration.getConfigurationURI2()));
+			nb_configLocations = configuration.getAttribute("nb_logicalSteps", 2);
+			for (int i = 0; i < nb_configLocations; i++){
+				createConfigLocationUI(_parent, i);
+				String path = configuration.getAttribute("Configuration"+(i), (String)null);
+				URI confURI = URI.createFileURI(path);
+				runConfiguration.getConfigurationURIs().add(confURI);
+				if (path != null && path.length() != 0){
+					_configurationLocationTexts.get(i).setText( URIHelper.removePlatformScheme(confURI));
+				}
+			}
 			_deciderCombo.setText(runConfiguration.getDeciderName());
+			
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
 		}
@@ -81,12 +107,12 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		configuration.setAttribute(
 				AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI,
 				this._bcoolLocationText.getText());
-		configuration.setAttribute(
-				"Configuration1",
-				this._firstConfigurationLocationText.getText());
-		configuration.setAttribute(
-				"Configuration2",
-				this._secondConfigurationLocationText.getText());
+		for (int i = 0; i < _configurationLocationTexts.size(); i++){
+			configuration.setAttribute(
+				"Configuration"+i,
+				this._configurationLocationTexts.get(i).getText());
+		}
+		configuration.setAttribute("nb_logicalSteps", nb_configLocations);
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
 
 		
@@ -111,8 +137,10 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 
 
 
-	// -----------------------------------
 
+	// -----------------------------------
+	
+	
 	/***
 	 * Create the Field where user enters model to execute
 	 * 
@@ -121,13 +149,13 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	 * @return
 	 */
 	public Composite createModelLayout(Composite parent, Font font) {
-		createTextLabelLayout(parent, "BCOoL specification");
+		_parent = parent;
+		createTextLabelLayout(_parent, "BCOoL specification");
 		// Model location text
-		_bcoolLocationText = new Text(parent, SWT.SINGLE | SWT.BORDER);
+		_bcoolLocationText = new Text(_parent, SWT.SINGLE | SWT.BORDER);
 		_bcoolLocationText.setLayoutData(createStandardLayout());
-		_bcoolLocationText.setFont(font);
 		_bcoolLocationText.addModifyListener(fBasicModifyListener);
-		Button modelLocationButton = createPushButton(parent, "Browse", null);
+		Button modelLocationButton = createPushButton(_parent, "Browse", null);
 		modelLocationButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent evt) {
 				// handleModelLocationButtonSelected();
@@ -142,68 +170,72 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 				}
 			}
 		});	
-		createTextLabelLayout(parent, "configuration of first model to execute");
-		// Model location text
-		_firstConfigurationLocationText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		_firstConfigurationLocationText.setLayoutData(createStandardLayout());
-		_firstConfigurationLocationText.setFont(font);
-		_firstConfigurationLocationText.addModifyListener(fBasicModifyListener);
-		Button firstConfigurationLocationButton = createPushButton(parent, "Browse", null);
-		firstConfigurationLocationButton.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent evt) {
-				// handleModelLocationButtonSelected();
-				// TODO launch the appropriate selector
-
-				SelectAnyIFileDialog dialog = new SelectAnyIFileDialog();
-				if (dialog.open() == Dialog.OK) {
-					String modelPath = ((IResource) dialog.getResult()[0])
-							.getFullPath().toPortableString();
-					_firstConfigurationLocationText.setText(modelPath);
-					updateLaunchConfigurationDialog();
-				}
-			}
-		});	
-		createTextLabelLayout(parent, "configuration of second model to execute");
-		// Model location text
-		_secondConfigurationLocationText = new Text(parent, SWT.SINGLE | SWT.BORDER);
-		_secondConfigurationLocationText.setLayoutData(createStandardLayout());
-		_secondConfigurationLocationText.setFont(font);
-		_secondConfigurationLocationText.addModifyListener(fBasicModifyListener);
-		Button secondConfigurationLocationButton = createPushButton(parent, "Browse", null);
-		secondConfigurationLocationButton.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent evt) {
-				// handleModelLocationButtonSelected();
-				// TODO launch the appropriate selector
-
-				SelectAnyIFileDialog dialog = new SelectAnyIFileDialog();
-				if (dialog.open() == Dialog.OK) {
-					String modelPath = ((IResource) dialog.getResult()[0])
-							.getFullPath().toPortableString();
-					_secondConfigurationLocationText.setText(modelPath);
-					updateLaunchConfigurationDialog();
-				}
-			}
-		});	
+		
+		
 		
 		createTextLabelLayout(parent, "Decider");
 		_deciderCombo = new Combo(parent, SWT.BORDER);
 		_deciderCombo.setLayoutData(createStandardLayout());
 
+		createTextLabelLayout(parent, " - ");
+
+		
 		ArrayList<String> deciders = new ArrayList<>();
 		for (DeciderSpecificationExtension definition : DeciderSpecificationExtensionPoint.getSpecifications()) {
 			deciders.add(definition.getName());
 		}
-		// String[] deciderChoice = {
-		// RunConfiguration.DECIDER_SOLVER_PROPOSITION,
-		// RunConfiguration.DECIDER_RANDOM,
-		// RunConfiguration.DECIDER_ASKUSER,
-		// RunConfiguration.DECIDER_ASKUSER_STEP_BY_STEP };
+
 		String[] a = new String[deciders.size()];
 		_deciderCombo.setItems(deciders.toArray(a));
 		_deciderCombo.select(0);
 		_deciderCombo.addModifyListener(fBasicModifyListener);
 		
+		// Model location text
+		for (int i = 0; i < nb_configLocations; i++){
+			createConfigLocationUI(_parent, i);	
+		}
+		
+		Button addConfig = createPushButton(_parent, "Add Configuration", null);
+		createTextLabelLayout(parent, " - ");
+		createTextLabelLayout(parent, " - ");
+		
+		addConfig.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent evt) {
+
+				createConfigLocationUI(_parent, nb_configLocations);
+				nb_configLocations++;
+				updateLaunchConfigurationDialog();
+				}
+			});	
+
+		
+		
+		
 		return parent;
+	}
+
+
+	protected void createConfigLocationUI(Composite parent, int i) {
+		_configLabels.add(createTextLabelLayout(parent, "configuration of model #"+i+" to execute"));
+		_configurationLocationTexts.add(new Text(parent, SWT.SINGLE | SWT.BORDER));
+		final Text iemeText = _configurationLocationTexts.get(i);
+		iemeText.setLayoutData(createStandardLayout());
+		iemeText.addModifyListener(fBasicModifyListener);
+		_browseLocationButtons.add(createPushButton(parent, "Browse", null));
+		_browseLocationButtons.get(i).addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent evt) {
+				// handleModelLocationButtonSelected();
+				// TODO launch the appropriate selector
+
+				SelectAnyIFileDialog dialog = new SelectAnyIFileDialog();
+				if (dialog.open() == Dialog.OK) {
+					String modelPath = ((IResource) dialog.getResult()[0])
+							.getFullPath().toPortableString();
+					iemeText.setText(modelPath);
+					updateLaunchConfigurationDialog();
+				}
+			}
+		});
 	}
 	
 	
