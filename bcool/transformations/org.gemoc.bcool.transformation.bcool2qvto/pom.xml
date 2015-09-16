@@ -31,6 +31,75 @@
           <target/>
         </configuration>
       </plugin>
+      <plugin>
+       <groupId>org.eclipse.acceleo</groupId>
+       <artifactId>org.eclipse.acceleo.maven</artifactId>
+       <version>3.5.2</version>
+       <executions>
+         <execution>
+           <phase>compile</phase>
+           <goals>
+              <goal>acceleo-compile</goal>
+            </goals>
+         </execution>
+       </executions>
+       <configuration>
+         <useBinaryResources>false</useBinaryResources>
+         <usePlatformResourcePath>true</usePlatformResourcePath>
+         <acceleoProject>
+           <root>${project.basedir}</root>
+           <entries>
+             <entry>
+               <input>src</input>
+               <output>target/classes</output>
+             </entry>
+           </entries>
+         </acceleoProject>
+         <packagesToRegister>
+           	<packageToRegister>fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.BasicTypePackage</packageToRegister>
+           	<packageToRegister>fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage</packageToRegister>
+			<packageToRegister>fr.inria.aoste.timesquare.ECL.ECLPackage</packageToRegister>
+			<packageToRegister>org.eclipse.emf.ecore.EcorePackage</packageToRegister>
+           	<packageToRegister>org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage</packageToRegister>
+			<packageToRegister>org.eclipse.ocl.examples.pivot.PivotPackage</packageToRegister>
+			<packageToRegister>org.eclipse.ocl.examples.xtext.base.basecs.BaseCSPackage</packageToRegister>
+           	<packageToRegister>org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.EssentialOCLCSPackage</packageToRegister>
+           	<packageToRegister>org.eclipse.xtext.xbase.XbasePackage</packageToRegister>
+           	<packageToRegister>org.gemoc.bcool.model.bcool.BcoolPackage</packageToRegister>
+           	<packageToRegister>org.gemoc.gexpressions.GexpressionsPackage</packageToRegister>           	
+         </packagesToRegister>
+       </configuration>
+     </plugin>
     </plugins>
   </build>
+  <repositories>
+<!--      <repository> -->
+<!--        <id>obeo market place</id> -->
+<!--        <layout>p2</layout> -->
+<!--        <url>http://marketplace.obeonetwork.com/updates/od5/</url> -->
+<!--      </repository> -->
+<!--      <repository> -->
+<!--        <id>Eclipse - Acceleo Snapshots</id> -->
+<!--        <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url> -->
+<!--      </repository> -->
+     <repository>
+       <id>Eclipse - Acceleo Release</id>
+       <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+     </repository>
+  </repositories>
+  <pluginRepositories>
+<!--      <pluginRepository> -->
+<!--        <id>codehaus.snapshots</id> -->
+<!--        <url>http://snapshots.repository.codehaus.org/</url> -->
+<!--      </pluginRepository> -->
+<!--      <pluginRepository> -->
+<!--        <id>Eclipse - Acceleo Snapshots</id> -->
+<!--        <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url> -->
+<!--      </pluginRepository> -->
+     <pluginRepository>
+       <id>Eclipse - Acceleo Release</id>
+       <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+     </pluginRepository>
+  </pluginRepositories>
+  
 </project>
