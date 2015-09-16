@@ -68,8 +68,11 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 
 [for (im : ImportInterfaceStatement |aBCoolSpecification.importsBehavioralInterface)]
 [let modelNumber : EInt = i]
+
 		[let anEclDoc : ECLDocument = im.getEclDocument()]
-		[let allEvents : Sequence(DefCS) = anEclDoc.eAllContents()->select(eo | eo.oclIsKindOf(DefCS) and eo.oclAsType(DefCS).ownedType.oclIsKindOf(EventType))]
+
+		[let allEvents : Sequence(DefCS) = anEclDoc.eAllContents()->select(eo | eo.oclIsTypeOf(ECLDefCS) and eo.oclAsType(ECLDefCS).ownedType.oclIsKindOf(EventType))]
+		
 		[for (evt : DefCS | allEvents)]
 
 

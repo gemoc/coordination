@@ -416,8 +416,8 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ExpressionDeclaration:
-		//	{ExpressionDeclaration} "ExpressionDeclaration" name=ID "{" ("formalParameters" "{" formalParameters+=[ecore::EObject]
-		//	("," formalParameters+=[ecore::EObject])* "}")? "}";
+		//	{ExpressionDeclaration} "ExpressionDeclaration" name=ID "{" ("formalParameters" "{"
+		//	formalParameters+=[ecore::EObject] ("," formalParameters+=[ecore::EObject])* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//{ExpressionDeclaration} "ExpressionDeclaration" name=ID "{" ("formalParameters" "{" formalParameters+=[ecore::EObject]
@@ -576,8 +576,8 @@ public class BCOoLLibGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExpressionDeclaration:
-	//	{ExpressionDeclaration} "ExpressionDeclaration" name=ID "{" ("formalParameters" "{" formalParameters+=[ecore::EObject]
-	//	("," formalParameters+=[ecore::EObject])* "}")? "}";
+	//	{ExpressionDeclaration} "ExpressionDeclaration" name=ID "{" ("formalParameters" "{"
+	//	formalParameters+=[ecore::EObject] ("," formalParameters+=[ecore::EObject])* "}")? "}";
 	public ExpressionDeclarationElements getExpressionDeclarationAccess() {
 		return pExpressionDeclaration;
 	}
