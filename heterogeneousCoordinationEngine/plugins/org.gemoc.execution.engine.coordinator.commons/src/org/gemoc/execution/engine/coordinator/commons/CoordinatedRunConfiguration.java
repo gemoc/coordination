@@ -1,13 +1,11 @@
 package org.gemoc.execution.engine.coordinator.commons;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.URI;
 import org.gemoc.execution.engine.commons.RunConfiguration;
-import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;
-import org.gemoc.gemoc_language_workbench.api.extensions.engine_addon.EngineAddonSpecificationExtension;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 
@@ -16,8 +14,27 @@ public class CoordinatedRunConfiguration extends RunConfiguration
 	
 	// main launch parameters
 	public static final String LAUNCH_BCOOL_PATH = "GEMOC_LAUNCH_MODEL_PATH";
-		
+	
 	private ILaunchConfiguration _launchConfiguration;
+	
+	private URI _bcoolURI;
+	private String _bcoolFileName;
+	private ArrayList<URI> _configurationURIs = new ArrayList<URI>();
+	private int nb_config = 0;
+
+	
+	public String getBcoolFileName() 
+	{
+		return _bcoolFileName;
+	}
+	public URI getBcoolModelURI() 
+	{
+		return _bcoolURI;
+	}
+	public ArrayList<URI> getConfigurationURIs() 
+	{
+		return _configurationURIs;
+	}
 	
 	public CoordinatedRunConfiguration(ILaunchConfiguration launchConfiguration) throws CoreException
 	{
@@ -26,19 +43,17 @@ public class CoordinatedRunConfiguration extends RunConfiguration
 		extractInformation();
 	}
 
-
 	private void extractInformation() throws CoreException 
 	{
 		_bcoolURI = URI.createPlatformResourceURI(
 				getAttribute(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI, ""),
 				true);
-		
-		_ConfigurationURI1 = URI.createPlatformResourceURI(
-				getAttribute("Configuration1", "")
-				,true);
-		_ConfigurationURI2 = URI.createPlatformResourceURI(
-				getAttribute("Configuration2", "")
-				,true);
+		nb_config = getAttribute("nb_logicalSteps", 0);
+		for(int i=0; i < nb_config; i++){
+		_configurationURIs.add(URI.createPlatformResourceURI(
+				getAttribute("Configuration"+i, "")
+				,true));
+		}
 	}
 
 	private String getAttribute(String attributeName, String defaultValue) throws CoreException
@@ -56,28 +71,9 @@ public class CoordinatedRunConfiguration extends RunConfiguration
 		return _launchConfiguration.getAttribute(attributeName, defaultValue);
 	}
 
-	private String _bcoolFileName;
-	public String getBcoolFileName() 
-	{
-		return _bcoolFileName;
-	}
+	
 	
 
-	private URI _bcoolURI;
-	public URI getBcoolModelURI() 
-	{
-		return _bcoolURI;
-	}
-	private URI _ConfigurationURI1;
-	public URI getConfigurationURI1() 
-	{
-		return _ConfigurationURI1;
-	}
-	private URI _ConfigurationURI2;
-	public URI getConfigurationURI2() 
-	{
-		return _ConfigurationURI2;
-	}
 
 
 	@Override

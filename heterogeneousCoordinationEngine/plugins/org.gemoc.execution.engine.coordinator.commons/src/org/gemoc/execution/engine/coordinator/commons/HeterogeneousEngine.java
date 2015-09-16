@@ -165,14 +165,34 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		}
 	}
 	
+
 	@Override
 	public void notifyEngineStarted() {
 		if (_coordinatedEngines.size() == 0){
 			return;
 		}
 		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) {
-			try {
+			try {if (_coordinatedEngines.size() == 0){
+				return;
+			}
 				addon.engineStarted(this);
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
+			}
+		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.gemoc.execution.engine.core.IExecutionEngine#notifyLogicalStepExecuted(org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep)
+	 */
+	@Override
+	public void notifyLogicalStepExecuted(LogicalStep l) {
+		if (_coordinatedEngines.size() == 0){
+			return;
+		}
+		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) {
+			try {
+				addon.logicalStepExecuted(this, l);
 			} catch (Exception e) {
 				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
 			}
@@ -339,7 +359,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			notifyLogicalStepSelected();
 			// run all the event occurrences of this logical
 			// step
-		//	notifyAboutToExecuteLogicalStep(selectedLogicalStep);
+			notifyAboutToExecuteLogicalStep(selectedLogicalStep);
 			executeSelectedLogicalStep();
 			notifyLogicalStepExecuted(selectedLogicalStep);
 		}
@@ -475,7 +495,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			// run all the event occurrences of this logical
 			// step
 
-		//	oneEngine.notifyAboutToExecuteLogicalStep(selectedLogicalStep); 
+			oneEngine.notifyAboutToExecuteLogicalStep(selectedLogicalStep); 
 			oneEngine.executeSelectedLogicalStep();
 			oneEngine.notifyLogicalStepExecuted(selectedLogicalStep);
 		
