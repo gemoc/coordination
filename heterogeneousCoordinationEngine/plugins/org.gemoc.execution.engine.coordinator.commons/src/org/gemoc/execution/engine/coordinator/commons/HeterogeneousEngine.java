@@ -4,13 +4,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.management.RuntimeErrorException;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
@@ -19,6 +24,7 @@ import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.core.AbstractExecutionEngine;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
 import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
+import org.gemoc.execution.engine.trace.gemoc_execution_trace.impl.LogicalStepImpl;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
@@ -47,6 +53,8 @@ import fr.inria.aoste.timesquare.ccslkernel.solver.CCSLKernelSolver;
 import fr.inria.aoste.timesquare.ccslkernel.solver.TimeModel.SolverClock;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
+
+import com.google.common.collect.Sets;
 
 /**
  * Naive implementation of the heterogeneous ExecutionEngine, where so called 
@@ -221,6 +229,17 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 
 	
+	class ExtendedLogicalStep extends LogicalStepImpl{
+		
+		public ExtendedLogicalStep(LogicalStep step) {
+			this.mseOccurrences = new BasicEList<MSEOccurrence>(step.getMseOccurrences().size());
+			this.mseOccurrences.addAll(step.getMseOccurrences());
+		}
+		int indexInSolution =0;
+		int solverIndex =0;
+		
+	}
+	
 	/**
 	 * TODO: this only work for two coordinated engines... not sure how to generalize that
 	 * 
@@ -229,39 +248,82 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	 */
 	public ArrayList<HeterogeneousLogicalStep> computeHeterogeneousLogicalStep() throws SimulationException{
 		ArrayList<HeterogeneousLogicalStep> res = new ArrayList<HeterogeneousLogicalStep>();
-		
-		IConcurrentExecutionEngine engine0 = _coordinatedEngines.get(0);
-		IConcurrentExecutionEngine engine1 = _coordinatedEngines.get(1);
-		
-		LogicalStep emptyLogicalStep = org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory.eINSTANCE.createLogicalStep();
+//		
+//		IConcurrentExecutionEngine engine0 = _coordinatedEngines.get(0);
+//		IConcurrentExecutionEngine engine1 = _coordinatedEngines.get(1);
+//		
 
-		List<LogicalStep> logicalStepsOf0 = engine0.getPossibleLogicalSteps();
-		logicalStepsOf0.add(emptyLogicalStep); //to allow stalling/stuttering an engine
-		List<LogicalStep> logicalStepsOf1 = engine1.getPossibleLogicalSteps();
-		logicalStepsOf1.add(emptyLogicalStep); //to allow stalling/stuttering an engine
-		
-		for(int logicalStepNumberIn0 = 0; logicalStepNumberIn0 < logicalStepsOf0.size(); logicalStepNumberIn0++ ){
-			for(int logicalStepNumberIn1 = 0; logicalStepNumberIn1 < logicalStepsOf1.size(); logicalStepNumberIn1++ ){
-				addConstraintsFromOneStepOfOneEngine(0, logicalStepsOf0.get(logicalStepNumberIn0));
-				addConstraintsFromOneStepOfOneEngine(1, logicalStepsOf1.get(logicalStepNumberIn1));
-
-				if (_coordinationSolver.hasSolution()){
-					HeterogeneousLogicalStep theStepsUsed = new HeterogeneousLogicalStep();
-					theStepsUsed.logicalSteps.add(logicalStepsOf0.get(logicalStepNumberIn0));
-					theStepsUsed.stepPositions.add(logicalStepNumberIn0);
-					theStepsUsed.logicalSteps.add(logicalStepsOf1.get(logicalStepNumberIn1));
-					theStepsUsed.stepPositions.add(logicalStepNumberIn1);
-					res.add(theStepsUsed);
-				}else{
-//					System.out.println("incompatible couple of LS: "+logicalStepNumberIn0+" ; "+logicalStepNumberIn1);
-				}
-				_coordinationSolver.revertForceClockEffect();
-			}
+		ArrayList<Set<ExtendedLogicalStep>> allLogicalSteps = new ArrayList<Set<ExtendedLogicalStep>>(_coordinatedEngines.size());
+		for(int i= 0; i < _coordinatedEngines.size(); i++){
+			IConcurrentExecutionEngine engine = _coordinatedEngines.get(i);
+			List<ExtendedLogicalStep> possibleSteps = extendLogicalSteps(engine.getPossibleLogicalSteps(), i);
+			Set<ExtendedLogicalStep> engineLogicalSteps = new HashSet<ExtendedLogicalStep>(possibleSteps);
+			allLogicalSteps.add(engineLogicalSteps);
 		}
+		
+		Set<List<ExtendedLogicalStep>> cartesianProductOfLogicalSteps = Sets.cartesianProduct(allLogicalSteps);
+		
+		for(List<ExtendedLogicalStep> steps : cartesianProductOfLogicalSteps){
+			for(int i = 0; i < steps.size(); i++){
+				ExtendedLogicalStep stepToAdd = steps.get(i);
+				addConstraintsFromOneStepOfOneEngine(stepToAdd.solverIndex, stepToAdd);
+			}
+			
+			if (_coordinationSolver.hasSolution()){
+				HeterogeneousLogicalStep theStepsUsed = new HeterogeneousLogicalStep();
+				theStepsUsed.logicalSteps.addAll(steps);
+				res.add(theStepsUsed);
+			}else{
+//				System.out.println("incompatible couple of LS: "+logicalStepNumberIn0+" ; "+logicalStepNumberIn1);
+			}
+			_coordinationSolver.revertForceClockEffect();
+			
+		}
+		
+//		
+//		
+//		List<LogicalStep> logicalStepsOf0 = engine0.getPossibleLogicalSteps();
+//		logicalStepsOf0.add(emptyLogicalStep); //to allow stalling/stuttering an engine
+//		List<LogicalStep> logicalStepsOf1 = engine1.getPossibleLogicalSteps();
+//		logicalStepsOf1.add(emptyLogicalStep); //to allow stalling/stuttering an engine
+//		
+//		for(int logicalStepNumberIn0 = 0; logicalStepNumberIn0 < logicalStepsOf0.size(); logicalStepNumberIn0++ ){
+//			for(int logicalStepNumberIn1 = 0; logicalStepNumberIn1 < logicalStepsOf1.size(); logicalStepNumberIn1++ ){
+//				addConstraintsFromOneStepOfOneEngine(0, logicalStepsOf0.get(logicalStepNumberIn0));
+//				addConstraintsFromOneStepOfOneEngine(1, logicalStepsOf1.get(logicalStepNumberIn1));
+//
+//				if (_coordinationSolver.hasSolution()){
+//					HeterogeneousLogicalStep theStepsUsed = new HeterogeneousLogicalStep();
+//					theStepsUsed.logicalSteps.add(logicalStepsOf0.get(logicalStepNumberIn0));
+//					theStepsUsed.stepPositions.add(logicalStepNumberIn0);
+//					theStepsUsed.logicalSteps.add(logicalStepsOf1.get(logicalStepNumberIn1));
+//					theStepsUsed.stepPositions.add(logicalStepNumberIn1);
+//					res.add(theStepsUsed);
+//				}else{
+////					System.out.println("incompatible couple of LS: "+logicalStepNumberIn0+" ; "+logicalStepNumberIn1);
+//				}
+//				_coordinationSolver.revertForceClockEffect();
+//			}
+//		}
 		
 		return res;
 	}
 
+	private List<ExtendedLogicalStep> extendLogicalSteps(
+			List<LogicalStep> possibleLogicalSteps, int iSolver) {
+		List<ExtendedLogicalStep> res = new ArrayList<ExtendedLogicalStep>(possibleLogicalSteps.size());
+		for(int i =0; i < possibleLogicalSteps.size(); i++){
+			ExtendedLogicalStep eStep = new ExtendedLogicalStep(possibleLogicalSteps.get(i));
+			eStep.indexInSolution = i;
+			eStep.solverIndex = iSolver;
+			res.add(eStep);
+		}
+		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory.eINSTANCE.createLogicalStep());
+		emptyLogicalStep.indexInSolution= possibleLogicalSteps.size();
+		emptyLogicalStep.solverIndex=iSolver;
+		res.add(emptyLogicalStep);
+		return res;
+	}
 	public void addConstraintsFromOneStepOfOneEngine(int engineNumber, LogicalStep aStep) throws SimulationException{
 			
 		CCSLKernelSolver oneSolver= _t2Solvers.get(engineNumber);
@@ -481,7 +543,12 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	public void executeSelectedLogicalStep(){
 		for(int i=0; i < _coordinatedEngines.size(); i++){
 			IConcurrentExecutionEngine oneEngine = _coordinatedEngines.get(i);
-			int theLogicalStepToSelect = _selectedCompliantStep.stepPositions.get(i);
+			int theLogicalStepToSelect = -1;
+			for(ExtendedLogicalStep eStep : _selectedCompliantStep.logicalSteps){
+				if (eStep.solverIndex == i){
+					theLogicalStepToSelect= eStep.indexInSolution;
+				}
+			}
 			//if we chose the empty step, do nothing
 			if(theLogicalStepToSelect==(oneEngine.getPossibleLogicalSteps().size())){
 				continue;
