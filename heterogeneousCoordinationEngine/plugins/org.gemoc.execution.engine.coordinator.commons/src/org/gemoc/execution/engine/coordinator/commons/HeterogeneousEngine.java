@@ -124,6 +124,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			IProject coordinationProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 			IFile ccslFile = coordinationProject.getFile(ccordinationPathName.replaceFirst("/"+projectName+"/", ""));
 			_coordinationSolver.getSolverWrapper().getSolver().loadCoordinationModel(ResourceLoader.INSTANCE.loadResource(ccslFile.getFullPath()));
+			_coordinationSolver.getSolverWrapper().getSolver().initSimulation();
 		} catch (IOException | UnfoldingException | SimulationException e) {
 			e.printStackTrace();
 		}
@@ -389,7 +390,14 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			// inform the solver that we will run this step
 			if (selectedLogicalStep != null)
 			{
-//				executeSelectedLogicalStep();
+				try {
+					
+					//here we must force selected clocks from the other engine before to ask for all solution otherwise it is a computational nightmare
+					_coordinationSolver.getSolverWrapper().getAllPossibleSteps();
+					_coordinationSolver.getSolverWrapper().applyLogicalStepByIndex(_heterogeneousLogicalSteps.indexOf(selectedLogicalStep));
+				} catch (SimulationException e) {
+					e.printStackTrace();
+				}
 				engineStatus.setNbLogicalStepRun(engineStatus.getNbLogicalStepRun()+1);
 				computePossibleLogicalSteps();
 			} else {
@@ -425,6 +433,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			notifyAboutToExecuteLogicalStep(selectedLogicalStep);
 			executeSelectedLogicalStep();
 			notifyLogicalStepExecuted(selectedLogicalStep);
+			
 		}
 		return selectedLogicalStep;
 	}
@@ -570,9 +579,18 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		
 			// 3 - run the selected logical step
 			// inform the solver that we will run this step
+			//force the clocks in the BDD of the coordinated engine
 			if (selectedLogicalStep != null)
 			{
 				oneEngine.getSolver().applyLogicalStep(selectedLogicalStep);
+				
+				try {
+					addConstraintsFromOneStepOfOneEngine(_coordinatedEngines.indexOf(oneEngine), selectedLogicalStep);
+				} catch (SimulationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				oneEngine.getEngineStatus().incrementNbLogicalStepRun();
 			}
 		}
