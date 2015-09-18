@@ -84,7 +84,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 			}
 			_configLabels.clear();
 			_bcoolLocationText.setText(URIHelper.removePlatformScheme(runConfiguration.getBcoolModelURI()));
-			nb_configLocations = configuration.getAttribute("nb_logicalSteps", 2);
+			nb_configLocations = configuration.getAttribute("nb_logicalSteps", 0);
 			for (int i = 0; i < nb_configLocations; i++){
 				createConfigLocationUI(_parent, i);
 				String path = configuration.getAttribute("Configuration"+(i), (String)null);
