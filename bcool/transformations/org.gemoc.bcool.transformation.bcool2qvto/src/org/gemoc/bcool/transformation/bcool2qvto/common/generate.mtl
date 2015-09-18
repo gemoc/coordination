@@ -124,7 +124,7 @@ query identifyUserRelations() {
 
 
 	[for (im : ImportLibStatement | aBCoolSpecification.importsLib)]
-	[if (im.importURI.endsWith('ccslLib'))]
+	[if (im.importURI.endsWith('ccslLib') or im.importURI.endsWith('moccml'))]
 		seqOfRelationDeclaration		+= getLibObjects("[im.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::RelationDeclaration[']'/];
 		seqOfAbstractEntity				+= getLibObjects("[im.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity[']'/];
 		seqOfExpressionDeclaration		+= getLibObjects("[im.importURI/]")['['/]TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration[']'/];
@@ -470,7 +470,7 @@ mapping [aBCoolSpecification.name/]2CCSLSubBlock() : TimeModel::CCSLModel::Block
 
 	[comment]	I have to firstly imports the ccsllibs [/comment]
 	[for (im : ImportLibStatement| aBCoolSpecification.importsLib)]
-		[if (im.importURI.endsWith('ccslLib'))]
+		[if (im.importURI.endsWith('ccslLib') or im.importURI.endsWith('moccml'))]
 		imports+= object TimeModel::ImportStatement{
 				importURI := '[im.importURI/]';
 				alias := 'lib_[i/]';	
