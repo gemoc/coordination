@@ -88,7 +88,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 			for (int i = 0; i < nb_configLocations; i++){
 				createConfigLocationUI(_parent, i);
 				String path = configuration.getAttribute("Configuration"+(i), (String)null);
-				URI confURI = URI.createFileURI(path);
+				URI confURI = URI.createURI(path);
 				runConfiguration.getConfigurationURIs().add(confURI);
 				if (path != null && path.length() != 0){
 					_configurationLocationTexts.get(i).setText( URIHelper.removePlatformScheme(confURI));

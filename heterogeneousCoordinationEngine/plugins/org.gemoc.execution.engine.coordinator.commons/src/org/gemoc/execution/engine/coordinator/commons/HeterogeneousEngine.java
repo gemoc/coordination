@@ -16,6 +16,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
@@ -89,7 +90,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		return _coordinatedEngines;
 	}
 
-	protected CCSLKernelSolver _coordinationSolver;
+	protected CoordinationSolver _coordinationSolver;
 	protected ArrayList<CCSLKernelSolver> _t2Solvers;
 	
 	public HeterogeneousEngine(CoordinatedModelExecutionContext executionContext, ExecutionMode executionMode) throws EngineContextException {
@@ -100,7 +101,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			}
 			_coordinatedEngines.add((IConcurrentExecutionEngine)e);
 		}
-		_coordinationSolver = new CCSLKernelSolver();
+		_coordinationSolver = new CoordinationSolver(new  CCSLKernelSolver(), executionContext.getCoordinationModelURI());
 		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
 		Injector injector = ess.createInjector();
 		// instanciate a resource set
@@ -122,7 +123,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			String projectName = tmpProjectName.substring(0, tmpProjectName.indexOf('/'));
 			IProject coordinationProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 			IFile ccslFile = coordinationProject.getFile(ccordinationPathName.replaceFirst("/"+projectName+"/", ""));
-			_coordinationSolver.loadCoordinationModel(ResourceLoader.INSTANCE.loadResource(ccslFile.getFullPath()));
+			_coordinationSolver.getSolverWrapper().getSolver().loadCoordinationModel(ResourceLoader.INSTANCE.loadResource(ccslFile.getFullPath()));
 		} catch (IOException | UnfoldingException | SimulationException e) {
 			e.printStackTrace();
 		}
@@ -225,7 +226,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 	
 	public SolverClock getCoordinationSolverClockFromMSE(ModelSpecificEvent inMSE, CCSLKernelSolver aSolver){
-		return _coordinationSolver.findClockByPath(getQualifiedName((Clock) inMSE.getSolverEvent()));
+		return _coordinationSolver.getSolverWrapper().getSolver().findClockByPath(getQualifiedName((Clock) inMSE.getSolverEvent()));
 	}
 
 	
@@ -269,7 +270,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 				addConstraintsFromOneStepOfOneEngine(stepToAdd.solverIndex, stepToAdd);
 			}
 			
-			if (_coordinationSolver.hasSolution()){
+			if (_coordinationSolver.getSolverWrapper().getSolver().hasSolution()){
 				HeterogeneousLogicalStep theStepsUsed = new HeterogeneousLogicalStep();
 				theStepsUsed.logicalSteps.addAll(steps);
 				res.add(theStepsUsed);
@@ -332,10 +333,10 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 				ModelSpecificEvent mse = mseOcc.getMse();
 				SolverClock coordinationClock = getCoordinationSolverClockFromMSE(mse, oneSolver);
 				trueClocks.add(coordinationClock);
-				_coordinationSolver.forceClockPresence(coordinationClock);
+				_coordinationSolver.getSolverWrapper().getSolver().forceClockPresence(coordinationClock);
 			}
 			//here we are to force absence of the other clocks managed by the engine
-			List<RuntimeClock> allRuntimeClocks = _coordinationSolver.getAllDiscreteClocks();
+			List<RuntimeClock> allRuntimeClocks = _coordinationSolver.getSolverWrapper().getSolver().getAllDiscreteClocks();
 			//should keep only clock managed by the engine engineNumber
 			for(RuntimeClock rc: allRuntimeClocks){
 				String QNrc = "";
@@ -349,7 +350,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 				}
 				if (rc instanceof SolverClock){
 					if (!trueClocks.contains(rc)){
-						_coordinationSolver.forceClockAbscence((SolverClock) rc);
+						_coordinationSolver.getSolverWrapper().getSolver().forceClockAbscence((SolverClock) rc);
 					}else{
 //						System.out.println("already forced to true"+rc);
 					}
@@ -455,7 +456,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	
 	public void computePossibleLogicalSteps(){
 		try {
-			_coordinationSolver.constructBDD();
+			_coordinationSolver.getSolverWrapper().getSolver().constructBDD();
 		} catch (SimulationException e1) {e1.printStackTrace();}
 		
 		for(IConcurrentExecutionEngine engine : _coordinatedEngines){
@@ -466,6 +467,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		_heterogeneousLogicalSteps = null;
 		try {
 			_heterogeneousLogicalSteps = computeHeterogeneousLogicalStep();
+			this._coordinationSolver._lastLogicalSteps = _heterogeneousLogicalSteps;
 		} catch (SimulationException e) {e.printStackTrace();}
 		
 		_selectedCompliantStep = _heterogeneousLogicalSteps.get(0);
@@ -656,7 +658,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 	@Override
 	public ISolver getSolver() {
-		return null;
+		return _coordinationSolver;
 	}
 	@Override
 	public void setSolver(ISolver solver) {
@@ -668,7 +670,10 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 	@Override
 	public void notifyLogicalStepSelected() {
-		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
+		if (_coordinatedEngines.size() == 0){
+			return;
+		}
+		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
 				addon.logicalStepSelected(this, getSelectedLogicalStep());
@@ -679,7 +684,10 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 	@Override
 	public void notifyAboutToSelectLogicalStep() {
-		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
+		if (_coordinatedEngines.size() == 0){
+			return;
+		}
+		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
 				addon.aboutToSelectLogicalStep(this, getPossibleLogicalSteps());
@@ -689,9 +697,27 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		}
 		
 	}
+	
+	@Override
+	public void notifyAboutToExecuteLogicalStep(LogicalStep l) {
+		if (_coordinatedEngines.size() == 0){
+			return;
+		}
+		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) {
+			try {
+				addon.aboutToExecuteLogicalStep(this, l);
+			} catch (Exception e) {
+				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
+			}
+		}
+	}
+	
 	@Override
 	public void notifyProposedLogicalStepsChanged(){
-		for (IEngineAddon addon : getExecutionContext().getExecutionPlatform().getEngineAddons()) 
+		if (_coordinatedEngines.size() == 0){
+			return;
+		}
+		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
 				addon.proposedLogicalStepsChanged(this, getPossibleLogicalSteps());
@@ -701,6 +727,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		}
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	
 	
 }
