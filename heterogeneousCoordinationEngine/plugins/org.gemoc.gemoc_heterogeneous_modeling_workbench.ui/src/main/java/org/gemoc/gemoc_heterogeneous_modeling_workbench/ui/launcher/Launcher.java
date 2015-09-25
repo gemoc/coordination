@@ -21,13 +21,13 @@ import org.eclipse.ui.IEditorPart;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedModelExecutionContext;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguration;
 import org.gemoc.execution.engine.coordinator.commons.HeterogeneousEngine;
+import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocDebuggerServices;
-import org.gemoc.gemoc_modeling_workbench.ui.debug.AbstractGemocDebugger;
 import org.gemoc.gemoc_modeling_workbench.ui.debug.GemocModelDebugger;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
