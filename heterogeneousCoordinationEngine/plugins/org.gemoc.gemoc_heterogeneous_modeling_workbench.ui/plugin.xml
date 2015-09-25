@@ -49,8 +49,8 @@
    <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
     <launchConfigurationTypeImage
         icon="icons/IconeGemocModel-16.png"
-        configTypeID="org.gemoc.gemoc_modeling_workbench.ui.launcher"
-        id="org.gemoc.gemoc_modeling_workbench.ui.launcher.image">
+        configTypeID="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher"
+        id="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher.image">
     </launchConfigurationTypeImage>
 	</extension>
 	   <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
@@ -66,7 +66,7 @@
             class="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher.Launcher"
             icon="icons/IconeGemocModel-16.png"
             id="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.GemocExecutableReflectiveModel"
-            label="Gemoc eXecutable Model"
+            label="GEMOC coordinated eXecutable Models"
             modes="run, debug">
          <configurationType
                id="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.GemocReflectiveModelLauncherID">
@@ -93,11 +93,11 @@
                </iterate>
             </enablement>
             <contextLabel
-                  label="Run as Gemoc Coordinated eXecutable Reflective Model"
+                  label="Run as GEMOC Coordinated eXecutable Reflective Model"
                   mode="run">
             </contextLabel>
             <contextLabel
-                  label="Debug as Gemoc Coordinated eXecutable Reflective Model"
+                  label="Debug as GEMOC Coordinated eXecutable Reflective Model"
                   mode="debug">
             </contextLabel>
          </contextualLaunch>
