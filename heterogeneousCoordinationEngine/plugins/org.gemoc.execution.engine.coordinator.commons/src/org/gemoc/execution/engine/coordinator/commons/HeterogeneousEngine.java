@@ -391,10 +391,13 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			if (selectedLogicalStep != null)
 			{
 				try {
-					
-					//here we must force selected clocks from the other engine before to ask for all solution otherwise it is a computational nightmare
-					_coordinationSolver.getSolverWrapper().getAllPossibleSteps();
-					_coordinationSolver.getSolverWrapper().applyLogicalStepByIndex(_heterogeneousLogicalSteps.indexOf(selectedLogicalStep));
+					//here we must have forced selected clocks from the other engine before to ask for all solution otherwise it is a computational nightmare
+					for(int i = 0; i < ((HeterogeneousLogicalStep)selectedLogicalStep).logicalSteps.size(); i++){
+						ExtendedLogicalStep stepToAdd = ((HeterogeneousLogicalStep)selectedLogicalStep).logicalSteps.get(i);
+						addConstraintsFromOneStepOfOneEngine(stepToAdd.solverIndex, stepToAdd);
+					}
+					List<fr.inria.aoste.trace.LogicalStep> allPossibleSteps = _coordinationSolver.getSolverWrapper().getAllPossibleSteps();
+					_coordinationSolver.getSolverWrapper().applyLogicalStepByIndex((int) (Math.random()%(allPossibleSteps.size())));
 				} catch (SimulationException e) {
 					e.printStackTrace();
 				}
