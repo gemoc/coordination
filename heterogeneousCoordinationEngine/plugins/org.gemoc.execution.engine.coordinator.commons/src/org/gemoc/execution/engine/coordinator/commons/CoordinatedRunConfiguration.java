@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.URI;
-import org.gemoc.execution.engine.commons.RunConfiguration;
+import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 
