@@ -27,7 +27,6 @@ import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocDebuggerServices;
-//import org.gemoc.gemoc_modeling_workbench.ui.debug.AbstractGemocDebugger;
 import org.gemoc.gemoc_modeling_workbench.ui.debug.GemocModelDebugger;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;

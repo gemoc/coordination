@@ -24,7 +24,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.gemoc.commons.eclipse.emf.URIHelper;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
-//import org.gemoc.execution.engine.commons.RunConfiguration;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguration;
 import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
