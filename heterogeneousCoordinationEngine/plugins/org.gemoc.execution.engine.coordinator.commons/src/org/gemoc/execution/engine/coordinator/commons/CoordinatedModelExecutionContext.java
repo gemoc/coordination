@@ -112,7 +112,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			URI launchURI = runConfiguration.getConfigurationURIs().get(i);
 			createAndLaunchConfiguration(executionMode, monitor, launchURI);
 			try {
-				Thread.sleep(500);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
