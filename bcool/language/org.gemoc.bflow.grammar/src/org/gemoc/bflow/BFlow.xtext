@@ -1,0 +1,21 @@
+grammar org.gemoc.bflow.BFlow with org.eclipse.xtext.common.Terminals
+
+generate bFlow "http://www.gemoc.org/bflow/BFlow"
+
+import "http://org.gemoc.bcool.model/"
+Model:
+	'BCOoLFlow' name=ID '{'
+		'BCOoL Specification:' importURI=STRING ';'
+		'Output:' outputtimemodel=STRING ';'
+		 models+=modelinput*
+		 'Flow' bcoolflow+= Flows*
+		 
+		 'end Flow;'
+	'}';
+
+modelinput:
+	'Model' name=ID '(' timemodel=STRING ',' modeluri=STRING ')' ';'
+;
+	
+Flows:
+	'applies' oper=[BCoolCompositionRule] 'between' '('(params+=[modelinput](',' params+=[modelinput])*)? ')' ';';
