@@ -39,7 +39,13 @@ inM[i/] : inMM[i/],
 	[/if]
 [/for] inout outCCSLModel : TimeModel);
 
+// properties to parametrize the application of operators
+[for (operator : BCoolCompositionRule | aBCoolSpecification.bcoolOperators->first().bcoolCompositionRules)]
+		configuration property Is[operator.name/]Executed : Boolean;
+[/for]
 
+// property to apply all the operators
+configuration property ApplyAll : Boolean;
 
 [for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 [if (im.importURI.endsWith('ecl'))]
@@ -208,6 +214,8 @@ main() {
 
 [comment]	Each operator is split in a foreach for every argument [/comment]
 [for (rule : BCoolCompositionRule | aBCoolSpecification.bcoolOperators->first().bcoolCompositionRules)]	
+	
+	if (Is[rule.name/]Executed) or (ApplyAll) then { 
 	[for (operArgs : BCoolOperatorArg | rule.BCoolOperatorArgs)]
 		[let dse : DefPropertyCS = operArgs.DSE]
 			
@@ -334,6 +342,7 @@ main() {
 	[for (dse : BCoolOperatorArg | rule.BCoolOperatorArgs)]
 		};
 	[/for]
+}endif;
 [/for]
 }
 

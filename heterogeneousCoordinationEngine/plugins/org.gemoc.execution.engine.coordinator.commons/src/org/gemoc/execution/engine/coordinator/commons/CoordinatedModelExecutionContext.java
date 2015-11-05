@@ -2,7 +2,9 @@ package org.gemoc.execution.engine.coordinator.commons;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 
 import javax.management.RuntimeErrorException;
 
@@ -20,14 +22,22 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.ILaunchConfigurationType;
+import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
+import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.resource.SaveOptions;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
+import org.eclipse.xtext.resource.SaveOptions.Builder;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
+import org.gemoc.bflow.BFlowStandaloneSetup;
+import org.gemoc.bflow.bFlow.Model;
 import org.gemoc.execution.engine.commons.Activator;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.commons.LogicalStepDeciderFactory;
@@ -177,10 +187,73 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		
 		_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
 		
-		GemocQvto2CCSLTranslator qvto2ccslTranslator = new GemocQvto2CCSLTranslator(); 
-
-		qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
-	
+		
+		// I get the path of the bflow
+		String bflowPath = runConfiguration.getBFloWModelPath();
+		
+		if (bflowPath != "") {
+			
+			BFlowStandaloneSetup  ess= new BFlowStandaloneSetup();
+			Injector injector = ess.createInjector();
+		    XtextResourceSet aSet = injector.getInstance(XtextResourceSet.class);
+			aSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.FALSE);
+			EcoreUtil.resolveAll(aSet);
+			BFlowStandaloneSetup.doSetup();
+			
+			URI BFloWuri =null;
+			//filter URI
+		//	if (bflowPath.startsWith("platform:/plugin")){
+			//	BFloWuri = URI.createPlatformPluginURI(bflowPath.replace("platform:/plugin", ""), false);
+		//	}else
+		//	if(bflowPath.startsWith("platform:/resource")){
+				BFloWuri = URI.createPlatformResourceURI(bflowPath,false);
+		//	}else{//relative path
+//				throw new IllegalArgumentException("the path of the library must be platform based (platform:/resource or platform:/plugin)");
+		//		BFloWuri = URI.createFileURI(bflowPath);
+		//	}
+			
+			 //load the corresponding resource
+		    Resource bflowResource = aSet.getResource(BFloWuri, true);
+		    HashMap<Object, Object> saveOptions = new HashMap<Object, Object>();
+		    Builder aBuilder = SaveOptions.newBuilder();
+		    SaveOptions anOption = aBuilder.getOptions();
+		    anOption.addTo(saveOptions);
+		    try {
+		    	bflowResource.load(saveOptions);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		    
+			Model bflowmodel = (Model)bflowResource.getContents().get(0);
+			
+			String bflowtmpProjectName = bflowPath.substring(1, bflowPath.length());
+			String bflowprojectName = bflowtmpProjectName.substring(0, bflowtmpProjectName.indexOf('/'));
+			
+			String xmlgenerated = "/"+bflowprojectName + "/gemoc-gen/"+bflowmodel.getName().toString()+".xml";
+			
+			// I have to open the .bflow in order to get some parameters
+			ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();  
+			  ILaunchConfigurationType nada =  manager.getLaunchConfigurationType("org.eclipse.ant.AntLaunchConfigurationType");  
+			  try {  
+			   ILaunchConfigurationWorkingCopy workingCopy = nada.newInstance(null, "Run ant task");  
+			   workingCopy.setAttribute("org.eclipse.ant.ui.DEFAULT_VM_INSTALL","false");  
+			   workingCopy.setAttribute("org.eclipse.debug.core.MAPPED_RESOURCE_PATHS",Arrays.asList(xmlgenerated));  
+			   workingCopy.setAttribute("org.eclipse.debug.core.MAPPED_RESOURCE_TYPES",Arrays.asList("1"));  
+			   workingCopy.setAttribute("org.eclipse.jdt.launching.CLASSPATH_PROVIDER","org.eclipse.ant.ui.AntClasspathProvider");  
+			   workingCopy.setAttribute("org.eclipse.jdt.launching.PROJECT_ATTR",bflowprojectName);  
+			   workingCopy.setAttribute("org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER","org.eclipse.ant.ui.AntClasspathProvider");  
+			   workingCopy.setAttribute("org.eclipse.ui.externaltools.ATTR_LOCATION","${workspace_loc:/"+xmlgenerated+"}");  
+			   workingCopy.setAttribute("process_factory_id","org.eclipse.ant.ui.remoteAntProcessFactory");  
+			   DebugUITools.launch(workingCopy, ILaunchManager.RUN_MODE);  
+			  } catch (CoreException e) {  
+			   e.printStackTrace();  
+			  }  
+		}else{
+			GemocQvto2CCSLTranslator qvto2ccslTranslator = new GemocQvto2CCSLTranslator(); 
+			qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
+		}
 		return;
 	}
 

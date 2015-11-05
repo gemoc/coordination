@@ -18,6 +18,8 @@ public class CoordinatedRunConfiguration extends RunConfiguration
 	private ILaunchConfiguration _launchConfiguration;
 	
 	private URI _bcoolURI;
+	private String _bflowPath;
+	
 	private String _bcoolFileName;
 	private ArrayList<URI> _configurationURIs = new ArrayList<URI>();
 	private int nb_config = 0;
@@ -31,6 +33,11 @@ public class CoordinatedRunConfiguration extends RunConfiguration
 	{
 		return _bcoolURI;
 	}
+	
+	public String getBFloWModelPath (){
+		return _bflowPath;
+	}
+	
 	public ArrayList<URI> getConfigurationURIs() 
 	{
 		return _configurationURIs;
@@ -48,6 +55,7 @@ public class CoordinatedRunConfiguration extends RunConfiguration
 		_bcoolURI = URI.createPlatformResourceURI(
 				getAttribute(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI, ""),
 				true);
+		_bflowPath = getAttribute("bflow", "");
 		nb_config = getAttribute("nb_logicalSteps", 0);
 		for(int i=0; i < nb_config; i++){
 		_configurationURIs.add(URI.createPlatformResourceURI(
