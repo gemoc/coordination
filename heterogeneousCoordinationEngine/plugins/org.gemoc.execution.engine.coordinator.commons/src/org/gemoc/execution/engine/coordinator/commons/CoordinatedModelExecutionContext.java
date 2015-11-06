@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 import javax.management.RuntimeErrorException;
 
+import org.eclipse.ant.core.AntRunner;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -233,23 +234,17 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			
 			String xmlgenerated = "/"+bflowprojectName + "/gemoc-gen/"+bflowmodel.getName().toString()+".xml";
 			
-			// I have to open the .bflow in order to get some parameters
-			ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();  
-			  ILaunchConfigurationType nada =  manager.getLaunchConfigurationType("org.eclipse.ant.AntLaunchConfigurationType");  
-			  try {  
-			   ILaunchConfigurationWorkingCopy workingCopy = nada.newInstance(null, "Run ant task");  
-			   workingCopy.setAttribute("org.eclipse.ant.ui.DEFAULT_VM_INSTALL","false");  
-			   workingCopy.setAttribute("org.eclipse.debug.core.MAPPED_RESOURCE_PATHS",Arrays.asList(xmlgenerated));  
-			   workingCopy.setAttribute("org.eclipse.debug.core.MAPPED_RESOURCE_TYPES",Arrays.asList("1"));  
-			   workingCopy.setAttribute("org.eclipse.jdt.launching.CLASSPATH_PROVIDER","org.eclipse.ant.ui.AntClasspathProvider");  
-			   workingCopy.setAttribute("org.eclipse.jdt.launching.PROJECT_ATTR",bflowprojectName);  
-			   workingCopy.setAttribute("org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER","org.eclipse.ant.ui.AntClasspathProvider");  
-			   workingCopy.setAttribute("org.eclipse.ui.externaltools.ATTR_LOCATION","${workspace_loc:/"+xmlgenerated+"}");  
-			   workingCopy.setAttribute("process_factory_id","org.eclipse.ant.ui.remoteAntProcessFactory");  
-			   DebugUITools.launch(workingCopy, ILaunchManager.RUN_MODE);  
-			  } catch (CoreException e) {  
-			   e.printStackTrace();  
-			  }  
+			AntRunner runner = new AntRunner();
+		  	runner.setBuildFileLocation("/home/mvara/Desktop/git-github-bcool/BCOoLExamples/org.gemoc.bcool.example.productfumlandtfsm/gemoc-gen/CoffeeMachine.xml");
+			runner.setArguments("-Dmessage=Building -verbose");
+			try {
+				runner.run(monitor);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			  
+			  
 		}else{
 			GemocQvto2CCSLTranslator qvto2ccslTranslator = new GemocQvto2CCSLTranslator(); 
 			qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
