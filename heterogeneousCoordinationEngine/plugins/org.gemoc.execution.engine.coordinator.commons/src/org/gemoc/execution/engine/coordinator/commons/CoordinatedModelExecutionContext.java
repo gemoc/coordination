@@ -1,6 +1,8 @@
 package org.gemoc.execution.engine.coordinator.commons;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -13,13 +15,16 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -178,22 +183,21 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			launchNames += _runConfiguration.getConfigurationURIs().get(i).lastSegment();
 		}
 		
-		String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
-				+launchNames
-				+".timemodel"
-				;
+		//String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
+			//	+launchNames
+			//	+".timemodel"
+			//	;
 		
 		
-		coordinationModelURI = URI.createURI(coordinationModelPath);
+		//coordinationModelURI = URI.createURI(coordinationModelPath);
 		
-		_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
+		//_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
 		
 		
 		// I get the path of the bflow
 		String bflowPath = runConfiguration.getBFloWModelPath();
 		
 		if (bflowPath != "") {
-			
 			BFlowStandaloneSetup  ess= new BFlowStandaloneSetup();
 			Injector injector = ess.createInjector();
 		    XtextResourceSet aSet = injector.getInstance(XtextResourceSet.class);
@@ -215,6 +219,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			
 			 //load the corresponding resource
 		    Resource bflowResource = aSet.getResource(BFloWuri, true);
+		    
 		    HashMap<Object, Object> saveOptions = new HashMap<Object, Object>();
 		    Builder aBuilder = SaveOptions.newBuilder();
 		    SaveOptions anOption = aBuilder.getOptions();
@@ -226,16 +231,29 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 				e1.printStackTrace();
 			}
 			
+
+		    // Hay que crear el output vacio!
+		 //   XtextResourceSet outputResourceSet=null;
+		  //  Resource outputResourcetotal=null;
+		//	try{
+		 //   	outputResourcetotal = outputResourceSet.createResource(coordinationModelURI);
+		  //  }catch( Exception e){
+		   // 	System.out.println(e);
+		   // 	outputResourcetotal = outputResourceSet.createResource(coordinationModelURI);
+		   // };
 		    
 			Model bflowmodel = (Model)bflowResource.getContents().get(0);
 			
 			String bflowtmpProjectName = bflowPath.substring(1, bflowPath.length());
 			String bflowprojectName = bflowtmpProjectName.substring(0, bflowtmpProjectName.indexOf('/'));
 			
-			String xmlgenerated = "/"+bflowprojectName + "/gemoc-gen/"+bflowmodel.getName().toString()+".xml";
-			
+			IWorkspaceRoot myWorkspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+		    IProject myWebProject = myWorkspaceRoot.getProject(bflowprojectName);
+		    IPath S = myWebProject.getLocation();
+		    String xmlgenerated = S.toString()+ "/gemoc-gen/"+bflowmodel.getName().toString()+".xml";
+		    
 			AntRunner runner = new AntRunner();
-		  	runner.setBuildFileLocation("/home/mvara/Desktop/git-github-bcool/BCOoLExamples/org.gemoc.bcool.example.productfumlandtfsm/gemoc-gen/CoffeeMachine.xml");
+		  	runner.setBuildFileLocation(xmlgenerated);
 			runner.setArguments("-Dmessage=Building -verbose");
 			try {
 				runner.run(monitor);
@@ -246,6 +264,15 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			  
 			  
 		}else{
+			String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
+					+launchNames
+					+".timemodel"
+					;
+			
+			
+			coordinationModelURI = URI.createURI(coordinationModelPath);
+			
+			_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
 			GemocQvto2CCSLTranslator qvto2ccslTranslator = new GemocQvto2CCSLTranslator(); 
 			qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
 		}
