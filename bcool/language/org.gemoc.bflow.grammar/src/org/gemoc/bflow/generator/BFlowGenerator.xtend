@@ -31,6 +31,21 @@ def compile(Model e) '''
 <project name="«e.name»" default="default" xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
 <target name="default">
 
+    <qvto:transformation
+        uri="platform:/plugin/org.gemoc.bflow.grammar/qvto-helper/createTimeModel.qvto"
+        >
+    
+        <out
+            uri="«e.outputtimemodel»"
+        />
+    	
+    	<configProperty
+        name="nameCCSLSpec"
+        value="«e.name»"
+    	
+    	 />
+    </qvto:transformation>
+
 		
 	     «FOR f:e.bcoolflow»
 	     	<qvto:transformation uri="platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/gemoc-gen/SyncProductTfsmwithfUML.qvto">
