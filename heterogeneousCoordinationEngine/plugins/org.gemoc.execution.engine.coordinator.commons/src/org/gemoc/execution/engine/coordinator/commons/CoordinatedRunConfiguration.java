@@ -6,10 +6,11 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.URI;
 import org.gemoc.execution.engine.ui.commons.RunConfiguration;
+import org.gemoc.executionengine.ccsljava.engine.ui.ConcurrentRunConfiguration;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 
-public class CoordinatedRunConfiguration extends RunConfiguration
+public class CoordinatedRunConfiguration extends ConcurrentRunConfiguration
 {
 	
 	// main launch parameters
@@ -43,7 +44,7 @@ public class CoordinatedRunConfiguration extends RunConfiguration
 		extractInformation();
 	}
 
-	private void extractInformation() throws CoreException 
+	protected void extractInformation() throws CoreException 
 	{
 		_bcoolURI = URI.createPlatformResourceURI(
 				getAttribute(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI, ""),
@@ -56,17 +57,17 @@ public class CoordinatedRunConfiguration extends RunConfiguration
 		}
 	}
 
-	private String getAttribute(String attributeName, String defaultValue) throws CoreException
+	protected String getAttribute(String attributeName, String defaultValue) throws CoreException
 	{
 		return _launchConfiguration.getAttribute(attributeName, defaultValue);
 	}
 
-	private Integer getAttribute(String attributeName, Integer defaultValue) throws CoreException
+	protected Integer getAttribute(String attributeName, Integer defaultValue) throws CoreException
 	{
 		return _launchConfiguration.getAttribute(attributeName, defaultValue);
 	}
 
-	private Boolean getAttribute(String attributeName, Boolean defaultValue) throws CoreException
+	protected Boolean getAttribute(String attributeName, Boolean defaultValue) throws CoreException
 	{
 		return _launchConfiguration.getAttribute(attributeName, defaultValue);
 	}

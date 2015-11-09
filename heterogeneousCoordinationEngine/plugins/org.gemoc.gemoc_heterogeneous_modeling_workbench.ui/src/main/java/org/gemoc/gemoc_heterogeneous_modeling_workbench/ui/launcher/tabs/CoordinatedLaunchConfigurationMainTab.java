@@ -113,7 +113,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 				this._configurationLocationTexts.get(i).getText());
 		}
 		configuration.setAttribute("nb_logicalSteps", nb_configLocations);
-		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
+		configuration.setAttribute(CoordinatedRunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
 
 		
 	}
