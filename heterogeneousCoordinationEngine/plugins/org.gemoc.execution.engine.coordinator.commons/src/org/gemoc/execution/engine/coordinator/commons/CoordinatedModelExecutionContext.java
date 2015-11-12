@@ -183,15 +183,15 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			launchNames += _runConfiguration.getConfigurationURIs().get(i).lastSegment();
 		}
 		
-		//String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
-			//	+launchNames
-			//	+".timemodel"
-			//	;
+		String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
+				+launchNames
+				+".timemodel"
+				;
 		
 		
-		//coordinationModelURI = URI.createURI(coordinationModelPath);
+		coordinationModelURI = URI.createURI(coordinationModelPath);
 		
-		//_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
+		_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
 		
 		
 		// I get the path of the bflow
@@ -264,15 +264,15 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			  
 			  
 		}else{
-			String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
-					+launchNames
-					+".timemodel"
-					;
+			//String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
+				//	+launchNames
+				//	+".timemodel"
+				//	;
 			
 			
-			coordinationModelURI = URI.createURI(coordinationModelPath);
+			//coordinationModelURI = URI.createURI(coordinationModelPath);
 			
-			_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
+			//_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
 			GemocQvto2CCSLTranslator qvto2ccslTranslator = new GemocQvto2CCSLTranslator(); 
 			qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
 		}
@@ -290,7 +290,11 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		ExtendedCCSLStandaloneSetup.doSetup();
 		Resource ccslResource=null;
 		try{
+			// TODO: This only create an empty timemodel
+			// Exception HERE when the timemodel does not exist
+			// The BCOoL qvt does the remainder
 			ccslResource = ccslResourceSet.createResource(ccslModelURI);
+			//ccslResourceSet.get
 			ccslResource.load(null);
 			if (ccslResource.getContents().size() == 0){
 				ccslResource.getContents().add(CCSLModelFactory.eINSTANCE.createClockConstraintSystem());

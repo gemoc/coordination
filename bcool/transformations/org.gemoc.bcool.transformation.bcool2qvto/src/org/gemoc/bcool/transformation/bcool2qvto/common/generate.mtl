@@ -46,6 +46,9 @@ inM[i/] : inMM[i/],
 
 // property to apply all the operators
 configuration property ApplyAll : Boolean;
+// property to add libraries when it is invoked from qvt
+configuration property IsInvokedfromAnt : Boolean;
+
 
 [for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 [if (im.importURI.endsWith('ecl'))]
@@ -195,6 +198,46 @@ main() {
 		else { 
 	    		theCCSLSpec := outCCSLModel.objectsOfType(TimeModel::CCSLModel::ClockConstraintSystem)->asSequence()->first();
 	    		theMainBlock := theCCSLSpec.superBlock;
+
+					// This adds the libraries
+					if IsInvokedfromAnt  then {
+
+					[comment]	I have to firstly imports the ccsllibs [/comment]
+					[for (im : ImportLibStatement| aBCoolSpecification.importsLib)]
+					[if (im.importURI.endsWith('ccslLib') or im.importURI.endsWith('moccml'))]
+					theCCSLSpec.imports+= object TimeModel::ImportStatement{
+						importURI := '[im.importURI/]';
+						alias := 'lib_[i/]';	
+					}; 
+					[/if]
+					[/for]
+
+
+
+						[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
+						[let importNumber : EInt = i]
+						[let anEclDoc : ECLDocument = im.getEclDocument()]
+						[for (imecl : ECL::ImportStatement | anEclDoc.imports)]
+
+						[if im.importURI.startsWith('platform:/plugin') and imecl.importURI.startsWith('platform:/resource')]
+						[let uriecl : String = imecl.importURI.replace('platform:/resource', 'platform:/plugin')]
+							theCCSLSpec.imports+= object TimeModel::ImportStatement{
+							importURI := '[uriecl/]';
+							alias := 'model_[importNumber/]_[i/]';	
+						}; 
+						[/let]
+						[else]
+							theCCSLSpec.imports+= object TimeModel::ImportStatement{
+							importURI := '[imecl.importURI/]';
+							alias := 'model_[importNumber/]_[i/]';	
+						}; 
+
+						[/if]
+						[/for]
+						[/let]
+						[/let]
+						[/for]
+					}endif;
 			}endif;
 	
 		map [aBCoolSpecification.name/]2CCSLSubBlock();

@@ -46,10 +46,12 @@ def compile(Model e) '''
     	 />
     </qvto:transformation>
 
-		
 	     «FOR f:e.bcoolflow»
 	     	<qvto:transformation uri="platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/gemoc-gen/SyncProductTfsmwithfUML.qvto">
 	     	<configProperty name="ApplyAll" value="false"/>
+	     	«IF f == e.bcoolflow.get(0)» 
+	     		<configProperty name="IsInvokedfromAnt" value="true"/>
+	     	«ENDIF»
 	     	<configProperty name="Is«f.oper»Executed" value="true"/>
        		 «f.compile»
 	     	<inout uri="«e.outputtimemodel»" outuri="«e.outputtimemodel»"/>
