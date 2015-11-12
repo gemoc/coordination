@@ -37,6 +37,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	protected Composite _parent;
 	
 	protected Text _bcoolLocationText;
+	protected Text _bflowLocationText;
 	protected ArrayList<Text> _configurationLocationTexts = new ArrayList<Text>();
 	protected Combo _deciderCombo;
 	protected ArrayList<Button> _browseLocationButtons = new ArrayList<Button>();
@@ -114,8 +115,8 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		}
 		configuration.setAttribute("nb_logicalSteps", nb_configLocations);
 		configuration.setAttribute(RunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
-
-		
+		// I set the bflow location
+		configuration.setAttribute ("bflow", this._bflowLocationText.getText());
 	}
 
 	@Override
@@ -172,6 +173,25 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		});	
 		
 		
+		createTextLabelLayout(parent, "BFloW script:");
+		_bflowLocationText = new Text(_parent, SWT.SINGLE | SWT.BORDER);
+		_bflowLocationText.setLayoutData(createStandardLayout());
+
+		Button modelLocationButton2 = createPushButton(_parent, "Browse", null);
+		modelLocationButton2.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent evt) {
+				// handleModelLocationButtonSelected();
+				// TODO launch the appropriate selector
+
+				SelectAnyIFileDialog dialog = new SelectAnyIFileDialog();
+				if (dialog.open() == Dialog.OK) {
+					String modelPath = ((IResource) dialog.getResult()[0])
+							.getFullPath().toPortableString();
+					_bflowLocationText.setText(modelPath);
+					updateLaunchConfigurationDialog();
+				}
+			}
+		});	
 		
 		createTextLabelLayout(parent, "Decider");
 		_deciderCombo = new Combo(parent, SWT.BORDER);
