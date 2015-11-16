@@ -96,6 +96,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 				}
 			}
 			_deciderCombo.setText(runConfiguration.getDeciderName());
+			_bflowLocationText.setText(runConfiguration.getBFloWModelPath());
 			
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
@@ -173,10 +174,11 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		});	
 		
 		
-		createTextLabelLayout(parent, "BFloW script:");
+		createTextLabelLayout(parent, "BFloW specification:");
 		_bflowLocationText = new Text(_parent, SWT.SINGLE | SWT.BORDER);
 		_bflowLocationText.setLayoutData(createStandardLayout());
-
+		_bflowLocationText.addModifyListener(fBasicModifyListener);
+		
 		Button modelLocationButton2 = createPushButton(_parent, "Browse", null);
 		modelLocationButton2.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent evt) {
