@@ -197,6 +197,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		// I get the path of the bflow
 		String bflowPath = runConfiguration.getBFloWModelPath();
 		
+		// Simple check, if is not "" I follow the procedure by default
 		if (bflowPath != "") {
 			BFlowStandaloneSetup  ess= new BFlowStandaloneSetup();
 			Injector injector = ess.createInjector();
@@ -206,18 +207,11 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			BFlowStandaloneSetup.doSetup();
 			
 			URI BFloWuri =null;
-			//filter URI
-		//	if (bflowPath.startsWith("platform:/plugin")){
-			//	BFloWuri = URI.createPlatformPluginURI(bflowPath.replace("platform:/plugin", ""), false);
-		//	}else
-		//	if(bflowPath.startsWith("platform:/resource")){
-				BFloWuri = URI.createPlatformResourceURI(bflowPath,false);
-		//	}else{//relative path
-//				throw new IllegalArgumentException("the path of the library must be platform based (platform:/resource or platform:/plugin)");
-		//		BFloWuri = URI.createFileURI(bflowPath);
-		//	}
+
+			// the bflow is got it by a platform resource path
+			BFloWuri = URI.createPlatformResourceURI(bflowPath,false);
 			
-			 //load the corresponding resource
+			// load the corresponding resource
 		    Resource bflowResource = aSet.getResource(BFloWuri, true);
 		    
 		    HashMap<Object, Object> saveOptions = new HashMap<Object, Object>();
@@ -231,17 +225,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 				e1.printStackTrace();
 			}
 			
-
-		    // Hay que crear el output vacio!
-		 //   XtextResourceSet outputResourceSet=null;
-		  //  Resource outputResourcetotal=null;
-		//	try{
-		 //   	outputResourcetotal = outputResourceSet.createResource(coordinationModelURI);
-		  //  }catch( Exception e){
-		   // 	System.out.println(e);
-		   // 	outputResourcetotal = outputResourceSet.createResource(coordinationModelURI);
-		   // };
-		    
+		    // I load the bflow model
 			Model bflowmodel = (Model)bflowResource.getContents().get(0);
 			
 			String bflowtmpProjectName = bflowPath.substring(1, bflowPath.length());
@@ -252,6 +236,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		    IPath S = myWebProject.getLocation();
 		    String xmlgenerated = S.toString()+ "/gemoc-gen/"+bflowmodel.getName().toString()+".xml";
 		    
+		    // I invoke the ant 
 			AntRunner runner = new AntRunner();
 		  	runner.setBuildFileLocation(xmlgenerated);
 			runner.setArguments("-Dmessage=Building -verbose");
@@ -264,15 +249,6 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			  
 			  
 		}else{
-			//String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
-				//	+launchNames
-				//	+".timemodel"
-				//	;
-			
-			
-			//coordinationModelURI = URI.createURI(coordinationModelPath);
-			
-			//_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
 			GemocQvto2CCSLTranslator qvto2ccslTranslator = new GemocQvto2CCSLTranslator(); 
 			qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
 		}
@@ -290,16 +266,14 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		ExtendedCCSLStandaloneSetup.doSetup();
 		Resource ccslResource=null;
 		try{
-			// TODO: This only create an empty timemodel
-			// Exception HERE when the timemodel does not exist
-			// The BCOoL qvt does the remainder
+			// It is only necessary to open the resource. The transfo creates the timemodel from scratch
 			ccslResource = ccslResourceSet.createResource(ccslModelURI);
 			//ccslResourceSet.get
-			ccslResource.load(null);
-			if (ccslResource.getContents().size() == 0){
-				ccslResource.getContents().add(CCSLModelFactory.eINSTANCE.createClockConstraintSystem());
-			}
-			ccslResource.save(null);
+		//	ccslResource.load(null);
+	//		if (ccslResource.getContents().size() == 0){
+	//			ccslResource.getContents().add(CCSLModelFactory.eINSTANCE.createClockConstraintSystem());
+		//	}
+		//	ccslResource.save(null);
 	    }catch( Exception e){
 	    	System.out.println(e);
 	    };
