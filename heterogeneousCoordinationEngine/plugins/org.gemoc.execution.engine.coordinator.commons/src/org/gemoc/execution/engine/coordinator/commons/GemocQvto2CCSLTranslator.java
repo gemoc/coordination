@@ -26,6 +26,9 @@ public class GemocQvto2CCSLTranslator extends Qvto2CCSLTranslator {
 		context.setConfigProperty("inM1MoCCPath", getAssociatedTimemodelPath(model1Uri));
 		
 		context.setConfigProperty("inM2MoCCPath", getAssociatedTimemodelPath(model2Uri));
+		
+		context.setConfigProperty("ApplyAll", "true");
+		
 		return context;
 	}
 

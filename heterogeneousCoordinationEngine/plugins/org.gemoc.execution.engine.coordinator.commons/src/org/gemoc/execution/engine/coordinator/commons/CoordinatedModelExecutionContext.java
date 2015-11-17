@@ -1,37 +1,52 @@
 package org.gemoc.execution.engine.coordinator.commons;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 
 import javax.management.RuntimeErrorException;
 
+import org.eclipse.ant.core.AntRunner;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.ILaunchConfigurationType;
+import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
+import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.resource.SaveOptions;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
+import org.eclipse.xtext.resource.SaveOptions.Builder;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
+import org.gemoc.bflow.BFlowStandaloneSetup;
+import org.gemoc.bflow.bFlow.Model;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.core.ExecutionWorkspace;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
-import org.gemoc.executionengine.ccsljava.engine.ui.Activator;
 import org.gemoc.executionengine.ccsljava.engine.ui.LogicalStepDeciderFactory;
 import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
@@ -177,10 +192,65 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		
 		_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
 		
-		GemocQvto2CCSLTranslator qvto2ccslTranslator = new GemocQvto2CCSLTranslator(); 
+		
+		// I get the path of the bflow
+		String bflowPath = runConfiguration.getBFloWModelPath();
+		
+		// Simple check, if is not "" I follow the procedure by default
+		if (bflowPath != "") {
+			BFlowStandaloneSetup  ess= new BFlowStandaloneSetup();
+			Injector injector = ess.createInjector();
+		    XtextResourceSet aSet = injector.getInstance(XtextResourceSet.class);
+			aSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.FALSE);
+			EcoreUtil.resolveAll(aSet);
+			BFlowStandaloneSetup.doSetup();
+			
+			URI BFloWuri =null;
 
-		qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
-	
+			// the bflow is got it by a platform resource path
+			BFloWuri = URI.createPlatformResourceURI(bflowPath,false);
+			
+			// load the corresponding resource
+		    Resource bflowResource = aSet.getResource(BFloWuri, true);
+		    
+		    HashMap<Object, Object> saveOptions = new HashMap<Object, Object>();
+		    Builder aBuilder = SaveOptions.newBuilder();
+		    SaveOptions anOption = aBuilder.getOptions();
+		    anOption.addTo(saveOptions);
+		    try {
+		    	bflowResource.load(saveOptions);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		    // I load the bflow model
+			Model bflowmodel = (Model)bflowResource.getContents().get(0);
+			
+			String bflowtmpProjectName = bflowPath.substring(1, bflowPath.length());
+			String bflowprojectName = bflowtmpProjectName.substring(0, bflowtmpProjectName.indexOf('/'));
+			
+			IWorkspaceRoot myWorkspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+		    IProject myWebProject = myWorkspaceRoot.getProject(bflowprojectName);
+		    IPath S = myWebProject.getLocation();
+		    String xmlgenerated = S.toString()+ "/gemoc-gen/"+bflowmodel.getName().toString()+".xml";
+		    
+		    // I invoke the ant 
+			AntRunner runner = new AntRunner();
+		  	runner.setBuildFileLocation(xmlgenerated);
+			runner.setArguments("-Dmessage=Building -verbose");
+			try {
+				runner.run(monitor);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			  
+			  
+		}else{
+			GemocQvto2CCSLTranslator qvto2ccslTranslator = new GemocQvto2CCSLTranslator(); 
+			qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
+		}
 		return;
 	}
 
@@ -195,12 +265,14 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		ExtendedCCSLStandaloneSetup.doSetup();
 		Resource ccslResource=null;
 		try{
+			// It is only necessary to open the resource. The transfo creates the timemodel from scratch
 			ccslResource = ccslResourceSet.createResource(ccslModelURI);
-			ccslResource.load(null);
-			if (ccslResource.getContents().size() == 0){
-				ccslResource.getContents().add(CCSLModelFactory.eINSTANCE.createClockConstraintSystem());
-			}
-			ccslResource.save(null);
+			//ccslResourceSet.get
+		//	ccslResource.load(null);
+	//		if (ccslResource.getContents().size() == 0){
+	//			ccslResource.getContents().add(CCSLModelFactory.eINSTANCE.createClockConstraintSystem());
+		//	}
+		//	ccslResource.save(null);
 	    }catch( Exception e){
 	    	System.out.println(e);
 	    };

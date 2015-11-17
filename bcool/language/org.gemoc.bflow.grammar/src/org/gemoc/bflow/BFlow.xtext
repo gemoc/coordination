@@ -5,7 +5,7 @@ generate bFlow "http://www.gemoc.org/bflow/BFlow"
 import "http://org.gemoc.bcool.model/"
 Model:
 	'BCOoLFlow' name=ID '{'
-		'BCOoL Specification:' importURI=STRING ';'
+		'BCOoL Specification:' imporBCOoL=STRING ';'
 		'Output:' outputtimemodel=STRING ';'
 		 models+=modelinput*
 		 'Flow' bcoolflow+= Flows*
@@ -16,6 +16,7 @@ Model:
 modelinput:
 	'Model' name=ID '(' timemodel=STRING ',' modeluri=STRING ')' ';'
 ;
-	
+
+// TODO: change the ID for a BCOoLoPERATOR
 Flows:
-	'applies' oper=[BCoolCompositionRule] 'between' '('(params+=[modelinput](',' params+=[modelinput])*)? ')' ';';
+	'applies' oper=ID 'between' '('(params+=[modelinput](',' params+=[modelinput])*)? ')' ';';

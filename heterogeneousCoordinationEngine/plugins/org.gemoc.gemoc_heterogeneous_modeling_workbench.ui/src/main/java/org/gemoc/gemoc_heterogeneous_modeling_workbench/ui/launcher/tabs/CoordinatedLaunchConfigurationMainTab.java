@@ -29,6 +29,7 @@ import org.gemoc.execution.engine.ui.commons.RunConfiguration;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
+import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 
@@ -37,6 +38,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	protected Composite _parent;
 	
 	protected Text _bcoolLocationText;
+	protected Text _bflowLocationText;
 	protected ArrayList<Text> _configurationLocationTexts = new ArrayList<Text>();
 	protected Combo _deciderCombo;
 	protected ArrayList<Button> _browseLocationButtons = new ArrayList<Button>();
@@ -95,6 +97,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 				}
 			}
 			_deciderCombo.setText(runConfiguration.getDeciderName());
+			_bflowLocationText.setText(runConfiguration.getBFloWModelPath());
 			
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
@@ -113,9 +116,10 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 				this._configurationLocationTexts.get(i).getText());
 		}
 		configuration.setAttribute("nb_logicalSteps", nb_configLocations);
-		configuration.setAttribute(CoordinatedRunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
 
-		
+		configuration.setAttribute(CoordinatedRunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
+		// I set the bflow location
+		configuration.setAttribute ("bflow", this._bflowLocationText.getText());
 	}
 
 	@Override
@@ -172,6 +176,26 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		});	
 		
 		
+		createTextLabelLayout(parent, "BFloW specification:");
+		_bflowLocationText = new Text(_parent, SWT.SINGLE | SWT.BORDER);
+		_bflowLocationText.setLayoutData(createStandardLayout());
+		_bflowLocationText.addModifyListener(fBasicModifyListener);
+		
+		Button modelLocationButton2 = createPushButton(_parent, "Browse", null);
+		modelLocationButton2.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent evt) {
+				// handleModelLocationButtonSelected();
+				// TODO launch the appropriate selector
+
+				SelectAnyIFileDialog dialog = new SelectAnyIFileDialog();
+				if (dialog.open() == Dialog.OK) {
+					String modelPath = ((IResource) dialog.getResult()[0])
+							.getFullPath().toPortableString();
+					_bflowLocationText.setText(modelPath);
+					updateLaunchConfigurationDialog();
+				}
+			}
+		});	
 		
 		createTextLabelLayout(parent, "Decider");
 		_deciderCombo = new Combo(parent, SWT.BORDER);

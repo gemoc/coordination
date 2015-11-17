@@ -21,7 +21,7 @@ class BFlowGenerator implements IGenerator {
 		
     for(e: resource.allContents.toIterable.filter(Model)) {
       fsa.generateFile(
-        e.name  + ".xml",
+        "../gemoc-gen/"+e.name  + ".xml",
         e.compile)
 	}
 }
@@ -31,20 +31,33 @@ def compile(Model e) '''
 <project name="«e.name»" default="default" xmlns:qvto="http://www.eclipse.org/qvt/1.0.0/Operational">
 <target name="default">
 
-        <qvto:transformation uri="platform:/resource/org.gemoc.bcool.example.cameracontrol/src-gen/createTimeModel.qvto">
-        
-        <out uri="«e.outputtimemodel»"/>
-        	
-        	<configProperty name="nameCCSLSpec" value="«e.name»"/>
-        </qvto:transformation>
+    <qvto:transformation
+        uri="platform:/plugin/org.gemoc.bflow.grammar/qvto-helper/createTimeModel.qvto"
+        >
+    
+        <out
+            uri="«e.outputtimemodel»"
+        />
+    	
+    	<configProperty
+        name="nameCCSLSpec"
+        value="«e.name»"
+    	
+    	 />
+    </qvto:transformation>
 
 	     «FOR f:e.bcoolflow»
-	     	<qvto:transformation uri="platform:/resource/org.gemoc.bcool.example.cameracontrol/src-gen/TFSMandfUMLoperators.qvto">
-	     	<configProperty name="«f.oper.name»Param" value="true"/>
+	     	<qvto:transformation uri="platform:/resource/org.gemoc.bcool.example.productfumlandtfsm/gemoc-gen/SyncProductTfsmwithfUML.qvto">
+	     	<configProperty name="ApplyAll" value="false"/>
+	     	«IF f == e.bcoolflow.get(0)» 
+	     		<configProperty name="IsInvokedfromAnt" value="true"/>
+	     	«ENDIF»
+	     	<configProperty name="Is«f.oper»Executed" value="true"/>
        		 «f.compile»
-	     	<inout uri="«e.outputtimemodel»" outuri="platform:/resource/org.gemoc.bcool.example.cameracontrol/src-gen/Coordination.timemodel"/>
+	     	<inout uri="«e.outputtimemodel»" outuri="«e.outputtimemodel»"/>
 	     	</qvto:transformation>
          «ENDFOR»
+         
     </target>
 </project>
 '''

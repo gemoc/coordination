@@ -40,3 +40,7 @@ Require-Bundle: org.eclipse.ui,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.gemoc.execution.engine.coordinator.commons
+Import-Package: org.eclipse.ant.core,
+ org.gemoc.bflow,
+ org.gemoc.bflow.bFlow,
+ org.gemoc.execution.engine.commons

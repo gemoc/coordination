@@ -177,6 +177,8 @@ public class Qvto2CCSLTranslator implements IObjectActionDelegate {
 		String model2MoCCPath = model2Path.substring(0,model2Path.lastIndexOf('.'))+"_MoCC.extendedCCSL";
 		context.setConfigProperty("inM1MoCCPath", model1MoCCPath);
 		context.setConfigProperty("inM2MoCCPath", model2MoCCPath);
+		
+		context.setConfigProperty("ApplyAll", "true");
 		return context;
 	}
 
