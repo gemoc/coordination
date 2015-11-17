@@ -252,6 +252,12 @@
   	<module>
   		../../language/org.gemoc.bcool.model.xtext.ui
   	</module>
+  	<module>
+  		../../language/org.gemoc.bflow.grammar
+  	</module>
+  	<module>
+  		../../language/org.gemoc.bflow.grammar.ui
+  	</module>
 
   	  	<module>
   		../../transformations/org.gemoc.bcool.transformation.bcool2qvto
