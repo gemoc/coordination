@@ -42,6 +42,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.common.types_2.8.4.v201508050135.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.examples.xtext.completeocl_3.4.2.v20140819-1601.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.examples.xtext.essentialocl_3.4.2.v20140819-1601.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.gexpressions_0.1.0.201510300931.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase_2.8.4.v201508050135.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.lib_2.8.4.v201508050135.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase.lib_2.8.4.v201508050135.jar"/>
@@ -63,6 +64,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl.xtext_1.0.0.201510291213.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.log4j_1.2.15.v201012070815.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.gemoc.gexpressions.xtext_1.0.0.201510300931.jar"/>
     </path>
 
     <path id="org.gemoc.bcool.transformation.bcool2qvto.classpath">
