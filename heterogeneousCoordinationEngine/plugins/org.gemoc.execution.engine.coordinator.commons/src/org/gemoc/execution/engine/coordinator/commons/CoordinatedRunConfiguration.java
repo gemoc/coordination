@@ -15,9 +15,7 @@ public class CoordinatedRunConfiguration extends ConcurrentRunConfiguration
 	
 	// main launch parameters
 	public static final String LAUNCH_BCOOL_PATH = "GEMOC_LAUNCH_MODEL_PATH";
-	
-	private ILaunchConfiguration _launchConfiguration;
-	
+		
 	private URI _bcoolURI;
 	private String _bcoolFileName;
 	private ArrayList<URI> _configurationURIs = new ArrayList<URI>();
@@ -40,12 +38,13 @@ public class CoordinatedRunConfiguration extends ConcurrentRunConfiguration
 	public CoordinatedRunConfiguration(ILaunchConfiguration launchConfiguration) throws CoreException
 	{
 		super(launchConfiguration);
-		_launchConfiguration = launchConfiguration;
 		extractInformation();
 	}
 
 	protected void extractInformation() throws CoreException 
 	{
+		super.extractInformation();
+		_configurationURIs = new ArrayList<URI>();
 		_bcoolURI = URI.createPlatformResourceURI(
 				getAttribute(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI, ""),
 				true);
