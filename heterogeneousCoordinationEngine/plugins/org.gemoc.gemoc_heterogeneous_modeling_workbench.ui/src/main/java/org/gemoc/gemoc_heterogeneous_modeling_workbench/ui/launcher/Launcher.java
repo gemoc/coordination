@@ -18,11 +18,14 @@ import org.eclipse.jdt.core.search.SearchMatch;
 import org.eclipse.jdt.core.search.SearchRequestor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.PlatformUI;
+import org.gemoc.commons.eclipse.ui.ViewHelper;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedModelExecutionContext;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguration;
 import org.gemoc.execution.engine.coordinator.commons.HeterogeneousEngine;
 import org.gemoc.execution.engine.debug.AbstractGemocDebugger;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
+import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
 import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
@@ -58,6 +61,16 @@ public class Launcher
 			final CoordinatedRunConfiguration runConfiguration = new CoordinatedRunConfiguration(configuration);
 			debug("About to initialize and run the GEMOC Coordinated Execution Engine...");			
 
+			// make sure to have the engine view when starting the engine
+			PlatformUI.getWorkbench().getDisplay().syncExec(
+					new Runnable()
+					{
+						@Override
+						public void run() {
+							ViewHelper.retrieveView(EnginesStatusView.ID);
+						}			
+					});	
+						
 			ExecutionMode executionMode = null;
 			if (ILaunchManager.DEBUG_MODE.equals(mode))
 				//&& runConfiguration.getAnimatorURI() != null) 
