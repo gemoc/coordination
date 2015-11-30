@@ -69,7 +69,7 @@ public class Launcher
 				executionMode = ExecutionMode.Run;
 			}
 			executionContext = new CoordinatedModelExecutionContext(runConfiguration, executionMode);			
-			
+			executionContext.initializeResourceModel();
 			heterogeneousEngine = new HeterogeneousEngine(executionContext, executionMode);
 			heterogeneousEngine.initialize((IExecutionContext) executionContext);
 			_executionEngines = heterogeneousEngine.get_coordinatedEngines();

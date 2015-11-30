@@ -129,6 +129,16 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		
 		//		TODO: need a synchro to wait for the engine to start (otherwise it is not yet in the list)
 		
+		
+		
+		
+		
+		return;
+	}
+
+	@Override
+	public void initializeResourceModel() {
+		IProgressMonitor monitor = new NullProgressMonitor();
 		/*
 		 * warning, here we consider that the only started engines are the one that need to be coordinated...
 		 */
@@ -158,7 +168,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		}
 		
 		//create qvto and then apply it
-		URI bcoolURI = runConfiguration.getBcoolModelURI();
+		URI bcoolURI = _runConfiguration.getBcoolModelURI();
 		IContainer gemocGenFolder = createQVToFromBCOoL(bcoolURI, monitor);
 		URI qvtoURI = getGeneratedQvtoURI(bcoolURI, gemocGenFolder);
 		
@@ -166,7 +176,6 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		for(int i = 0; i < _runConfiguration.getConfigurationURIs().size(); i++){
 			launchNames += _runConfiguration.getConfigurationURIs().get(i).lastSegment();
 		}
-		
 		String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
 				+launchNames
 				+".timemodel"
@@ -181,9 +190,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 
 		qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
 	
-		return;
 	}
-
 	
 	protected Resource createCoordinationResourceAndSaveIt(URI ccslModelURI) {
 		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
@@ -370,16 +377,8 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		return null;
 	}
 
-	
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
