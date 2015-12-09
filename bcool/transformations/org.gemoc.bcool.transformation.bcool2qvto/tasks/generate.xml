@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="org.gemoc.bcool.transformation.bcool2qvto">
-    <property name="ECLIPSE_HOME" value="../../../../../../eclipses/gemoc-nov27"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../eclipses/gemoc-dic9"/>
     <property name="ECLIPSE_WORKSPACE" value="../../../../../../Workspace-models2015"/>
 
     <!-- The classpath with only the dependencies used by the project -->
@@ -55,12 +55,12 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.10.2.v20150123-0452.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.10.0.v20150123-0452.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl_1.0.0.201510291213.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl_1.0.0.201512031629.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201509180749.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo_4.3.0.v20140520-1823.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo.common_4.3.0.v20140309-0644.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.net4j.util_3.4.0.v20140308-0604.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl.xtext_1.0.0.201510291213.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl.xtext_1.0.0.201512031629.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.log4j_1.2.15.v201012070815.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar"/>
     </path>

@@ -144,6 +144,16 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		
 		//		TODO: need a synchro to wait for the engine to start (otherwise it is not yet in the list)
 		
+		
+		
+		
+		
+		return;
+	}
+
+	@Override
+	public void initializeResourceModel() {
+		IProgressMonitor monitor = new NullProgressMonitor();
 		/*
 		 * warning, here we consider that the only started engines are the one that need to be coordinated...
 		 */
@@ -173,7 +183,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		}
 		
 		//create qvto and then apply it
-		URI bcoolURI = runConfiguration.getBcoolModelURI();
+		URI bcoolURI = _runConfiguration.getBcoolModelURI();
 		IContainer gemocGenFolder = createQVToFromBCOoL(bcoolURI, monitor);
 		URI qvtoURI = getGeneratedQvtoURI(bcoolURI, gemocGenFolder);
 		
@@ -181,7 +191,6 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		for(int i = 0; i < _runConfiguration.getConfigurationURIs().size(); i++){
 			launchNames += _runConfiguration.getConfigurationURIs().get(i).lastSegment();
 		}
-		
 		String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
 				+launchNames
 				+".timemodel"
@@ -194,7 +203,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		
 		
 		// I get the path of the bflow
-		String bflowPath = runConfiguration.getBFloWModelPath();
+		String bflowPath = _runConfiguration.getBFloWModelPath();
 		
 		// Simple check, if is not "" I follow the procedure by default
 		if (bflowPath != "") {
@@ -252,8 +261,11 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
 		}
 		return;
-	}
 
+		//qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
+	
+
+	}
 	
 	protected Resource createCoordinationResourceAndSaveIt(URI ccslModelURI) {
 		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
@@ -348,7 +360,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			generator.doGenerate(monitor );
 		} catch (IOException e) {
 			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-			Activator.getDefault().getLog().log(status);
+			//Activator.getDefault().getLog().log(status);
 		} finally {
 			try {
 				bcoolFile.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
@@ -442,16 +454,8 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		return null;
 	}
 
-	
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
