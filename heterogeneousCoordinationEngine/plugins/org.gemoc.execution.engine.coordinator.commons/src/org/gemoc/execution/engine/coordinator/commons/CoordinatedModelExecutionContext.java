@@ -185,6 +185,12 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		return;
 	}
 
+
+	@Override
+	public void initializeResourceModel() {
+		// TODO Auto-generated method stub
+		// TODO maybe we should move some initialization from constructor to this place
+	}
 	
 	protected Resource createCoordinationResourceAndSaveIt(URI ccslModelURI) {
 		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
@@ -370,17 +376,5 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 	{
 		return null;
 	}
-
-	
-
-
-
-	
-	
-	
-	
-	
-	
-	
 	
 }
