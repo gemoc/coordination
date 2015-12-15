@@ -37,6 +37,8 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.commons.eclipse.pde;bundle-version="0.1.0",
  org.gemoc.commons.eclipse;bundle-version="0.1.0",
  org.gemoc.execution.engine.ui,
+ org.gemoc.execution.ccsljava.concurrent.mse.model,
+ fr.inria.aoste.trace;bundle-version="1.0.1",
  fr.inria.diverse.commons.eclipse.messagingsystem.api
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

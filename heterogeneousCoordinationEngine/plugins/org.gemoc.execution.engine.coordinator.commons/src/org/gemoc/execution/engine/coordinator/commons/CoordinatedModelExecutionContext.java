@@ -30,6 +30,7 @@ import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.core.ExecutionWorkspace;
+import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.engine.ui.Activator;
 import org.gemoc.executionengine.ccsljava.engine.ui.LogicalStepDeciderFactory;
@@ -191,6 +192,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
 	
 	}
+
 	
 	protected Resource createCoordinationResourceAndSaveIt(URI ccslModelURI) {
 		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
@@ -360,7 +362,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 
 
 	@Override
-	public ActionModel getFeedbackModel()
+	public MSEModel getMSEModel()
 	{
 		return null;
 	}
