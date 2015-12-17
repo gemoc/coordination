@@ -24,6 +24,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jdt.ui,
  org.eclipse.jdt.core,
  fr.inria.diverse.commons.provisionner4eclipse,
+ org.gemoc.execution.engine.coordinator.commons;bundle-version="1.0.0",
  org.eclipse.sirius.diagram.ui;bundle-version="1.0.0",
  org.eclipse.emf.edit.ui,
  org.eclipse.sirius.ext.base;bundle-version="2.0.4",
@@ -33,7 +34,6 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.gemoc_language_workbench.extensions.sirius,
  org.gemoc.execution.engine.trace.model,
  org.gemoc.executionengine.ccsljava.engine.ui,
- org.gemoc.execution.engine.coordinator.commons,
  org.gemoc.execution.engine,
  org.gemoc.gemoc_modeling_workbench.concurrent.ui;bundle-version="0.1.0",
  org.gemoc.executionframework.ui;bundle-version="0.1.0",
@@ -41,7 +41,8 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.executionengine.ccsljava.engine;bundle-version="1.0.0",
  org.gemoc.execution.engine.ui,
  org.gemoc.execution.engine.mse.model,
- org.gemoc.execution.ccsljava.concurrent.mse.model
+ org.gemoc.execution.ccsljava.concurrent.mse.model,
+ org.gemoc.executionframework.extensions.sirius
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: 
