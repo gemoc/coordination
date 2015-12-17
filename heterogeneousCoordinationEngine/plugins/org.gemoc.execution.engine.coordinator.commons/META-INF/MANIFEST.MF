@@ -7,7 +7,7 @@ Bundle-Activator: org.gemoc.execution.engine.coordinator.commons.Activator
 Bundle-Vendor: I3S/INRIA AOSTE
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.gemoc.gemoc_language_workbench.api,
+ org.gemoc.xdsmlframework.api,
  org.eclipse.debug.core,
  fr.obeo.dsl.debug.ide,
  org.eclipse.core.resources,
