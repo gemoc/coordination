@@ -40,7 +40,7 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.executionengine.ccsljava.api;bundle-version="1.0.0",
  org.gemoc.executionengine.ccsljava.engine;bundle-version="1.0.0",
  org.gemoc.executionframework.engine.ui,
- org.gemoc.execution.engine.mse.model,
+ org.gemoc.executionframework.engine.mse.model,
  org.gemoc.execution.ccsljava.concurrent.mse.model,
  org.gemoc.executionframework.extensions.sirius
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
