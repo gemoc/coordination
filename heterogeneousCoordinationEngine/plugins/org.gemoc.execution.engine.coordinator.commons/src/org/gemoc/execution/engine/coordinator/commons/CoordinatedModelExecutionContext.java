@@ -46,16 +46,17 @@ import org.gemoc.bflow.BFlowStandaloneSetup;
 import org.gemoc.bflow.bFlow.Model;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.core.ExecutionWorkspace;
+import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.engine.ui.LogicalStepDeciderFactory;
-import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
-import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionPlatform;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionWorkspace;
-import org.gemoc.gemoc_language_workbench.api.extensions.languages.LanguageDefinitionExtension;
+import org.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionContext;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionPlatform;
+import org.gemoc.xdsmlframework.api.core.IExecutionWorkspace;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
+import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
 
 import com.google.inject.Injector;
 
@@ -266,6 +267,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 	
 
 	}
+
 	
 	protected Resource createCoordinationResourceAndSaveIt(URI ccslModelURI) {
 		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
@@ -437,7 +439,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 
 
 	@Override
-	public ActionModel getFeedbackModel()
+	public MSEModel getMSEModel()
 	{
 		return null;
 	}

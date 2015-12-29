@@ -4,11 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
 import javax.management.RuntimeErrorException;
 
@@ -16,31 +14,33 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
+import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
 import org.gemoc.execution.engine.Activator;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.core.AbstractExecutionEngine;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.MSEOccurrence;
-import org.gemoc.execution.engine.trace.gemoc_execution_trace.impl.LogicalStepImpl;
+import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine_mse.MSE;
+import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
+import org.gemoc.execution.engine.mse.engine_mse.impl.LogicalStepImpl;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionContext;
 import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
+import org.gemoc.executionengine.ccsljava.api.core.IFutureAction;
 import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
 import org.gemoc.executionengine.ccsljava.api.dsa.executors.ICodeExecutor;
 import org.gemoc.executionengine.ccsljava.api.moc.ISolver;
-import org.gemoc.gemoc_language_workbench.api.core.EngineStatus;
-import org.gemoc.gemoc_language_workbench.api.core.EngineStatus.RunStatus;
-import org.gemoc.gemoc_language_workbench.api.core.ExecutionMode;
-import org.gemoc.gemoc_language_workbench.api.core.IBasicExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionContext;
-import org.gemoc.gemoc_language_workbench.api.core.IExecutionEngine;
-import org.gemoc.gemoc_language_workbench.api.core.IFutureAction;
-import org.gemoc.gemoc_language_workbench.api.engine_addon.IEngineAddon;
 import org.gemoc.gemoc_language_workbench.extensions.timesquare.moc.impl.CcslSolver;
+import org.gemoc.xdsmlframework.api.core.EngineStatus;
+import org.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionContext;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
+import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
+import com.google.common.collect.Sets;
 import com.google.inject.Injector;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.Clock;
@@ -53,9 +53,6 @@ import fr.inria.aoste.timesquare.ccslkernel.runtime.exceptions.SimulationExcepti
 import fr.inria.aoste.timesquare.ccslkernel.solver.CCSLKernelSolver;
 import fr.inria.aoste.timesquare.ccslkernel.solver.TimeModel.SolverClock;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
-
-import com.google.common.collect.Sets;
 
 /**
  * Naive implementation of the heterogeneous ExecutionEngine, where so called 
@@ -226,8 +223,14 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		return _t2Solvers.get(engineNumber).findClock(in.getQualifiedName().toString());
 	}
 	
-	public SolverClock getCoordinationSolverClockFromMSE(ModelSpecificEvent inMSE, CCSLKernelSolver aSolver){
-		return _coordinationSolver.getSolverWrapper().getSolver().findClockByPath(getQualifiedName((Clock) inMSE.getSolverEvent()));
+	public SolverClock getCoordinationSolverClockFromMSE(MSE inMSE, CCSLKernelSolver aSolver){
+		if(inMSE instanceof FeedbackMSE){
+			return _coordinationSolver.getSolverWrapper().getSolver().findClockByPath(getQualifiedName((Clock)((FeedbackMSE) inMSE).getFeedbackModelSpecificEvent().getSolverEvent()));
+		}
+		else{
+			Activator.getDefault().error("Failed to find a solverClock for MSE "+inMSE);
+			return null;	
+		}
 	}
 
 	
@@ -320,7 +323,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			eStep.solverIndex = iSolver;
 			res.add(eStep);
 		}
-		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(org.gemoc.execution.engine.trace.gemoc_execution_trace.Gemoc_execution_traceFactory.eINSTANCE.createLogicalStep());
+		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(org.gemoc.execution.engine.mse.engine_mse.Engine_mseFactory.eINSTANCE.createLogicalStep());
 		emptyLogicalStep.indexInSolution= possibleLogicalSteps.size();
 		emptyLogicalStep.solverIndex=iSolver;
 		res.add(emptyLogicalStep);
@@ -331,7 +334,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		CCSLKernelSolver oneSolver= _t2Solvers.get(engineNumber);
 		ArrayList<SolverClock> trueClocks = new ArrayList<SolverClock>();
 			for(MSEOccurrence mseOcc : aStep.getMseOccurrences()){
-				ModelSpecificEvent mse = mseOcc.getMse();
+				MSE mse = mseOcc.getMse();
 				SolverClock coordinationClock = getCoordinationSolverClockFromMSE(mse, oneSolver);
 				trueClocks.add(coordinationClock);
 				_coordinationSolver.getSolverWrapper().getSolver().forceClockPresence(coordinationClock);
