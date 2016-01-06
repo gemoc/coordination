@@ -404,6 +404,9 @@ public class helperNsURI {
 	    		  GNegationExpression gexp = (GNegationExpression) exp;
 	    		  //GBraceExpression gexp2 = (GBraceExpression) gexp.getOperand();
 	    		  serial = GNegationExpressiontoString (gexp);
+	    	  } else if (exp instanceof GStringExpression){
+	    		  GStringExpression gexp =(GStringExpression) exp;
+	    		  serial = gexp.getValue();
 	    	  }
 	    		
 	    	  } catch (Exception ex) { // fall back:  
