@@ -20,6 +20,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.gemoc.commons.eclipse.ui.ViewHelper;
+import org.gemoc.execution.concurrent.ccsljavaengine.ui.debug.GemocModelDebugger;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedModelExecutionContext;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguration;
 import org.gemoc.execution.engine.coordinator.commons.HeterogeneousEngine;
@@ -28,7 +29,6 @@ import org.gemoc.executionengine.ccsljava.api.core.IConcurrentExecutionEngine;
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.extensions.sirius.services.AbstractGemocDebuggerServices;
-import org.gemoc.gemoc_modeling_workbench.ui.debug.GemocModelDebugger;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 
