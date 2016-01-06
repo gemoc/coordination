@@ -31,7 +31,6 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.executionframework.reflectivetrace.model,
  org.gemoc.executionframework.engine,
  org.eclipse.swt,
- org.gemoc.execution.concurrent.ccsljavaengine.ui.api,
  org.gemoc.execution.concurrent.ccsljavaxdsml.api;bundle-version="1.0.0",
  org.gemoc.execution.concurrent.ccsljavaengine,
  org.gemoc.commons.eclipse.pde;bundle-version="0.1.0",
@@ -39,7 +38,8 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.executionframework.engine.ui,
  org.gemoc.execution.concurrent.ccsljavaxdsml.mse.model,
  fr.inria.aoste.trace;bundle-version="1.0.1",
- fr.inria.diverse.commons.eclipse.messagingsystem.api
+ fr.inria.diverse.commons.eclipse.messagingsystem.api,
+ org.gemoc.execution.concurrent.ccsljavaengine.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.gemoc.execution.engine.coordinator.commons
