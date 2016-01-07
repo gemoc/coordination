@@ -323,7 +323,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			eStep.solverIndex = iSolver;
 			res.add(eStep);
 		}
-		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(org.gemoc.executionframework.engine.mse.Engine_mseFactory.eINSTANCE.createLogicalStep());
+		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(org.gemoc.executionframework.engine.mse.MseFactory.eINSTANCE.createLogicalStep());
 		emptyLogicalStep.indexInSolution= possibleLogicalSteps.size();
 		emptyLogicalStep.solverIndex=iSolver;
 		res.add(emptyLogicalStep);
