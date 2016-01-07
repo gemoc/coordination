@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
-import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
+import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionContext;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutionEngine;
