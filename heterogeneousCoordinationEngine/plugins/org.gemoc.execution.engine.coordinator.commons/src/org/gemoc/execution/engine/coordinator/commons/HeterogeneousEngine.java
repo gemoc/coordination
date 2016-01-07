@@ -28,10 +28,10 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
 import org.gemoc.execution.engine.Activator;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.core.AbstractExecutionEngine;
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.execution.engine.mse.engine_mse.MSE;
-import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
-import org.gemoc.execution.engine.mse.engine_mse.impl.LogicalStepImpl;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.MSE;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.impl.LogicalStepImpl;
 import org.gemoc.xdsmlframework.api.core.EngineStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
@@ -323,7 +323,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			eStep.solverIndex = iSolver;
 			res.add(eStep);
 		}
-		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(org.gemoc.execution.engine.mse.engine_mse.Engine_mseFactory.eINSTANCE.createLogicalStep());
+		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(org.gemoc.executionframework.engine.mse.Engine_mseFactory.eINSTANCE.createLogicalStep());
 		emptyLogicalStep.indexInSolution= possibleLogicalSteps.size();
 		emptyLogicalStep.solverIndex=iSolver;
 		res.add(emptyLogicalStep);

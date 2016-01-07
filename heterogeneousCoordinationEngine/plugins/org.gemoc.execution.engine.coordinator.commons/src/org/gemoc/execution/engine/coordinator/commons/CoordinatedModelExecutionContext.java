@@ -32,7 +32,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.LogicalStepDeciderFactor
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.core.ExecutionWorkspace;
-import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
+import org.gemoc.executionframework.engine.mse.MSEModel;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;

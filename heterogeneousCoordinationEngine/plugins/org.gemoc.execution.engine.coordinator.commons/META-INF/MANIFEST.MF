@@ -36,7 +36,7 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.commons.eclipse.pde;bundle-version="0.1.0",
  org.gemoc.commons.eclipse;bundle-version="0.1.0",
  org.gemoc.executionframework.engine.ui,
- org.gemoc.execution.concurrent.ccsljavaxdsml.mse.model,
+ org.gemoc.execution.concurrent.ccsljavaengine.mse.model,
  fr.inria.aoste.trace;bundle-version="1.0.1",
  fr.inria.diverse.commons.eclipse.messagingsystem.api,
  org.gemoc.execution.concurrent.ccsljavaengine.ui
