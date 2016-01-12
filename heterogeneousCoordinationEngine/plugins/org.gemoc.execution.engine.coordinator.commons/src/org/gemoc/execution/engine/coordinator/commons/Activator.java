@@ -14,7 +14,7 @@ import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
 public class Activator extends GemocPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.gemoc.execution.engine.coordinator.commons"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.gemoc.executionframework.engine.coordinator.commons"; //$NON-NLS-1$
 
 	
 	/**

@@ -25,9 +25,9 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IFutureAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.execution.engine.Activator;
-import org.gemoc.execution.engine.commons.EngineContextException;
-import org.gemoc.execution.engine.core.AbstractExecutionEngine;
+import org.gemoc.executionframework.engine.Activator;
+import org.gemoc.executionframework.engine.commons.EngineContextException;
+import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.gemoc.executionframework.engine.mse.LogicalStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
@@ -190,7 +190,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 	
 	/* (non-Javadoc)
-	 * @see org.gemoc.execution.engine.core.IExecutionEngine#notifyLogicalStepExecuted(org.gemoc.execution.engine.trace.gemoc_execution_trace.LogicalStep)
+	 * @see org.gemoc.executionframework.engine.core.IExecutionEngine#notifyLogicalStepExecuted(org.gemoc.executionframework.engine.trace.gemoc_execution_trace.LogicalStep)
 	 */
 	@Override
 	public void notifyLogicalStepExecuted(LogicalStep l) {

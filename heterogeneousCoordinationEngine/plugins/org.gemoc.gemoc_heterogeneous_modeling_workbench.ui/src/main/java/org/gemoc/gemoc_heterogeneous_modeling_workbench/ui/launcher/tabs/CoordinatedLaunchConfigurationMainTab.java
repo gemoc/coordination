@@ -27,7 +27,7 @@ import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtension;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguration;
-import org.gemoc.execution.engine.ui.commons.RunConfiguration;
+import org.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;
 
