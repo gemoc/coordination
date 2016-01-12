@@ -12,10 +12,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
-import org.gemoc.execution.ccsljava.concurrent_mse.FeedbackMSE;
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.execution.engine.mse.engine_mse.MSE;
+import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.gemoc.execution.engine.trace.LogicalStepHelper;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;

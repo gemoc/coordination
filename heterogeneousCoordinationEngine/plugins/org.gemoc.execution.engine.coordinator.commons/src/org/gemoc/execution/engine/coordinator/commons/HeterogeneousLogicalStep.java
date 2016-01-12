@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.gemoc.execution.engine.coordinator.commons.HeterogeneousEngine.ExtendedLogicalStep;
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.execution.engine.mse.engine_mse.MSEOccurrence;
-import org.gemoc.execution.engine.mse.engine_mse.impl.LogicalStepImpl;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.impl.LogicalStepImpl;
 
 
 /**

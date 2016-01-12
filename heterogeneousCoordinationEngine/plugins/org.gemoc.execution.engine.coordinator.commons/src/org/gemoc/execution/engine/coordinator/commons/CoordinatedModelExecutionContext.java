@@ -44,11 +44,11 @@ import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
 import org.gemoc.bflow.BFlowStandaloneSetup;
 import org.gemoc.bflow.bFlow.Model;
+import org.gemoc.execution.concurrent.ccsljavaengine.ui.LogicalStepDeciderFactory;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.execution.engine.commons.EngineContextException;
 import org.gemoc.execution.engine.core.ExecutionWorkspace;
-import org.gemoc.execution.engine.mse.engine_mse.MSEModel;
-import org.gemoc.executionengine.ccsljava.api.core.ILogicalStepDecider;
-import org.gemoc.executionengine.ccsljava.engine.ui.LogicalStepDeciderFactory;
+import org.gemoc.executionframework.engine.mse.MSEModel;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
@@ -362,7 +362,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			generator.doGenerate(monitor );
 		} catch (IOException e) {
 			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-			//Activator.getDefault().getLog().log(status);
+			org.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().getLog().log(status);
 		} finally {
 			try {
 				bcoolFile.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);

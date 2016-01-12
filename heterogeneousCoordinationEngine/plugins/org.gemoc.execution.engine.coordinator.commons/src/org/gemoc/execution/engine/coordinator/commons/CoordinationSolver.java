@@ -3,8 +3,8 @@ package org.gemoc.execution.engine.coordinator.commons;
 import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.URI;
-import org.gemoc.execution.engine.mse.engine_mse.LogicalStep;
-import org.gemoc.gemoc_language_workbench.extensions.timesquare.moc.impl.CcslSolver;
+import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver;
+import org.gemoc.executionframework.engine.mse.LogicalStep;
 
 import fr.inria.aoste.timesquare.ccslkernel.solver.CCSLKernelSolver;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;

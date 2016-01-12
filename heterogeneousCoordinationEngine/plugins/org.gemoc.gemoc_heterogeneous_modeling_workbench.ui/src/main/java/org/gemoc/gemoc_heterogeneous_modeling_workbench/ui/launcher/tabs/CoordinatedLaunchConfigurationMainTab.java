@@ -24,10 +24,10 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.gemoc.commons.eclipse.emf.URIHelper;
 import org.gemoc.commons.eclipse.ui.dialogs.SelectAnyIFileDialog;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtension;
+import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguration;
 import org.gemoc.execution.engine.ui.commons.RunConfiguration;
-import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtension;
-import org.gemoc.executionengine.ccsljava.api.extensions.deciders.DeciderSpecificationExtensionPoint;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
 import org.gemoc.gemoc_language_workbench.api.core.IRunConfiguration;
 
