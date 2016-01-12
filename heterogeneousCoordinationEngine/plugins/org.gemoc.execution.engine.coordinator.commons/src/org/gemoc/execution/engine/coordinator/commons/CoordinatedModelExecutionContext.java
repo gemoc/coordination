@@ -30,8 +30,8 @@ import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.LogicalStepDeciderFactory;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
-import org.gemoc.execution.engine.commons.EngineContextException;
-import org.gemoc.execution.engine.core.ExecutionWorkspace;
+import org.gemoc.executionframework.engine.commons.EngineContextException;
+import org.gemoc.executionframework.engine.core.ExecutionWorkspace;
 import org.gemoc.executionframework.engine.mse.MSEModel;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
@@ -145,7 +145,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		ArrayList<IFile> inputModelfiles = new ArrayList<IFile>();
 		ArrayList<IFile> timodelFiles = new ArrayList<IFile>();
 		coordinatedEngines  = new ArrayList<IExecutionEngine>();
-		Collection<IBasicExecutionEngine> engines = org.gemoc.execution.engine.Activator.getDefault().gemocRunningEngineRegistry.getRunningEngines().values();
+		Collection<IBasicExecutionEngine> engines = org.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry.getRunningEngines().values();
 		for (IBasicExecutionEngine engine : engines)
 		{
 			if (engine.getRunningStatus() == RunStatus.Stopped){
