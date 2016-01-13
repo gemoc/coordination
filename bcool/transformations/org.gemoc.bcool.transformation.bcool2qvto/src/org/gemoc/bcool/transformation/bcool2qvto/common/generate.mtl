@@ -23,7 +23,13 @@ modeltype Ecore uses 'http://www.eclipse.org/emf/2002/Ecore';
 //modeltype pivot uses 'http://www.eclipse.org/ocl/3.1.0/Pivot';
 
 [for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
-	modeltype inMM[i/] uses '[ im.getNSURI()/]';
+		[let anEclDoc : ECLDocument = im.getEclDocument()]
+			[let ModelNumber : EInt = i]
+				[for ( anEclDoc.packages)]
+					modeltype inMM[ModelNumber/][i/] uses '[im.getNSURIIndex(i-1)/]';
+				[/for]
+			[/let]
+		[/let]
 [/for]
 modeltype ocl uses 'http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST';
 
@@ -35,7 +41,7 @@ modeltype TimeModel uses 'http://fr.inria.aoste.timemodel';
 transformation do[aBCoolSpecification.name/]_To_CCSL(
 [for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 	[if (im.importURI.endsWith('ecl'))]
-inM[i/] : inMM[i/],
+inM[i/] : inMM[i/]1,
 	[/if]
 [/for] inout outCCSLModel : TimeModel);
 
@@ -84,18 +90,21 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 		
 		[for (evt : DefCS | allEvents)]
 
+		[let tmp : String = evt.classifierContextDecl.pathName.toString() ]
+		
+	
 
+		property MM[modelNumber/]1_seqOf[evt.name/][evt.classifierContextDecl.pathName/]Context :	Sequence(inMM[modelNumber/][anEclDoc.getpackageIndex(tmp)/]::[evt.classifierContextDecl.pathName/]) = Sequence{};
+		property MM[modelNumber/]1_seqOf[evt.name/][evt.classifierContextDecl.pathName/]ReferedElement :	Sequence(EObject) = Sequence{};
 
-		property MM[modelNumber/]_seqOf[evt.name/][evt.classifierContextDecl.pathName/]Context :	Sequence(inMM[modelNumber/]::[evt.classifierContextDecl.pathName/]) = Sequence{};
-		property MM[modelNumber/]_seqOf[evt.name/][evt.classifierContextDecl.pathName/]ReferedElement :	Sequence(EObject) = Sequence{};
-
-			query inMM[modelNumber/]::[evt.classifierContextDecl.pathName/]::get[evt.name/]MSEofMM[modelNumber/]() {
-			MM[modelNumber/]_seqOf[evt.name/][evt.classifierContextDecl.pathName/]Context += self.oclAsType(inMM[modelNumber/]::[evt.classifierContextDecl.pathName/]);
+			query inMM[modelNumber/][anEclDoc.getpackageIndex(tmp)/]::[evt.classifierContextDecl.pathName/]::get[evt.name/]MSEofMM[modelNumber/]() {
+			MM[modelNumber/]1_seqOf[evt.name/][evt.classifierContextDecl.pathName/]Context += self.oclAsType(inMM[modelNumber/][anEclDoc.getpackageIndex(tmp)/]::[evt.classifierContextDecl.pathName/]);
 			//warning here, at the end it will be an eoperation..., i.e. a DSA
-			MM[modelNumber/]_seqOf[evt.name/][evt.classifierContextDecl.pathName/]ReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
+			MM[modelNumber/]1_seqOf[evt.name/][evt.classifierContextDecl.pathName/]ReferedElement += self.oclAsType(EObject); //before: evt.ownedType.oclAsType(EventType).referedElement
 			return;
 			}
 	
+		[/let]
 		[/for]
 		[/let]
 		[/let]
@@ -183,7 +192,9 @@ main() {
 		[let anEclDoc : ECLDocument = im.getEclDocument()]
 		[let allEvents : Sequence(DefCS) = anEclDoc.eAllContents()->select(eo | eo.oclIsKindOf(ECLDefCS) and eo.oclAsType(ECLDefCS).ownedType.oclIsKindOf(EventType))]
 		[for (evt : DefCS | allEvents)]
-			inM[modelNumber/].objectsOfType(inMM[modelNumber/]::[evt.classifierContextDecl.pathName/]).get[evt.name/]MSEofMM[modelNumber/]();
+				[let tmp : String = evt.classifierContextDecl.pathName.toString() ]
+				inM[modelNumber/].objectsOfType(inMM[modelNumber/][anEclDoc.getpackageIndex(tmp)/]::[evt.classifierContextDecl.pathName/]).get[evt.name/]MSEofMM[modelNumber/]();
+				[/let]
 		[/for]
 		[/let]
 		[/let]
@@ -265,7 +276,7 @@ main() {
 			[for (interface : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]	 
 				[let interfaceNumber : EInt = i]
 				[if interface.name = operArgs.Interface.name]
-				 MM[i/]_seqOf[dse.oclAsType(DefPropertyCS).name/][dse.oclAsType(DefPropertyCS).classifierContextDecl.pathName/]Context-> forEach ([operArgs.name/]){ 
+				 MM[i/]1_seqOf[dse.oclAsType(DefPropertyCS).name/][dse.oclAsType(DefPropertyCS).classifierContextDecl.pathName/]Context-> forEach ([operArgs.name/]){ 
 			    [/if]
 				[/let]
 			[/for]
@@ -981,8 +992,15 @@ TimeModel::EventKind::start;
 [/file]
 [/template]
 
+[query public getpackageIndex(arg0 : ECLDocument, objectName : String) : String
+	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getpackageIndex(fr.inria.aoste.timesquare.ECL.ECLDocument,java.lang.String)', Sequence{arg0, objectName}) /]
+
+
 [query public getNSURI(arg0 : ImportInterfaceStatement) : String
 	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getNSURI(org.gemoc.bcool.model.bcool.ImportInterfaceStatement)', Sequence{arg0}) /]
+
+[query public getNSURIIndex(arg0 : ImportInterfaceStatement, Index : EInt) : String
+	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getNSURIIndex(org.gemoc.bcool.model.bcool.ImportInterfaceStatement,java.lang.Integer)', Sequence{arg0, Index}) /]
 
 [query public getEclDocument(arg0 : ImportInterfaceStatement) : ECLDocument
 	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getEclDocument(org.gemoc.bcool.model.bcool.ImportInterfaceStatement)', Sequence{arg0}) /]

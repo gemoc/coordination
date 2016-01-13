@@ -6,6 +6,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
+//http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore
+
+
+
+
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
@@ -17,26 +23,18 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLDocumentCS;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarationCS;
-import org.eclipse.xtext.common.types.impl.JvmFieldImplCustom;
 import org.eclipse.xtext.resource.SaveOptions;
 import org.eclipse.xtext.resource.SaveOptions.Builder;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
-import org.eclipse.xtext.xbase.XBinaryOperation;
-import org.eclipse.xtext.xbase.XExpression;
-import org.eclipse.xtext.xbase.XFeatureCall;
-import org.eclipse.xtext.xbase.XMemberFeatureCall;
 import org.gemoc.bcool.model.bcool.BCoolOperatorArg;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.bcool.EventExpression;
 import org.gemoc.bcool.model.bcool.ImportInterfaceStatement;
 import org.gemoc.gexpressions.GExpression;
+import org.eclipse.ocl.ecore.IntegerLiteralExp;
 
 import com.google.inject.Injector;
 
@@ -45,7 +43,6 @@ import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.IntegerEle
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.impl.IntegerImpl;
 import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
 
-import org.gemoc.gexpressions.GAdditionExpression;
 import org.gemoc.gexpressions.GAndExpression;
 import org.gemoc.gexpressions.GBooleanExpression;
 import org.gemoc.gexpressions.GBraceExpression;
@@ -202,6 +199,63 @@ public class helperNsURI {
 	    }else {
 	    	return "bad metamodel in ecl";
 	    }
+	}
+	
+	// getNSURIIndex (i):
+	// return the corresponding NSURI for the i-esimo ecore imported by the ecl.
+	//
+	public String getNSURIIndex(ImportInterfaceStatement importInterfaceStatement, Integer i){
+		ECLDocument eclDoc = getEclDocument(importInterfaceStatement);
+	    String oclimport = eclDoc.getOwnedImport().get(i).toString();
+	    // I get the first import that corresponds with the metamodel
+	    oclimport = oclimport.substring(oclimport.indexOf('\'')+1, oclimport.lastIndexOf('\''));
+	    // Depending the kind of import we found differently the NSURI
+	    if (oclimport.endsWith(".ecore")) {
+	    	
+	    	// In ECL, if the .ecore is imported as resource, it is changed by plugin
+	    	// WARN: the BCOoL should not be in the same workbench that the languages
+	    	if (oclimport.startsWith("platform:/resource")) {
+	    		oclimport = oclimport.replace("resource","plugin");
+	    	}
+	    	URI metaURI=URI.createURI(oclimport,false);
+	    	ResourceSet resourceSet = new ResourceSetImpl(); 
+	        Resource resource1 = resourceSet.getResource(metaURI, true);
+	        
+	        EPackage wdwPackage = (EPackage)resource1.getContents().get(0);
+	    	return wdwPackage.getNsURI();
+	    // It is a NSURI
+	    }else if (oclimport.startsWith("http:/")) {
+	    	return oclimport;
+	    // Not recognized
+	    }else {
+	    	return "bad metamodel in ecl";
+	    }
+	}
+	
+	public String getpackageIndex(ECLDocument eclDoc, String objectName){
+		EList<PackageDeclarationCS> allpackages = eclDoc.getPackages();
+		
+		for(int i=0; i< allpackages.size(); i++){
+			PackageDeclarationCS pdecl = allpackages.get(i);
+			org.eclipse.ocl.examples.pivot.Package p =  pdecl.getPackage();
+			TreeIterator<EObject> it = p.eAllContents();
+			while( it.hasNext()){
+				EObject eo = it.next();
+				String eoName = "";
+				try {
+					if(eo.getClass().getMethod("getName") != null){
+						eoName = (String) eo.getClass().getMethod("getName").invoke(eo, new Object[]{});
+					}
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if ((eoName != null) && (eoName.compareTo(objectName)==0)){
+					return (new Integer(i+1)).toString();
+				}
+			}
+		}
+		return (new Integer(1)).toString(); //1 is returned by default since we do not necessarly know the name of the rootElement and it is PAckage by default (for UML)
 	}
 	
 	
