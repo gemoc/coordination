@@ -3,9 +3,11 @@ grammar org.gemoc.bflow.BFlow with org.eclipse.xtext.common.Terminals
 generate bFlow "http://www.gemoc.org/bflow/BFlow"
 
 import "http://org.gemoc.bcool.model/"
+
 Model:
 	'BCOoLFlow' name=ID '{'
-		'BCOoL Specification:' imporBCOoL=STRING ';'
+		'import' importURI = STRING ';'
+		'BCOoL Specification:' bcoolspec=[BCoolSpecification] ';'
 		'Output:' outputtimemodel=STRING ';'
 		 models+=modelinput*
 		 'Flow' bcoolflow+= Flows*
@@ -17,6 +19,7 @@ modelinput:
 	'Model' name=ID '(' timemodel=STRING ',' modeluri=STRING ')' ';'
 ;
 
+
 // TODO: change the ID for a BCOoLoPERATOR
 Flows:
-	'applies' oper=ID 'between' '('(params+=[modelinput](',' params+=[modelinput])*)? ')' ';';
+	'applies' oper=[BCoolCompositionRule] 'between' '('(params+=[modelinput](',' params+=[modelinput])*)? ')' ';';
