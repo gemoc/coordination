@@ -662,7 +662,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 
 	@Override
 	public IConcurrentExecutionContext getConcurrentExecutionContext() {
-		return (IConcurrentExecutionContext) _executionContext;
+		return (IConcurrentExecutionContext) ((CoordinatedModelExecutionContext)_executionContext).getCoordinatedEngines().get(0).getExecutionContext();
 	}
 	@Override
 	public void updatePossibleLogicalSteps() {
