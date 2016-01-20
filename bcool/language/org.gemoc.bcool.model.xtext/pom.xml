@@ -15,6 +15,23 @@
   <build>
 		<plugins>
 			
+			<plugin>
+ 			 <groupId>org.apache.maven.plugins</groupId>
+ 			 <artifactId>maven-clean-plugin</artifactId>
+ 			 <version>2.5</version>
+  			<configuration>
+    		<filesets>
+      		<fileset>
+  			<directory>${basedir}/src-gen</directory>
+      		</fileset>
+      		<fileset>
+  			<directory>${basedir}/xtend-gen</directory>
+      		</fileset>
+    		</filesets>
+  			</configuration>
+			</plugin>
+			
+			
 			<!--  <plugin>
 				<groupId>org.fornax.toolsupport</groupId>
 				<artifactId>fornax-oaw-m2-plugin</artifactId>
@@ -76,6 +93,9 @@
 
 					</arguments>
 				</configuration>
+				
+				
+				
                 <dependencies>
 					<dependency>
 						<groupId>org.gemoc.bcool.framework</groupId>
@@ -92,6 +112,16 @@
 						<artifactId>org.eclipse.xtext.xbase</artifactId>
 						<version>${xtext.version}</version>
 					</dependency>
+					
+						<dependency>
+										<groupId>org.eclipse</groupId>
+										<artifactId>ocl</artifactId>
+						<version>3.4.0-v20140524-1358</version>
+					</dependency>
+					
+					
+					
+					
                 </dependencies>
 			</plugin> 
 		</plugins>
