@@ -7,7 +7,7 @@
     <package 
        uri = "http://www.gemoc.org/bflow/BFlow" 
        class = "org.gemoc.bflow.bFlow.BFlowPackage"
-       genModel = "model/generated/BFlow.genmodel" /> 
+       genModel = "model/BFlow.genmodel" /> 
 	
   </extension>
 
