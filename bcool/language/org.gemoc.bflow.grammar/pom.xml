@@ -13,4 +13,52 @@
   <description>This project contains the  Xtext of BFloW</description>
   <url>http://bcool.inria.fr</url>
 
+<!-- This is mandatory to compile first the mwe2 and then the xtend, otherwise the build fails for problems in the xtend code -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<includeProjectDependencies>false</includeProjectDependencies>
+					<includePluginDependencies>true</includePluginDependencies>
+					<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
+<arguments>
+ 						<argument>${project.basedir}/src/org/gemoc/bflow/GenerateBFlow.mwe2</argument>
+ 						<argument>
+ 							-p
+ 						</argument>
+ 						<argument>
+ 							runtimeProject=/${project.basedir}
+ 						</argument>
+ 
+ 					</arguments>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.xtext</groupId>
+						<artifactId>org.eclipse.xtext.xtext</artifactId>
+						<version>${xtext.version}</version>
+					</dependency>
+					
+					
+			</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+
 </project>

@@ -14,6 +14,8 @@ var encoding = "UTF-8"
 
 Workflow {
     bean = StandaloneSetup {
+    	// This comes from the tuto to make xtext works in maven
+    	resourceSet = org.eclipse.xtext.resource.XtextResourceSet:theResourceSet {}
     	scanClassPath = true
     	platformUri = "${runtimeProject}/.."
     	
@@ -25,8 +27,8 @@ Workflow {
     	registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
         registerGenModelFile = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
 
-    	registerGeneratedEPackage = "org.gemoc.bcool.model.bcool.BcoolPackage"
-    	registerGenModelFile = "platform:/resource/org.gemoc.bcool.model/model/bcool.genmodel"
+    	//registerGeneratedEPackage = "org.gemoc.bcool.model.bcool.BcoolPackage"
+    	//registerGenModelFile = "platform:/resource/org.gemoc.bcool.model/model/bcool.genmodel"
     	
     //	registerGeneratedEPackage = "org.gemoc.bflow.bFlow.BFlowPackage"
     //	registerGenModelFile = "platform:/resource/org.gemoc.bflow.grammar/model/BFlow.genmodel"
@@ -63,7 +65,7 @@ Workflow {
     	projectNameUi = "${projectName}.ui"
     	encoding = encoding
     	language = auto-inject {
-    		
+    		forcedResourceSet = theResourceSet
     		loadedResource = "platform:/resource/${projectName}/model/BFlow.ecore"
     		
     		uri = grammarURI
