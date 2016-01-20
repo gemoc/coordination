@@ -47,12 +47,12 @@ def compile(Model e) '''
     </qvto:transformation>
 
 	     «FOR f:e.bcoolflow»
-	     	<qvto:transformation uri="«e.bcoolspec.name».qvto">
+	     	<qvto:transformation uri="«e.bcoolspec».qvto">
 	     	<configProperty name="ApplyAll" value="false"/>
 	     	«IF f == e.bcoolflow.get(0)» 
 	     		<configProperty name="IsInvokedfromAnt" value="true"/>
 	     	«ENDIF»
-	     	<configProperty name="Is«f.oper.name»Executed" value="true"/>
+	     	<configProperty name="Is«f.oper»Executed" value="true"/>
        		 «f.compile»
 	     	<inout uri="«e.outputtimemodel»" outuri="«e.outputtimemodel»"/>
 	     	</qvto:transformation>

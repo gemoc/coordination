@@ -2,12 +2,14 @@ grammar org.gemoc.bflow.BFlow with org.eclipse.xtext.common.Terminals
 
 generate bFlow "http://www.gemoc.org/bflow/BFlow"
 
-import "http://org.gemoc.bcool.model/"
+import "http://org.gemoc.bcool.model/" as bcool
+import "http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model:
 	'BCOoLFlow' name=ID '{'
 		'import' importURI = STRING ';'
-		'BCOoL Specification:' bcoolspec=[BCoolSpecification] ';'
+		'BCOoL Specification:' bcoolspec=STRING ';'
 		'Output:' outputtimemodel=STRING ';'
 		 models+=modelinput*
 		 'Flow' bcoolflow+= Flows*
@@ -22,4 +24,4 @@ modelinput:
 
 // TODO: change the ID for a BCOoLoPERATOR
 Flows:
-	'applies' oper=[BCoolCompositionRule] 'between' '('(params+=[modelinput](',' params+=[modelinput])*)? ')' ';';
+	'applies' oper=STRING 'between' '('(params+=[modelinput](',' params+=[modelinput])*)? ')' ';';

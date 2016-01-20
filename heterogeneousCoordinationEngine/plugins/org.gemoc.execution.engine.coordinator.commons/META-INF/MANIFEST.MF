@@ -39,7 +39,8 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.execution.concurrent.ccsljavaengine.mse.model,
  fr.inria.aoste.trace;bundle-version="1.0.1",
  fr.inria.diverse.commons.eclipse.messagingsystem.api,
- org.gemoc.execution.concurrent.ccsljavaengine.ui
+ org.gemoc.execution.concurrent.ccsljavaengine.ui,
+ org.gemoc.bflow.grammar;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.gemoc.execution.engine.coordinator.commons

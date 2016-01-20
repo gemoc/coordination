@@ -4,9 +4,10 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/org/gemoc/bflow/BFlow.xtext"
-var fileExtensions = "bflow"
+
 var projectName = "org.gemoc.bflow.grammar"
+var grammarURI = "platform:/resource/${projectName}/src/org/gemoc/bflow/BFlow.xtext"
+var fileExtensions = "bflow"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true
 var encoding = "UTF-8"
@@ -21,9 +22,13 @@ Workflow {
     	//registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
     	//registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
     	
-    	
+    	registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
+        registerGenModelFile = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
+
     	registerGeneratedEPackage = "org.gemoc.bcool.model.bcool.BcoolPackage"
     	registerGenModelFile = "platform:/resource/org.gemoc.bcool.model/model/bcool.genmodel"
+    	
+    	
     }
     
     component = DirectoryCleaner {
@@ -78,8 +83,8 @@ Workflow {
     
     		// Xtend-based API for validation
     		fragment = validation.ValidatorFragment auto-inject {
-    		//    composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
-    		//    composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+    		    composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+    		    composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
     		}
     
     		// old scoping and exporting API
@@ -120,13 +125,13 @@ Workflow {
     		fragment = refactoring.RefactorElementNameFragment auto-inject {}
     
     		// provides the necessary bindings for java types integration
-    		fragment = types.TypesGeneratorFragment auto-inject {}
+    		//fragment = types.TypesGeneratorFragment auto-inject {}
     
     		// generates the required bindings only if the grammar inherits from Xbase
-    		fragment = xbase.XbaseGeneratorFragment auto-inject {}
+    		//fragment = xbase.XbaseGeneratorFragment auto-inject {}
     		
     		// generates the required bindings only if the grammar inherits from Xtype
-    		fragment = xbase.XtypeGeneratorFragment auto-inject {}
+    		//fragment = xbase.XtypeGeneratorFragment auto-inject {}
     
     		// provides a preference page for template proposals
     		fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
