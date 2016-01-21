@@ -57,6 +57,7 @@ import org.gemoc.xdsmlframework.api.core.IExecutionPlatform;
 import org.gemoc.xdsmlframework.api.core.IExecutionWorkspace;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
+import org.osgi.framework.Bundle;
 
 import com.google.inject.Injector;
 
@@ -453,6 +454,13 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 	@Override
 	public LanguageDefinitionExtension getLanguageDefinitionExtension()
 	{
+		return null;
+	}
+
+
+	@Override
+	public Bundle getMelangeBundle() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
