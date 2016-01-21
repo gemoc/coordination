@@ -50,6 +50,12 @@
 						<version>${xtext.version}</version>
 					</dependency>
 					
+						<dependency>
+						<groupId>org.eclipse.xtext</groupId>
+						<artifactId>org.eclipse.xtext.ecore</artifactId>
+						<version>2.9.0</version>
+					</dependency>
+					
 					
 			</dependencies>
 			</plugin>
