@@ -206,10 +206,12 @@ public class helperNsURI {
 	//
 	public String getNSURIIndex(ImportInterfaceStatement importInterfaceStatement, Integer i){
 		ECLDocument eclDoc = getEclDocument(importInterfaceStatement);
-	    String oclimport = eclDoc.getOwnedImport().get(i).toString();
-	    // I get the first import that corresponds with the metamodel
-	    oclimport = oclimport.substring(oclimport.indexOf('\'')+1, oclimport.lastIndexOf('\''));
-	    // Depending the kind of import we found differently the NSURI
+	    // This gets directly the imported statement
+		String oclimport = eclDoc.getOwnedImport().get(i).getPathName().toString();
+	    // some cleaning 
+		oclimport = oclimport.substring(oclimport.indexOf('\'')+1, oclimport.lastIndexOf('\''));
+	    
+		// Depending on the kind of import we found differently the NSURI
 	    if (oclimport.endsWith(".ecore")) {
 	    	
 	    	// In ECL, if the .ecore is imported as resource, it is changed by plugin

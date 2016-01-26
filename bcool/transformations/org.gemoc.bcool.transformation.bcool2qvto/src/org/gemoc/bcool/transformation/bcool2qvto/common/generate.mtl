@@ -25,6 +25,7 @@ modeltype Ecore uses 'http://www.eclipse.org/emf/2002/Ecore';
 [for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 		[let anEclDoc : ECLDocument = im.getEclDocument()]
 			[let ModelNumber : EInt = i]
+				[comment] We use the number of packet in the .ecl to get the .ecore [/comment]
 				[for ( anEclDoc.packages)]
 					modeltype inMM[ModelNumber/][i/] uses '[im.getNSURIIndex(i-1)/]';
 				[/for]
