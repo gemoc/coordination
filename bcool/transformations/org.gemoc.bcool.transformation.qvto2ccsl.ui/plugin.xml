@@ -8,15 +8,20 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*"
 			id="org.gemoc.bcool.transformation.qvto2ccsl.ui.popupMenus.contribution.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="GEMOC coordination" path="additionsAcceleo">
+         <menu
+               icon="icons/IconeGemocLanguage-16.png"
+               id="org.eclipse.acceleo.module.menu"
+               label="GEMOC coordination"
+               path="additionsAcceleo">
                <groupMarker name="acceleo"/> 
          </menu>
          <action
-               label="create CCSL coordination model"
                class="org.gemoc.bcool.transformation.qvto2ccsl.ui.popup.actions.Qvto2CCSLTranslator"
-               menubarPath="org.eclipse.acceleo.module.menu/acceleo"
                enablesFor="multiple"
-               id="org.gemoc.bcool.transformation.qvto2ccsl.ui.newAction">
+               icon="icons/plus-16.png"
+               id="org.gemoc.bcool.transformation.qvto2ccsl.ui.newAction"
+               label="create CCSL coordination model"
+               menubarPath="org.eclipse.acceleo.module.menu/acceleo">
          </action>
       </objectContribution>
    </extension>
