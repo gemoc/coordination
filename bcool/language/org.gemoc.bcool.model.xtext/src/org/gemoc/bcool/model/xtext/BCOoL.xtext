@@ -31,7 +31,7 @@ globalEventExpressionRule returns EventExpression:
 
 BCoolCompositionRule returns BCoolCompositionRule: 
 	'Operator' name=ID '(' BCoolOperatorArgs+=BCoolOperatorArg (',' BCoolOperatorArgs+=BCoolOperatorArg)* ')'
-					   'MatchingCorrespondance:' matchingRule=MatchingRule
+					   matchingRule=MatchingRule
 					    coordinationRule=CoordinationRule
 	'end operator;'
 ;
