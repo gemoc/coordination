@@ -3,7 +3,6 @@
 package org.gemoc.bcool.model.bcool;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
 
 /**
