@@ -12,6 +12,8 @@ import java.util.Set;
 
 
 
+
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
@@ -23,6 +25,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.ocl.examples.xtext.base.basecs.ImportCS;
+import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContextDeclCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarationCS;
 import org.eclipse.xtext.resource.SaveOptions;
@@ -234,31 +238,57 @@ public class helperNsURI {
 	    }
 	}
 	
-	public String getpackageIndex(ECLDocument eclDoc, String objectName){
-		EList<PackageDeclarationCS> allpackages = eclDoc.getPackages();
-		
-		for(int i=0; i< allpackages.size(); i++){
-			PackageDeclarationCS pdecl = allpackages.get(i);
-			org.eclipse.ocl.examples.pivot.Package p =  pdecl.getPackage();
-			TreeIterator<EObject> it = p.eAllContents();
-			while( it.hasNext()){
-				EObject eo = it.next();
-				String eoName = "";
-				try {
-					if(eo.getClass().getMethod("getName") != null){
-						eoName = (String) eo.getClass().getMethod("getName").invoke(eo, new Object[]{});
-					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if ((eoName != null) && (eoName.compareTo(objectName)==0)){
-					return (new Integer(i+1)).toString();
-				}
+//	public String getpackageIndex(ECLDocument eclDoc, String objectName){
+//	EList<PackageDeclarationCS> allpackages = eclDoc.getPackages();
+//	
+//	for(int i=0; i< allpackages.size(); i++){
+//		PackageDeclarationCS pdecl = allpackages.get(i);
+//		org.eclipse.ocl.examples.pivot.Package p =  pdecl.getPackage();
+//		TreeIterator<EObject> it = p.eAllContents();
+//		while( it.hasNext()){
+//			EObject eo = it.next();
+//			String eoName = "";
+//			try {
+//				if(eo.getClass().getMethod("getName") != null){
+//					eoName = (String) eo.getClass().getMethod("getName").invoke(eo, new Object[]{});
+//				}
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			if ((eoName != null) && (eoName.compareTo(objectName)==0)){
+//				return (new Integer(i+1)).toString();
+//			}
+//		}
+//	}
+//	return (new Integer(1)).toString(); //1 is returned by default since we do not necessarly know the name of the rootElement and it is PAckage by default (for UML)
+//}
+	
+	public int getpackageIndex(ECLDocument eclDoc, ClassifierContextDeclCS contextDecl){
+//		EList<PackageDeclarationCS> allpackages = eclDoc.getPackages();
+//		System.out.println("\n\n*************************************************\n");
+//		System.out.println(contextDecl.getPathName().getElement());
+//		System.out.println(contextDecl.getPathName().getElement().eResource());
+//		System.out.println(contextDecl.getPathName().getElement().eResource().getURI());
+//		System.out.println("*******************************************************");
+		String packageName = contextDecl.getPathName().getElement().eResource().getURI().toString();
+		EList<ImportCS> allImports = eclDoc.getOwnedImport();
+		for(int i = 0; i < allImports.size(); i++){
+			if (allImports.get(i).getPathName().getElement().eResource().getURI().toString().compareTo(packageName) == 0){
+				return i+1;
 			}
 		}
-		return (new Integer(1)).toString(); //1 is returned by default since we do not necessarly know the name of the rootElement and it is PAckage by default (for UML)
+		return 1;
+//		for(int i=0; i< allpackages.size(); i++){
+//			PackageDeclarationCS pdecl = allpackages.get(i);
+//				if ((packageName != null) && (packageName.compareTo(pdecl.getPackage().getName())==0)){
+//					return (new Integer(i+1)).toString();
+//				}
+//			}
+//		return (new Integer(1)).toString(); //1 is returned by default since we do not necessarly know the name of the rootElement and it is PAckage by default (for UML)
 	}
+	
+	
 	
 	
 	public String getrootfromInterface (ImportInterfaceStatement importInterfaceStatement){

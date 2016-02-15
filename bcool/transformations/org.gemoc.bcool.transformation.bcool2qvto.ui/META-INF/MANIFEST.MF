@@ -11,11 +11,10 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.bcool.transformation.bcool2qvto,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
- org.eclipse.ocl,
- org.eclipse.ocl.ecore,
  org.eclipse.acceleo.model,
- org.eclipse.acceleo.engine
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+ org.eclipse.acceleo.engine,
+ org.eclipse.ocl.examples;bundle-version="3.4.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Export-Package: org.gemoc.bcool.transformation.bcool2qvto.ui,

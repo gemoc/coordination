@@ -91,7 +91,7 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 		
 		[for (evt : DefCS | allEvents)]
 
-		[let tmp : String = evt.classifierContextDecl.pathName.toString() ]
+		[let tmp : ClassifierContextDeclCS = evt.classifierContextDecl ]	
 		
 	
 
@@ -193,7 +193,7 @@ main() {
 		[let anEclDoc : ECLDocument = im.getEclDocument()]
 		[let allEvents : Sequence(DefCS) = anEclDoc.eAllContents()->select(eo | eo.oclIsKindOf(ECLDefCS) and eo.oclAsType(ECLDefCS).ownedType.oclIsKindOf(EventType))]
 		[for (evt : DefCS | allEvents)]
-				[let tmp : String = evt.classifierContextDecl.pathName.toString() ]
+				[let tmp : ClassifierContextDeclCS = evt.classifierContextDecl ]
 				inM[modelNumber/].objectsOfType(inMM[modelNumber/][anEclDoc.getpackageIndex(tmp)/]::[evt.classifierContextDecl.pathName/]).get[evt.name/]MSEofMM[modelNumber/]();
 				[/let]
 		[/for]
@@ -993,9 +993,11 @@ TimeModel::EventKind::start;
 [/file]
 [/template]
 
-[query public getpackageIndex(arg0 : ECLDocument, objectName : String) : String
-	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getpackageIndex(fr.inria.aoste.timesquare.ECL.ECLDocument,java.lang.String)', Sequence{arg0, objectName}) /]
+[comment][query public getpackageIndex(arg0 : ECLDocument, objectName : String) : String
+	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getpackageIndex(fr.inria.aoste.timesquare.ECL.ECLDocument,java.lang.String)', Sequence{arg0, objectName}) /][/comment]
 
+[query public getpackageIndex(arg0 : ECLDocument, contextDecl : ClassifierContextDeclCS) : Integer
+	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getpackageIndex(fr.inria.aoste.timesquare.ECL.ECLDocument, org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContextDeclCS)', Sequence{arg0, contextDecl}) /]
 
 [query public getNSURI(arg0 : ImportInterfaceStatement) : String
 	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getNSURI(org.gemoc.bcool.model.bcool.ImportInterfaceStatement)', Sequence{arg0}) /]
