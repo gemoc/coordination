@@ -1,148 +1,73 @@
-<?xml version="1.0" encoding="ASCII"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.gemoc.bcool.model/src" modelPluginID="org.gemoc.bcool.model" modelName="Bcool" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.gemoc.bcool.model/src" modelPluginID="org.gemoc.bcool.model"
+    modelName="Bcool" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.ocl.examples.xtext.base/model/BaseCS.genmodel#//basecs ../../org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.genmodel#//completeoclcs ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.ocl.examples.xtext.essentialocl/model/EssentialOCLCS.genmodel#//essentialoclcs ../../org.gemoc.gexpressions/model/gexpressions.genmodel#//gexpressions ../../org.eclipse.ocl.examples.pivot/model/Pivot.merged.genmodel#//pivot"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>bcool.ecore</foreignModel>
-  <genPackages prefix="Bcool" basePackage="org.gemoc.bcool.model" disposableProviderFactory="true">
-    <ecorePackage href="bcool.ecore#/"/>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//BCoolOperator"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolOperator/bcoolCompositionRules"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolOperator/globalEventExpressions"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolOperator/globalDSEs"/>
-      </genFeatures>
+  <genPackages prefix="Bcool" basePackage="org.gemoc.bcool.model" disposableProviderFactory="true"
+      ecorePackage="bcool.ecore#/">
+    <genClasses ecoreClass="bcool.ecore#//BCoolOperator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperator/bcoolCompositionRules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperator/globalEventExpressions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperator/globalDSEs"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//BCoolCompositionRule"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolCompositionRule/BCoolOperatorArgs"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolCompositionRule/matchingRule"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolCompositionRule/coordinationRule"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//BCoolCompositionRule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolCompositionRule/BCoolOperatorArgs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolCompositionRule/matchingRule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolCompositionRule/coordinationRule"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//BCoolSpecification"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolSpecification/bcoolOperators"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolSpecification/importsLib"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolSpecification/importsBehavioralInterface"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//BCoolSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolSpecification/bcoolOperators"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolSpecification/importsLib"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolSpecification/importsBehavioralInterface"/>
     </genClasses>
-    <genClasses image="false">
-      <ecoreClass href="bcool.ecore#//NamedElement"/>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="bcool.ecore#//NamedElement/name"/>
-      </genFeatures>
+    <genClasses image="false" ecoreClass="bcool.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bcool.ecore#//NamedElement/name"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//ImportLibStatement"/>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="bcool.ecore#//ImportLibStatement/importURI"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//ImportLibStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bcool.ecore#//ImportLibStatement/importURI"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//MatchingRule"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//MatchingRule/filterEventExpressions"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//MatchingRule/condition"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//MatchingRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//MatchingRule/filterEventExpressions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//MatchingRule/condition"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//CoordinationRule"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//CoordinationRule/eventRelations"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//CoordinationRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//CoordinationRule/eventRelations"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//EventExpression"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//EventExpression/declaration"/>
-      </genFeatures>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//EventExpression/actualParameters"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//EventExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//EventExpression/declaration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//EventExpression/actualParameters"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//ExpressionDefinition"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//ExpressionDefinition/definition"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//ExpressionDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//ExpressionDefinition/definition"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//EventRelation"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//EventRelation/declaration"/>
-      </genFeatures>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//EventRelation/actualParameters"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//EventRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//EventRelation/declaration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//EventRelation/actualParameters"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//RelationDefinition"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//RelationDefinition/definition"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//RelationDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//RelationDefinition/definition"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//BCoolLibrary"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolLibrary/expressionDefinitions"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolLibrary/relationDefinitions"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolLibrary/relationDeclarations"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolLibrary/expressionDeclarations"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//BCoolLibrary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolLibrary/expressionDefinitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolLibrary/relationDefinitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolLibrary/relationDeclarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolLibrary/expressionDeclarations"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//ImportInterfaceStatement"/>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="bcool.ecore#//ImportInterfaceStatement/importURI"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//ImportInterfaceStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bcool.ecore#//ImportInterfaceStatement/importURI"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//ExpressionDeclaration"/>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//ExpressionDeclaration/formalParameters"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//ExpressionDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference bcool.ecore#//ExpressionDeclaration/formalParameters"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//RelationDeclaration"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//RelationDeclaration/formalParameters"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//RelationDeclaration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//RelationDeclaration/formalParameters"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="bcool.ecore#//BCoolOperatorArg"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolOperatorArg/DSE"/>
-      </genFeatures>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="bcool.ecore#//BCoolOperatorArg/Interface"/>
-      </genFeatures>
+    <genClasses ecoreClass="bcool.ecore#//BCoolOperatorArg">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperatorArg/DSE"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperatorArg/Interface"/>
     </genClasses>
   </genPackages>
-  <usedGenPackages href="../../org.eclipse.ocl.examples.xtext.base/model/BaseCS.genmodel#//basecs"/>
-  <usedGenPackages href="../../org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.genmodel#//completeoclcs"/>
-  <usedGenPackages href="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"/>
-  <usedGenPackages href="../../org.eclipse.ocl.examples.xtext.essentialocl/model/EssentialOCLCS.genmodel#//essentialoclcs"/>
-  <usedGenPackages href="../../org.gemoc.gexpressions/model/gexpressions.genmodel#//gexpressions"/>
-  <usedGenPackages href="../../org.eclipse.ocl.examples.pivot/model/Pivot.merged.genmodel#//pivot"/>
 </genmodel:GenModel>
