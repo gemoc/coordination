@@ -15,7 +15,7 @@ BCoolSpec returns BCoolSpecification:
 ;
 
 BCoolOperatorSpec returns BCoolOperator:
-	'Spec' name=ID 
+	('Spec' name=ID)? 
 						(globalEventExpressions+=globalEventExpressionRule)?
 						(globalDSEs+=globalDSEsRule)?
 						(bcoolCompositionRules+=BCoolCompositionRule)+
