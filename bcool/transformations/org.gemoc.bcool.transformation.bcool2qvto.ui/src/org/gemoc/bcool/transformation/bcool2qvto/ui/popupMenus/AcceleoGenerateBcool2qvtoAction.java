@@ -71,7 +71,7 @@ public class AcceleoGenerateBcool2qvtoAction extends ActionDelegate implements I
 							IFile model = (IFile)filesIt.next();
 							URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
 							try {
-								IContainer target = model.getProject().getFolder("src-gen");
+								IContainer target = model.getProject().getFolder("gemoc-gen");
 								GenerateAll generator = new GenerateAll(modelURI, target, getArguments());
 								generator.doGenerate(monitor);
 							} catch (IOException e) {
