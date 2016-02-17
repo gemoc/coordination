@@ -10,23 +10,16 @@ import java.util.Map
 import java.util.Set
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClassifier
-import org.eclipse.ocl.examples.pivot.internal.impl.ClassImpl
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS
 import org.eclipse.xtext.scoping.IScope
 import org.gemoc.bcool.model.bcool.BCoolOperatorArg
 import org.gemoc.bcool.model.xtext.helpers.BCoolXtextHelper
 import org.gemoc.gexpressions.xtext.scoping.GExpressionsScopeProvider
-import org.gemoc.bcool.model.bcool.RelationDeclaration
-import org.gemoc.bcool.model.bcool.CoordinationRule
-import org.gemoc.bcool.model.bcool.EventRelation
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.impl.FilteringScope
 import org.eclipse.xtext.resource.IEObjectDescription
 import com.google.common.base.Predicate
-import fr.inria.aoste.timesquare.ECL.ECLDefCS
-import org.gemoc.bcool.model.bcool.ImportInterfaceStatement
-import org.eclipse.emf.ecore.ENamedElement
-import javax.swing.text.html.parser.Entity
+import org.eclipse.emf.ecore.EPackage
 
 /**
  * This class contains custom scoping description.
@@ -94,35 +87,23 @@ def IScope scope_BCoolOperatorArg_DSE(BCoolOperatorArg reference, EReference eRe
 	 * Load the ECL resource owning the given ECL event if not already done.
 	 */
 	def private void loadEclResourceIfNecessary(DefPropertyCS eclEvent) {
-		if (eclClassifiersMapping.containsKey(eclEvent)) {
+		if (eclClassifiersMapping.containsKey(eclEvent.eResource.URI)) {
 			return
 		} else {
-			// Dark magic to recover the URI of the ECL resource.
-			val quotedURI = (eclEvent.eContainer.eContainer.eContainer as ECLDocument).ownedImport.get(0).pathName.
-				toString
+			
+			val quotedURI = (eclEvent.eContainer.eContainer.eContainer as ECLDocument).ownedImport.get(0).pathName.toString
 			val importedURI = quotedURI.substring(1, quotedURI.length - 1)
 			val pivotOfEclEvent = eclEvent.classifierContextDecl.pivot
 
 			val resourceSet = pivotOfEclEvent.eResource.resourceSet
-			resourceSet.getPackageRegistry().put(importedURI,
-				resourceSet.getPackageRegistry().getEPackage(importedURI));
 
-			resourceSet.resources.filter [ resource |
-				resource.URI.toString.startsWith(importedURI)
-			].forEach [ resource |
-				// Navigating on the classes to retrieve the EClassifiers of behind the scene.
-				val setOfClassifiers = new HashSet()
-				resource.allContents.filter [ eo |
-					eo instanceof ClassImpl
-				].map [ eo |
-					eo as ClassImpl
-				].map [ clazz |
-					clazz.target
-				].forEach [ classifier |
-					setOfClassifiers.add(classifier as EClassifier)
-				]
-				eclClassifiersMapping.put(eclEvent.eResource.URI, setOfClassifiers)
-			]
+			// we get the EPackage that corresponds with the URI
+			val epack = resourceSet.getPackageRegistry().getEPackage(importedURI) as EPackage
+			val setOfClassifiers = new HashSet()
+			
+			// we get the EClassifiers	
+			epack.EClassifiers.forEach[classifier | setOfClassifiers.add (classifier as EClassifier)]
+			eclClassifiersMapping.put(eclEvent.eResource.URI, setOfClassifiers)
 		}
 	}
 
