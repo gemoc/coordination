@@ -46,8 +46,13 @@ def compile(Model e) '''
     	 />
     </qvto:transformation>
 
+	«var transfo = e.importURI»
 	     «FOR f:e.bcoolflow»
-	     	<qvto:transformation uri="«e.bcoolspec».qvto">
+	     	«IF transfo.startsWith("platform:/resource")» 
+	     	   <qvto:transformation uri="«transfo.substring (0,transfo.indexOf("/", ("platform:/resource/").length)) + "/gemoc-gen/" + e.bcoolspec + ".qvto"»">
+	     	«ELSE»
+	     		<qvto:transformation uri="«transfo.substring (0,transfo.indexOf("/", ("platform:/plugin/").length)) + "/gemoc-gen/" + e.bcoolspec + ".qvto"»">
+	     	«ENDIF»
 	     	<configProperty name="ApplyAll" value="false"/>
 	     	«IF f == e.bcoolflow.get(0)» 
 	     		<configProperty name="IsInvokedfromAnt" value="true"/>
