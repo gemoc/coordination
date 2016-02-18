@@ -28,7 +28,8 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.gemoc.gexpressions.xtext;bundle-version="1.0.0",
  org.eclipse.core.resources,
  org.eclipse.core.runtime,
- org.eclipse.ui
+ org.eclipse.ui,
+ org.eclipse.ui.ide
 Import-Package: org.apache.log4j,
  org.gemoc.bcool.transformation.bcool2qvto.ui.common,
  org.gemoc.commons.eclipse.core.resources,

@@ -104,5 +104,14 @@
             value="true">
       </persistent>
    </extension>
+   <extension
+         name="BCOoL icon"
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/bcoolicon.ico"
+            id="org.gemoc.bcool.model.xtext.bcoolicon"
+            natureId="org.gemoc.bcool.model.xtext.bcoolnature">
+      </image>
+   </extension>
 
 </plugin>
