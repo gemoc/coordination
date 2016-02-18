@@ -117,6 +117,26 @@
 			</snapshots>
 		</repository>
 		
+	<repository>
+			<id>gemoc-studio-commons</id>
+			<url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.gemoc.commons.repository/target/repository/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		
+		  <repository>
+            <id>diverse-commons</id>
+            <layout>p2</layout>
+            <url>https://ci.inria.fr/diverse-commons/job/diverse-commons.eclipse.root/lastSuccessfulBuild/artifact/commons-eclipse/fr.inria.diverse.commons.eclipse.root/p2updatesite/target/repository/</url>
+        </repository>
+		
+		
+		
 	</repositories>
 
 
