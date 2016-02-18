@@ -88,7 +88,7 @@ def compile(Flows f) '''
 «var i=0»
          «FOR e:f.params»
          	<in uri="«e.modeluri»"/>
-         	«var timemodel = e.modeluri.substring(0, e.modeluri.lastIndexOf(".")) + ".timemodel"»
+         	«var timemodel = e.modeluri.substring (0,e.modeluri.indexOf("/", ("platform:/resource/").length))+ "/gemoc-gen/"+ e.modeluri.substring (e.modeluri.lastIndexOf("/")+1,e.modeluri.lastIndexOf(".")) + ".timemodel"»
          	<configProperty name="inM«i=i+1»MoCCPath" value="«timemodel»"/>
          «ENDFOR»
 '''
