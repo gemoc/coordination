@@ -12,19 +12,21 @@
     <genClasses ecoreClass="BFlow.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BFlow.ecore#//Model/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BFlow.ecore#//Model/importURI"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BFlow.ecore#//Model/bcoolspec"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BFlow.ecore#//Model/outputtimemodel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BFlow.ecore#//Model/models"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BFlow.ecore#//Model/bcoolflow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BFlow.ecore#//Model/launchers"/>
     </genClasses>
     <genClasses ecoreClass="BFlow.ecore#//modelinput">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BFlow.ecore#//modelinput/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BFlow.ecore#//modelinput/timemodel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BFlow.ecore#//modelinput/modeluri"/>
     </genClasses>
     <genClasses ecoreClass="BFlow.ecore#//Flows">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BFlow.ecore#//Flows/oper"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BFlow.ecore#//Flows/params"/>
+    </genClasses>
+    <genClasses ecoreClass="BFlow.ecore#//Launcher">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BFlow.ecore#//Launcher/LauncherURI"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

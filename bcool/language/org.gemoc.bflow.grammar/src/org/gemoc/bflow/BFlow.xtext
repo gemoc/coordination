@@ -10,19 +10,31 @@ import "http://www.gemoc.org/bflow/BFlow"
 Model:
 	'BCOoLFlow' name=ID '{'
 		'import' importURI = STRING ';'
-		'BCOoL Specification:' bcoolspec=STRING ';'
-		'Output:' outputtimemodel=STRING ';'
+		
+		// the output model is optional
+		('Output:' outputtimemodel=STRING ';')?
 		 models+=modelinput*
-		 'Flow' bcoolflow+= Flows*
+		 'Flows' bcoolflow+= Flows*
 		 
-		 'end Flow;'
+		 'end Flows;'
+		 
+		 'Launchers' launchers += Launcher*
+		 
+		 'end Launchers'
 	'}';
 
+Launcher:
+	'launcher URI' LauncherURI=STRING ';'
+;
+
+
 modelinput:
-	'Model' name=ID '(' timemodel=STRING ',' modeluri=STRING ')' ';'
+	'Model' name=ID '(' modeluri=STRING ')' ';'
 ;
 
 
 // TODO: change the ID for a BCOoLoPERATOR
 Flows:
 	'applies' oper=STRING 'between' '('(params+=[modelinput](',' params+=[modelinput])*)? ')' ';';
+	
+	
