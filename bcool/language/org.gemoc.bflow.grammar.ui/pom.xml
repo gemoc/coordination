@@ -12,4 +12,14 @@
   <version>1.0.0-SNAPSHOT</version>
   <description>This project contains the  Xtext of BFloW</description>
   <url>http://bcool.inria.fr</url>
+  	<build>
+		<plugins>
+			<plugin>
+				<configuration><argLine>-Xmx1024m</argLine></configuration>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+  	
 </project>
