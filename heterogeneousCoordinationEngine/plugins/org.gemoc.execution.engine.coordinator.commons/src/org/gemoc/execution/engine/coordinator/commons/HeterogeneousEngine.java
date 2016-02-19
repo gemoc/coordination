@@ -115,11 +115,11 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		}
 		
 		try {
-			String ccordinationPathName = executionContext.getCoordinationModelURI().toString();
-			String tmpProjectName = ccordinationPathName.substring(1, ccordinationPathName.length());
+			String coordinationPathName = executionContext.getCoordinationModelURI().toString();
+			String tmpProjectName = coordinationPathName.substring(1, coordinationPathName.length());
 			String projectName = tmpProjectName.substring(0, tmpProjectName.indexOf('/'));
 			IProject coordinationProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-			IFile ccslFile = coordinationProject.getFile(ccordinationPathName.replaceFirst("/"+projectName+"/", ""));
+			IFile ccslFile = coordinationProject.getFile(coordinationPathName.replaceFirst("/"+projectName+"/", ""));
 			_coordinationSolver.getSolverWrapper().getSolver().loadCoordinationModel(ResourceLoader.INSTANCE.loadResource(ccslFile.getFullPath()));
 			_coordinationSolver.getSolverWrapper().getSolver().initSimulation();
 		} catch (IOException | UnfoldingException | SimulationException e) {

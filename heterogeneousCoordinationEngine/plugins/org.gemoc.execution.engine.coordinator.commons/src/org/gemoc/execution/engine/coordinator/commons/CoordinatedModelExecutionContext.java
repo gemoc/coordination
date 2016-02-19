@@ -113,7 +113,11 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		{
 				_logicalStepDecider = LogicalStepDeciderFactory.createDecider(runConfiguration.getDeciderName(),
 						executionMode);
-			_executionWorkspace = new ExecutionWorkspace(_runConfiguration.getExecutedModelURI());
+				// Either we use the bcool or the bflow to get the workspace
+				if (_runConfiguration.getBFloWModelPath() != "") 
+					{ _executionWorkspace = new ExecutionWorkspace(_runConfiguration.getBFloWModelURI()); }
+				else
+					{_executionWorkspace = new ExecutionWorkspace(_runConfiguration.getExecutedModelURI());}
 			
 		} catch (CoreException e)
 		{
@@ -124,6 +128,55 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		
 		IProgressMonitor monitor = new NullProgressMonitor();
 		
+		// If we use a bflow we get the launcher from the bflow
+		// If we use a bcool the user has to specify them manually
+		if (runConfiguration.getBFloWModelPath() != "") {
+			
+			// First, I load the bflow model to get the launcher
+			BFlowStandaloneSetup  ess= new BFlowStandaloneSetup();
+			Injector injector = ess.createInjector();
+		    XtextResourceSet aSet = injector.getInstance(XtextResourceSet.class);
+			aSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.FALSE);
+			EcoreUtil.resolveAll(aSet);
+			BFlowStandaloneSetup.doSetup();
+			
+			URI BFloWuri =null;
+
+			// the bflow is got it by a platform resource path
+			BFloWuri = runConfiguration.getBFloWModelURI();
+			
+			// load the corresponding resource
+		    Resource bflowResource = aSet.getResource(BFloWuri, true);
+		    
+		    HashMap<Object, Object> saveOptions = new HashMap<Object, Object>();
+		    Builder aBuilder = SaveOptions.newBuilder();
+		    SaveOptions anOption = aBuilder.getOptions();
+		    anOption.addTo(saveOptions);
+		    try {
+		    	bflowResource.load(saveOptions);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			Model bflowmodel = (Model)bflowResource.getContents().get(0);
+			
+			// Second, I get the launchers from the bflow
+			// and then, I launch them 
+			//
+			for (int i = 0; i < bflowmodel.getLaunchers().size(); i++){
+				URI launchURI = URI.createPlatformResourceURI(bflowmodel.getLaunchers().get(i).getLauncherURI(), true);
+				createAndLaunchConfiguration(executionMode, monitor, launchURI);
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			
+		} else {
+		
 		//launch the configurations and get the associated engine		
 		for (int i = 0; i < runConfiguration.getConfigurationURIs().size(); i++){
 			URI launchURI = runConfiguration.getConfigurationURIs().get(i);
@@ -133,6 +186,8 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+		}
+		
 		}
 		
 //		URI launch2URI = runConfiguration.getConfigurationURI2();
@@ -183,25 +238,6 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			IFile modelFile = modelProject.getFile(modelPathName.replaceFirst("/"+projectName+"/", ""));
 			inputModelfiles.add(modelFile);
 		}
-		
-		//create qvto and then apply it
-		URI bcoolURI = _runConfiguration.getBcoolModelURI();
-		IContainer gemocGenFolder = createQVToFromBCOoL(bcoolURI, monitor);
-		URI qvtoURI = getGeneratedQvtoURI(bcoolURI, gemocGenFolder);
-		
-		String launchNames = "";
-		for(int i = 0; i < _runConfiguration.getConfigurationURIs().size(); i++){
-			launchNames += _runConfiguration.getConfigurationURIs().get(i).lastSegment();
-		}
-		String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
-				+launchNames
-				+".timemodel"
-				;
-		
-		
-		coordinationModelURI = URI.createURI(coordinationModelPath);
-		
-		_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
 		
 		
 		// I get the path of the bflow
@@ -255,21 +291,53 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			} catch (CoreException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				System.out.println("Error when invoking "+xmlgenerated);
 			}
-			  
+			
+			String coordinationModelPath = "";
+			
+			// In the case that we use the outputtime, the URI must start with "/"
+			if (bflowmodel.getOutputtimemodel() == null ) {
+				String launchNames = "";
+				for(int i = 0; i < bflowmodel.getLaunchers().size(); i++){
+					launchNames += bflowmodel.getLaunchers().get(i).getLauncherURI().substring(bflowmodel.getLaunchers().get(i).getLauncherURI().lastIndexOf("/")+1);
+				}
+				coordinationModelPath = BFloWuri.toString().substring(0, BFloWuri.toString().indexOf("/", ("platform:/resource/").length()))+"/gemoc-gen/"+launchNames+".timemodel";
+				coordinationModelPath = coordinationModelPath.substring(("platform:/resource").length());
+			} else { coordinationModelPath = bflowmodel.getOutputtimemodel(); }
+			
+			// we load the coordination model
+			 coordinationModelURI = URI.createURI(coordinationModelPath);
+			_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
 			  
 		}else{
+			// When we don't use a bflow, we get the information from the launcher
+			// create qvto and then apply it
+			URI bcoolURI = _runConfiguration.getBcoolModelURI();
+			IContainer gemocGenFolder = createQVToFromBCOoL(bcoolURI, monitor);
+			URI qvtoURI = getGeneratedQvtoURI(bcoolURI, gemocGenFolder);
+			
+			String launchNames = "";
+			for(int i = 0; i < _runConfiguration.getConfigurationURIs().size(); i++){
+				launchNames += _runConfiguration.getConfigurationURIs().get(i).lastSegment();
+			}
+			String coordinationModelPath = qvtoURI.toString().substring(0, qvtoURI.toString().lastIndexOf('/')+1)
+					+launchNames
+					+".timemodel"
+					;
+			
+			coordinationModelURI = URI.createURI(coordinationModelPath);
+			_resourceBCOoL = createCoordinationResourceAndSaveIt(coordinationModelURI);
+			
+			
 			GemocQvto2CCSLTranslator qvto2ccslTranslator = new GemocQvto2CCSLTranslator(); 
 			qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
 		}
 		return;
 
-		//qvto2ccslTranslator.applyQVTo(qvtoURI, inputModelfiles, coordinationModelURI);
-	
-
 	}
 
-	
+
 	protected Resource createCoordinationResourceAndSaveIt(URI ccslModelURI) {
 		ExtendedCCSLStandaloneSetup ess= new ExtendedCCSLStandaloneSetup();
 		Injector injector = ess.createInjector();
