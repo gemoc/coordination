@@ -15,11 +15,11 @@ public abstract class LaunchConfigurationTab extends AbstractLaunchConfiguration
 		super();
 	}
 
-	protected Group createGroup(Composite parent, String text) {
+	protected Group createGroup(Composite parent, String text, int Columns) {
 		Group group = new Group(parent, SWT.NULL);
 		group.setText(text);
 		GridLayout locationLayout = new GridLayout();
-		locationLayout.numColumns = 3;
+		locationLayout.numColumns = Columns;
 		locationLayout.marginHeight = 10;
 		locationLayout.marginWidth = 10;
 		group.setLayout(locationLayout);

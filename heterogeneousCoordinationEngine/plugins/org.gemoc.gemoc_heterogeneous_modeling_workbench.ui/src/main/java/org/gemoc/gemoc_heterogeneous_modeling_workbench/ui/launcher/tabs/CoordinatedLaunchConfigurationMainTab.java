@@ -37,6 +37,10 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	
 	protected Text _bcoolLocationText;
 	protected Text _bflowLocationText;
+	
+	protected Button _checkusebcool;
+	protected Button _checkusebflow;
+	
 	protected ArrayList<Text> _configurationLocationTexts = new ArrayList<Text>();
 	protected Combo _deciderCombo;
 	protected ArrayList<Button> _browseLocationButtons = new ArrayList<Button>();
@@ -56,11 +60,12 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		area.setLayout(gl);
 		area.layout();
 		setControl(area);
-
-		Group modelArea = createGroup(area, "BCOoL Model:");
-		createModelLayout(modelArea, null);
-
 		
+		Group checkboxesArea = createGroup(area, "", 2);
+		createCheckBoxLayout(checkboxesArea, null);
+		
+		Group modelArea = createGroup(area, "",3);
+		createModelLayout(modelArea, null);
 	}
 	
 	
@@ -97,6 +102,31 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 			_deciderCombo.setText(runConfiguration.getDeciderName());
 			_bflowLocationText.setText(runConfiguration.getBFloWModelPath());
 			
+			// If it is empty, I consider that the user is using the bcool 
+			if (_bflowLocationText.getText().equals("")) {
+				
+				_bcoolLocationText.setEditable(true);
+				_bcoolLocationText.setEnabled(true);;
+					
+				_bflowLocationText.setEditable(false);
+				_bflowLocationText.setEnabled(false);
+				
+				_checkusebflow.setSelection(false);
+				_checkusebcool.setSelection(true);
+				
+			}else {
+				_bcoolLocationText.setEditable(false);
+				_bcoolLocationText.setEnabled(false);;
+					
+				_bflowLocationText.setEditable(true);
+				_bflowLocationText.setEnabled(true);
+				
+				_checkusebflow.setSelection(true);
+				_checkusebcool.setSelection(false);
+
+				
+			}
+			
 		} catch (CoreException e) {
 			Activator.error(e.getMessage(), e);
 		}
@@ -116,8 +146,10 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		configuration.setAttribute("nb_logicalSteps", nb_configLocations);
 
 		configuration.setAttribute(CoordinatedRunConfiguration.LAUNCH_SELECTED_DECIDER, this._deciderCombo.getText());
-		// I set the bflow location
-		configuration.setAttribute ("bflow", this._bflowLocationText.getText());
+		// If the bflowcheck is disable I store an empty bflow path to force the use of bcool 
+		//
+		if (!(_bflowLocationText.isEnabled())) { configuration.setAttribute ("bflow", "");}
+		else {configuration.setAttribute ("bflow", this._bflowLocationText.getText());}
 	}
 
 	@Override
@@ -139,6 +171,59 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 
 
 
+	public Composite createCheckBoxLayout(Composite parent, Font font) {
+		_parent = parent;
+
+		Button checkusebcool = new Button(_parent,SWT.CHECK);
+		checkusebcool.setText("Use a BCOoL");
+		_checkusebcool = checkusebcool;
+
+		
+		Button checkusebflow = new Button(_parent,SWT.CHECK);
+		checkusebflow.setText("Use a BFLoW");
+		_checkusebflow = checkusebflow;
+		
+		checkusebflow.addSelectionListener(new SelectionAdapter() {
+
+		        @Override
+		        public void widgetSelected(SelectionEvent event) {
+		            Button btn = (Button) event.getSource();
+		            _checkusebcool.setSelection(!(btn.getSelection()));
+					
+		            _bcoolLocationText.setEditable(false);
+					_bcoolLocationText.setEnabled(false);;
+					
+					_bflowLocationText.setEditable(true);
+					_bflowLocationText.setEnabled(true);
+					updateLaunchConfigurationDialog();
+		        }
+		    });
+		
+		checkusebcool.addSelectionListener(new SelectionAdapter() {
+
+	        @Override
+	        public void widgetSelected(SelectionEvent event) {
+	            Button btn = (Button) event.getSource();
+	            _checkusebflow.setSelection(!(btn.getSelection()));
+	            
+	            _bcoolLocationText.setEditable(true);
+	            _bcoolLocationText.setEnabled(true);
+	            
+	            _bflowLocationText.setEditable(false);
+	            _bflowLocationText.setEnabled(false);;
+	            
+	            
+	            updateLaunchConfigurationDialog();
+	        }
+	    });
+		
+		
+		
+	
+		return parent;
+	}
+	
+	
 
 	// -----------------------------------
 	
@@ -152,7 +237,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	 */
 	public Composite createModelLayout(Composite parent, Font font) {
 		_parent = parent;
-		createTextLabelLayout(_parent, "BCOoL specification");
+		createTextLabelLayout(_parent, "BCOoL specification: ");
 		// Model location text
 		_bcoolLocationText = new Text(_parent, SWT.SINGLE | SWT.BORDER);
 		_bcoolLocationText.setLayoutData(createStandardLayout());
@@ -174,7 +259,7 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		});	
 		
 		
-		createTextLabelLayout(parent, "BFloW specification:");
+		createTextLabelLayout(parent, "BFLoW specification: ");
 		_bflowLocationText = new Text(_parent, SWT.SINGLE | SWT.BORDER);
 		_bflowLocationText.setLayoutData(createStandardLayout());
 		_bflowLocationText.addModifyListener(fBasicModifyListener);
@@ -195,11 +280,11 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 			}
 		});	
 		
-		createTextLabelLayout(parent, "Decider");
+		createTextLabelLayout(parent, "Decider: ");
 		_deciderCombo = new Combo(parent, SWT.BORDER);
 		_deciderCombo.setLayoutData(createStandardLayout());
 
-		createTextLabelLayout(parent, " - ");
+		//createTextLabelLayout(parent, " - ");
 
 		
 		ArrayList<String> deciders = new ArrayList<>();
@@ -218,8 +303,8 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		}
 		
 		Button addConfig = createPushButton(_parent, "Add Configuration", null);
-		createTextLabelLayout(parent, " - ");
-		createTextLabelLayout(parent, " - ");
+		//createTextLabelLayout(parent, " - ");
+		//createTextLabelLayout(parent, " - ");
 		
 		addConfig.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent evt) {
