@@ -2,6 +2,7 @@ package org.gemoc.bcool.model.xtext.builder;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,8 +26,19 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.resource.SaveOptions;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.resource.XtextResourceSet;
+import org.eclipse.xtext.resource.SaveOptions.Builder;
+import org.gemoc.bcool.model.bcool.BCoolSpecification;
+import org.gemoc.bcool.model.xtext.BCOoLStandaloneSetup;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
 import org.gemoc.commons.eclipse.core.resources.Project;
+
+import com.google.inject.Injector;
+
 import toools.io.file.RegularFile;
 
 
@@ -81,11 +93,36 @@ public class GemocBCOoLBuilder extends IncrementalProjectBuilder {
 		// this creates the folder where it will be the qvto
 	    final IFolder qvtoFolder = Project.createFolder(project, genFolder);
 		
-		// this creates the .qvto file	
-	    final String qvtoFileName = bcoolfile.getFullPath()
-	    					.removeFileExtension()
-	    					.addFileExtension("qvto")
-	    					.lastSegment();
+	    // ----------------------------------------------
+		// We load the bcool model to get the name of the specification, and then, use it that string for the name of the generated qvto
+	    //
+		BCOoLStandaloneSetup  ess= new BCOoLStandaloneSetup();
+		Injector injector = ess.createInjector();
+	    XtextResourceSet aSet = injector.getInstance(XtextResourceSet.class);
+		aSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.FALSE);
+		EcoreUtil.resolveAll(aSet);
+		BCOoLStandaloneSetup.doSetup();
+		
+	    Resource bcoolResource = aSet.getResource(bcoolURI, true);
+	    
+	    HashMap<Object, Object> saveOptions = new HashMap<Object, Object>();
+	    Builder aBuilder = SaveOptions.newBuilder();
+	    SaveOptions anOption = aBuilder.getOptions();
+	    anOption.addTo(saveOptions);
+	    try {
+	    	bcoolResource.load(saveOptions);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		BCoolSpecification bcoolmodel = (BCoolSpecification)bcoolResource.getContents().get(0);
+	    
+	    
+		// we create the qvto file
+	    final String qvtoFileName = bcoolmodel.getName() + ".qvto";
+	    
+	    
 	
 	    IContainer target = qvtoFolder;
 	    GenerateAll generator = new GenerateAll(bcoolURI, target,new ArrayList<String>());
