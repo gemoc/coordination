@@ -7,8 +7,10 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.bcool"
             id="org.gemoc.bcool.transformation.bcool2qvto.ui.popupMenus.contribution.IFile">
-         <menu id="org.eclipse.acceleo.module.menu" label="GEMOC coordination" path="additionsAcceleo">
-               <groupMarker name="acceleo"/> 
+         <menu 
+               icon="icons/IconeGemocLanguage-16.png"
+               id="org.gemoc.coordination.menu" label="GEMOC Coordination" path="xdsmlGroup">
+               <groupMarker name="additions"/> 
          </menu>
          <action
                class="org.gemoc.bcool.transformation.bcool2qvto.ui.popupMenus.AcceleoGenerateBcool2qvtoAction"
@@ -16,7 +18,7 @@
                id="org.gemoc.bcool.transformation.bcool2qvto.ui.popupMenus.acceleoGenerateBcool2qvtoAction"
                icon="icons/default.gif"
                label="Generate BCOoL transformation"
-               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
+               menubarPath="org.gemoc.coordination.menu/additions"/>
       </objectContribution>
    </extension>
 </plugin>

@@ -10,10 +10,10 @@
 			id="org.gemoc.bcool.transformation.qvto2ccsl.ui.popupMenus.contribution.IFile">
          <menu
                icon="icons/IconeGemocLanguage-16.png"
-               id="org.eclipse.acceleo.module.menu"
-               label="GEMOC coordination"
-               path="additionsAcceleo">
-               <groupMarker name="acceleo"/> 
+               id="org.gemoc.coordination.menu"
+               label="GEMOC Coordination"
+               path="xdsmlGroup">
+               <groupMarker name="additions"/> 
          </menu>
          <action
                class="org.gemoc.bcool.transformation.qvto2ccsl.ui.popup.actions.Qvto2CCSLTranslator"
@@ -21,7 +21,7 @@
                icon="icons/plus-16.png"
                id="org.gemoc.bcool.transformation.qvto2ccsl.ui.newAction"
                label="create CCSL coordination model"
-               menubarPath="org.eclipse.acceleo.module.menu/acceleo">
+               menubarPath="org.gemoc.coordination.menu/additions">
          </action>
       </objectContribution>
    </extension>
