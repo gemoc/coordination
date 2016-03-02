@@ -13,20 +13,16 @@ var encoding = "UTF-8"
 
 Workflow {
     bean = StandaloneSetup {
+    	resourceSet = org.eclipse.xtext.resource.XtextResourceSet:theResourceSet {}
     	scanClassPath = true
     	platformUri = "${runtimeProject}/.."
-    	// The following two lines can be removed, if Xbase is not used.
-    	//registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
-    	//registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
-    
+
     	registerGeneratedEPackage = "org.gemoc.bcool.model.bcool.BcoolPackage"
     	registerGenModelFile = "platform:/resource/org.gemoc.bcool.model/model/bcool.genmodel"
     	
     	registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
         registerGenModelFile = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
 
-		registerGeneratedEPackage = "fr.inria.aoste.timesquare.ECL.ECLPackage"
-		registerGenModelFile = "platform:/resource/fr.inria.aoste.timesquare.ecl/model/ecl.genmodel"
 		
     }
 	 
@@ -57,6 +53,7 @@ Workflow {
     	projectNameUi = "${projectName}.ui"
     	encoding = encoding
     	language = auto-inject {
+    		forcedResourceSet = theResourceSet
     		uri = grammarURI
     
     		// Java API to access grammar elements (required by several other fragments)

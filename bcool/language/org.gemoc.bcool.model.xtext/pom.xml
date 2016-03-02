@@ -13,4 +13,167 @@
   <description>This project contains the  Xtext project of BCOoL</description>
   <url>http://bcool.inria.fr</url>
 
+<!-- This is mandatory to compile first the mwe2 and then the xtend, otherwise the build fails for problems in the xtend code -->
+	<build>
+		<plugins>
+		
+		<!-- Plugin for cleaning the generated files-->
+		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-clean-plugin</artifactId>
+  			<version>2.5</version>
+ 			 <configuration>
+   			 <filesets>
+      		<fileset>
+  			<directory>${basedir}/src-gen</directory>
+    		  </fileset>
+  		    <fileset>
+ 			 <directory>${basedir}/xtend-gen</directory>
+  		    </fileset>
+    		  <!-- clean ui plugin as well -->
+    		  <fileset>
+  			<directory>${basedir}/../${project.artifactId}.ui/src-gen</directory>
+  		   </fileset>
+   		   <fileset>
+  			<directory>${basedir}/../${project.artifactId}.ui/xtend-gen</directory>
+    		  </fileset>
+  			    <!-- clean test fragment as well -->
+  			    <fileset>
+ 				 <directory>${basedir}/../${project.artifactId}.tests/src-gen</directory>
+   				   </fileset>
+   			   <fileset>
+  				<directory>${basedir}/../${project.artifactId}.tests/xtend-gen</directory>
+     		 </fileset>
+    		</filesets>
+  			</configuration>
+			</plugin>
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<argLine>-Xmx1024m</argLine>
+ 					  <argLine>-Xms1024m</argLine>
+					  <argLine>-XX:PermSize=512m</argLine>
+ 					  <argLine>-XX:MaxPermSize=1024m</argLine>
+					<includeProjectDependencies>false</includeProjectDependencies>
+					<includePluginDependencies>true</includePluginDependencies>
+					<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
+<arguments>
+ 						<argument>${project.basedir}/src/org/gemoc/bcool/model/xtext/GenerateBCOoL.mwe2</argument>
+ 						<argument>
+ 							-p
+ 						</argument>
+ 						<argument>
+ 							runtimeProject=/${project.basedir}
+ 						</argument>
+ 
+ 					</arguments>
+				</configuration>
+				<dependencies>
+				
+				<dependency>
+						<groupId>org.gemoc.bcool.framework</groupId>
+						<artifactId>org.gemoc.bcool.model</artifactId>
+						<version>0.1.0-SNAPSHOT</version>
+					</dependency>
+				
+					<dependency>
+						<groupId>org.eclipse.xtext</groupId>
+						<artifactId>org.eclipse.xtext.xtext</artifactId>
+						<version>${xtext.version}</version>
+					</dependency>
+					
+					<dependency>
+						<groupId>org.eclipse.ocl.examples.xtext.completeocl</groupId>
+						<artifactId>completeocl</artifactId>
+						<version>3.4.2.v20140819-1601</version>
+					</dependency>
+					
+							<dependency>
+						<groupId>org.eclipse.ocl.examples.xtext.base</groupId>
+						<artifactId>base</artifactId>
+						<version>3.4.2.v20140725-1916</version>
+					</dependency>
+					
+					<dependency>
+						<groupId>org.eclipse.ocl.examples.pivot</groupId>
+						<artifactId>pivot</artifactId>
+						<version>3.4.4.v20150213-2254</version>
+					</dependency>
+					
+					
+					<dependency>
+						<groupId>org.eclipse.ocl.examples.xtext.essentialocl</groupId>
+						<artifactId>essentialocl</artifactId>
+						<version>3.4.2.v20140819-1601</version>
+					</dependency>
+					
+					
+			
+				<dependency>
+						<groupId>org.eclipse.ocl.examples.domain</groupId>
+						<artifactId>domain</artifactId>
+						<version>3.4.4.v20150125-1621</version>
+					</dependency>
+					
+					<dependency>
+						<groupId>org.gemoc.gexpressions</groupId>
+  						<artifactId>gexpressions</artifactId>
+  						<version>0.1.0.201602291408</version>
+					</dependency>
+					
+						<dependency>
+						<groupId>org.gemoc.gexpressions.xtext</groupId>
+  						<artifactId>xtext</artifactId>
+  						<version>1.0.0.201602291408</version>
+					</dependency>
+					
+					
+					<dependency>
+						<groupId>org.eclipse.xtext</groupId>
+						<artifactId>org.eclipse.xtext.ecore</artifactId>
+						<version>2.9.0</version>
+					</dependency>
+					
+		
+			
+					
+					
+			</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

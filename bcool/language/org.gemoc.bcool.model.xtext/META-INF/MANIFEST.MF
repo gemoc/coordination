@@ -29,7 +29,9 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.core.resources,
  org.eclipse.core.runtime,
  org.eclipse.ui,
- org.eclipse.ui.ide
+ org.eclipse.ui.ide,
+ org.eclipse.ocl.examples.xtext.base;bundle-version="3.4.0";visibility:=reexport,
+ org.eclipse.ocl.examples.xtext.completeocl
 Import-Package: org.apache.log4j,
  org.gemoc.bcool.transformation.bcool2qvto.ui.common,
  org.gemoc.commons.eclipse.core.resources,
@@ -45,3 +47,4 @@ Export-Package: org.gemoc.bcool.model.xtext,
  org.gemoc.bcool.model.xtext.serializer,
  org.gemoc.bcool.model.xtext.services,
  org.gemoc.bcool.model.xtext.validation
+Bundle-ClassPath: .
