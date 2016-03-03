@@ -64,8 +64,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<argLine>-Xmx8192m</argLine>
- 					  <argLine>-Xms8192m</argLine>
+					<argLine>-Xmx16384m</argLine>
 					  <argLine>-XX:PermSize=512m</argLine>
  					  <argLine>-XX:MaxPermSize=1024m</argLine>
 					<includeProjectDependencies>false</includeProjectDependencies>
