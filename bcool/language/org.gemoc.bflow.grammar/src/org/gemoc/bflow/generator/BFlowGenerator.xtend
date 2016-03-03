@@ -8,6 +8,7 @@ import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.gemoc.bflow.bFlow.Model
 import org.gemoc.bflow.bFlow.Flows
+import org.gemoc.bcool.model.bcool.BCoolSpecification
 
 /**
  * Generates code from your model files on save.
@@ -42,9 +43,8 @@ def compile(Model e, String output) '''
 <target name="default">
 
 
-	«var transfo = e.importURI»
-	«var bcoolfilename = e.importURI.substring(e.importURI.lastIndexOf("/")+1,e.importURI.lastIndexOf(".bcool"))»
-	
+	«var bcooluri = e.importURI»
+
 	«var outputmodel = output»
 	
 	    <qvto:transformation
@@ -63,18 +63,19 @@ def compile(Model e, String output) '''
     </qvto:transformation>
 	
 	     «FOR f:e.bcoolflow»
-	     	«IF transfo.startsWith("platform:/resource")» 
-	     	   <qvto:transformation uri="«transfo.substring (0,transfo.indexOf("/", ("platform:/resource/").length)) + "/gemoc-gen/" + bcoolfilename + ".qvto"»">
-	     	«ELSEIF transfo.startsWith("platform:/plugin")»
-	     		<qvto:transformation uri="«transfo.substring (0,transfo.indexOf("/", ("platform:/plugin/").length)) + "/gemoc-gen/" + bcoolfilename  + ".qvto"»">
+	     	«var BCoolSpecification transfoname= f.operator.eContainer.eContainer as BCoolSpecification»
+	     	«IF bcooluri.startsWith("platform:/resource")» 
+	     	   <qvto:transformation uri="«bcooluri.substring (0,bcooluri.indexOf("/", ("platform:/resource/").length)) + "/gemoc-gen/" + transfoname.name + ".qvto"»">
+	     	«ELSEIF bcooluri.startsWith("platform:/plugin")»
+	     		<qvto:transformation uri="«bcooluri.substring (0,bcooluri.indexOf("/", ("platform:/plugin/").length)) + "/gemoc-gen/" + transfoname.name + ".qvto"»">
 	     	«ELSE»
-	     		<qvto:transformation uri="«bcoolfilename  + ".qvto"»">
+	     		<qvto:transformation uri="«transfoname.name  + ".qvto"»">
 	     	«ENDIF»
 	     	<configProperty name="ApplyAll" value="false"/>
 	     	«IF f == e.bcoolflow.get(0)» 
 	     		<configProperty name="IsInvokedfromAnt" value="true"/>
 	     	«ENDIF»
-	     	<configProperty name="Is«f.oper»Executed" value="true"/>
+	     	<configProperty name="Is«f.operator.name»Executed" value="true"/>
        		 «f.compile»
 	     	<inout uri="«outputmodel»" outuri="«outputmodel»"/>
 	     	</qvto:transformation>

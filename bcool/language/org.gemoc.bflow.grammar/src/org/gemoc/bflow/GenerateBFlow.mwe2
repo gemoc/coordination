@@ -30,8 +30,8 @@ Workflow {
     	//registerGeneratedEPackage = "org.gemoc.bcool.model.bcool.BcoolPackage"
     	//registerGenModelFile = "platform:/resource/org.gemoc.bcool.model/model/bcool.genmodel"
     	
-    //	registerGeneratedEPackage = "org.gemoc.bflow.bFlow.BFlowPackage"
-    //	registerGenModelFile = "platform:/resource/org.gemoc.bflow.grammar/model/BFlow.genmodel"
+    	//registerGeneratedEPackage = "org.gemoc.bflow.bFlow.BFlowPackage"
+    	registerGenModelFile = "platform:/resource/org.gemoc.bflow.grammar/model/BFlow.genmodel"
     	
     }
     
@@ -39,10 +39,10 @@ Workflow {
     	directory = "${runtimeProject}/src-gen"
     }
     
-     component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
-        genModel = "platform:/resource/${projectName}/model/BFlow.genmodel"
-        srcPath = "platform:/resource/${projectName}/src"
-    }
+    // component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+     //   genModel = "platform:/resource/${projectName}/model/BFlow.genmodel"
+      //  srcPath = "platform:/resource/${projectName}/src"
+   // }
     
     
     //component = DirectoryCleaner {
@@ -101,12 +101,12 @@ Workflow {
     		}
     
     		// old scoping and exporting API
-    		// fragment = scoping.ImportURIScopingFragment auto-inject {}
-    		// fragment = exporting.SimpleNamesFragment auto-inject {}
+    		 fragment = scoping.ImportURIScopingFragment auto-inject {}
+    		 fragment = exporting.SimpleNamesFragment auto-inject {}
     
     		// scoping and exporting API
-    		fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
-    		fragment = exporting.QualifiedNamesFragment auto-inject {}
+    		//fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
+    		//fragment = exporting.QualifiedNamesFragment auto-inject {}
     		fragment = builder.BuilderIntegrationFragment auto-inject {}
     
     		// generator API
