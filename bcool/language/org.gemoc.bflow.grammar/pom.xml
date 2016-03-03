@@ -64,7 +64,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<argLine>-Xmx2048m</argLine>
+					<argLine>-Xmx4096m</argLine>
  					  <argLine>-Xms2048m</argLine>
 					  <argLine>-XX:PermSize=512m</argLine>
  					  <argLine>-XX:MaxPermSize=1024m</argLine>

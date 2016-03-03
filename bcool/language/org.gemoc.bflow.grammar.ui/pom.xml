@@ -29,7 +29,7 @@
 		
 		
 			<plugin>
-				<configuration><argLine>-Xmx1024m</argLine></configuration>
+				<configuration><argLine>-Xmx4096m</argLine></configuration>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
 			</plugin>
