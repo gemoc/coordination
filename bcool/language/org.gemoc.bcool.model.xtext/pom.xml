@@ -79,10 +79,9 @@
 					</execution>
 				</executions>
 				<configuration>
-					<argLine>-Xmx1024m</argLine>
- 					  <argLine>-Xms1024m</argLine>
+					<argLine>-Xmx16384m</argLine>
 					  <argLine>-XX:PermSize=512m</argLine>
- 					  <argLine>-XX:MaxPermSize=1024m</argLine>
+ 					  <argLine>-XX:MaxPermSize=2048m</argLine>
 					<includeProjectDependencies>false</includeProjectDependencies>
 					<includePluginDependencies>true</includePluginDependencies>
 					<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
