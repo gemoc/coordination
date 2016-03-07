@@ -18,7 +18,7 @@ Model:
 		 
 		 'end Flows;'
 		 
-		 'Launchers' launchers += Launcher*
+		 ('Launchers' launchers += Launcher*)?
 		 
 		 'end Launchers'
 	'}';
@@ -35,6 +35,6 @@ modelinput:
 
 // TODO: change the ID for a BCOoLoPERATOR
 Flows:
-	'applies' operator=[bcool::BCoolCompositionRule|ID] 'between' '('(params+=[modelinput](',' params+=[modelinput])*)? ')' ';';
+	'apply' operator=[bcool::BCoolCompositionRule|ID] 'on' '('(params+=[modelinput](',' params+=[modelinput])*)? ')' ';';
 	
 	
