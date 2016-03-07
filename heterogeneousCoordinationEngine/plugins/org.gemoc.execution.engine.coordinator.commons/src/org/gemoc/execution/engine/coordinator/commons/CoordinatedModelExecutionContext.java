@@ -128,9 +128,9 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		
 		IProgressMonitor monitor = new NullProgressMonitor();
 		
-		// If we use a bflow we get the launcher from the bflow
-		// If we use a bcool the user has to specify them manually
-		if (runConfiguration.getBFloWModelPath() != "") {
+		// If we use a bflow and the user has not specified the launchers, we get them from the bflow 
+		// instead, when a bcool is used, the user HAS TO specify the launchers manually
+		if ((runConfiguration.getBFloWModelPath() != "") & (runConfiguration.getConfigurationURIs().size() == 0)) {
 			
 			// First, I load the bflow model to get the launcher
 			BFlowStandaloneSetup  ess= new BFlowStandaloneSetup();
@@ -177,7 +177,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			
 		} else {
 		
-		//launch the configurations and get the associated engine		
+		// launch the configurations and get the associated engine		
 		for (int i = 0; i < runConfiguration.getConfigurationURIs().size(); i++){
 			URI launchURI = runConfiguration.getConfigurationURIs().get(i);
 			createAndLaunchConfiguration(executionMode, monitor, launchURI);
@@ -296,7 +296,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			
 			String coordinationModelPath = "";
 			
-			// In the case that we use the outputtime, the URI must start with "/"
+			// If the output model is not configured, we create an output timemodel by using the name of the launchers
 			if (bflowmodel.getOutputtimemodel() == null ) {
 				String launchNames = "";
 				for(int i = 0; i < bflowmodel.getLaunchers().size(); i++){
@@ -304,6 +304,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 				}
 				coordinationModelPath = BFloWuri.toString().substring(0, BFloWuri.toString().indexOf("/", ("platform:/resource/").length()))+"/gemoc-gen/"+launchNames+".timemodel";
 				coordinationModelPath = coordinationModelPath.substring(("platform:/resource").length());
+			// If the output timemodel is used, the URI must start with "/"
 			} else { coordinationModelPath = bflowmodel.getOutputtimemodel(); }
 			
 			// we load the coordination model
