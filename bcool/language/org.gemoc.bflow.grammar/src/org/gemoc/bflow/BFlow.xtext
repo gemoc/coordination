@@ -18,9 +18,10 @@ Model:
 		 
 		 'end Flows;'
 		 
-		 ('Launchers' launchers += Launcher*)?
+		 // launchers are optional
+		 ('Launchers' launchers += Launcher*
 		 
-		 'end Launchers'
+		 'end Launchers')?
 	'}';
 
 Launcher:
