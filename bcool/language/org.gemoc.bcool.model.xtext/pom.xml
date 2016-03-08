@@ -79,9 +79,9 @@
 					</execution>
 				</executions>
 				<configuration>
-					<argLine>-Xmx16384m</argLine>
-					  <argLine>-XX:PermSize=512m</argLine>
- 					  <argLine>-XX:MaxPermSize=4096m</argLine>
+					<argLine>-Xmx18432m</argLine>
+					  <argLine>-XX:PermSize=2048m</argLine>
+ 					  <argLine>-XX:MaxPermSize=8192m</argLine>
 					<includeProjectDependencies>false</includeProjectDependencies>
 					<includePluginDependencies>true</includePluginDependencies>
 					<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
@@ -171,6 +171,7 @@
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
+				<configuration><argLine>-Xmx4096m</argLine></configuration>
 			</plugin>
 		</plugins>
 	</build>

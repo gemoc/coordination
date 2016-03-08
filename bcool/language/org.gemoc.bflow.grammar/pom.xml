@@ -155,6 +155,7 @@
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
+				<configuration><argLine>-Xmx4096m</argLine></configuration>
 			</plugin>
 		</plugins>
 	</build>
