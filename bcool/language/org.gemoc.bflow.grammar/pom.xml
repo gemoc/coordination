@@ -156,7 +156,7 @@
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
 				<configuration>
-					<argLine>-Xmx8192m</argLine>
+					<argLine>-Xmx16384m</argLine>
 				 	<argLine>-XX:MaxPermSize=8192m</argLine>
 				</configuration>
 			</plugin>
