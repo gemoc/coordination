@@ -384,8 +384,8 @@ public class helperNsURI {
 			if (rightoper.getReferencedEObject() instanceof BCoolOperatorArg) {
 				BCoolOperatorArg bcoolarg = (BCoolOperatorArg) rightoper.getReferencedEObject();
 				  rightoperstr  =  bcoolarg.getName();
-			  }
-		} else {rightoperstr  =  "bad model element";}
+			  } else {rightoperstr  =  "bad model element";}
+		} 
 		
 		// Equal and Not Equal are the same GExpression
 		if (exp.getOperator().getName().contains("NOTEQUAL")) {
