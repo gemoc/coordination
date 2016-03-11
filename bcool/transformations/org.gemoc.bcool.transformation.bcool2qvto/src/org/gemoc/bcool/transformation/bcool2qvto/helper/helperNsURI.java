@@ -354,8 +354,14 @@ public class helperNsURI {
 			if (leftoper.isValue()) {
 				leftoperstr = "true";
 			} else {leftoperstr = "false";}
-			
-		}
+	// this is the case when only the context is used to compare elements
+	} else if (exp.getLeftOperand() instanceof GReferenceExpression) {
+		GReferenceExpression leftoper = (GReferenceExpression) exp.getLeftOperand(); 
+		if (leftoper.getReferencedEObject() instanceof BCoolOperatorArg) {
+			BCoolOperatorArg bcoolarg = (BCoolOperatorArg) leftoper.getReferencedEObject();
+			 leftoperstr  =  bcoolarg.getName();
+		  } else {leftoperstr  =  "bad model element";}
+	}
 			
 
 		if (exp.getRightOperand() instanceof GNavigationExpression) {
@@ -372,8 +378,14 @@ public class helperNsURI {
 			if (rightoper.isValue()) {
 				rightoperstr  = "true";
 			} else {rightoperstr  = "false";}
-			
-		}
+		// this is the case when only the context is used to compare elements
+		} else if (exp.getRightOperand() instanceof GReferenceExpression) {
+			GReferenceExpression rightoper = (GReferenceExpression) exp.getRightOperand(); 
+			if (rightoper.getReferencedEObject() instanceof BCoolOperatorArg) {
+				BCoolOperatorArg bcoolarg = (BCoolOperatorArg) rightoper.getReferencedEObject();
+				  rightoperstr  =  bcoolarg.getName();
+			  }
+		} else {rightoperstr  =  "bad model element";}
 		
 		// Equal and Not Equal are the same GExpression
 		if (exp.getOperator().getName().contains("NOTEQUAL")) {
