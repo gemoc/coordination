@@ -39,7 +39,10 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	protected Text _bflowLocationText;
 	
 	protected Button _checkusebcool;
+	protected Boolean bcheckusebcool;
+	
 	protected Button _checkusebflow;
+	protected Boolean bcheckusebflow;
 	
 	protected ArrayList<Text> _configurationLocationTexts = new ArrayList<Text>();
 	protected Combo _deciderCombo;
@@ -114,6 +117,9 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 				_checkusebflow.setSelection(false);
 				_checkusebcool.setSelection(true);
 				
+				bcheckusebflow = false;
+				bcheckusebcool = true;
+				
 			}else {
 				_bcoolLocationText.setEditable(false);
 				_bcoolLocationText.setEnabled(false);;
@@ -123,6 +129,9 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 				
 				_checkusebflow.setSelection(true);
 				_checkusebcool.setSelection(false);
+				
+				bcheckusebcool = false;
+				bcheckusebflow = true;
 
 				
 			}
@@ -188,6 +197,10 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 		        @Override
 		        public void widgetSelected(SelectionEvent event) {
 		            Button btn = (Button) event.getSource();
+		            
+		            if (bcheckusebflow) {
+		            	_checkusebflow.setSelection (true);
+		            } else {
 		            _checkusebcool.setSelection(!(btn.getSelection()));
 					
 		            _bcoolLocationText.setEditable(false);
@@ -195,7 +208,12 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 					
 					_bflowLocationText.setEditable(true);
 					_bflowLocationText.setEnabled(true);
+					
+					bcheckusebcool = false;
+					bcheckusebflow = true;
+					
 					updateLaunchConfigurationDialog();
+		            }
 		        }
 		    });
 		
@@ -204,6 +222,11 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	        @Override
 	        public void widgetSelected(SelectionEvent event) {
 	            Button btn = (Button) event.getSource();
+	            
+	            if (bcheckusebcool) {
+	            	_checkusebcool.setSelection (true);
+	            } else {
+	            
 	            _checkusebflow.setSelection(!(btn.getSelection()));
 	            
 	            _bcoolLocationText.setEditable(true);
@@ -212,8 +235,11 @@ public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTa
 	            _bflowLocationText.setEditable(false);
 	            _bflowLocationText.setEnabled(false);;
 	            
+	            bcheckusebflow = false;
+	            bcheckusebcool = true;
 	            
 	            updateLaunchConfigurationDialog();
+	            }
 	        }
 	    });
 		
