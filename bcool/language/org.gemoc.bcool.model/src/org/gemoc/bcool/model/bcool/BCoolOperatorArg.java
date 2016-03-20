@@ -2,6 +2,7 @@
  */
 package org.gemoc.bcool.model.bcool;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
 
 /**
@@ -14,6 +15,7 @@ import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
  * <ul>
  *   <li>{@link org.gemoc.bcool.model.bcool.BCoolOperatorArg#getDSE <em>DSE</em>}</li>
  *   <li>{@link org.gemoc.bcool.model.bcool.BCoolOperatorArg#getInterface <em>Interface</em>}</li>
+ *   <li>{@link org.gemoc.bcool.model.bcool.BCoolOperatorArg#getInterfaceClass <em>Interface Class</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,7 +35,7 @@ public interface BCoolOperatorArg extends NamedElement {
 	 * @return the value of the '<em>DSE</em>' reference.
 	 * @see #setDSE(DefPropertyCS)
 	 * @see org.gemoc.bcool.model.bcool.BcoolPackage#getBCoolOperatorArg_DSE()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	DefPropertyCS getDSE();
@@ -73,5 +75,31 @@ public interface BCoolOperatorArg extends NamedElement {
 	 * @generated
 	 */
 	void setInterface(ImportInterfaceStatement value);
+
+	/**
+	 * Returns the value of the '<em><b>Interface Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Interface Class</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Interface Class</em>' reference.
+	 * @see #setInterfaceClass(EClass)
+	 * @see org.gemoc.bcool.model.bcool.BcoolPackage#getBCoolOperatorArg_InterfaceClass()
+	 * @model
+	 * @generated
+	 */
+	EClass getInterfaceClass();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.bcool.model.bcool.BCoolOperatorArg#getInterfaceClass <em>Interface Class</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interface Class</em>' reference.
+	 * @see #getInterfaceClass()
+	 * @generated
+	 */
+	void setInterfaceClass(EClass value);
 
 } // BCoolOperatorArg

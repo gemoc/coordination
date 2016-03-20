@@ -839,13 +839,22 @@ public interface BcoolPackage extends EPackage {
 	int BCOOL_OPERATOR_ARG__INTERFACE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Interface Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCOOL_OPERATOR_ARG__INTERFACE_CLASS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>BCool Operator Arg</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BCOOL_OPERATOR_ARG_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int BCOOL_OPERATOR_ARG_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>BCool Operator Arg</em>' class.
@@ -1337,6 +1346,17 @@ public interface BcoolPackage extends EPackage {
 	EReference getBCoolOperatorArg_Interface();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.bcool.model.bcool.BCoolOperatorArg#getInterfaceClass <em>Interface Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Interface Class</em>'.
+	 * @see org.gemoc.bcool.model.bcool.BCoolOperatorArg#getInterfaceClass()
+	 * @see #getBCoolOperatorArg()
+	 * @generated
+	 */
+	EReference getBCoolOperatorArg_InterfaceClass();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1750,6 +1770,14 @@ public interface BcoolPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BCOOL_OPERATOR_ARG__INTERFACE = eINSTANCE.getBCoolOperatorArg_Interface();
+
+		/**
+		 * The meta object literal for the '<em><b>Interface Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BCOOL_OPERATOR_ARG__INTERFACE_CLASS = eINSTANCE.getBCoolOperatorArg_InterfaceClass();
 
 	}
 

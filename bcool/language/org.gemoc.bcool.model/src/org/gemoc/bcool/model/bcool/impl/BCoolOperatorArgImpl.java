@@ -3,14 +3,10 @@
 package org.gemoc.bcool.model.bcool.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
-
 import org.gemoc.bcool.model.bcool.BCoolOperatorArg;
 import org.gemoc.bcool.model.bcool.BcoolPackage;
 import org.gemoc.bcool.model.bcool.ImportInterfaceStatement;
@@ -24,6 +20,7 @@ import org.gemoc.bcool.model.bcool.ImportInterfaceStatement;
  * <ul>
  *   <li>{@link org.gemoc.bcool.model.bcool.impl.BCoolOperatorArgImpl#getDSE <em>DSE</em>}</li>
  *   <li>{@link org.gemoc.bcool.model.bcool.impl.BCoolOperatorArgImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link org.gemoc.bcool.model.bcool.impl.BCoolOperatorArgImpl#getInterfaceClass <em>Interface Class</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,6 +45,15 @@ public class BCoolOperatorArgImpl extends NamedElementImpl implements BCoolOpera
 	 * @ordered
 	 */
 	protected ImportInterfaceStatement interface_;
+	/**
+	 * The cached value of the '{@link #getInterfaceClass() <em>Interface Class</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInterfaceClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected EClass interfaceClass;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +154,44 @@ public class BCoolOperatorArgImpl extends NamedElementImpl implements BCoolOpera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getInterfaceClass() {
+		if (interfaceClass != null && interfaceClass.eIsProxy()) {
+			InternalEObject oldInterfaceClass = (InternalEObject)interfaceClass;
+			interfaceClass = (EClass)eResolveProxy(oldInterfaceClass);
+			if (interfaceClass != oldInterfaceClass) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BcoolPackage.BCOOL_OPERATOR_ARG__INTERFACE_CLASS, oldInterfaceClass, interfaceClass));
+			}
+		}
+		return interfaceClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass basicGetInterfaceClass() {
+		return interfaceClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInterfaceClass(EClass newInterfaceClass) {
+		EClass oldInterfaceClass = interfaceClass;
+		interfaceClass = newInterfaceClass;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BcoolPackage.BCOOL_OPERATOR_ARG__INTERFACE_CLASS, oldInterfaceClass, interfaceClass));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -157,6 +201,9 @@ public class BCoolOperatorArgImpl extends NamedElementImpl implements BCoolOpera
 			case BcoolPackage.BCOOL_OPERATOR_ARG__INTERFACE:
 				if (resolve) return getInterface();
 				return basicGetInterface();
+			case BcoolPackage.BCOOL_OPERATOR_ARG__INTERFACE_CLASS:
+				if (resolve) return getInterfaceClass();
+				return basicGetInterfaceClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -174,6 +221,9 @@ public class BCoolOperatorArgImpl extends NamedElementImpl implements BCoolOpera
 				return;
 			case BcoolPackage.BCOOL_OPERATOR_ARG__INTERFACE:
 				setInterface((ImportInterfaceStatement)newValue);
+				return;
+			case BcoolPackage.BCOOL_OPERATOR_ARG__INTERFACE_CLASS:
+				setInterfaceClass((EClass)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -193,6 +243,9 @@ public class BCoolOperatorArgImpl extends NamedElementImpl implements BCoolOpera
 			case BcoolPackage.BCOOL_OPERATOR_ARG__INTERFACE:
 				setInterface((ImportInterfaceStatement)null);
 				return;
+			case BcoolPackage.BCOOL_OPERATOR_ARG__INTERFACE_CLASS:
+				setInterfaceClass((EClass)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -209,6 +262,8 @@ public class BCoolOperatorArgImpl extends NamedElementImpl implements BCoolOpera
 				return dse != null;
 			case BcoolPackage.BCOOL_OPERATOR_ARG__INTERFACE:
 				return interface_ != null;
+			case BcoolPackage.BCOOL_OPERATOR_ARG__INTERFACE_CLASS:
+				return interfaceClass != null;
 		}
 		return super.eIsSet(featureID);
 	}

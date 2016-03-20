@@ -68,6 +68,7 @@
     <genClasses ecoreClass="bcool.ecore#//BCoolOperatorArg">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperatorArg/DSE"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperatorArg/Interface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bcool.ecore#//BCoolOperatorArg/InterfaceClass"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

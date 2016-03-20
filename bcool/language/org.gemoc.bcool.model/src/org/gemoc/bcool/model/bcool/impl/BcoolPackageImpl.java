@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage;
 import org.gemoc.bcool.model.bcool.BCoolCompositionRule;
@@ -622,6 +623,15 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBCoolOperatorArg_InterfaceClass() {
+		return (EReference)bCoolOperatorArgEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BcoolFactory getBcoolFactory() {
 		return (BcoolFactory)getEFactoryInstance();
 	}
@@ -705,6 +715,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 		bCoolOperatorArgEClass = createEClass(BCOOL_OPERATOR_ARG);
 		createEReference(bCoolOperatorArgEClass, BCOOL_OPERATOR_ARG__DSE);
 		createEReference(bCoolOperatorArgEClass, BCOOL_OPERATOR_ARG__INTERFACE);
+		createEReference(bCoolOperatorArgEClass, BCOOL_OPERATOR_ARG__INTERFACE_CLASS);
 	}
 
 	/**
@@ -733,6 +744,7 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 		// Obtain other dependent packages
 		CompleteOCLCSPackage theCompleteOCLCSPackage = (CompleteOCLCSPackage)EPackage.Registry.INSTANCE.getEPackage(CompleteOCLCSPackage.eNS_URI);
 		GexpressionsPackage theGexpressionsPackage = (GexpressionsPackage)EPackage.Registry.INSTANCE.getEPackage(GexpressionsPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -809,8 +821,9 @@ public class BcoolPackageImpl extends EPackageImpl implements BcoolPackage {
 		initEReference(getRelationDeclaration_FormalParameters(), ecorePackage.getEObject(), null, "formalParameters", null, 0, -1, RelationDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bCoolOperatorArgEClass, BCoolOperatorArg.class, "BCoolOperatorArg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBCoolOperatorArg_DSE(), theCompleteOCLCSPackage.getDefPropertyCS(), null, "DSE", null, 1, 1, BCoolOperatorArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBCoolOperatorArg_DSE(), theCompleteOCLCSPackage.getDefPropertyCS(), null, "DSE", null, 0, 1, BCoolOperatorArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBCoolOperatorArg_Interface(), this.getImportInterfaceStatement(), null, "Interface", null, 1, 1, BCoolOperatorArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBCoolOperatorArg_InterfaceClass(), theEcorePackage.getEClass(), null, "InterfaceClass", null, 0, 1, BCoolOperatorArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

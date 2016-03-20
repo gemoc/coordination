@@ -87,8 +87,9 @@
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BCoolOperatorArg" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DSE" lowerBound="1" eType="ecore:EClass ../../org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.ecore#//DefPropertyCS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DSE" eType="ecore:EClass ../../org.eclipse.ocl.examples.xtext.completeocl/model/CompleteOCLCS.ecore#//DefPropertyCS"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Interface" lowerBound="1"
         eType="#//ImportInterfaceStatement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InterfaceClass" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
   </eClassifiers>
 </ecore:EPackage>
