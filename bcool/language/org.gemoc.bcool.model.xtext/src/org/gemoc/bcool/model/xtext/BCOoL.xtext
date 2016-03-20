@@ -37,7 +37,7 @@ BCoolCompositionRule returns BCoolCompositionRule:
 ;
 
 BCoolOperatorArg returns BCoolOperatorArg: 
-	 name=ID ' : ' Interface=[ImportInterfaceStatement] '::'  DSE=[ocl::DefPropertyCS|ID]
+	 name=ID ' : ' Interface=[ImportInterfaceStatement] '::'  (DSE=[ocl::DefPropertyCS|ID])? (InterfaceClass=[ecore::EClass|STRING])?
 ;
 
 

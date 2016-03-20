@@ -37,12 +37,15 @@ class BCOoLScopeProvider extends GExpressionsScopeProvider {
 	 * Scope for a BCool Operator argument (an ECL event under the hood). Present all the features and operations of the context in which it is defined.
 	 */
 	def protected dispatch IScope getNavigationScopeForEObject(BCoolOperatorArg operatorArgument, IScope outerScope) {
-		val eclEvent = operatorArgument.DSE
-		loadEclResourceIfNecessary(eclEvent)
-
-		val  EClassifier context = getEClassifierFromName(eclEvent)
-
-		return getScopeOfNavigableElementsForType(context, outerScope)
+		// we return the context depending on the type of the interface
+		if (operatorArgument.interface.importURI.endsWith(".ecl")) {
+			val eclEvent = operatorArgument.DSE
+			loadEclResourceIfNecessary(eclEvent)
+			val  EClassifier context = getEClassifierFromName(eclEvent)
+			return getScopeOfNavigableElementsForType(context, outerScope)}
+		else if (operatorArgument.interface.importURI.endsWith(".ecore")){
+			return getScopeOfNavigableElementsForType(operatorArgument.interfaceClass, outerScope)
+		}
 	}
 
 /**
@@ -51,12 +54,37 @@ class BCOoLScopeProvider extends GExpressionsScopeProvider {
 def IScope scope_BCoolOperatorArg_DSE(BCoolOperatorArg reference, EReference eRef){
 	val interface = reference.interface
 	val importedURI =  interface.importURI.substring(0, interface.importURI.length)
-
+	
 	return new FilteringScope(delegateGetScope(reference, eRef), new Predicate<IEObjectDescription>() {
                                override public boolean apply(IEObjectDescription input) {
-                               			val r = input.EObjectURI.toString
+                               		   // only provide the scope if it is a behavioral interface, i.e., .ecl
+									   if (importedURI.endsWith(".ecore")) return false;
+                               		   val r = input.EObjectURI.toString
                                        if (r.contains(importedURI)) { return true } else { return false }}});
 	}
+	
+
+/**
+ * Scope for Class. It presents the Class from an imported ecore
+ */
+def IScope scope_BCoolOperatorArg_InterfaceClass(BCoolOperatorArg reference, EReference eRef){
+	val interface = reference.interface
+	val importedURI =  interface.importURI.substring(0, interface.importURI.length)
+	
+	
+	return new FilteringScope(delegateGetScope(reference, eRef), new Predicate<IEObjectDescription>() {
+                               override public boolean apply(IEObjectDescription input) {
+                               		   	// only provide the scope if it is a structural interface, i.e., .ecore
+									   if (importedURI.endsWith(".ecl")) return false;
+									   // the correct way is to get the root Class of the .ecore and comparing by using startsWith("nameofroot.")
+									   // The use of the "http" may fail in some cases
+									   
+									   if (input.name.toString.startsWith("http")) return false;
+                               		   val r = input.EObjectURI.toString
+                                       if (r.contains(importedURI)) { return true } else { return false }}});
+	}
+	
+	
 
 //	
 // TODO:
