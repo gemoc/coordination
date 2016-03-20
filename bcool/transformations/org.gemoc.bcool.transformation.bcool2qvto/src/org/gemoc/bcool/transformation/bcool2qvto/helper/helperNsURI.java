@@ -175,35 +175,45 @@ public class helperNsURI {
 		return "// This is the result of the compilation of a BCool spec";
 	}
 	
+	//
 	// getNSURI:
-	// return the corresponding NSURI for the ecore imported by the ecl
+	//
+	// return the corresponding NSURI for an ecore
+	//
 	public String getNSURI(ImportInterfaceStatement importInterfaceStatement){
-		ECLDocument eclDoc = getEclDocument(importInterfaceStatement);
-	    String oclimport = eclDoc.getOwnedImport().get(0).toString();
+		//ECLDocument eclDoc = getEclDocument(importInterfaceStatement);
+	    //String oclimport = eclDoc.getOwnedImport().get(0).toString();
 	    // I get the first import that corresponds with the metamodel
-	    oclimport = oclimport.substring(oclimport.indexOf('\'')+1, oclimport.lastIndexOf('\''));
-	    // Depending the kind of import we found differently the NSURI
-	    if (oclimport.endsWith(".ecore")) {
-	    	
-	    	// In ECL, if the .ecore is imported as resource, it is changed by plugin
-	    	// WARN: the BCOoL should not be in the same workbench that the languages
-	    	if (oclimport.startsWith("platform:/resource")) {
-	    		oclimport = oclimport.replace("resource","plugin");
-	    	}
-	    	URI metaURI=URI.createURI(oclimport,false);
+	    String ecoreimport = importInterfaceStatement.getImportURI();
+		//ecoreimport = ecoreimport.substring(ecoreimport.indexOf('\'')+1, ecoreimport.lastIndexOf('\''));
+	    
+	    	URI metaURI=URI.createURI(ecoreimport,false);
 	    	ResourceSet resourceSet = new ResourceSetImpl(); 
 	        Resource resource1 = resourceSet.getResource(metaURI, true);
 	        
 	        EPackage wdwPackage = (EPackage)resource1.getContents().get(0);
 	    	return wdwPackage.getNsURI();
 	    // It is a NSURI
-	    }else if (oclimport.startsWith("http:/")) {
-	    	return oclimport;
+	//    }else if (oclimport.startsWith("http:/")) {
+	 //   	return oclimport;
 	    // Not recognized
-	    }else {
-	    	return "bad metamodel in ecl";
-	    }
+	   // }else {
+	   // 	return "bad metamodel in ecl";
+	   // }
 	}
+	
+	public  EPackage getEcoreDocument(ImportInterfaceStatement importInterfaceStatement){
+	    String ecoreimport = importInterfaceStatement.getImportURI();
+		//ecoreimport = ecoreimport.substring(ecoreimport.indexOf('\'')+1, ecoreimport.lastIndexOf('\''));
+	    
+	    	URI metaURI=URI.createURI(ecoreimport,false);
+	    	ResourceSet resourceSet = new ResourceSetImpl(); 
+	        Resource resource1 = resourceSet.getResource(metaURI, true);
+	        
+	        EPackage wdwPackage = (EPackage)resource1.getContents().get(0);
+	    	return wdwPackage;
+	}
+	
 	
 	// getNSURIIndex (i):
 	// return the corresponding NSURI for the i-esimo ecore imported by the ecl.

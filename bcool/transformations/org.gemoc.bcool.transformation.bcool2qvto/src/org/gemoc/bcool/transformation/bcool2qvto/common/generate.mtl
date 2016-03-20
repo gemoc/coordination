@@ -23,13 +23,21 @@ modeltype Ecore uses 'http://www.eclipse.org/emf/2002/Ecore';
 //modeltype pivot uses 'http://www.eclipse.org/ocl/3.1.0/Pivot';
 
 [for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
-		[let anEclDoc : ECLDocument = im.getEclDocument()]
-			[let ModelNumber : EInt = i]
-				[comment] We use the number of packet in the .ecl to get the .ecore [/comment]
-				[for ( anEclDoc.packages)]
-					modeltype inMM[ModelNumber/][i/] uses '[im.getNSURIIndex(i-1)/]';
-				[/for]
-			[/let]
+	[let ModelNumber : EInt = i]
+		
+				[if im.importURI.endsWith('.ecl')]
+					[let anEclDoc : ECLDocument = im.getEclDocument()]
+
+					[comment] We use the number of packet in the .ecl to get the .ecore [/comment]
+					[for ( anEclDoc.packages)]
+						modeltype inMM[ModelNumber/][i/] uses '[im.getNSURIIndex(i-1)/]';
+					[/for]
+					[/let]
+				[/if]
+
+				[if im.importURI.endsWith('.ecore')]
+						modeltype inMM[ModelNumber/]1 uses '[im.getNSURI(im)/]';
+				[/if]
 		[/let]
 [/for]
 modeltype ocl uses 'http://www.eclipse.org/ocl/3.1.0/CompleteOCLCST';
@@ -42,6 +50,10 @@ modeltype TimeModel uses 'http://fr.inria.aoste.timemodel';
 transformation do[aBCoolSpecification.name/]_To_CCSL(
 [for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 	[if (im.importURI.endsWith('ecl'))]
+inM[i/] : inMM[i/]1,
+	[/if]
+
+	[if (im.importURI.endsWith('ecore'))]
 inM[i/] : inMM[i/]1,
 	[/if]
 [/for] inout outCCSLModel : TimeModel);
@@ -85,6 +97,8 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 [for (im : ImportInterfaceStatement |aBCoolSpecification.importsBehavioralInterface)]
 [let modelNumber : EInt = i]
 
+		[if im.importURI.endsWith('.ecl')]
+
 		[let anEclDoc : ECLDocument = im.getEclDocument()]
 
 		[let allEvents : Sequence(DefCS) = anEclDoc.eAllContents()->select(eo | eo.oclIsTypeOf(ECLDefCS) and eo.oclAsType(ECLDefCS).ownedType.oclIsKindOf(EventType))]
@@ -109,6 +123,26 @@ property seqOfExpressionDeclaration :	Sequence(TimeModel::CCSLModel::ClockExpres
 		[/for]
 		[/let]
 		[/let]
+
+		[/if]
+
+
+			[if im.importURI.endsWith('.ecore')]
+
+				[let anEcoreDoc : EPackage = im.getEcoreDocument()]
+				[let allClass: Sequence(EClass) = anEcoreDoc.eAllContents()->select(eo | eo.oclIsKindOf(EClass))]
+
+			[for (class : EClass | allClass)]
+				property MM[modelNumber/]1_seqOf[class.name/]Context :	Sequence(inMM[modelNumber/]1::[class.name/]) = Sequence{};
+				query inMM[modelNumber/]1::[class.name/]::get[class.name/]ofMM[modelNumber/]() {
+				MM[modelNumber/]1_seqOf[class.name/]Context += self.oclAsType(inMM[modelNumber/]1::[class.name/]);
+				return;
+			}
+			[/for]
+
+			[/let]
+			[/let]
+			[/if]
 [/let]
 [/for]
 
@@ -118,7 +152,12 @@ query identifyUserRelations() {
 	var kernelTypes :  	Sequence(TimeModel::BasicType::Type) := Sequence{};
 
 	[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
-	[let anEclDoc : ECLDocument = im.getEclDocument()]
+		
+	[if im.importURI.endsWith('.ecl')]
+
+
+
+		[let anEclDoc : ECLDocument = im.getEclDocument()]
 		[for (imecl : ECL::ImportStatement | anEclDoc.imports)]
 		
 		[comment] If the interface is imported as plugin, the libraries used in the interface must be also imported as plugin [/comment]
@@ -139,6 +178,8 @@ query identifyUserRelations() {
 		
 		[/for]
 	[/let]
+
+		[/if]
 	[/for]
 
 
@@ -184,12 +225,18 @@ main() {
 
 	identifyUserRelations();
 	[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
-		retrieveinM[i/]MoCCClocks();
+		[if (im.importURI.endsWith('ecl'))]
+			retrieveinM[i/]MoCCClocks();
+		[/if]
 	[/for]
 
 
 	[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 	[let modelNumber : EInt = i]
+
+				[if im.importURI.endsWith('.ecl')]
+		
+
 		[let anEclDoc : ECLDocument = im.getEclDocument()]
 		[let allEvents : Sequence(DefCS) = anEclDoc.eAllContents()->select(eo | eo.oclIsKindOf(ECLDefCS) and eo.oclAsType(ECLDefCS).ownedType.oclIsKindOf(EventType))]
 		[for (evt : DefCS | allEvents)]
@@ -199,6 +246,20 @@ main() {
 		[/for]
 		[/let]
 		[/let]
+				[/if]
+
+				[if im.importURI.endsWith('.ecore')]
+				[let anEcoreDoc : EPackage = im.getEcoreDocument()]
+				[let allClass: Sequence(EClass) = anEcoreDoc.eAllContents()->select(eo | eo.oclIsKindOf(EClass))]
+					[for (class : EClass | allClass)]
+						inM[modelNumber/].objectsOfType(inMM[modelNumber/]1::[class.name/]).get[class.name/]ofMM[modelNumber/]();
+					[/for]
+
+				[/let]
+				[/let]
+				[/if]
+				
+
 	[/let]
 [/for]
 		
@@ -228,6 +289,7 @@ main() {
 
 						[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 						[let importNumber : EInt = i]
+						[if im.importURI.endsWith('.ecl')]
 						[let anEclDoc : ECLDocument = im.getEclDocument()]
 						[for (imecl : ECL::ImportStatement | anEclDoc.imports)]
 
@@ -247,6 +309,7 @@ main() {
 						[/if]
 						[/for]
 						[/let]
+						[/if]
 						[/let]
 						[/for]
 					}endif;
@@ -272,19 +335,30 @@ main() {
 	
 	if (Is[rule.name/]Executed) or (ApplyAll) then { 
 	[for (operArgs : BCoolOperatorArg | rule.BCoolOperatorArgs)]
-		[let dse : DefPropertyCS = operArgs.DSE]
 			
 			[for (interface : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]	 
 				[let interfaceNumber : EInt = i]
-				[if interface.name = operArgs.Interface.name]
-				 MM[i/]1_seqOf[dse.oclAsType(DefPropertyCS).name/][dse.oclAsType(DefPropertyCS).classifierContextDecl.pathName/]Context-> forEach ([operArgs.name/]){ 
-			    [/if]
+				
+				[if interface.importURI.endsWith('.ecl')]				
+					[if interface.name = operArgs.Interface.name]
+					[let dse : DefPropertyCS = operArgs.DSE]
+					 MM[i/]1_seqOf[dse.oclAsType(DefPropertyCS).name/][dse.oclAsType(DefPropertyCS).classifierContextDecl.pathName/]Context-> forEach ([operArgs.name/]){ 
+			    	[/let]
+					[/if]
+				[/if]
+
+				[if interface.importURI.endsWith('.ecore')]
+					[if interface.name = operArgs.Interface.name]
+					 		[let classi : EClass = operArgs.InterfaceClass]
+							 MM[i/]1_seqOf[classi.name/]Context-> forEach ([operArgs.name/]){ 
+							[/let]
+			    	[/if]
+				[/if]
+				
 				[/let]
 			[/for]
 
 
-			
-		[/let]
 	[/for]
 
 		if ([rule.matchingRule.condition.GexpressiontoString()/]) then {
@@ -505,6 +579,7 @@ mapping [aBCoolSpecification.name/]2CCSLSubBlock() : TimeModel::CCSLModel::Block
 	
 	[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 	[let modelNumber : EInt = i]
+	[if im.importURI.endsWith('.ecl')]
 			name:= name + getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).substring(getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('/')+1, getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1);
 	
 		if outCCSLModel.objectsOfType(TimeModel::ImportStatement)->asSequence()->select(i | i.importURI = inM[i/]MoCCPath )->isEmpty() then {
@@ -513,7 +588,7 @@ mapping [aBCoolSpecification.name/]2CCSLSubBlock() : TimeModel::CCSLModel::Block
 			alias := getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).substring(getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('/')+1, getModelPath(inM[i/].rootObjects()->asSequence()->first().oclAsType(EObject)).lastIndexOf('.')-1);
 			}; 
 		} endif;
-
+	[/if]
 	[/let]
 	[/for]
 	name := name + "sublock"; 
@@ -544,6 +619,7 @@ mapping [aBCoolSpecification.name/]2CCSLSubBlock() : TimeModel::CCSLModel::Block
 
 	[for (im : ImportInterfaceStatement | aBCoolSpecification.importsBehavioralInterface)]
 	[let importNumber : EInt = i]
+	[if im.importURI.endsWith('.ecl')]
 	[let anEclDoc : ECLDocument = im.getEclDocument()]
 		[for (imecl : ECL::ImportStatement | anEclDoc.imports)]
 
@@ -564,6 +640,7 @@ mapping [aBCoolSpecification.name/]2CCSLSubBlock() : TimeModel::CCSLModel::Block
 
 		[/for]
 	[/let]
+	[/if]
 	[/let]
 	[/for]
 
@@ -1007,6 +1084,11 @@ TimeModel::EventKind::start;
 
 [query public getEclDocument(arg0 : ImportInterfaceStatement) : ECLDocument
 	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getEclDocument(org.gemoc.bcool.model.bcool.ImportInterfaceStatement)', Sequence{arg0}) /]
+
+[query public getEcoreDocument(arg0 : ImportInterfaceStatement) : EPackage
+	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getEcoreDocument(org.gemoc.bcool.model.bcool.ImportInterfaceStatement)', Sequence{arg0}) /]
+
+
 
 [query public getEclDocumentfromURI(arg0 : String) : ECLDocument
 	= invoke('org.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getEclDocumentfromURI(java.lang.String)', Sequence{arg0}) /]
