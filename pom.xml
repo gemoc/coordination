@@ -18,9 +18,9 @@
   	<!-- List of P2 repositories of external tool used to build the components -->
   	<!--  must NOT include the repositories of the tools included in the Studio has it has its own complementary list -->
         <repository>
-            <id>Luna release</id>
+            <id>Mars release</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/releases/luna/201502271000</url>
+            <url>http://download.eclipse.org/releases/mars/201602261000</url>
         </repository>
         <repository>
             <id>timesquare</id>
@@ -50,17 +50,17 @@
         <repository>
             <id>Sirius</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/nightly/2.0.x/luna</url>
+            <url>http://download.eclipse.org/sirius/updates/releases/3.1.4/mars</url>
         </repository>
         <repository>
             <id>umldesigner</id>
             <layout>p2</layout>
-            <url>http://marketplace.obeonetwork.com/updates/nightly/uml/repository</url>
+            <url>http://releases.umldesigner.org/5.0.1/repository/</url>
         </repository>
         <repository>
             <id>nebula</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/technology/nebula/incubation/snapshot</url>
+            <url>http://download.eclipse.org/technology/nebula/archives/Q42015/incubation</url>
         </repository>
     </repositories>
 
