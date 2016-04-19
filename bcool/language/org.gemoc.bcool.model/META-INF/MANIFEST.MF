@@ -18,6 +18,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ocl.examples.xtext.essentialocl;bundle-version="3.4.0";visibility:=reexport,
  org.eclipse.ocl.examples.pivot;bundle-version="3.4.0";visibility:=reexport,
  org.gemoc.gexpressions;visibility:=reexport,
- org.eclipse.xtext.xbase;bundle-version="[2.7.0,2.9.0)";visibility:=reexport,
- org.eclipse.xtext.common.types;bundle-version="[2.7.0,2.9.0)";visibility:=reexport
+ org.eclipse.xtext.xbase;bundle-version="[2.7.0,2.10.0)";visibility:=reexport,
+ org.eclipse.xtext.common.types;bundle-version="[2.7.0,2.10.0)";visibility:=reexport
 Bundle-ActivationPolicy: lazy
