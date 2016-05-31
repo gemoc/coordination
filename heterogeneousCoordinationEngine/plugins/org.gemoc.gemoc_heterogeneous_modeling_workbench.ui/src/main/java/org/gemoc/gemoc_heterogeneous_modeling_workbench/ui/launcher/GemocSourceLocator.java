@@ -2,8 +2,8 @@ package org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher;
 
 import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.execution.engine.trace.LogicalStepHelper;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
+import org.gemoc.executionframework.engine.mse.Step;
 import org.gemoc.executionframework.engine.mse.MSE;
 
 import fr.obeo.dsl.debug.ide.DSLSourceLocator;
@@ -17,8 +17,8 @@ public class GemocSourceLocator extends DSLSourceLocator {
 		if (stackFrame instanceof DSLStackFrameAdapter) {
 			final DSLStackFrameAdapter eStackFrame = (DSLStackFrameAdapter) stackFrame;
 			final EObject instruction = eStackFrame.getCurrentInstruction();
-			if (instruction instanceof LogicalStep) {
-				res = getFirstTarget((LogicalStep) instruction);
+			if (instruction instanceof Step) {
+				res = getFirstTarget((Step) instruction);
 			} else if (instruction != null) {
 				res = instruction;
 			} else {
@@ -30,10 +30,10 @@ public class GemocSourceLocator extends DSLSourceLocator {
 		return res;
 	}
 
-	private EObject getFirstTarget(LogicalStep step) {
+	private EObject getFirstTarget(Step step) {
 		EObject res = null;
 
-		for (MSE event : LogicalStepHelper.getMSEs(step)) 
+		for (MSE event : StepHelper.collectAllMSEs(step)) 
 		{
 			res = event;
 			break;

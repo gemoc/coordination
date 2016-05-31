@@ -25,13 +25,16 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IFutureAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
+import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
 import org.gemoc.executionframework.engine.Activator;
 import org.gemoc.executionframework.engine.commons.EngineContextException;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.BigStep;
 import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.engine.mse.MSEOccurrence;
-import org.gemoc.executionframework.engine.mse.impl.LogicalStepImpl;
+import org.gemoc.executionframework.engine.mse.SmallStep;
+import org.gemoc.executionframework.engine.mse.Step;
+import org.gemoc.executionframework.engine.mse.impl.ParallelStepImpl;
 import org.gemoc.xdsmlframework.api.core.EngineStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
@@ -193,13 +196,13 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	 * @see org.gemoc.executionframework.engine.core.IExecutionEngine#notifyLogicalStepExecuted(org.gemoc.executionframework.engine.trace.gemoc_execution_trace.LogicalStep)
 	 */
 	@Override
-	public void notifyLogicalStepExecuted(LogicalStep l) {
+	public void notifyLogicalStepExecuted(Step l) {
 		if (_coordinatedEngines.size() == 0){
 			return;
 		}
 		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) {
 			try {
-				addon.logicalStepExecuted(this, l);
+				addon.stepExecuted(this, l);
 			} catch (Exception e) {
 				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
 			}
@@ -234,11 +237,11 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 
 	
-	class ExtendedLogicalStep extends LogicalStepImpl{
+	class ExtendedLogicalStep extends ParallelStepImpl<SmallStep>{
 		
-		public ExtendedLogicalStep(LogicalStep step) {
-			this.mseOccurrences = new BasicEList<MSEOccurrence>(step.getMseOccurrences().size());
-			this.mseOccurrences.addAll(step.getMseOccurrences());
+		public ExtendedLogicalStep(Step step) {
+			this.subSteps = new BasicEList<SmallStep>(((BigStep<?>)step).getSubSteps().size());
+			this.subSteps.addAll(((BigStep<SmallStep>)step).getSubSteps());
 		}
 		int indexInSolution =0;
 		int solverIndex =0;
@@ -315,7 +318,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 
 	private List<ExtendedLogicalStep> extendLogicalSteps(
-			List<LogicalStep> possibleLogicalSteps, int iSolver) {
+			List<Step> possibleLogicalSteps, int iSolver) {
 		List<ExtendedLogicalStep> res = new ArrayList<ExtendedLogicalStep>(possibleLogicalSteps.size());
 		for(int i =0; i < possibleLogicalSteps.size(); i++){
 			ExtendedLogicalStep eStep = new ExtendedLogicalStep(possibleLogicalSteps.get(i));
@@ -323,17 +326,17 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			eStep.solverIndex = iSolver;
 			res.add(eStep);
 		}
-		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(org.gemoc.executionframework.engine.mse.MseFactory.eINSTANCE.createLogicalStep());
+		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(org.gemoc.executionframework.engine.mse.MseFactory.eINSTANCE.createGenericSmallStep());
 		emptyLogicalStep.indexInSolution= possibleLogicalSteps.size();
 		emptyLogicalStep.solverIndex=iSolver;
 		res.add(emptyLogicalStep);
 		return res;
 	}
-	public void addConstraintsFromOneStepOfOneEngine(int engineNumber, LogicalStep aStep) throws SimulationException{
+	public void addConstraintsFromOneStepOfOneEngine(int engineNumber, Step aStep) throws SimulationException{
 			
 		CCSLKernelSolver oneSolver= _t2Solvers.get(engineNumber);
 		ArrayList<SolverClock> trueClocks = new ArrayList<SolverClock>();
-			for(MSEOccurrence mseOcc : aStep.getMseOccurrences()){
+			for(MSEOccurrence mseOcc : StepHelper.collectAllMSEOccurrences(aStep)){
 				MSE mse = mseOcc.getMse();
 				SolverClock coordinationClock = getCoordinationSolverClockFromMSE(mse, oneSolver);
 				trueClocks.add(coordinationClock);
@@ -388,7 +391,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			stop();
 		} else {
 			//Activator.getDefault().debug("\t\t ---------------- LogicalStep " + count);
-			LogicalStep selectedLogicalStep = selectAndExecuteLogicalStep();						
+			Step selectedLogicalStep = selectAndExecuteLogicalStep();						
 			// 3 - run the selected logical step
 			// inform the solver that we will run this step
 			if (selectedLogicalStep != null)
@@ -415,10 +418,10 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 	
 	
-	private LogicalStep selectAndExecuteLogicalStep() {
+	private Step selectAndExecuteLogicalStep() {
 		setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
 		notifyAboutToSelectLogicalStep();
-		LogicalStep selectedLogicalStep = null;
+		Step selectedLogicalStep = null;
 		try {
 
 			for(IConcurrentExecutionEngine eng : get_coordinatedEngines()){
@@ -495,15 +498,15 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	protected HeterogeneousLogicalStep _selectedCompliantStep = null;
 	
 	@Override
-	public LogicalStep getSelectedLogicalStep() 
+	public Step getSelectedLogicalStep() 
 	{
 		synchronized (this) {
-			return (LogicalStep) _selectedCompliantStep;
+			return (Step) _selectedCompliantStep;
 		}
 	}
 	
 	@Override
-	public void setSelectedLogicalStep(LogicalStep selectedStep) 
+	public void setSelectedLogicalStep(Step selectedStep) 
 	{
 		if (!(selectedStep instanceof HeterogeneousLogicalStep))
 		{
@@ -515,11 +518,11 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 	
 	@Override
-	public List<LogicalStep> getPossibleLogicalSteps() 
+	public List<Step> getPossibleLogicalSteps() 
 	{
 		synchronized (this)
 		{
-			return new ArrayList<LogicalStep>(_heterogeneousLogicalSteps);
+			return new ArrayList<Step>(_heterogeneousLogicalSteps);
 		}
 	}
 
@@ -570,7 +573,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			if(theLogicalStepToSelect==(oneEngine.getPossibleLogicalSteps().size())){
 				continue;
 			}
-			LogicalStep selectedLogicalStep = oneEngine.getPossibleLogicalSteps().get(theLogicalStepToSelect);
+			Step selectedLogicalStep = oneEngine.getPossibleLogicalSteps().get(theLogicalStepToSelect);
 			oneEngine.setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
 			oneEngine.notifyAboutToSelectLogicalStep();
 			oneEngine.setSelectedLogicalStep(selectedLogicalStep);
@@ -700,7 +703,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
-				addon.logicalStepSelected(this, getSelectedLogicalStep());
+				addon.stepSelected(this, getSelectedLogicalStep());
 			} catch (Exception e) {
 				Activator.getDefault().error("Exception in Addon "+addon+", "+e.getMessage(), e);
 			}
@@ -714,7 +717,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
-				addon.aboutToSelectLogicalStep(this, getPossibleLogicalSteps());
+				addon.aboutToSelectStep(this, getPossibleLogicalSteps());
 			} catch (Exception e) {
 				Activator.getDefault().error("Exception in Addon "+addon+", "+e.getMessage(), e);
 			}
@@ -723,13 +726,13 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 	
 	@Override
-	public void notifyAboutToExecuteLogicalStep(LogicalStep l) {
+	public void notifyAboutToExecuteLogicalStep(Step l) {
 		if (_coordinatedEngines.size() == 0){
 			return;
 		}
 		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) {
 			try {
-				addon.aboutToExecuteLogicalStep(this, l);
+				addon.aboutToExecuteStep(this, l);
 			} catch (Exception e) {
 				Activator.getDefault().error("Exception in Addon " + addon + ", " + e.getMessage(), e);
 			}
@@ -744,7 +747,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		for (IEngineAddon addon : _coordinatedEngines.get(0).getExecutionContext().getExecutionPlatform().getEngineAddons()) 
 		{
 			try {
-				addon.proposedLogicalStepsChanged(this, getPossibleLogicalSteps());
+				addon.proposedStepsChanged(this, getPossibleLogicalSteps());
 			} catch (Exception e) {
 				Activator.getDefault().error("Exception in Addon "+addon+", "+e.getMessage(), e);
 			}

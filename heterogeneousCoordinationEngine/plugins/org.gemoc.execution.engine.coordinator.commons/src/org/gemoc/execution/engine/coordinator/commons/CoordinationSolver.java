@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.URI;
 import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver;
-import org.gemoc.executionframework.engine.mse.LogicalStep;
+import org.gemoc.executionframework.engine.mse.Step;
 
 import fr.inria.aoste.timesquare.ccslkernel.solver.CCSLKernelSolver;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
@@ -20,9 +20,9 @@ public class CoordinationSolver extends CcslSolver {
 	}
 	
 	@Override
-	public LogicalStep proposeLogicalStep() {
+	public Step proposeLogicalStep() {
 		int index = solverWrapper.proposeLogicalStepByIndex();
-		LogicalStep result = null;
+		Step result = null;
 		if (_lastLogicalSteps.size() > index)
 		{
 			result = _lastLogicalSteps.get(index);			
