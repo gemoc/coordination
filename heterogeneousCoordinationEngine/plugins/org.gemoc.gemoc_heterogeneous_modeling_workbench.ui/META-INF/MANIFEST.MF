@@ -39,7 +39,6 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.execution.concurrent.ccsljavaxdsml.api;bundle-version="1.0.0",
  org.gemoc.execution.concurrent.ccsljavaengine;bundle-version="1.0.0",
  org.gemoc.executionframework.engine.ui,
- org.gemoc.executionframework.engine.mse.model,
  org.gemoc.execution.concurrent.ccsljavaengine.mse.model,
  org.gemoc.executionframework.extensions.sirius,
  fr.inria.diverse.trace.commons;bundle-version="1.0.0"
