@@ -3,9 +3,8 @@ package org.gemoc.execution.engine.coordinator.commons;
 import java.util.ArrayList;
 
 import org.gemoc.execution.engine.coordinator.commons.HeterogeneousEngine.ExtendedLogicalStep;
-import org.gemoc.executionframework.engine.mse.SmallStep;
-import org.gemoc.executionframework.engine.mse.impl.ParallelStepImpl;
-import org.gemoc.executionframework.engine.mse.impl.StepImpl;
+
+import fr.inria.diverse.trace.commons.model.trace.impl.StepImpl;
 
 
 /**

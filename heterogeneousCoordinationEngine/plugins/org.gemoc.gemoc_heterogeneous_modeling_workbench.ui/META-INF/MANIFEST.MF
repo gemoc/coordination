@@ -41,7 +41,8 @@ Require-Bundle: org.eclipse.ui,
  org.gemoc.executionframework.engine.ui,
  org.gemoc.executionframework.engine.mse.model,
  org.gemoc.execution.concurrent.ccsljavaengine.mse.model,
- org.gemoc.executionframework.extensions.sirius
+ org.gemoc.executionframework.extensions.sirius,
+ fr.inria.diverse.trace.commons;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: 

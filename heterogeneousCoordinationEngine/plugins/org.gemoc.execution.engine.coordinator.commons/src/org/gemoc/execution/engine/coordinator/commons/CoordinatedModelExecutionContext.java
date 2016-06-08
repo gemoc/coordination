@@ -1,10 +1,7 @@
 package org.gemoc.execution.engine.coordinator.commons;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -24,22 +21,18 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
-import org.eclipse.debug.core.ILaunchConfigurationType;
-import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
-import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.resource.SaveOptions;
+import org.eclipse.xtext.resource.SaveOptions.Builder;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
-import org.eclipse.xtext.resource.SaveOptions.Builder;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
 import org.gemoc.bflow.BFlowStandaloneSetup;
@@ -48,22 +41,20 @@ import org.gemoc.execution.concurrent.ccsljavaengine.ui.LogicalStepDeciderFactor
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.executionframework.engine.commons.EngineContextException;
 import org.gemoc.executionframework.engine.core.ExecutionWorkspace;
-import org.gemoc.executionframework.engine.mse.MSEModel;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionPlatform;
 import org.gemoc.xdsmlframework.api.core.IExecutionWorkspace;
-import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.extensions.languages.LanguageDefinitionExtension;
 import org.osgi.framework.Bundle;
 
 import com.google.inject.Injector;
 
-import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.CCSLModelFactory;
 import fr.inria.aoste.timesquare.ccslkernel.parser.xtext.ExtendedCCSLStandaloneSetup;
-import fr.inria.aoste.timesquare.ecl.feedback.feedback.ActionModel;
+import fr.inria.diverse.trace.commons.model.trace.MSEModel;
 
 public class CoordinatedModelExecutionContext implements IExecutionContext
 {

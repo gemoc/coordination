@@ -25,22 +25,15 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IFutureAction;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.dsa.executors.ICodeExecutor;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.moc.ISolver;
-import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
 import org.gemoc.executionframework.engine.Activator;
 import org.gemoc.executionframework.engine.commons.EngineContextException;
 import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
-import org.gemoc.executionframework.engine.mse.BigStep;
-import org.gemoc.executionframework.engine.mse.MSE;
-import org.gemoc.executionframework.engine.mse.MSEOccurrence;
-import org.gemoc.executionframework.engine.mse.SmallStep;
-import org.gemoc.executionframework.engine.mse.Step;
-import org.gemoc.executionframework.engine.mse.impl.ParallelStepImpl;
 import org.gemoc.xdsmlframework.api.core.EngineStatus;
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
-import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 import com.google.common.collect.Sets;
@@ -56,6 +49,14 @@ import fr.inria.aoste.timesquare.ccslkernel.runtime.exceptions.SimulationExcepti
 import fr.inria.aoste.timesquare.ccslkernel.solver.CCSLKernelSolver;
 import fr.inria.aoste.timesquare.ccslkernel.solver.TimeModel.SolverClock;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
+import fr.inria.diverse.trace.commons.model.helper.StepHelper;
+import fr.inria.diverse.trace.commons.model.trace.BigStep;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.SmallStep;
+import fr.inria.diverse.trace.commons.model.trace.Step;
+import fr.inria.diverse.trace.commons.model.trace.TraceFactory;
+import fr.inria.diverse.trace.commons.model.trace.impl.ParallelStepImpl;
 
 /**
  * Naive implementation of the heterogeneous ExecutionEngine, where so called 
@@ -326,7 +327,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			eStep.solverIndex = iSolver;
 			res.add(eStep);
 		}
-		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(org.gemoc.executionframework.engine.mse.MseFactory.eINSTANCE.createGenericSmallStep());
+		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(TraceFactory.eINSTANCE.createGenericSmallStep());
 		emptyLogicalStep.indexInSolution= possibleLogicalSteps.size();
 		emptyLogicalStep.solverIndex=iSolver;
 		res.add(emptyLogicalStep);

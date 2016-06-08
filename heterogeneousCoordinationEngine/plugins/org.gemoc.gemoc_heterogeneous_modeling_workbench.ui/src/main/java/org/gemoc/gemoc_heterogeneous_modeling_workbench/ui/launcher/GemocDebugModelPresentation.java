@@ -13,12 +13,12 @@ import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
-import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
-import org.gemoc.executionframework.engine.mse.Step;
-import org.gemoc.executionframework.engine.mse.MSE;
 import org.gemoc.executionframework.ui.IMSEPresenter;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
+import fr.inria.diverse.trace.commons.model.helper.StepHelper;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 import fr.obeo.dsl.debug.ide.adapter.DSLStackFrameAdapter;
 import fr.obeo.dsl.debug.ide.sirius.ui.DSLDebugModelPresentation;
 import fr.obeo.dsl.debug.ide.sirius.ui.SiriusEditorUtils;

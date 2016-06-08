@@ -2,10 +2,10 @@ package org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher;
 
 import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.execution.engine.mse.engine.mse.helper.StepHelper;
-import org.gemoc.executionframework.engine.mse.Step;
-import org.gemoc.executionframework.engine.mse.MSE;
 
+import fr.inria.diverse.trace.commons.model.helper.StepHelper;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 import fr.obeo.dsl.debug.ide.DSLSourceLocator;
 import fr.obeo.dsl.debug.ide.adapter.DSLStackFrameAdapter;
 
