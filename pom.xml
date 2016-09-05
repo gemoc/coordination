@@ -9,7 +9,7 @@
 	</modules>
 
     <properties>
-		<tycho-version>0.24.0</tycho-version>
+		<tycho-version>0.25.0</tycho-version>
 		<project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
 		<tycho.scmUrl>scm:git:https://github.com/gemoc/coordination.git</tycho.scmUrl>
 	</properties>
@@ -58,9 +58,15 @@
             <url>http://releases.umldesigner.org/5.0.1/repository/</url>
         </repository>
         <repository>
-            <id>nebula</id>
+            <id>nebula1</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/technology/nebula/archives/Q42015/incubation</url>
+            <url>http://archive.eclipse.org/nebula/Q42015/release/</url>
+        </repository>
+
+        <repository>
+            <id>nebula2</id>
+            <layout>p2</layout>
+            <url>http://archive.eclipse.org/nebula/Q42015/incubation/</url>
         </repository>
     </repositories>
 

@@ -19,6 +19,56 @@
 		<project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
 	</properties>
 
+<profiles>
+    <!-- Profiles are used for switching the repositories used for the build so they either use the CI update sites or local repositories -->
+    	<profile>
+	        <id>ignore_CI_repositories</id>
+	        <activation>
+	            <activeByDefault>false</activeByDefault>
+	        </activation>
+	        <repositories>
+		    </repositories>
+	    </profile>
+	    <profile>
+	        <id>use_CI_repositories</id>
+	        <activation>
+	            <activeByDefault>true</activeByDefault>
+	        </activation>
+	        <repositories>
+
+		<repository>
+			<id>gel</id>
+			<url>https://ci.inria.fr/gemoc/job/gemoc-studio_gemoc_commons/lastSuccessfulBuild/artifact/gemoc_commons/releng/org.gemoc.gemoc_commons.repository/target/repository/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		
+		
+	<repository>
+			<id>gemoc-studio-commons</id>
+			<url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.gemoc.commons.repository/target/repository/</url>
+			<layout>p2</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		
+
+
+</repositories>
+	    </profile>
+    	
+    </profiles>
+
 	<repositories>
 		<repository>
 			<id>TimeSquare</id>
@@ -94,44 +144,8 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>Sirius4Luna</id>
-			<url>http://download.eclipse.org/sirius/updates/milestones/1.0.0M6/luna</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		
-		<repository>
-			<id>gel</id>
-			<url>https://ci.inria.fr/gemoc/job/gemoc-studio_gemoc_commons/lastSuccessfulBuild/artifact/gemoc_commons/releng/org.gemoc.gemoc_commons.repository/target/repository/</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		
 
-		
-		
-	<repository>
-			<id>gemoc-studio-commons</id>
-			<url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.gemoc.commons.repository/target/repository/</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
+
 		
 		  <repository>
             <id>diverse-commons</id>
