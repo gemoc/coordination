@@ -43,7 +43,7 @@ import org.gemoc.executionframework.engine.commons.EngineContextException;
 import org.gemoc.executionframework.engine.core.ExecutionWorkspace;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionPlatform;
@@ -208,8 +208,8 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		ArrayList<IFile> inputModelfiles = new ArrayList<IFile>();
 		ArrayList<IFile> timodelFiles = new ArrayList<IFile>();
 		coordinatedEngines  = new ArrayList<IExecutionEngine>();
-		Collection<IBasicExecutionEngine> engines = org.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry.getRunningEngines().values();
-		for (IBasicExecutionEngine engine : engines)
+		Collection<IExecutionEngine> engines = org.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry.getRunningEngines().values();
+		for (IExecutionEngine engine : engines)
 		{
 			if (engine.getRunningStatus() == RunStatus.Stopped){
 				continue;

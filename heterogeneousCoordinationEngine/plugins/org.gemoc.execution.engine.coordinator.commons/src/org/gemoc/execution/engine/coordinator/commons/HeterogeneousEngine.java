@@ -1,8 +1,6 @@
 package org.gemoc.execution.engine.coordinator.commons;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -31,7 +29,6 @@ import org.gemoc.executionframework.engine.core.AbstractExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.EngineStatus;
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IExecutionEngine;
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
@@ -138,7 +135,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		}
 	}
 	@Override
-	public void initialize(IExecutionContext executionContext){
+	public final void performInitialize(IExecutionContext executionContext){
 		if (!(executionContext instanceof CoordinatedModelExecutionContext))
 			throw new IllegalArgumentException("executionContext must be a CoordinatedModelExecutionContext when used in an HeterogeneousExecutionEngine");
 		_executionContext = executionContext;
@@ -240,8 +237,8 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	
 	class ExtendedLogicalStep extends ParallelStepImpl<SmallStep>{
 		
-		public ExtendedLogicalStep(Step step) {
-			this.subSteps = new BasicEList<SmallStep>(((BigStep<?>)step).getSubSteps().size());
+		public ExtendedLogicalStep(BigStep<SmallStep> step) {
+			this.subSteps = new BasicEList<SmallStep>(step.getSubSteps().size());
 			this.subSteps.addAll(((BigStep<SmallStep>)step).getSubSteps());
 		}
 		int indexInSolution =0;
@@ -318,16 +315,17 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		return res;
 	}
 
+	@SuppressWarnings("unchecked")
 	private List<ExtendedLogicalStep> extendLogicalSteps(
 			List<Step> possibleLogicalSteps, int iSolver) {
 		List<ExtendedLogicalStep> res = new ArrayList<ExtendedLogicalStep>(possibleLogicalSteps.size());
 		for(int i =0; i < possibleLogicalSteps.size(); i++){
-			ExtendedLogicalStep eStep = new ExtendedLogicalStep(possibleLogicalSteps.get(i));
+			ExtendedLogicalStep eStep = new ExtendedLogicalStep((BigStep<SmallStep>) possibleLogicalSteps.get(i));
 			eStep.indexInSolution = i;
 			eStep.solverIndex = iSolver;
 			res.add(eStep);
 		}
-		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(TraceFactory.eINSTANCE.createGenericSmallStep());
+		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep((BigStep<SmallStep>) TraceFactory.eINSTANCE.createGenericSmallStep());
 		emptyLogicalStep.indexInSolution= possibleLogicalSteps.size();
 		emptyLogicalStep.solverIndex=iSolver;
 		res.add(emptyLogicalStep);
@@ -368,23 +366,8 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 	
 	
-	class EngineRunnable implements Runnable {
-		
-		public void run() {
-			engineStatus.setNbLogicalStepRun(0);
-			try 
-			{
-				while (!_isStopped || !oneEngineStopped()) 
-				{					
-					performExecutionStep();							
-				} 
-			} catch (Throwable e) {
-				throw new RuntimeException(e);
-			}
-		}
 
-	}
-	
+	@Override
 	public void performExecutionStep() {
 		
 		if (_heterogeneousLogicalSteps.size() == 0) {
@@ -440,9 +423,9 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			notifyLogicalStepSelected();
 			// run all the event occurrences of this logical
 			// step
-			notifyAboutToExecuteLogicalStep(selectedLogicalStep);
+			beforeExecutionStep(selectedLogicalStep);
 			executeSelectedLogicalStep();
-			notifyLogicalStepExecuted(selectedLogicalStep);
+			afterExecutionStep();
 			
 		}
 		return selectedLogicalStep;
@@ -528,22 +511,15 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 
 	@Override
-	public void stop() 
+	protected void performStop() 
 	{
-		if (!_isStopped)
+		if (getLogicalStepDecider() != null)
 		{
-			notifyAboutToStop(); // notification occurs only if not already stopped
-			_isStopped = true;
-			if (getLogicalStepDecider() != null)
-			{
-				// unlock decider if this is a user decider
-				getLogicalStepDecider().preempt();
-			}
-			for(IBasicExecutionEngine engine : _coordinatedEngines){
-				((IExecutionEngine) engine).stop();
-				((IExecutionEngine) engine).setEngineStatus(EngineStatus.RunStatus.Stopped);
-				((IExecutionEngine) engine).notifyEngineStopped();
-			}
+			// unlock decider if this is a user decider
+			getLogicalStepDecider().preempt();
+		}
+		for(IExecutionEngine engine : _coordinatedEngines){
+			engine.stop();
 		}
 	}
 
@@ -583,9 +559,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			// run all the event occurrences of this logical
 			// step
 
-			oneEngine.notifyAboutToExecuteLogicalStep(selectedLogicalStep); 
 			oneEngine.executeSelectedLogicalStep();
-			oneEngine.notifyLogicalStepExecuted(selectedLogicalStep);
 		
 			// 3 - run the selected logical step
 			// inform the solver that we will run this step
@@ -613,48 +587,10 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 	
 	@Override
-	public void start(){
-		if (!_started) {
-			_started = true;
-			Runnable r = new Runnable() {
-
-				@Override
-				public void run() {
-					try {
-						notifyEngineAboutToStart();
-						Activator.getDefault().gemocRunningEngineRegistry.registerEngine(getName(), HeterogeneousEngine.this);
-						setEngineStatus(EngineStatus.RunStatus.Running);
-						computePossibleLogicalSteps();
-						notifyEngineStarted();
-						getRunnable().run();
-					} catch (Throwable e) {
-						e.printStackTrace();
-						Activator.getDefault().error("Exception received " + e.getMessage() + ", stopping engine.", e);
-						StringWriter sw = new StringWriter();
-						e.printStackTrace(new PrintWriter(sw));
-						String exceptionAsString = sw.toString();
-
-						Activator.getDefault().error(exceptionAsString);
-					} finally {
-						// make sure to notify the stop if this wasn't an
-						// external call to stop() that lead us here.
-						// ie. normal end of the mode execution
-						stop();
-						setEngineStatus(EngineStatus.RunStatus.Stopped);
-						notifyEngineStopped();
-					}
-				}
-			};
-			thread = new Thread(r, engineKindName()+" " + _executionContext.getRunConfiguration().getExecutedModelURI());
-			thread.start();
-		}
+	protected void beforeStart(){
+		computePossibleLogicalSteps();
 	}
 	
-//	@Override
-	protected Runnable getRunnable() 
-	{
-		return new EngineRunnable();
-	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -755,6 +691,24 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		}
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	@Override
+	protected void performStart() {
+		engineStatus.setNbLogicalStepRun(0);
+		try 
+		{
+			while (!_isStopped || !oneEngineStopped()) 
+			{					
+				performExecutionStep();							
+			} 
+		} catch (Throwable e) {
+			throw new RuntimeException(e);
+		}
+	}
+	@Override
+	protected void finishDispose() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
