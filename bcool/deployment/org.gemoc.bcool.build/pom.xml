@@ -35,36 +35,12 @@
 	            <activeByDefault>true</activeByDefault>
 	        </activation>
 	        <repositories>
-
-		<repository>
-			<id>gel</id>
-			<url>https://ci.inria.fr/gemoc/job/gemoc-studio_gemoc_commons/lastSuccessfulBuild/artifact/gemoc_commons/releng/org.gemoc.gemoc_commons.repository/target/repository/</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-
-		
-		
-	<repository>
-			<id>gemoc-studio-commons</id>
-			<url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.gemoc.commons.repository/target/repository/</url>
-			<layout>p2</layout>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		
-
-
-</repositories>
+				<repository>
+					<id>gemoc-studio-commons</id>
+					<url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.gemoc.commons.repository/target/repository/</url>
+					<layout>p2</layout>
+				</repository>
+			</repositories>
 	    </profile>
     	
     </profiles>
