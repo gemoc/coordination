@@ -3,7 +3,7 @@ package org.gemoc.bcool.model.xtext.helpers;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContextDeclCS;
+import org.eclipse.ocl.xtext.completeoclcs.ClassifierContextDeclCS;
 
 public class BCoolXtextHelper {
 	/**

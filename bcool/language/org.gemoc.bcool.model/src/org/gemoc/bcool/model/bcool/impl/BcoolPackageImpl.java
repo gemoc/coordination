@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage;
+import org.eclipse.ocl.xtext.completeoclcs.CompleteOCLCSPackage;
 import org.gemoc.bcool.model.bcool.BCoolCompositionRule;
 import org.gemoc.bcool.model.bcool.BCoolLibrary;
 import org.gemoc.bcool.model.bcool.BCoolOperator;

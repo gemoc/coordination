@@ -3,10 +3,10 @@
 */
 package org.gemoc.bcool.model.xtext.parser.antlr;
 
-import com.google.inject.Inject;
-
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.gemoc.bcool.model.xtext.services.BCOoLGrammarAccess;
+
+import com.google.inject.Inject;
 
 public class BCOoLParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrParser {
 	

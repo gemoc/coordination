@@ -340,9 +340,6 @@ public class Generate extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(org.gemoc.bcool.model.bcool.BcoolPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.gemoc.bcool.model.bcool.BcoolPackage.eINSTANCE.getNsURI(), org.gemoc.bcool.model.bcool.BcoolPackage.eINSTANCE);
-        }
         if (!isInWorkspace(fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage.class)) {
             resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage.eINSTANCE);
         }
@@ -352,23 +349,11 @@ public class Generate extends AbstractAcceleoGenerator {
         if (!isInWorkspace(fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.KernelRelation.KernelRelationPackage.class)) {
             resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.KernelRelation.KernelRelationPackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.KernelRelation.KernelRelationPackage.eINSTANCE);
         }
-        if (!isInWorkspace(org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.CompleteOCLCSPackage.eINSTANCE);
-        }
         if (!isInWorkspace(org.eclipse.emf.ecore.EcorePackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.emf.ecore.EcorePackage.eINSTANCE.getNsURI(), org.eclipse.emf.ecore.EcorePackage.eINSTANCE);
         }
-        if (!isInWorkspace(org.eclipse.ocl.examples.pivot.PivotPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.eclipse.ocl.examples.pivot.PivotPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.examples.pivot.PivotPackage.eINSTANCE);
-        }
-        if (!isInWorkspace(org.eclipse.ocl.examples.xtext.base.basecs.BaseCSPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.eclipse.ocl.examples.xtext.base.basecs.BaseCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.examples.xtext.base.basecs.BaseCSPackage.eINSTANCE);
-        }
-        if (!isInWorkspace(org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.EssentialOCLCSPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.EssentialOCLCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.examples.xtext.essentialocl.essentialoclcs.EssentialOCLCSPackage.eINSTANCE);
-        }
-        if (!isInWorkspace(fr.inria.aoste.timesquare.ECL.ECLPackage.class)) {
-            resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ECL.ECLPackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ECL.ECLPackage.eINSTANCE);
+        if (!isInWorkspace(fr.inria.aoste.timesquare.ecl.ecl.ECLPackage.class)) {
+            resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ecl.ecl.ECLPackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ecl.ecl.ECLPackage.eINSTANCE);
         }
         if (!isInWorkspace(org.eclipse.xtext.xbase.XbasePackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.xtext.xbase.XbasePackage.eINSTANCE.getNsURI(), org.eclipse.xtext.xbase.XbasePackage.eINSTANCE);

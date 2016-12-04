@@ -5,15 +5,11 @@ package org.gemoc.bcool.model.bcool.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.gemoc.bcool.model.bcool.BCoolOperator;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.bcool.BcoolPackage;

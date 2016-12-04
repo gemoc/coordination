@@ -1,10 +1,7 @@
 package org.gemoc.bcool.transformation.bcool2qvto.helper;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
 
 //http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore
 
@@ -15,7 +12,6 @@ import java.util.Set;
 
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
@@ -25,10 +21,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.ocl.examples.xtext.base.basecs.ImportCS;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContextDeclCS;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.PackageDeclarationCS;
+import org.eclipse.ocl.xtext.basecs.ImportCS;
+import org.eclipse.ocl.xtext.completeoclcs.ClassifierContextDeclCS;
+import org.eclipse.ocl.xtext.completeoclcs.DefPropertyCS;
 import org.eclipse.xtext.resource.SaveOptions;
 import org.eclipse.xtext.resource.SaveOptions.Builder;
 import org.eclipse.xtext.resource.XtextResource;
@@ -37,28 +32,22 @@ import org.gemoc.bcool.model.bcool.BCoolOperatorArg;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.bcool.EventExpression;
 import org.gemoc.bcool.model.bcool.ImportInterfaceStatement;
-import org.gemoc.gexpressions.GExpression;
-import org.eclipse.ocl.ecore.IntegerLiteralExp;
-
-import com.google.inject.Injector;
-
-import fr.inria.aoste.timesquare.ECL.ECLDocument;
-import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.IntegerElement;
-import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.impl.IntegerImpl;
-import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
-
 import org.gemoc.gexpressions.GAndExpression;
 import org.gemoc.gexpressions.GBooleanExpression;
 import org.gemoc.gexpressions.GBraceExpression;
 import org.gemoc.gexpressions.GEqualityExpression;
-import org.gemoc.gexpressions.GIntegerExpression;
+import org.gemoc.gexpressions.GExpression;
 import org.gemoc.gexpressions.GNavigationExpression;
 import org.gemoc.gexpressions.GNegationExpression;
 import org.gemoc.gexpressions.GReferenceExpression;
 import org.gemoc.gexpressions.GStringExpression;
-import org.gemoc.gexpressions.GexpressionsFactory;
-//import org.gemoc.gexpressions.xtext.GExpressionsStandaloneSetup;
-import org.eclipse.xtext.serializer.impl.Serializer;
+
+import com.google.inject.Injector;
+
+import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.IntegerElement;
+import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.impl.IntegerImpl;
+import fr.inria.aoste.timesquare.ecl.ecl.ECLDocument;
+import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
 
 
 
@@ -221,7 +210,7 @@ public class helperNsURI {
 	public String getNSURIIndex(ImportInterfaceStatement importInterfaceStatement, Integer i){
 		ECLDocument eclDoc = getEclDocument(importInterfaceStatement);
 	    // This gets directly the imported statement
-		String oclimport = eclDoc.getOwnedImport().get(i).getPathName().toString();
+		String oclimport = eclDoc.getOwnedImports().get(i).getOwnedPathName().toString();
 	    // some cleaning 
 		oclimport = oclimport.substring(oclimport.indexOf('\'')+1, oclimport.lastIndexOf('\''));
 	    
@@ -281,10 +270,10 @@ public class helperNsURI {
 //		System.out.println(contextDecl.getPathName().getElement().eResource());
 //		System.out.println(contextDecl.getPathName().getElement().eResource().getURI());
 //		System.out.println("*******************************************************");
-		String packageName = contextDecl.getPathName().getElement().eResource().getURI().toString();
-		EList<ImportCS> allImports = eclDoc.getOwnedImport();
+		String packageName = contextDecl.getOwnedPathName().getReferredElement().eResource().getURI().toString();
+		EList<ImportCS> allImports = eclDoc.getOwnedImports();
 		for(int i = 0; i < allImports.size(); i++){
-			if (allImports.get(i).getPathName().getElement().eResource().getURI().toString().compareTo(packageName) == 0){
+			if (allImports.get(i).getOwnedPathName().getReferredElement().eResource().getURI().toString().compareTo(packageName) == 0){
 				return i+1;
 			}
 		}

@@ -3,7 +3,7 @@
 package org.gemoc.bcool.model.bcool;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS;
+import org.eclipse.ocl.xtext.completeoclcs.DefPropertyCS;
 
 /**
  * <!-- begin-user-doc -->

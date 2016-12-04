@@ -22,20 +22,20 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
-import org.xml.sax.helpers.DefaultHandler;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.resource.SaveOptions;
+import org.eclipse.xtext.resource.SaveOptions.Builder;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
-import org.eclipse.xtext.resource.SaveOptions.Builder;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.xtext.BCOoLStandaloneSetup;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
 import org.gemoc.commons.eclipse.core.resources.Project;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
+import org.xml.sax.helpers.DefaultHandler;
 
 import com.google.inject.Injector;
 

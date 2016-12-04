@@ -4,10 +4,24 @@ package org.gemoc.bcool.model.bcool.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.gemoc.bcool.model.bcool.*;
+import org.gemoc.bcool.model.bcool.BCoolCompositionRule;
+import org.gemoc.bcool.model.bcool.BCoolLibrary;
+import org.gemoc.bcool.model.bcool.BCoolOperator;
+import org.gemoc.bcool.model.bcool.BCoolOperatorArg;
+import org.gemoc.bcool.model.bcool.BCoolSpecification;
+import org.gemoc.bcool.model.bcool.BcoolPackage;
+import org.gemoc.bcool.model.bcool.CoordinationRule;
+import org.gemoc.bcool.model.bcool.EventExpression;
+import org.gemoc.bcool.model.bcool.EventRelation;
+import org.gemoc.bcool.model.bcool.ExpressionDeclaration;
+import org.gemoc.bcool.model.bcool.ExpressionDefinition;
+import org.gemoc.bcool.model.bcool.ImportInterfaceStatement;
+import org.gemoc.bcool.model.bcool.ImportLibStatement;
+import org.gemoc.bcool.model.bcool.MatchingRule;
+import org.gemoc.bcool.model.bcool.NamedElement;
+import org.gemoc.bcool.model.bcool.RelationDeclaration;
+import org.gemoc.bcool.model.bcool.RelationDefinition;
 
 /**
  * <!-- begin-user-doc -->

@@ -3,14 +3,14 @@
  */
 package org.gemoc.bcool.model.xtext.scoping
 
-import fr.inria.aoste.timesquare.ECL.ECLDocument
+import fr.inria.aoste.timesquare.ecl.ecl.ECLDocument
 import java.util.HashMap
 import java.util.HashSet
 import java.util.Map
 import java.util.Set
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClassifier
-import org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.DefPropertyCS
+import org.eclipse.ocl.xtext.completeoclcs.DefPropertyCS
 import org.eclipse.xtext.scoping.IScope
 import org.gemoc.bcool.model.bcool.BCoolOperatorArg
 import org.gemoc.bcool.model.xtext.helpers.BCoolXtextHelper
@@ -119,9 +119,9 @@ def IScope scope_BCoolOperatorArg_InterfaceClass(BCoolOperatorArg reference, ERe
 			return
 		} else {
 			
-			val quotedURI = (eclEvent.eContainer.eContainer.eContainer as ECLDocument).ownedImport.get(0).pathName.toString
+			val quotedURI = (eclEvent.eContainer.eContainer.eContainer as ECLDocument).ownedImports.get(0).ownedPathName.toString
 			val importedURI = quotedURI.substring(1, quotedURI.length - 1)
-			val pivotOfEclEvent = eclEvent.classifierContextDecl.pivot
+			val pivotOfEclEvent = eclEvent.owningClassifierContextDecl.pivot
 
 			val resourceSet = pivotOfEclEvent.eResource.resourceSet
 
@@ -142,7 +142,7 @@ def IScope scope_BCoolOperatorArg_InterfaceClass(BCoolOperatorArg reference, ERe
 		// All the EClassifiers used in the ECL Specification owning the given ECL event.
 		val possibleClassifiers = eclClassifiersMapping.get(eclEvent.eResource.URI)
 		// Name of the context according to the ECL file
-		val nameOfContextOfEclEvent = BCoolXtextHelper.parseContextName(eclEvent.classifierContextDecl)
+		val nameOfContextOfEclEvent = BCoolXtextHelper.parseContextName(eclEvent.owningClassifierContextDecl)
 		// Filter by name the possible classifiers.
 		val legitClassifiers = possibleClassifiers.filter [ possibleClassifier |
 			possibleClassifier.name.equals(nameOfContextOfEclEvent)

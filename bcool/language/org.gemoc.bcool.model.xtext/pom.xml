@@ -113,7 +113,7 @@
 					<dependency>
 						<groupId>org.eclipse.xtext</groupId>
 						<artifactId>org.eclipse.xtext.xtext</artifactId>
-						<version>${xtext.version}</version>
+<!--						<version>${xtext.version}</version>-->
 <exclusions>
 		<exclusion>
 			<groupId>p2.eclipse-plugin</groupId>
