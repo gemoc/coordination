@@ -3,10 +3,10 @@
  */
 package org.gemoc.bcool.model.xtext.serializer;
 
-import org.eclipse.ocl.xtext.basecs.BaseCSPackage;
+import basecs.BasecsPackage;
 import com.google.inject.Inject;
-import org.eclipse.ocl.xtext.completeoclcs.CompleteOCLCSPackage;
-import org.eclipse.ocl.xtext.completeoclcs.DefPropertyCS;
+import completeoclcs.CompleteoclcsPackage;
+import completeoclcs.DefPropertyCS;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -95,9 +95,9 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 				sequence_MatchingRule(context, (MatchingRule) semanticObject); 
 				return; 
 			}
-		else if (epackage == CompleteOCLCSPackage.eINSTANCE)
+		else if (epackage == CompleteoclcsPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case CompleteOCLCSPackage.DEF_PROPERTY_CS:
+			case CompleteoclcsPackage.DEF_PROPERTY_CS:
 				sequence_globalDSEsRule(context, (DefPropertyCS) semanticObject); 
 				return; 
 			}
@@ -316,8 +316,8 @@ public class BCOoLSemanticSequencer extends GExpressionsSemanticSequencer {
 	 */
 	protected void sequence_globalDSEsRule(ISerializationContext context, DefPropertyCS semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BaseCSPackage.Literals.NAMED_ELEMENT_CS__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BaseCSPackage.Literals.NAMED_ELEMENT_CS__NAME));
+			if (transientValues.isValueTransient(semanticObject, BasecsPackage.Literals.NAMED_ELEMENT_CS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BasecsPackage.Literals.NAMED_ELEMENT_CS__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getGlobalDSEsRuleAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());

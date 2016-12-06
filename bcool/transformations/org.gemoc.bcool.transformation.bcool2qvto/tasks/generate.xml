@@ -36,7 +36,6 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/com.google.guava_15.0.0.v201403281430.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.completeocl_1.1.1.v20160808-1416.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.essentialocl_1.1.0.v20160523-1914.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/dropins/plugins/org.gemoc.gexpressions_0.1.0.201612041100.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase_2.10.0.v201605250459.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.common.types_2.10.0.v201605250459.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.lib_2.10.0.v201605250459.jar"/>
