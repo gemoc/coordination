@@ -171,7 +171,7 @@
 	</exclusions>
 					</dependency> -->
 					
-					<dependency>
+		<!-- 			<dependency>
 						<groupId>org.gemoc.gexpressions</groupId>
   						<artifactId>gexpressions</artifactId>
   						<version>0.1.0</version>
@@ -195,7 +195,7 @@
 	</exclusions>
 					</dependency>
 					
-					
+					 -->
 					
 					
 					
