@@ -215,7 +215,7 @@ public class Launcher
 	}
 
 	@Override
-	protected String getModelIdentifier() 
+	public String getModelIdentifier() 
 	{
 		return MODEL_ID;
 	}
