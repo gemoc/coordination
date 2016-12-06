@@ -108,7 +108,7 @@
 	</exclusions>
 					</dependency>
 					
-						<dependency>
+<!-- 						<dependency>
 						<groupId>org.eclipse.ocl.xtext.completeocl</groupId>
 						<artifactId>completeocl</artifactId>
 						<version>1.1.1</version>
@@ -169,7 +169,7 @@
 			<artifactId>*</artifactId>
 		</exclusion>
 	</exclusions>
-					</dependency>
+					</dependency> -->
 					
 					<dependency>
 						<groupId>org.gemoc.gexpressions</groupId>
