@@ -4,14 +4,13 @@
  */
 package org.gemoc.bcool.model.xtext.ui;
 
-import org.eclipse.xtext.ui.DefaultUiModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
  * Manual modifications go to {org.gemoc.bcool.model.xtext.ui.BCOoLUiModule}
  */
 @SuppressWarnings("all")
-public abstract class AbstractBCOoLUiModule extends DefaultUiModule {
+public abstract class AbstractBCOoLUiModule extends org.eclipse.xtext.ui.DefaultUiModule {
 	
 	public AbstractBCOoLUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
@@ -51,6 +50,11 @@ public abstract class AbstractBCOoLUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.IXtextEditorCallback> bindIXtextEditorCallback() {
 		return org.eclipse.xtext.builder.nature.NatureAddingEditorCallback.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public Class<? extends org.eclipse.xtext.generator.IContextualOutputConfigurationProvider> bindIContextualOutputConfigurationProvider() {
+		return org.eclipse.xtext.builder.EclipseOutputConfigurationProvider.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment

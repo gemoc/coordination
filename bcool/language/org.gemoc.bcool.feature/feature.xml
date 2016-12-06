@@ -21,26 +21,28 @@
 
    <url>
       <update label="BCOoL update site"/>
-      <discovery label="Juno" url="http://download.eclipse.org/releases/juno/"/>
-      <discovery label="The Eclipse Project Updates" url="http://download.eclipse.org/eclipse/updates/4.2"/>
+      <discovery label="Neon" url="http://download.eclipse.org/releases/neon/"/>
+      <discovery label="The Eclipse Project Updates" url="http://download.eclipse.org/eclipse/updates/4.6"/>
       <discovery label="Acceleo" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2"/>
       <discovery label="Xtext All In One - Releases" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-      <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site"/>
+      <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site/neon"/>
+      <discovery label="ECL" url="http://timesquare.inria.fr/ecl/update_site/neon"/>
    </url>
 
    <requires>
       <import feature="fr.inria.aoste.timesquare.feature" version="1.0.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.ocl.examples" version="3.2.1.v20120919-0602" match="compatible"/>
-      <import feature="org.eclipse.xtext.runtime" version="2.3.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.xtext.ui" version="2.3.0" match="greaterOrEqual"/>
+      <import feature="fr.inria.aoste.timesquare.ecl.feature" version="1.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.ocl" version="3.6" match="compatible"/>
+      <import feature="org.eclipse.xtext.runtime" version="2.10.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.xtext.ui" version="2.10.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.xtext.xtext.ui" version="2.3.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.m2m.qvt.oml" version="3.2.0.v20120918-0827" match="compatible"/>
-      <import feature="org.eclipse.m2m.qvt.oml.debug" version="1.2.0.v20120918-0827" match="compatible"/>
-      <import feature="org.eclipse.m2m.qvt.oml.editor" version="3.2.0.v20120918-0827" match="compatible"/>
-      <import feature="org.eclipse.m2m.qvt.oml.runtime" version="3.2.0.v20120918-0827" match="compatible"/>
-      <import feature="org.eclipse.m2m.qvt.oml.sdk" version="3.2.1.v20120918-0827" match="compatible"/>
-      <import feature="org.eclipse.ocl.all" version="5.0.0.v20140528-1458"/>
-      <import feature="org.eclipse.ocl.uml" version="5.0.0.v20140524-1436"/>
+      <import feature="org.eclipse.m2m.qvt.oml" version="3.6" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.debug" version="2.6" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.editor" version="3.6" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.runtime" version="3.6" match="compatible"/>
+      <import feature="org.eclipse.m2m.qvt.oml.sdk" version="3.6" match="compatible"/>
+      <import feature="org.eclipse.ocl.all" version="5.0.0.v20140528-1458" match="compatible"/>
+      <import feature="org.eclipse.ocl.uml" version="5.0.0.v20140524-1436" match="compatible"/>
    </requires>
 
    <plugin

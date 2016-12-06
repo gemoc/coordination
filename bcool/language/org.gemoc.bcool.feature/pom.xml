@@ -5,7 +5,7 @@
   <artifactId>org.gemoc.bcool.feature</artifactId>
 
   <name>org.gemoc.bcool.feature</name>
-  <url>http://bcool.inria.fr</url>
+  <url>http://timesquare.inria.fr/BCOoL</url>
 
   <parent>
 	<relativePath>../../deployment/org.gemoc.bcool.build</relativePath>

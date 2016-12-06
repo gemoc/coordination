@@ -55,7 +55,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo_4.5.0.v20160607-1254.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo.common_4.5.0.v20160301-1326.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.net4j.util_3.6.0.v20160607-1254.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201611181258.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201612052108.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ecl.xtext_1.0.0.201612031552.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.log4j_1.2.15.v201012070815.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar"/>

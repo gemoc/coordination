@@ -11,16 +11,16 @@
   </parent>
   <version>1.0.0-SNAPSHOT</version>
   <description>This project contains the  Xtext project of BCOoL</description>
-  <url>http://bcool.inria.fr</url>
+  <url>http://timesquare.inria.fr/BCOoL</url>
 
 <!-- This is mandatory to compile first the mwe2 and then the xtend, otherwise the build fails for problems in the xtend code -->
 	<build>
 		<plugins>
 		
 		<!-- Plugin for cleaning the generated files-->
-		<plugin>
+<!--		<plugin>
   			<groupId>org.apache.maven.plugins</groupId>
-  			<artifactId>maven-clean-plugin</artifactId>
+  		 	<artifactId>maven-clean-plugin</artifactId>
   			<version>${maven-clean-plugin.version}</version>
  			 <configuration>
    			 <filesets>
@@ -30,14 +30,14 @@
   		    <fileset>
  			 <directory>${basedir}/xtend-gen</directory>
   		    </fileset>
-    		  <!-- clean ui plugin as well -->
+    		  clean ui plugin as well
     		  <fileset>
   			<directory>${basedir}/../${project.artifactId}.ui/src-gen</directory>
   		   </fileset>
    		   <fileset>
   			<directory>${basedir}/../${project.artifactId}.ui/xtend-gen</directory>
     		  </fileset>
-  			    <!-- clean test fragment as well -->
+  			    clean test fragment as well
   			    <fileset>
  				 <directory>${basedir}/../${project.artifactId}.tests/src-gen</directory>
    				   </fileset>
@@ -47,7 +47,7 @@
     		</filesets>
   			</configuration>
 			</plugin>
-
+ -->
 		
 		
 		
@@ -66,7 +66,7 @@
 		
 		
 		
-			<plugin>
+		<!-- 	<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.5.0</version>
@@ -108,12 +108,14 @@
 			<artifactId>*</artifactId>
 		</exclusion>
 	</exclusions>
-					</dependency>
-				
+					</dependency> -->
+					
+					
+	<!-- 			
 					<dependency>
 						<groupId>org.eclipse.xtext</groupId>
 						<artifactId>org.eclipse.xtext.xtext</artifactId>
-<!--						<version>${xtext.version}</version>-->
+						<version>${xtext.version}</version>
 <exclusions>
 		<exclusion>
 			<groupId>p2.eclipse-plugin</groupId>
@@ -123,9 +125,9 @@
 					</dependency>
 					
 					<dependency>
-						<groupId>org.eclipse.ocl.examples.xtext.completeocl</groupId>
+						<groupId>org.eclipse.ocl.xtext.completeocl</groupId>
 						<artifactId>completeocl</artifactId>
-						<version>3.4.2.v20140819-1601</version>
+						<version>1.1.1</version>
 <exclusions>
 		<exclusion>
 			<groupId>p2.eclipse-plugin</groupId>
@@ -135,9 +137,9 @@
 					</dependency>
 					
 							<dependency>
-						<groupId>org.eclipse.ocl.examples.xtext.base</groupId>
+						<groupId>org.eclipse.ocl.xtext.base</groupId>
 						<artifactId>base</artifactId>
-						<version>3.4.2.v20140725-1916</version>
+					    <version>1.1.1</version>
 <exclusions>
 		<exclusion>
 			<groupId>p2.eclipse-plugin</groupId>
@@ -147,9 +149,9 @@
 					</dependency>
 					
 					<dependency>
-						<groupId>org.eclipse.ocl.examples.pivot</groupId>
+						<groupId>org.eclipse.ocl.pivot</groupId>
 						<artifactId>pivot</artifactId>
-						<version>3.4.4.v20150213-2254</version>
+						<version>3.6</version>
 <exclusions>
 		<exclusion>
 			<groupId>p2.eclipse-plugin</groupId>
@@ -160,9 +162,9 @@
 					
 					
 					<dependency>
-						<groupId>org.eclipse.ocl.examples.xtext.essentialocl</groupId>
+						<groupId>org.eclipse.ocl.xtext.essentialocl</groupId>
 						<artifactId>essentialocl</artifactId>
-						<version>3.4.2.v20140819-1601</version>
+						<version>1.1.1</version>
 <exclusions>
 		<exclusion>
 			<groupId>p2.eclipse-plugin</groupId>
@@ -174,9 +176,9 @@
 					
 			
 				<dependency>
-						<groupId>org.eclipse.ocl.examples.domain</groupId>
-						<artifactId>domain</artifactId>
-						<version>3.4.4.v20150125-1621</version>
+						<groupId>org.eclipse.ocl</groupId>
+						<artifactId>ocl</artifactId>
+						<version>3.6</version>
 <exclusions>
 		<exclusion>
 			<groupId>p2.eclipse-plugin</groupId>
@@ -188,7 +190,7 @@
 					<dependency>
 						<groupId>org.gemoc.gexpressions</groupId>
   						<artifactId>gexpressions</artifactId>
-  						<version>0.1.0.201602291408</version>
+  						<version>0.1.0</version>
 <exclusions>
 		<exclusion>
 			<groupId>p2.eclipse-plugin</groupId>
@@ -200,7 +202,7 @@
 						<dependency>
 						<groupId>org.gemoc.gexpressions.xtext</groupId>
   						<artifactId>xtext</artifactId>
-  						<version>1.0.0.201602291408</version>
+ 						<version>1.0.0</version>
 <exclusions>
 		<exclusion>
 			<groupId>p2.eclipse-plugin</groupId>
@@ -208,16 +210,16 @@
 		</exclusion>
 	</exclusions>
 					</dependency>
-					
+					 -->
 					
 				
 					
 		
 			
 					
-					
+	<!-- 				
 			</dependencies>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>

@@ -5,7 +5,6 @@ package org.gemoc.bcool.model.xtext.validation;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.ComposedChecks;
 
@@ -16,7 +15,7 @@ public class AbstractBCOoLValidator extends org.gemoc.gexpressions.xtext.validat
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://org.gemoc.bcool.model/"));
-	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://fr.inria.aoste.timesquare.ecl"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/ocl/2015/CompleteOCLCS"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.gemoc.org/gexpressions"));
 		return result;
 	}

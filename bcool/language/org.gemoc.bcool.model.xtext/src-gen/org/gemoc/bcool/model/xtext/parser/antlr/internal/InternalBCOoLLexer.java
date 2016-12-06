@@ -1,17 +1,14 @@
 package org.gemoc.bcool.model.xtext.parser.antlr.internal;
 
-import org.antlr.runtime.BaseRecognizer;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.DFA;
-import org.antlr.runtime.EarlyExitException;
-import org.antlr.runtime.IntStream;
-import org.antlr.runtime.MismatchedSetException;
-import org.antlr.runtime.NoViableAltException;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.RecognizerSharedState;
 // Hack: Use our own Lexer superclass by means of import. 
 // Currently there is no other way to specify the superclass for the lexer.
 import org.eclipse.xtext.parser.antlr.Lexer;
+
+
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalBCOoLLexer extends Lexer {
@@ -78,15 +75,15 @@ public class InternalBCOoLLexer extends Lexer {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g"; }
+    public String getGrammarFileName() { return "InternalBCOoL.g"; }
 
     // $ANTLR start "T__13"
     public final void mT__13() throws RecognitionException {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:11:7: ( 'Spec' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:11:9: 'Spec'
+            // InternalBCOoL.g:11:7: ( 'Spec' )
+            // InternalBCOoL.g:11:9: 'Spec'
             {
             match("Spec"); 
 
@@ -106,8 +103,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:12:7: ( 'Global Event' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:12:9: 'Global Event'
+            // InternalBCOoL.g:12:7: ( 'Global Event' )
+            // InternalBCOoL.g:12:9: 'Global Event'
             {
             match("Global Event"); 
 
@@ -127,8 +124,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:13:7: ( ';' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:13:9: ';'
+            // InternalBCOoL.g:13:7: ( ';' )
+            // InternalBCOoL.g:13:9: ';'
             {
             match(';'); 
 
@@ -147,8 +144,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:14:7: ( 'let' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:14:9: 'let'
+            // InternalBCOoL.g:14:7: ( 'let' )
+            // InternalBCOoL.g:14:9: 'let'
             {
             match("let"); 
 
@@ -168,8 +165,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:15:7: ( 'Operator' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:15:9: 'Operator'
+            // InternalBCOoL.g:15:7: ( 'Operator' )
+            // InternalBCOoL.g:15:9: 'Operator'
             {
             match("Operator"); 
 
@@ -189,8 +186,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:16:7: ( '(' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:16:9: '('
+            // InternalBCOoL.g:16:7: ( '(' )
+            // InternalBCOoL.g:16:9: '('
             {
             match('('); 
 
@@ -209,8 +206,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:17:7: ( ',' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:17:9: ','
+            // InternalBCOoL.g:17:7: ( ',' )
+            // InternalBCOoL.g:17:9: ','
             {
             match(','); 
 
@@ -229,8 +226,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:18:7: ( ')' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:18:9: ')'
+            // InternalBCOoL.g:18:7: ( ')' )
+            // InternalBCOoL.g:18:9: ')'
             {
             match(')'); 
 
@@ -249,8 +246,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:19:7: ( 'MatchingCorrespondance:' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:19:9: 'MatchingCorrespondance:'
+            // InternalBCOoL.g:19:7: ( 'MatchingCorrespondance:' )
+            // InternalBCOoL.g:19:9: 'MatchingCorrespondance:'
             {
             match("MatchingCorrespondance:"); 
 
@@ -270,8 +267,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:20:7: ( 'end operator;' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:20:9: 'end operator;'
+            // InternalBCOoL.g:20:7: ( 'end operator;' )
+            // InternalBCOoL.g:20:9: 'end operator;'
             {
             match("end operator;"); 
 
@@ -291,8 +288,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:21:7: ( ' : ' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:21:9: ' : '
+            // InternalBCOoL.g:21:7: ( ' : ' )
+            // InternalBCOoL.g:21:9: ' : '
             {
             match(" : "); 
 
@@ -312,8 +309,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:22:7: ( '::' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:22:9: '::'
+            // InternalBCOoL.g:22:7: ( '::' )
+            // InternalBCOoL.g:22:9: '::'
             {
             match("::"); 
 
@@ -333,8 +330,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:23:7: ( 'when' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:23:9: 'when'
+            // InternalBCOoL.g:23:7: ( 'when' )
+            // InternalBCOoL.g:23:9: 'when'
             {
             match("when"); 
 
@@ -354,8 +351,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:24:7: ( 'CoordinationRule:' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:24:9: 'CoordinationRule:'
+            // InternalBCOoL.g:24:7: ( 'CoordinationRule:' )
+            // InternalBCOoL.g:24:9: 'CoordinationRule:'
             {
             match("CoordinationRule:"); 
 
@@ -375,8 +372,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:25:7: ( 'Local Event' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:25:9: 'Local Event'
+            // InternalBCOoL.g:25:7: ( 'Local Event' )
+            // InternalBCOoL.g:25:9: 'Local Event'
             {
             match("Local Event"); 
 
@@ -396,8 +393,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:26:7: ( '=' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:26:9: '='
+            // InternalBCOoL.g:26:7: ( '=' )
+            // InternalBCOoL.g:26:9: '='
             {
             match('='); 
 
@@ -416,8 +413,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:27:7: ( 'ImportLib' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:27:9: 'ImportLib'
+            // InternalBCOoL.g:27:7: ( 'ImportLib' )
+            // InternalBCOoL.g:27:9: 'ImportLib'
             {
             match("ImportLib"); 
 
@@ -437,8 +434,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:28:7: ( 'ImportInterface' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:28:9: 'ImportInterface'
+            // InternalBCOoL.g:28:7: ( 'ImportInterface' )
+            // InternalBCOoL.g:28:9: 'ImportInterface'
             {
             match("ImportInterface"); 
 
@@ -458,8 +455,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:29:7: ( 'as' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:29:9: 'as'
+            // InternalBCOoL.g:29:7: ( 'as' )
+            // InternalBCOoL.g:29:9: 'as'
             {
             match("as"); 
 
@@ -479,8 +476,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:30:7: ( 'import' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:30:9: 'import'
+            // InternalBCOoL.g:30:7: ( 'import' )
+            // InternalBCOoL.g:30:9: 'import'
             {
             match("import"); 
 
@@ -500,8 +497,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:31:7: ( '#' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:31:9: '#'
+            // InternalBCOoL.g:31:7: ( '#' )
+            // InternalBCOoL.g:31:9: '#'
             {
             match('#'); 
 
@@ -520,8 +517,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:32:7: ( 'if' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:32:9: 'if'
+            // InternalBCOoL.g:32:7: ( 'if' )
+            // InternalBCOoL.g:32:9: 'if'
             {
             match("if"); 
 
@@ -541,8 +538,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:33:7: ( 'then' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:33:9: 'then'
+            // InternalBCOoL.g:33:7: ( 'then' )
+            // InternalBCOoL.g:33:9: 'then'
             {
             match("then"); 
 
@@ -562,8 +559,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:34:7: ( 'else' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:34:9: 'else'
+            // InternalBCOoL.g:34:7: ( 'else' )
+            // InternalBCOoL.g:34:9: 'else'
             {
             match("else"); 
 
@@ -583,8 +580,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:35:7: ( 'endif' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:35:9: 'endif'
+            // InternalBCOoL.g:35:7: ( 'endif' )
+            // InternalBCOoL.g:35:9: 'endif'
             {
             match("endif"); 
 
@@ -604,8 +601,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:36:7: ( '.' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:36:9: '.'
+            // InternalBCOoL.g:36:7: ( '.' )
+            // InternalBCOoL.g:36:9: '.'
             {
             match('.'); 
 
@@ -624,8 +621,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:37:7: ( '->' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:37:9: '->'
+            // InternalBCOoL.g:37:7: ( '->' )
+            // InternalBCOoL.g:37:9: '->'
             {
             match("->"); 
 
@@ -645,8 +642,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:38:7: ( 'and' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:38:9: 'and'
+            // InternalBCOoL.g:38:7: ( 'and' )
+            // InternalBCOoL.g:38:9: 'and'
             {
             match("and"); 
 
@@ -666,8 +663,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:39:7: ( 'xor' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:39:9: 'xor'
+            // InternalBCOoL.g:39:7: ( 'xor' )
+            // InternalBCOoL.g:39:9: 'xor'
             {
             match("xor"); 
 
@@ -687,8 +684,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:40:7: ( 'or' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:40:9: 'or'
+            // InternalBCOoL.g:40:7: ( 'or' )
+            // InternalBCOoL.g:40:9: 'or'
             {
             match("or"); 
 
@@ -708,8 +705,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:41:7: ( '<>' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:41:9: '<>'
+            // InternalBCOoL.g:41:7: ( '<>' )
+            // InternalBCOoL.g:41:9: '<>'
             {
             match("<>"); 
 
@@ -729,8 +726,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:42:7: ( '<' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:42:9: '<'
+            // InternalBCOoL.g:42:7: ( '<' )
+            // InternalBCOoL.g:42:9: '<'
             {
             match('<'); 
 
@@ -749,8 +746,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:43:7: ( '>' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:43:9: '>'
+            // InternalBCOoL.g:43:7: ( '>' )
+            // InternalBCOoL.g:43:9: '>'
             {
             match('>'); 
 
@@ -769,8 +766,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:44:7: ( '<=' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:44:9: '<='
+            // InternalBCOoL.g:44:7: ( '<=' )
+            // InternalBCOoL.g:44:9: '<='
             {
             match("<="); 
 
@@ -790,8 +787,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:45:7: ( '>=' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:45:9: '>='
+            // InternalBCOoL.g:45:7: ( '>=' )
+            // InternalBCOoL.g:45:9: '>='
             {
             match(">="); 
 
@@ -811,8 +808,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:46:7: ( '+' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:46:9: '+'
+            // InternalBCOoL.g:46:7: ( '+' )
+            // InternalBCOoL.g:46:9: '+'
             {
             match('+'); 
 
@@ -831,8 +828,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:47:7: ( '-' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:47:9: '-'
+            // InternalBCOoL.g:47:7: ( '-' )
+            // InternalBCOoL.g:47:9: '-'
             {
             match('-'); 
 
@@ -851,8 +848,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:48:7: ( '*' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:48:9: '*'
+            // InternalBCOoL.g:48:7: ( '*' )
+            // InternalBCOoL.g:48:9: '*'
             {
             match('*'); 
 
@@ -871,8 +868,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:49:7: ( '/' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:49:9: '/'
+            // InternalBCOoL.g:49:7: ( '/' )
+            // InternalBCOoL.g:49:9: '/'
             {
             match('/'); 
 
@@ -891,8 +888,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:50:7: ( 'not' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:50:9: 'not'
+            // InternalBCOoL.g:50:7: ( 'not' )
+            // InternalBCOoL.g:50:9: 'not'
             {
             match("not"); 
 
@@ -912,8 +909,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:51:7: ( '~' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:51:9: '~'
+            // InternalBCOoL.g:51:7: ( '~' )
+            // InternalBCOoL.g:51:9: '~'
             {
             match('~'); 
 
@@ -932,10 +929,10 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = RULE_BOOLEAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2424:14: ( ( 'true' | 'false' ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2424:16: ( 'true' | 'false' )
+            // InternalBCOoL.g:2437:14: ( ( 'true' | 'false' ) )
+            // InternalBCOoL.g:2437:16: ( 'true' | 'false' )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2424:16: ( 'true' | 'false' )
+            // InternalBCOoL.g:2437:16: ( 'true' | 'false' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -953,7 +950,7 @@ public class InternalBCOoLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2424:17: 'true'
+                    // InternalBCOoL.g:2437:17: 'true'
                     {
                     match("true"); 
 
@@ -961,7 +958,7 @@ public class InternalBCOoLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2424:24: 'false'
+                    // InternalBCOoL.g:2437:24: 'false'
                     {
                     match("false"); 
 
@@ -987,10 +984,10 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = RULE_DOUBLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2426:13: ( ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )? )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2426:15: ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )?
+            // InternalBCOoL.g:2439:13: ( ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )? )
+            // InternalBCOoL.g:2439:15: ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )?
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2426:15: ( '-' | '+' )?
+            // InternalBCOoL.g:2439:15: ( '-' | '+' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -999,7 +996,7 @@ public class InternalBCOoLLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:
+                    // InternalBCOoL.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -1016,12 +1013,12 @@ public class InternalBCOoLLexer extends Lexer {
 
             }
 
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2426:26: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )
+            // InternalBCOoL.g:2439:26: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )
             int alt3=3;
             alt3 = dfa3.predict(input);
             switch (alt3) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2426:27: RULE_INT '.' RULE_INT
+                    // InternalBCOoL.g:2439:27: RULE_INT '.' RULE_INT
                     {
                     mRULE_INT(); 
                     match('.'); 
@@ -1030,7 +1027,7 @@ public class InternalBCOoLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2426:49: '.' RULE_INT
+                    // InternalBCOoL.g:2439:49: '.' RULE_INT
                     {
                     match('.'); 
                     mRULE_INT(); 
@@ -1038,7 +1035,7 @@ public class InternalBCOoLLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2426:62: RULE_INT '.'
+                    // InternalBCOoL.g:2439:62: RULE_INT '.'
                     {
                     mRULE_INT(); 
                     match('.'); 
@@ -1048,7 +1045,7 @@ public class InternalBCOoLLexer extends Lexer {
 
             }
 
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2426:76: ( 'e' ( '-' | '+' ) RULE_INT )?
+            // InternalBCOoL.g:2439:76: ( 'e' ( '-' | '+' ) RULE_INT )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1057,7 +1054,7 @@ public class InternalBCOoLLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2426:77: 'e' ( '-' | '+' ) RULE_INT
+                    // InternalBCOoL.g:2439:77: 'e' ( '-' | '+' ) RULE_INT
                     {
                     match('e'); 
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
@@ -1092,10 +1089,10 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2428:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2428:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalBCOoL.g:2441:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalBCOoL.g:2441:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2428:11: ( '^' )?
+            // InternalBCOoL.g:2441:11: ( '^' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1104,7 +1101,7 @@ public class InternalBCOoLLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2428:11: '^'
+                    // InternalBCOoL.g:2441:11: '^'
                     {
                     match('^'); 
 
@@ -1122,7 +1119,7 @@ public class InternalBCOoLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2428:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalBCOoL.g:2441:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -1135,7 +1132,7 @@ public class InternalBCOoLLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:
+            	    // InternalBCOoL.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1171,10 +1168,10 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2430:10: ( ( '0' .. '9' )+ )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2430:12: ( '0' .. '9' )+
+            // InternalBCOoL.g:2443:10: ( ( '0' .. '9' )+ )
+            // InternalBCOoL.g:2443:12: ( '0' .. '9' )+
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2430:12: ( '0' .. '9' )+
+            // InternalBCOoL.g:2443:12: ( '0' .. '9' )+
             int cnt7=0;
             loop7:
             do {
@@ -1188,7 +1185,7 @@ public class InternalBCOoLLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2430:13: '0' .. '9'
+            	    // InternalBCOoL.g:2443:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1220,10 +1217,10 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalBCOoL.g:2445:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalBCOoL.g:2445:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalBCOoL.g:2445:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1241,10 +1238,10 @@ public class InternalBCOoLLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalBCOoL.g:2445:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalBCOoL.g:2445:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -1260,7 +1257,7 @@ public class InternalBCOoLLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:21: '\\\\' .
+                    	    // InternalBCOoL.g:2445:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1268,7 +1265,7 @@ public class InternalBCOoLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalBCOoL.g:2445:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1293,10 +1290,10 @@ public class InternalBCOoLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalBCOoL.g:2445:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalBCOoL.g:2445:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -1312,7 +1309,7 @@ public class InternalBCOoLLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:54: '\\\\' .
+                    	    // InternalBCOoL.g:2445:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1320,7 +1317,7 @@ public class InternalBCOoLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2432:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalBCOoL.g:2445:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1363,12 +1360,12 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2434:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2434:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalBCOoL.g:2447:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalBCOoL.g:2447:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2434:24: ( options {greedy=false; } : . )*
+            // InternalBCOoL.g:2447:24: ( options {greedy=false; } : . )*
             loop11:
             do {
                 int alt11=2;
@@ -1393,7 +1390,7 @@ public class InternalBCOoLLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2434:52: .
+            	    // InternalBCOoL.g:2447:52: .
             	    {
             	    matchAny(); 
 
@@ -1423,12 +1420,12 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2436:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2436:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalBCOoL.g:2449:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalBCOoL.g:2449:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2436:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalBCOoL.g:2449:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop12:
             do {
                 int alt12=2;
@@ -1441,7 +1438,7 @@ public class InternalBCOoLLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2436:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalBCOoL.g:2449:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1461,7 +1458,7 @@ public class InternalBCOoLLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2436:40: ( ( '\\r' )? '\\n' )?
+            // InternalBCOoL.g:2449:40: ( ( '\\r' )? '\\n' )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1470,9 +1467,9 @@ public class InternalBCOoLLexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2436:41: ( '\\r' )? '\\n'
+                    // InternalBCOoL.g:2449:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2436:41: ( '\\r' )?
+                    // InternalBCOoL.g:2449:41: ( '\\r' )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -1481,7 +1478,7 @@ public class InternalBCOoLLexer extends Lexer {
                     }
                     switch (alt13) {
                         case 1 :
-                            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2436:41: '\\r'
+                            // InternalBCOoL.g:2449:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1513,10 +1510,10 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2438:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2438:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalBCOoL.g:2451:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalBCOoL.g:2451:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2438:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalBCOoL.g:2451:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt15=0;
             loop15:
             do {
@@ -1530,7 +1527,7 @@ public class InternalBCOoLLexer extends Lexer {
 
                 switch (alt15) {
             	case 1 :
-            	    // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:
+            	    // InternalBCOoL.g:
             	    {
             	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
             	        input.consume();
@@ -1570,8 +1567,8 @@ public class InternalBCOoLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2440:16: ( . )
-            // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:2440:18: .
+            // InternalBCOoL.g:2453:16: ( . )
+            // InternalBCOoL.g:2453:18: .
             {
             matchAny(); 
 
@@ -1586,355 +1583,355 @@ public class InternalBCOoLLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | RULE_BOOLEAN | RULE_DOUBLE | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // InternalBCOoL.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | RULE_BOOLEAN | RULE_DOUBLE | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt16=50;
         alt16 = dfa16.predict(input);
         switch (alt16) {
             case 1 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:10: T__13
+                // InternalBCOoL.g:1:10: T__13
                 {
                 mT__13(); 
 
                 }
                 break;
             case 2 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:16: T__14
+                // InternalBCOoL.g:1:16: T__14
                 {
                 mT__14(); 
 
                 }
                 break;
             case 3 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:22: T__15
+                // InternalBCOoL.g:1:22: T__15
                 {
                 mT__15(); 
 
                 }
                 break;
             case 4 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:28: T__16
+                // InternalBCOoL.g:1:28: T__16
                 {
                 mT__16(); 
 
                 }
                 break;
             case 5 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:34: T__17
+                // InternalBCOoL.g:1:34: T__17
                 {
                 mT__17(); 
 
                 }
                 break;
             case 6 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:40: T__18
+                // InternalBCOoL.g:1:40: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
             case 7 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:46: T__19
+                // InternalBCOoL.g:1:46: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
             case 8 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:52: T__20
+                // InternalBCOoL.g:1:52: T__20
                 {
                 mT__20(); 
 
                 }
                 break;
             case 9 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:58: T__21
+                // InternalBCOoL.g:1:58: T__21
                 {
                 mT__21(); 
 
                 }
                 break;
             case 10 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:64: T__22
+                // InternalBCOoL.g:1:64: T__22
                 {
                 mT__22(); 
 
                 }
                 break;
             case 11 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:70: T__23
+                // InternalBCOoL.g:1:70: T__23
                 {
                 mT__23(); 
 
                 }
                 break;
             case 12 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:76: T__24
+                // InternalBCOoL.g:1:76: T__24
                 {
                 mT__24(); 
 
                 }
                 break;
             case 13 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:82: T__25
+                // InternalBCOoL.g:1:82: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
             case 14 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:88: T__26
+                // InternalBCOoL.g:1:88: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
             case 15 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:94: T__27
+                // InternalBCOoL.g:1:94: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
             case 16 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:100: T__28
+                // InternalBCOoL.g:1:100: T__28
                 {
                 mT__28(); 
 
                 }
                 break;
             case 17 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:106: T__29
+                // InternalBCOoL.g:1:106: T__29
                 {
                 mT__29(); 
 
                 }
                 break;
             case 18 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:112: T__30
+                // InternalBCOoL.g:1:112: T__30
                 {
                 mT__30(); 
 
                 }
                 break;
             case 19 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:118: T__31
+                // InternalBCOoL.g:1:118: T__31
                 {
                 mT__31(); 
 
                 }
                 break;
             case 20 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:124: T__32
+                // InternalBCOoL.g:1:124: T__32
                 {
                 mT__32(); 
 
                 }
                 break;
             case 21 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:130: T__33
+                // InternalBCOoL.g:1:130: T__33
                 {
                 mT__33(); 
 
                 }
                 break;
             case 22 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:136: T__34
+                // InternalBCOoL.g:1:136: T__34
                 {
                 mT__34(); 
 
                 }
                 break;
             case 23 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:142: T__35
+                // InternalBCOoL.g:1:142: T__35
                 {
                 mT__35(); 
 
                 }
                 break;
             case 24 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:148: T__36
+                // InternalBCOoL.g:1:148: T__36
                 {
                 mT__36(); 
 
                 }
                 break;
             case 25 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:154: T__37
+                // InternalBCOoL.g:1:154: T__37
                 {
                 mT__37(); 
 
                 }
                 break;
             case 26 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:160: T__38
+                // InternalBCOoL.g:1:160: T__38
                 {
                 mT__38(); 
 
                 }
                 break;
             case 27 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:166: T__39
+                // InternalBCOoL.g:1:166: T__39
                 {
                 mT__39(); 
 
                 }
                 break;
             case 28 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:172: T__40
+                // InternalBCOoL.g:1:172: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
             case 29 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:178: T__41
+                // InternalBCOoL.g:1:178: T__41
                 {
                 mT__41(); 
 
                 }
                 break;
             case 30 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:184: T__42
+                // InternalBCOoL.g:1:184: T__42
                 {
                 mT__42(); 
 
                 }
                 break;
             case 31 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:190: T__43
+                // InternalBCOoL.g:1:190: T__43
                 {
                 mT__43(); 
 
                 }
                 break;
             case 32 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:196: T__44
+                // InternalBCOoL.g:1:196: T__44
                 {
                 mT__44(); 
 
                 }
                 break;
             case 33 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:202: T__45
+                // InternalBCOoL.g:1:202: T__45
                 {
                 mT__45(); 
 
                 }
                 break;
             case 34 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:208: T__46
+                // InternalBCOoL.g:1:208: T__46
                 {
                 mT__46(); 
 
                 }
                 break;
             case 35 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:214: T__47
+                // InternalBCOoL.g:1:214: T__47
                 {
                 mT__47(); 
 
                 }
                 break;
             case 36 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:220: T__48
+                // InternalBCOoL.g:1:220: T__48
                 {
                 mT__48(); 
 
                 }
                 break;
             case 37 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:226: T__49
+                // InternalBCOoL.g:1:226: T__49
                 {
                 mT__49(); 
 
                 }
                 break;
             case 38 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:232: T__50
+                // InternalBCOoL.g:1:232: T__50
                 {
                 mT__50(); 
 
                 }
                 break;
             case 39 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:238: T__51
+                // InternalBCOoL.g:1:238: T__51
                 {
                 mT__51(); 
 
                 }
                 break;
             case 40 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:244: T__52
+                // InternalBCOoL.g:1:244: T__52
                 {
                 mT__52(); 
 
                 }
                 break;
             case 41 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:250: T__53
+                // InternalBCOoL.g:1:250: T__53
                 {
                 mT__53(); 
 
                 }
                 break;
             case 42 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:256: RULE_BOOLEAN
+                // InternalBCOoL.g:1:256: RULE_BOOLEAN
                 {
                 mRULE_BOOLEAN(); 
 
                 }
                 break;
             case 43 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:269: RULE_DOUBLE
+                // InternalBCOoL.g:1:269: RULE_DOUBLE
                 {
                 mRULE_DOUBLE(); 
 
                 }
                 break;
             case 44 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:281: RULE_ID
+                // InternalBCOoL.g:1:281: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 45 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:289: RULE_INT
+                // InternalBCOoL.g:1:289: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
             case 46 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:298: RULE_STRING
+                // InternalBCOoL.g:1:298: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 47 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:310: RULE_ML_COMMENT
+                // InternalBCOoL.g:1:310: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 48 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:326: RULE_SL_COMMENT
+                // InternalBCOoL.g:1:326: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 49 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:342: RULE_WS
+                // InternalBCOoL.g:1:342: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 50 :
-                // ../org.gemoc.bcool.model.xtext/src-gen/org/gemoc/bcool/model/xtext/parser/antlr/internal/InternalBCOoL.g:1:350: RULE_ANY_OTHER
+                // InternalBCOoL.g:1:350: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1999,80 +1996,23 @@ public class InternalBCOoLLexer extends Lexer {
             this.transition = DFA3_transition;
         }
         public String getDescription() {
-            return "2426:26: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )";
+            return "2439:26: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )";
         }
     }
     static final String DFA16_eotS =
-        "\1\uffff\2\52\1\uffff\2\52\3\uffff\2\52\1\66\1\50\3\52\1\uffff"+
-        "\3\52\1\uffff\1\52\1\105\1\107\2\52\1\114\1\116\1\117\1\uffff\1"+
-        "\123\1\52\1\uffff\1\52\1\127\1\50\1\uffff\2\50\2\uffff\1\52\1\uffff"+
-        "\1\52\1\uffff\2\52\3\uffff\3\52\3\uffff\3\52\1\uffff\1\52\1\145"+
-        "\2\52\1\150\1\uffff\2\52\4\uffff\1\52\1\154\12\uffff\1\52\1\uffff"+
-        "\1\52\1\uffff\1\127\1\uffff\2\52\1\161\10\52\1\uffff\1\173\1\52"+
-        "\1\uffff\2\52\1\177\1\uffff\1\u0080\1\52\1\u0082\1\52\1\uffff\2"+
-        "\52\1\uffff\1\52\1\u0087\1\u0088\3\52\1\uffff\1\52\1\u008d\1\u008e"+
-        "\2\uffff\1\52\1\uffff\3\52\1\u0093\2\uffff\4\52\2\uffff\1\u008e"+
-        "\3\52\1\uffff\1\52\1\uffff\1\52\1\u009e\1\uffff\5\52\1\uffff\1\u00a4"+
-        "\4\52\1\uffff\2\52\1\u00ab\3\52\1\uffff\17\52\1\u00be\2\52\1\uffff"+
-        "\1\52\1\uffff\5\52\1\uffff";
+        "\1\uffff\2\52\1\uffff\2\52\3\uffff\2\52\1\66\1\50\3\52\1\uffff\3\52\1\uffff\1\52\1\105\1\107\2\52\1\114\1\116\1\117\1\uffff\1\123\1\52\1\uffff\1\52\1\127\1\50\1\uffff\2\50\2\uffff\1\52\1\uffff\1\52\1\uffff\2\52\3\uffff\3\52\3\uffff\3\52\1\uffff\1\52\1\145\2\52\1\150\1\uffff\2\52\4\uffff\1\52\1\154\12\uffff\1\52\1\uffff\1\52\1\uffff\1\127\1\uffff\2\52\1\161\10\52\1\uffff\1\173\1\52\1\uffff\2\52\1\177\1\uffff\1\u0080\1\52\1\u0082\1\52\1\uffff\2\52\1\uffff\1\52\1\u0087\1\u0088\3\52\1\uffff\1\52\1\u008d\1\u008e\2\uffff\1\52\1\uffff\3\52\1\u0093\2\uffff\4\52\2\uffff\1\u008e\3\52\1\uffff\1\52\1\uffff\1\52\1\u009e\1\uffff\5\52\1\uffff\1\u00a4\4\52\1\uffff\2\52\1\u00ab\3\52\1\uffff\17\52\1\u00be\2\52\1\uffff\1\52\1\uffff\5\52\1\uffff";
     static final String DFA16_eofS =
         "\u00c7\uffff";
     static final String DFA16_minS =
-        "\1\0\1\160\1\154\1\uffff\1\145\1\160\3\uffff\1\141\1\154\2\72\1"+
-        "\150\2\157\1\uffff\1\155\1\156\1\146\1\uffff\1\150\1\60\1\56\1\157"+
-        "\1\162\2\75\1\56\1\uffff\1\52\1\157\1\uffff\1\141\1\56\1\101\1\uffff"+
-        "\2\0\2\uffff\1\145\1\uffff\1\157\1\uffff\1\164\1\145\3\uffff\1\164"+
-        "\1\144\1\163\3\uffff\1\145\1\157\1\143\1\uffff\1\160\1\60\1\144"+
-        "\1\160\1\60\1\uffff\1\145\1\165\4\uffff\1\162\1\60\12\uffff\1\164"+
-        "\1\uffff\1\154\1\uffff\1\56\1\uffff\1\143\1\142\1\60\1\162\1\143"+
-        "\1\40\1\145\1\156\1\162\1\141\1\157\1\uffff\1\60\1\157\1\uffff\1"+
-        "\156\1\145\1\60\1\uffff\1\60\1\163\1\60\1\141\1\uffff\1\141\1\150"+
-        "\1\uffff\1\146\2\60\1\144\1\154\1\162\1\uffff\1\162\2\60\2\uffff"+
-        "\1\145\1\uffff\1\154\1\164\1\151\1\60\2\uffff\1\151\1\40\2\164\2"+
-        "\uffff\1\60\1\40\1\157\1\156\1\uffff\1\156\1\uffff\1\111\1\60\1"+
-        "\uffff\1\162\1\147\1\141\1\151\1\156\1\uffff\1\60\1\103\1\164\1"+
-        "\142\1\164\1\uffff\1\157\1\151\1\60\1\145\1\162\1\157\1\uffff\2"+
-        "\162\1\156\1\146\1\145\1\122\1\141\1\163\1\165\1\143\1\160\1\154"+
-        "\1\145\1\157\1\145\1\60\1\156\1\72\1\uffff\1\144\1\uffff\1\141\1"+
-        "\156\1\143\1\145\1\72\1\uffff";
+        "\1\0\1\160\1\154\1\uffff\1\145\1\160\3\uffff\1\141\1\154\2\72\1\150\2\157\1\uffff\1\155\1\156\1\146\1\uffff\1\150\1\60\1\56\1\157\1\162\2\75\1\56\1\uffff\1\52\1\157\1\uffff\1\141\1\56\1\101\1\uffff\2\0\2\uffff\1\145\1\uffff\1\157\1\uffff\1\164\1\145\3\uffff\1\164\1\144\1\163\3\uffff\1\145\1\157\1\143\1\uffff\1\160\1\60\1\144\1\160\1\60\1\uffff\1\145\1\165\4\uffff\1\162\1\60\12\uffff\1\164\1\uffff\1\154\1\uffff\1\56\1\uffff\1\143\1\142\1\60\1\162\1\143\1\40\1\145\1\156\1\162\1\141\1\157\1\uffff\1\60\1\157\1\uffff\1\156\1\145\1\60\1\uffff\1\60\1\163\1\60\1\141\1\uffff\1\141\1\150\1\uffff\1\146\2\60\1\144\1\154\1\162\1\uffff\1\162\2\60\2\uffff\1\145\1\uffff\1\154\1\164\1\151\1\60\2\uffff\1\151\1\40\2\164\2\uffff\1\60\1\40\1\157\1\156\1\uffff\1\156\1\uffff\1\111\1\60\1\uffff\1\162\1\147\1\141\1\151\1\156\1\uffff\1\60\1\103\1\164\1\142\1\164\1\uffff\1\157\1\151\1\60\1\145\1\162\1\157\1\uffff\2\162\1\156\1\146\1\145\1\122\1\141\1\163\1\165\1\143\1\160\1\154\1\145\1\157\1\145\1\60\1\156\1\72\1\uffff\1\144\1\uffff\1\141\1\156\1\143\1\145\1\72\1\uffff";
     static final String DFA16_maxS =
-        "\1\uffff\1\160\1\154\1\uffff\1\145\1\160\3\uffff\1\141\1\156\2"+
-        "\72\1\150\2\157\1\uffff\1\155\1\163\1\155\1\uffff\1\162\1\71\1\76"+
-        "\1\157\1\162\1\76\1\75\1\71\1\uffff\1\57\1\157\1\uffff\1\141\1\71"+
-        "\1\172\1\uffff\2\uffff\2\uffff\1\145\1\uffff\1\157\1\uffff\1\164"+
-        "\1\145\3\uffff\1\164\1\144\1\163\3\uffff\1\145\1\157\1\143\1\uffff"+
-        "\1\160\1\172\1\144\1\160\1\172\1\uffff\1\145\1\165\4\uffff\1\162"+
-        "\1\172\12\uffff\1\164\1\uffff\1\154\1\uffff\1\71\1\uffff\1\143\1"+
-        "\142\1\172\1\162\1\143\1\151\1\145\1\156\1\162\1\141\1\157\1\uffff"+
-        "\1\172\1\157\1\uffff\1\156\1\145\1\172\1\uffff\1\172\1\163\1\172"+
-        "\1\141\1\uffff\1\141\1\150\1\uffff\1\146\2\172\1\144\1\154\1\162"+
-        "\1\uffff\1\162\2\172\2\uffff\1\145\1\uffff\1\154\1\164\1\151\1\172"+
-        "\2\uffff\1\151\1\40\2\164\2\uffff\1\172\1\40\1\157\1\156\1\uffff"+
-        "\1\156\1\uffff\1\114\1\172\1\uffff\1\162\1\147\1\141\1\151\1\156"+
-        "\1\uffff\1\172\1\103\1\164\1\142\1\164\1\uffff\1\157\1\151\1\172"+
-        "\1\145\1\162\1\157\1\uffff\2\162\1\156\1\146\1\145\1\122\1\141\1"+
-        "\163\1\165\1\143\1\160\1\154\1\145\1\157\1\145\1\172\1\156\1\72"+
-        "\1\uffff\1\144\1\uffff\1\141\1\156\1\143\1\145\1\72\1\uffff";
+        "\1\uffff\1\160\1\154\1\uffff\1\145\1\160\3\uffff\1\141\1\156\2\72\1\150\2\157\1\uffff\1\155\1\163\1\155\1\uffff\1\162\1\71\1\76\1\157\1\162\1\76\1\75\1\71\1\uffff\1\57\1\157\1\uffff\1\141\1\71\1\172\1\uffff\2\uffff\2\uffff\1\145\1\uffff\1\157\1\uffff\1\164\1\145\3\uffff\1\164\1\144\1\163\3\uffff\1\145\1\157\1\143\1\uffff\1\160\1\172\1\144\1\160\1\172\1\uffff\1\145\1\165\4\uffff\1\162\1\172\12\uffff\1\164\1\uffff\1\154\1\uffff\1\71\1\uffff\1\143\1\142\1\172\1\162\1\143\1\151\1\145\1\156\1\162\1\141\1\157\1\uffff\1\172\1\157\1\uffff\1\156\1\145\1\172\1\uffff\1\172\1\163\1\172\1\141\1\uffff\1\141\1\150\1\uffff\1\146\2\172\1\144\1\154\1\162\1\uffff\1\162\2\172\2\uffff\1\145\1\uffff\1\154\1\164\1\151\1\172\2\uffff\1\151\1\40\2\164\2\uffff\1\172\1\40\1\157\1\156\1\uffff\1\156\1\uffff\1\114\1\172\1\uffff\1\162\1\147\1\141\1\151\1\156\1\uffff\1\172\1\103\1\164\1\142\1\164\1\uffff\1\157\1\151\1\172\1\145\1\162\1\157\1\uffff\2\162\1\156\1\146\1\145\1\122\1\141\1\163\1\165\1\143\1\160\1\154\1\145\1\157\1\145\1\172\1\156\1\72\1\uffff\1\144\1\uffff\1\141\1\156\1\143\1\145\1\72\1\uffff";
     static final String DFA16_acceptS =
-        "\3\uffff\1\3\2\uffff\1\6\1\7\1\10\7\uffff\1\20\3\uffff\1\25\10"+
-        "\uffff\1\46\2\uffff\1\51\3\uffff\1\54\2\uffff\1\61\1\62\1\uffff"+
-        "\1\54\1\uffff\1\3\2\uffff\1\6\1\7\1\10\3\uffff\1\13\1\61\1\14\3"+
-        "\uffff\1\20\5\uffff\1\25\2\uffff\1\53\1\32\1\33\1\45\2\uffff\1\37"+
-        "\1\42\1\40\1\43\1\41\1\44\1\46\1\57\1\60\1\47\1\uffff\1\51\1\uffff"+
-        "\1\55\1\uffff\1\56\13\uffff\1\23\2\uffff\1\26\3\uffff\1\36\4\uffff"+
-        "\1\4\2\uffff\1\12\6\uffff\1\34\3\uffff\1\35\1\50\1\uffff\1\1\4\uffff"+
-        "\1\30\1\15\4\uffff\1\27\1\52\4\uffff\1\31\1\uffff\1\17\2\uffff\1"+
-        "\2\5\uffff\1\24\5\uffff\1\5\6\uffff\1\21\22\uffff\1\22\1\uffff\1"+
-        "\16\5\uffff\1\11";
+        "\3\uffff\1\3\2\uffff\1\6\1\7\1\10\7\uffff\1\20\3\uffff\1\25\10\uffff\1\46\2\uffff\1\51\3\uffff\1\54\2\uffff\1\61\1\62\1\uffff\1\54\1\uffff\1\3\2\uffff\1\6\1\7\1\10\3\uffff\1\13\1\61\1\14\3\uffff\1\20\5\uffff\1\25\2\uffff\1\53\1\32\1\33\1\45\2\uffff\1\37\1\42\1\40\1\43\1\41\1\44\1\46\1\57\1\60\1\47\1\uffff\1\51\1\uffff\1\55\1\uffff\1\56\13\uffff\1\23\2\uffff\1\26\3\uffff\1\36\4\uffff\1\4\2\uffff\1\12\6\uffff\1\34\3\uffff\1\35\1\50\1\uffff\1\1\4\uffff\1\30\1\15\4\uffff\1\27\1\52\4\uffff\1\31\1\uffff\1\17\2\uffff\1\2\5\uffff\1\24\5\uffff\1\5\6\uffff\1\21\22\uffff\1\22\1\uffff\1\16\5\uffff\1\11";
     static final String DFA16_specialS =
         "\1\0\44\uffff\1\2\1\1\u00a0\uffff}>";
     static final String[] DFA16_transitionS = {
-            "\11\50\2\47\2\50\1\47\22\50\1\13\1\50\1\45\1\24\3\50\1\46\1"+
-            "\6\1\10\1\35\1\34\1\7\1\27\1\26\1\36\12\42\1\14\1\3\1\32\1\20"+
-            "\1\33\2\50\2\44\1\16\3\44\1\2\1\44\1\21\2\44\1\17\1\11\1\44"+
-            "\1\5\3\44\1\1\7\44\3\50\1\43\1\44\1\50\1\22\3\44\1\12\1\41\2"+
-            "\44\1\23\2\44\1\4\1\44\1\37\1\31\4\44\1\25\2\44\1\15\1\30\2"+
-            "\44\3\50\1\40\uff81\50",
+            "\11\50\2\47\2\50\1\47\22\50\1\13\1\50\1\45\1\24\3\50\1\46\1\6\1\10\1\35\1\34\1\7\1\27\1\26\1\36\12\42\1\14\1\3\1\32\1\20\1\33\2\50\2\44\1\16\3\44\1\2\1\44\1\21\2\44\1\17\1\11\1\44\1\5\3\44\1\1\7\44\3\50\1\43\1\44\1\50\1\22\3\44\1\12\1\41\2\44\1\23\2\44\1\4\1\44\1\37\1\31\4\44\1\25\2\44\1\15\1\30\2\44\3\50\1\40\uff81\50",
             "\1\51",
             "\1\53",
             "",
