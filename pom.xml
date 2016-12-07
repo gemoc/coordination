@@ -37,15 +37,15 @@
             <layout>p2</layout>
             <url>https://ci.inria.fr/diverse-commons/job/diverse-commons.eclipse.root/lastSuccessfulBuild/artifact/commons-eclipse/fr.inria.diverse.commons.eclipse.root/p2updatesite/target/repository/</url>
         </repository>
-<!--        <repository>
+        <repository>
             <id>kermeta-3</id>
             <layout>p2</layout>
             <url>http://www.kermeta.org/k3/update/</url>
-        </repository>-->
+        </repository>
         <repository>
             <id>melange</id>
             <layout>p2</layout>
-            <url>https://ci.inria.fr/k3al/job/melange-master/lastSuccessfulBuild/artifact/releng/fr.inria.diverse.melange.p2updatesite/target/site/</url>
+            <url>http://melange-lang.org/updatesite/</url>
         </repository>
       <!--  <repository>
             <id>Sirius</id>
