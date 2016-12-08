@@ -47,11 +47,11 @@
             <layout>p2</layout>
             <url>http://melange-lang.org/updatesite/</url>
         </repository>
-      <!--  <repository>
+      <repository>
             <id>Sirius</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/3.1.4/neon</url>
-        </repository>-->
+            <url>http://download.eclipse.org/sirius/updates/releases/4.1.2/neon/</url>
+        </repository>
 <!--        <repository>
             <id>umldesigner</id>
             <layout>p2</layout>
