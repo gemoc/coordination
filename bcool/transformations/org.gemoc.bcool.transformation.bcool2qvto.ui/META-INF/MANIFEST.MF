@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Acceleo Bcool2qvto Module IDE Plug-in
 Bundle-SymbolicName: org.gemoc.bcool.transformation.bcool2qvto.ui;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 2.3.0.qualifier
 Bundle-Activator: org.gemoc.bcool.transformation.bcool2qvto.ui.Activator
 Bundle-Vendor: Eclipse Modeling Project
 Require-Bundle: org.eclipse.ui,

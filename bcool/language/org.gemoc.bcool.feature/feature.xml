@@ -2,10 +2,10 @@
 <feature
       id="org.gemoc.bcool.feature"
       label="BCOoL editor and transfo"
-      version="1.0.0.qualifier"
+      version="2.3.0.qualifier"
       provider-name="Aoste INRIA / I3S"
       plugin="fr.inria.aoste.timesquare.branding"
-      license-feature-version="1.0.0.qualifier">
+      license-feature-version="2.3.0.qualifier">
 
    <description url="http://timesquare.inria.fr/BCOoL">
       The feature contains the BCOoL grammar and transfo to generate the coordination
