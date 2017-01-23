@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Gemoc heterogeneous Executable Modeling Workbench UI
 Bundle-SymbolicName: org.gemoc.gemoc_heterogeneous_modeling_workbench.ui;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 2.3.0.qualifier
 Bundle-Activator: org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator
 Bundle-Vendor: INRIA
 Require-Bundle: org.eclipse.ui,
