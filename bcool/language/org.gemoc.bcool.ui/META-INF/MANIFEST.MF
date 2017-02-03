@@ -7,6 +7,11 @@ Bundle-Activator: org.gemoc.bcool.ui.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
- org.eclipse.ui.ide
+ org.eclipse.ui.ide,
+ org.eclipse.ui.workbench,
+ org.eclipse.swt,
+ org.gemoc.commons.eclipse,
+ org.gemoc.commons.eclipse.ui,
+ org.gemoc.bcool.model.xtext
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

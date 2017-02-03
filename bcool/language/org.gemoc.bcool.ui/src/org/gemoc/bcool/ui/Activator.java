@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.gemoc.bcool.ui;
 
+import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -57,4 +58,11 @@ public class Activator extends AbstractUIPlugin {
 		return plugin;
 	}
 
+	public static void warn(String msg, Throwable e) {
+		Activator.getDefault().getLog().log(new Status(Status.WARNING, PLUGIN_ID, Status.OK, msg, e));
+	}
+
+	public static void error(String msg, Throwable e) {
+		Activator.getDefault().getLog().log(new Status(Status.ERROR, PLUGIN_ID, Status.OK, msg, e));
+	}
 }

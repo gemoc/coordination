@@ -22,6 +22,14 @@
             id="org.gemoc.bcool.ui.wizards.BCOoLLibFileNewWizard"
             name="BCOoLLib File">
       </wizard>
+      <wizard
+            category="org.gemoc.xdsmlframework.category/org.gemoc.bcool.ui"
+            class="org.gemoc.bcool.ui.wizards.BCOoLProjectNewWizard"
+            icon="icons/bcoolicon.ico"
+            id="org.gemoc.bcool.ui.wizards.BCOoLProjectNewWizard"
+            name="BCOoL Project"
+            project="true">
+      </wizard>
    </extension>
 
 </plugin>

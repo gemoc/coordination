@@ -51,7 +51,7 @@ public class BCOoLFileNewWizardPage extends WizardPage {
 	public BCOoLFileNewWizardPage(ISelection selection) {
 		super("wizardPage");
 		setTitle("BCOoL File");
-		setDescription("This wizard creates a new file with *.bcool extension that can be opened by teh BCOoL textual editor.");
+		setDescription("This wizard creates a new file with *.bcool extension that can be opened by the BCOoL textual editor.");
 		this.selection = selection;
 	}
 
