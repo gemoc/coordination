@@ -15,6 +15,13 @@
             id="org.gemoc.bcool.ui.wizards.BCOoLFileNewWizard"
             name="BCOoL File">
       </wizard>
+      <wizard
+            category="org.gemoc.xdsmlframework.category/org.gemoc.bcool.ui"
+            class="org.gemoc.bcool.ui.wizards.BCOoLLibFileNewWizard"
+            icon="icons/bcoolicon.ico"
+            id="org.gemoc.bcool.ui.wizards.BCOoLLibFileNewWizard"
+            name="BCOoLLib File">
+      </wizard>
    </extension>
 
 </plugin>
