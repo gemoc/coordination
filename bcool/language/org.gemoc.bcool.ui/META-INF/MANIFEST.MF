@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BCOoL User Interface
+Bundle-SymbolicName: org.gemoc.bcool.ui
+Bundle-Version: 2.3.0.qualifier
+Bundle-Activator: org.gemoc.bcool.ui.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

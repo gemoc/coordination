@@ -322,6 +322,7 @@
   	<module>../org.gemoc.bcool.updatesite</module>
   	<module>../../language/org.gemoc.bcool.feature</module>
   	<module>../../language/org.gemoc.bcool.model.xtext</module>
+  	<module>../../language/org.gemoc.bcool.ui</module>
   	<module>../../language/org.gemoc.bcool.bcoollib</module>
   	<module>../../language/org.gemoc.bcool.bcoollib.ui</module>
   	<module>
