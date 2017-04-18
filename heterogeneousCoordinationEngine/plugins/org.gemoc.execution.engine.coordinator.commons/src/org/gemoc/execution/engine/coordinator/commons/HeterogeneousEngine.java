@@ -2,6 +2,7 @@ package org.gemoc.execution.engine.coordinator.commons;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -53,10 +54,7 @@ import fr.inria.diverse.trace.commons.model.helper.StepHelper;
 import fr.inria.diverse.trace.commons.model.trace.BigStep;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
 import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
-import fr.inria.diverse.trace.commons.model.trace.SmallStep;
 import fr.inria.diverse.trace.commons.model.trace.Step;
-import fr.inria.diverse.trace.commons.model.trace.TraceFactory;
-import fr.inria.diverse.trace.commons.model.trace.impl.ParallelStepImpl;
 
 /**
  * Naive implementation of the heterogeneous ExecutionEngine, where so called coordinated execution engines are
@@ -79,8 +77,7 @@ import fr.inria.diverse.trace.commons.model.trace.impl.ParallelStepImpl;
  * @param <T>
  * 
  */
-public class HeterogeneousEngine extends AbstractExecutionEngine implements IConcurrentExecutionEngine {// extends
-																										// ConcurrentExecutionEngine{
+public class HeterogeneousEngine extends AbstractExecutionEngine implements IConcurrentExecutionEngine {
 
 	protected ArrayList<IConcurrentExecutionEngine> _coordinatedEngines = new ArrayList<IConcurrentExecutionEngine>();
 
@@ -208,7 +205,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	 * engine.trace.gemoc_execution_trace.LogicalStep)
 	 */
 	@Override
-	public void notifyLogicalStepExecuted(Step l) {
+	public void notifyLogicalStepExecuted(Step<?> l) {
 		if (_coordinatedEngines.size() == 0) {
 			return;
 		}
@@ -332,7 +329,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 
 	@SuppressWarnings("unchecked")
-	private List<ExtendedLogicalStep> extendLogicalSteps(List<Step> possibleLogicalSteps, int iSolver) {
+	private List<ExtendedLogicalStep> extendLogicalSteps(List<Step<?>> possibleLogicalSteps, int iSolver) {
 		List<ExtendedLogicalStep> res = new ArrayList<ExtendedLogicalStep>(possibleLogicalSteps.size());
 		for (int i = 0; i < possibleLogicalSteps.size(); i++) {
 			ExtendedLogicalStep eStep = new ExtendedLogicalStep((BigStep<GenericStep,?>) possibleLogicalSteps.get(i));
@@ -347,7 +344,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		return res;
 	}
 
-	public void addConstraintsFromOneStepOfOneEngine(int engineNumber, Step aStep) throws SimulationException {
+	public void addConstraintsFromOneStepOfOneEngine(int engineNumber, Step<?> aStep) throws SimulationException {
 
 		CCSLKernelSolver oneSolver = _t2Solvers.get(engineNumber);
 		ArrayList<SolverClock> trueClocks = new ArrayList<SolverClock>();
@@ -389,7 +386,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			stop();
 		} else {
 			// Activator.getDefault().debug("\t\t ---------------- LogicalStep " + count);
-			Step selectedLogicalStep = selectAndExecuteLogicalStep();
+			Step<?> selectedLogicalStep = selectAndExecuteLogicalStep();
 			// 3 - run the selected logical step
 			// inform the solver that we will run this step
 			if (selectedLogicalStep != null) {
@@ -419,10 +416,10 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		}
 	}
 
-	private Step selectAndExecuteLogicalStep() {
+	private Step<?> selectAndExecuteLogicalStep() {
 		setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
 		notifyAboutToSelectLogicalStep();
-		Step selectedLogicalStep = null;
+		Step<?> selectedLogicalStep = null;
 		try {
 
 			for (IConcurrentExecutionEngine eng : get_coordinatedEngines()) {
@@ -502,14 +499,14 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	protected HeterogeneousLogicalStep _selectedCompliantStep = null;
 
 	@Override
-	public Step getSelectedLogicalStep() {
+	public Step<?> getSelectedLogicalStep() {
 		synchronized (this) {
-			return (Step) _selectedCompliantStep;
+			return (Step<?>) _selectedCompliantStep;
 		}
 	}
 
 	@Override
-	public void setSelectedLogicalStep(Step selectedStep) {
+	public void setSelectedLogicalStep(Step<?> selectedStep) {
 		if (!(selectedStep instanceof HeterogeneousLogicalStep)) {
 			throw new RuntimeErrorException(new Error(
 					"you try to set a step to a coordinator engine, it should be instance of HeterogeneousLogicalStep and not of"
@@ -520,10 +517,13 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Step> getPossibleLogicalSteps() {
+	public List<Step<?>> getPossibleLogicalSteps() {
 		synchronized (this) {
-			return new ArrayList<Step>(_heterogeneousLogicalSteps);
+			List<Step<?>> result = new ArrayList<Step<?>>();
+			result.addAll((Collection<? extends Step<?>>) _heterogeneousLogicalSteps);					
+			return result;
 		}
 	}
 
@@ -561,7 +561,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 			if (theLogicalStepToSelect == (oneEngine.getPossibleLogicalSteps().size())) {
 				continue;
 			}
-			Step selectedLogicalStep = oneEngine.getPossibleLogicalSteps().get(theLogicalStepToSelect);
+			Step<?> selectedLogicalStep = oneEngine.getPossibleLogicalSteps().get(theLogicalStepToSelect);
 			oneEngine.setEngineStatus(EngineStatus.RunStatus.WaitingLogicalStepSelection);
 			oneEngine.notifyAboutToSelectLogicalStep();
 			oneEngine.setSelectedLogicalStep(selectedLogicalStep);
@@ -680,7 +680,7 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	}
 
 	@Override
-	public void notifyAboutToExecuteLogicalStep(Step l) {
+	public void notifyAboutToExecuteLogicalStep(Step<?> l) {
 		if (_coordinatedEngines.size() == 0) {
 			return;
 		}
