@@ -62,7 +62,7 @@ public class GemocDebugModelPresentation extends DSLDebugModelPresentation {
 				EObject instruction = ((DSLStackFrameAdapter) frame)
 						.getCurrentInstruction();
 				if (instruction instanceof Step) {
-					final List<MSE> tickedEvents = StepHelper.collectAllMSEs((Step) instruction);
+					final List<MSE> tickedEvents = StepHelper.collectAllMSEs((Step<?>) instruction);
 					showEvents(tickedEvents);
 					final Set<EObject> callers = new LinkedHashSet<EObject>();
 					for (MSE event : tickedEvents) {

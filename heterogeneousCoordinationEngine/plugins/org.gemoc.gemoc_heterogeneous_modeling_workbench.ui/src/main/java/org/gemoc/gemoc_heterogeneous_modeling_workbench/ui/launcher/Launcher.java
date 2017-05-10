@@ -25,7 +25,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.IConcurrentExecutio
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedModelExecutionContext;
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguration;
 import org.gemoc.execution.engine.coordinator.commons.HeterogeneousEngine;
-import org.gemoc.executionframework.engine.ui.debug.AbstractGemocDebugger;
+import org.gemoc.executionframework.debugger.AbstractGemocDebugger;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
