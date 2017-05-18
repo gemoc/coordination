@@ -18,7 +18,7 @@
   	<!-- List of P2 repositories of external tool used to build the components -->
   	<!--  must NOT include the repositories of the tools included in the Studio has it has its own complementary list -->
         <repository>
-            <id>Mars release</id>
+            <id>Eclipse release</id>
             <layout>p2</layout>
             <url>http://download.eclipse.org/releases/neon/</url>
         </repository>

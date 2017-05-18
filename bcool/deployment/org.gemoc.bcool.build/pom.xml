@@ -59,7 +59,7 @@
 		</repository>
 		
 		<repository>
-			<id>Neon</id>
+			<id>Eclipse release</id>
 			<url>http://download.eclipse.org/releases/neon/</url>
 			<layout>p2</layout>
 			<releases>
@@ -80,7 +80,7 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
- 		<repository>
+ 	<!-- 	<repository>
 			<id>Xtext All-in-One</id>
 			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
 			<layout>p2</layout>
@@ -90,7 +90,7 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository> 
+		</repository> --> 
         <!-- refinement from "xtext all releases" -->
 <!--        <repository>
             <id>xtext releases 2.8.4</id>
@@ -98,7 +98,7 @@
             <url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.8.4/</url>
         </repository>-->
         
-		<repository>
+<!-- 		<repository>
 			<id>acceleo</id>
 			<url>http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2</url>
 			<layout>p2</layout>
@@ -108,8 +108,8 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository>
-				<repository>
+		</repository> -->
+		<repository>
 			<id>ecl</id>
 			<url>http://timesquare.inria.fr/ecl/update_site/neon</url>
 			<layout>p2</layout>
