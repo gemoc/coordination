@@ -22,5 +22,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.gemoc.bflow.ui.quickfix,
  org.gemoc.bflow.ui.contentassist,
  org.gemoc.bflow.ui.contentassist.antlr,
- org.gemoc.bflow.ui.internal
+ org.gemoc.bflow.ui.internal,
+ org.gemoc.bflow.ui.contentassist.antlr.internal
 Bundle-Activator: org.gemoc.bflow.ui.internal.BFlowActivator
