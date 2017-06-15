@@ -21,6 +21,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.gemoc.commons.eclipse.pde.ui.PluginConverter;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -33,7 +34,6 @@ import org.gemoc.bcool.model.xtext.builder.GemocBCOoLNature;
 import org.gemoc.bcool.ui.Activator;
 import org.gemoc.bcool.ui.ResourceMessages;
 import org.gemoc.commons.eclipse.core.resources.Project;
-import org.gemoc.commons.eclipse.pde.ui.PluginConverter;
 
 /**
  * @author Didier Vojtisek<didier.vojtisek@inria.fr>
