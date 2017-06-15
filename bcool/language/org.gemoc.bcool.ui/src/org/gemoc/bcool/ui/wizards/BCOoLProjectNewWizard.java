@@ -33,7 +33,7 @@ import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.gemoc.bcool.model.xtext.builder.GemocBCOoLNature;
 import org.gemoc.bcool.ui.Activator;
 import org.gemoc.bcool.ui.ResourceMessages;
-import org.eclipse.gemoc.commons.eclipse.core.resources.Project;
+import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 
 /**
  * @author Didier Vojtisek<didier.vojtisek@inria.fr>
@@ -169,18 +169,18 @@ public class BCOoLProjectNewWizard extends Wizard implements INewWizard {
 					createdProject.setDescription(newdescription, null);
 
 					// add some content
-					Project.createFolder(createdProject, "operator", monitor);
+					IProjectUtils.createFolder(createdProject, "operator", monitor);
 
 					String contents = "L1AndL2\n\n"+			
 									"// ImportLib \"platform:/resource"+createdProject.getFullPath().toString()+"/operator/facilities.bcoollib\"\n"+
 									"// ImportLib \"platform:/resource"+createdProject.getFullPath().toString()+"/operator/facilities.moccml\"\n\n"+
 									"// ImportInterface \"platform:/resource/L1/ecl/L1.ecl\"  as L1\n"+
 									"// ImportInterface \"platform:/resource/L2/ecl/L2.ecl\"  as L2\n\n";
-					Project.createFile(createdProject, "operator/my.bcool", contents, monitor);
+					IProjectUtils.createFile(createdProject, "operator/my.bcool", contents, monitor);
 
 					// add result of builder in the plugin jar
 					String buildFileContent = "bin.includes = META-INF/,\\\r\n\tgemoc-gen/";
-					Project.setFileContent(createdProject, "build.properties", buildFileContent);
+					IProjectUtils.setFileContent(createdProject, "build.properties", buildFileContent);
 
 					createdProject.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 					createdProject.touch(new NullProgressMonitor()); 

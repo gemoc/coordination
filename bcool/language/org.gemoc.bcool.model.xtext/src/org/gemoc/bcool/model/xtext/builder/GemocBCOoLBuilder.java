@@ -32,7 +32,7 @@ import org.eclipse.xtext.resource.XtextResourceSet;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.xtext.BCOoLStandaloneSetup;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
-import org.eclipse.gemoc.commons.eclipse.core.resources.Project;
+import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -91,7 +91,7 @@ public class GemocBCOoLBuilder extends IncrementalProjectBuilder {
 	    try {
 	    	
 		// this creates the folder where it will be the qvto
-	    final IFolder qvtoFolder = Project.createFolder(project, genFolder);
+	    final IFolder qvtoFolder = IProjectUtils.createFolder(project, genFolder);
 		
 	    // ----------------------------------------------
 		// We load the bcool model to get the name of the specification, and then, use it that string for the name of the generated qvto
