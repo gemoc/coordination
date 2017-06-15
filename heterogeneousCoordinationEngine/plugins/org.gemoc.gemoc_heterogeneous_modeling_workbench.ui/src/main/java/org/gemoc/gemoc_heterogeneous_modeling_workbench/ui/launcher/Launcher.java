@@ -29,8 +29,8 @@ import org.gemoc.executionframework.debugger.AbstractGemocDebugger;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.gemoc.executionframework.ui.views.engine.EnginesStatusView;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
-import org.gemoc.xdsmlframework.api.core.ExecutionMode;
-import org.gemoc.xdsmlframework.api.core.IExecutionContext;
+import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
 import fr.obeo.dsl.debug.ide.IDSLDebugger;

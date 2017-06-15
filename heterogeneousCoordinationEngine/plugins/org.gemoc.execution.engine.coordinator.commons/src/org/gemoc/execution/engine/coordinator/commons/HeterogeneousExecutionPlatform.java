@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.gemoc.xdsmlframework.api.core.IExecutionPlatform;
-import org.gemoc.xdsmlframework.api.core.IModelLoader;
-import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionPlatform;
+import org.eclipse.gemoc.xdsmlframework.api.core.IModelLoader;
+import org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon;
 
 public class HeterogeneousExecutionPlatform implements IExecutionPlatform {
 
