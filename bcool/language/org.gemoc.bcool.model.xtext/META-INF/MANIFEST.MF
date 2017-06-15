@@ -34,7 +34,7 @@ Require-Bundle: org.eclipse.xtext;bundle-version="2.10.0";visibility:=reexport,
  org.eclipse.ocl.xtext.completeocl
 Import-Package: org.apache.log4j,
  org.gemoc.bcool.transformation.bcool2qvto.ui.common,
- org.gemoc.commons.eclipse.core.resources,
+ org.eclipse.gemoc.commons.eclipse.core.resources,
  toools.io.file
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.gemoc.bcool.model.xtext,

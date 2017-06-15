@@ -32,7 +32,7 @@ import org.eclipse.xtext.resource.XtextResourceSet;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.xtext.BCOoLStandaloneSetup;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
-import org.gemoc.commons.eclipse.core.resources.Project;
+import org.eclipse.gemoc.commons.eclipse.core.resources.Project;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;

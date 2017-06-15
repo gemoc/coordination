@@ -33,7 +33,7 @@ import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.gemoc.bcool.model.xtext.builder.GemocBCOoLNature;
 import org.gemoc.bcool.ui.Activator;
 import org.gemoc.bcool.ui.ResourceMessages;
-import org.gemoc.commons.eclipse.core.resources.Project;
+import org.eclipse.gemoc.commons.eclipse.core.resources.Project;
 
 /**
  * @author Didier Vojtisek<didier.vojtisek@inria.fr>
