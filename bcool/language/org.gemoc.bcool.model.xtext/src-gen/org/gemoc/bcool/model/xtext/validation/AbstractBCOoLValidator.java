@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.ComposedChecks;
 
 @ComposedChecks(validators= {org.eclipse.xtext.validation.ImportUriValidator.class, org.eclipse.xtext.validation.NamesAreUniqueValidator.class})
-public class AbstractBCOoLValidator extends org.gemoc.gexpressions.xtext.validation.GExpressionsValidator {
+public class AbstractBCOoLValidator extends org.eclipse.gemoc.gexpressions.xtext.validation.GExpressionsValidator {
 
 	@Override
 	protected List<EPackage> getEPackages() {

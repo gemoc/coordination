@@ -66,7 +66,7 @@
            	<packageToRegister>org.eclipse.ocl.xtext.essentialoclcs.EssentialOCLCSPackage</packageToRegister>
            	<packageToRegister>org.eclipse.xtext.xbase.XbasePackage</packageToRegister>
            	<packageToRegister>org.gemoc.bcool.model.bcool.BcoolPackage</packageToRegister>
-           	<packageToRegister>org.gemoc.gexpressions.GexpressionsPackage</packageToRegister>           	
+           	<packageToRegister>org.eclipse.gemoc.gexpressions.GexpressionsPackage</packageToRegister>           	
          </packagesToRegister>
        </configuration>
      </plugin>

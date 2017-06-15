@@ -1586,7 +1586,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                      			current, 
                      			"condition",
                       		lv_condition_1_0, 
-                      		"org.gemoc.gexpressions.xtext.GExpressions.GExpression");
+                      		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GExpression");
               	        afterParserOrEnumRuleCall();
               	    
             }
@@ -2912,7 +2912,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"operator",
             	              		lv_operator_2_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GOrOperator");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GOrOperator");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -2947,7 +2947,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"rightOperand",
             	              		lv_rightOperand_3_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GXorExpression");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GXorExpression");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -3118,7 +3118,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"operator",
             	              		lv_operator_2_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GXorOperator");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GXorOperator");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -3153,7 +3153,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"rightOperand",
             	              		lv_rightOperand_3_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GAndExpression");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GAndExpression");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -3324,7 +3324,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"operator",
             	              		lv_operator_2_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GAndOperator");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GAndOperator");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -3359,7 +3359,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"rightOperand",
             	              		lv_rightOperand_3_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GEqualityExpression");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GEqualityExpression");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -3530,7 +3530,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"operator",
             	              		lv_operator_2_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GEqualityOperator");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GEqualityOperator");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -3565,7 +3565,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"rightOperand",
             	              		lv_rightOperand_3_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GRelationExpression");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GRelationExpression");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -3736,7 +3736,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"operator",
             	              		lv_operator_2_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GRelationOperator");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GRelationOperator");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -3771,7 +3771,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"rightOperand",
             	              		lv_rightOperand_3_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GAdditionExpression");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GAdditionExpression");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -3942,7 +3942,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"operator",
             	              		lv_operator_2_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GAdditionOperator");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GAdditionOperator");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -3977,7 +3977,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"rightOperand",
             	              		lv_rightOperand_3_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GMultiplicationExpression");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GMultiplicationExpression");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -4148,7 +4148,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"operator",
             	              		lv_operator_2_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GMultiplicationOperator");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GMultiplicationOperator");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -4183,7 +4183,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
             	             			current, 
             	             			"rightOperand",
             	              		lv_rightOperand_3_0, 
-            	              		"org.gemoc.gexpressions.xtext.GExpressions.GNegationExpression");
+            	              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GNegationExpression");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -4366,7 +4366,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                              			current, 
                              			"operator",
                               		lv_operator_2_0, 
-                              		"org.gemoc.gexpressions.xtext.GExpressions.GNegationOperator");
+                              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GNegationOperator");
                       	        afterParserOrEnumRuleCall();
                       	    
                     }
@@ -4401,7 +4401,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                              			current, 
                              			"operand",
                               		lv_operand_3_0, 
-                              		"org.gemoc.gexpressions.xtext.GExpressions.GNavigationExpression");
+                              		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GNavigationExpression");
                       	        afterParserOrEnumRuleCall();
                       	    
                     }
@@ -5251,7 +5251,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                      			current, 
                      			"value",
                       		lv_value_1_0, 
-                      		"org.gemoc.gexpressions.xtext.GExpressions.BOOLEAN");
+                      		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.BOOLEAN");
               	    
             }
 
@@ -5633,7 +5633,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                      			current, 
                      			"value",
                       		lv_value_1_0, 
-                      		"org.gemoc.gexpressions.xtext.GExpressions.DOUBLE");
+                      		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.DOUBLE");
               	    
             }
 
@@ -5904,7 +5904,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                      			current, 
                      			"condition",
                       		lv_condition_2_0, 
-                      		"org.gemoc.gexpressions.xtext.GExpressions.GExpression");
+                      		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GExpression");
               	        afterParserOrEnumRuleCall();
               	    
             }
@@ -5945,7 +5945,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                      			current, 
                      			"thenExpression",
                       		lv_thenExpression_4_0, 
-                      		"org.gemoc.gexpressions.xtext.GExpressions.GExpression");
+                      		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GExpression");
               	        afterParserOrEnumRuleCall();
               	    
             }
@@ -5986,7 +5986,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                      			current, 
                      			"elseExpression",
                       		lv_elseExpression_6_0, 
-                      		"org.gemoc.gexpressions.xtext.GExpressions.GExpression");
+                      		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GExpression");
               	        afterParserOrEnumRuleCall();
               	    
             }
@@ -6127,7 +6127,7 @@ public class InternalBCOoLParser extends AbstractInternalAntlrParser {
                      			current, 
                      			"innerExpression",
                       		lv_innerExpression_2_0, 
-                      		"org.gemoc.gexpressions.xtext.GExpressions.GExpression");
+                      		"org.eclipse.gemoc.gexpressions.xtext.GExpressions.GExpression");
               	        afterParserOrEnumRuleCall();
               	    
             }

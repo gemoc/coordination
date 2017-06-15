@@ -4,7 +4,7 @@ package org.gemoc.bcool.model.bcool;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GExpression;
 
 /**
  * <!-- begin-user-doc -->

@@ -18,7 +18,7 @@ public class BCOoLStandaloneSetupGenerated implements ISetup {
 
 	@Override
 	public Injector createInjectorAndDoEMFRegistration() {
-		org.gemoc.gexpressions.xtext.GExpressionsStandaloneSetup.doSetup();
+		org.eclipse.gemoc.gexpressions.xtext.GExpressionsStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);

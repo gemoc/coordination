@@ -1,4 +1,4 @@
-grammar org.gemoc.bcool.model.xtext.BCOoL with org.gemoc.gexpressions.xtext.GExpressions
+grammar org.gemoc.bcool.model.xtext.BCOoL with org.eclipse.gemoc.gexpressions.xtext.GExpressions
 
 //import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
 //import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types

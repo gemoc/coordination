@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.gemoc.bcool.model.bcool.BcoolPackage;
 import org.gemoc.bcool.model.bcool.EventExpression;
 import org.gemoc.bcool.model.bcool.MatchingRule;
-import org.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GExpression;
 
 /**
  * <!-- begin-user-doc -->

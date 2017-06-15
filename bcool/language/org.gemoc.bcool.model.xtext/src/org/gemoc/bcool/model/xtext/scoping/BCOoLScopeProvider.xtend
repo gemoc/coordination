@@ -14,7 +14,7 @@ import org.eclipse.ocl.xtext.completeoclcs.DefPropertyCS
 import org.eclipse.xtext.scoping.IScope
 import org.gemoc.bcool.model.bcool.BCoolOperatorArg
 import org.gemoc.bcool.model.xtext.helpers.BCoolXtextHelper
-import org.gemoc.gexpressions.xtext.scoping.GExpressionsScopeProvider
+import org.eclipse.gemoc.gexpressions.xtext.scoping.GExpressionsScopeProvider
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.impl.FilteringScope
 import org.eclipse.xtext.resource.IEObjectDescription

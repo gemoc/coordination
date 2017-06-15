@@ -172,7 +172,7 @@
 					</dependency> -->
 					
 		<!-- 			<dependency>
-						<groupId>org.gemoc.gexpressions</groupId>
+						<groupId>org.eclipse.gemoc.gexpressions</groupId>
   						<artifactId>gexpressions</artifactId>
   						<version>0.1.0</version>
 <exclusions>
@@ -184,7 +184,7 @@
 					</dependency>
 					
 						<dependency>
-						<groupId>org.gemoc.gexpressions.xtext</groupId>
+						<groupId>org.eclipse.gemoc.gexpressions.xtext</groupId>
   						<artifactId>xtext</artifactId>
   						<version>1.0.0</version>
 <exclusions>

@@ -12,7 +12,7 @@ import org.eclipse.xtext.*;
 import org.eclipse.xtext.service.GrammarProvider;
 import org.eclipse.xtext.service.AbstractElementFinder.*;
 
-import org.gemoc.gexpressions.xtext.services.GExpressionsGrammarAccess;
+import org.eclipse.gemoc.gexpressions.xtext.services.GExpressionsGrammarAccess;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 
 @Singleton

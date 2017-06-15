@@ -32,15 +32,15 @@ import org.gemoc.bcool.model.bcool.BCoolOperatorArg;
 import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.model.bcool.EventExpression;
 import org.gemoc.bcool.model.bcool.ImportInterfaceStatement;
-import org.gemoc.gexpressions.GAndExpression;
-import org.gemoc.gexpressions.GBooleanExpression;
-import org.gemoc.gexpressions.GBraceExpression;
-import org.gemoc.gexpressions.GEqualityExpression;
-import org.gemoc.gexpressions.GExpression;
-import org.gemoc.gexpressions.GNavigationExpression;
-import org.gemoc.gexpressions.GNegationExpression;
-import org.gemoc.gexpressions.GReferenceExpression;
-import org.gemoc.gexpressions.GStringExpression;
+import org.eclipse.gemoc.gexpressions.GAndExpression;
+import org.eclipse.gemoc.gexpressions.GBooleanExpression;
+import org.eclipse.gemoc.gexpressions.GBraceExpression;
+import org.eclipse.gemoc.gexpressions.GEqualityExpression;
+import org.eclipse.gemoc.gexpressions.GExpression;
+import org.eclipse.gemoc.gexpressions.GNavigationExpression;
+import org.eclipse.gemoc.gexpressions.GNegationExpression;
+import org.eclipse.gemoc.gexpressions.GReferenceExpression;
+import org.eclipse.gemoc.gexpressions.GStringExpression;
 
 import com.google.inject.Injector;
 

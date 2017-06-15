@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ocl.xtext.completeocl;bundle-version="1.1.1";visibility:=reexport,
  org.eclipse.ocl.xtext.essentialocl;bundle-version="1.1.0";visibility:=reexport,
  org.eclipse.ocl.pivot;bundle-version="1.1.1";visibility:=reexport,
- org.gemoc.gexpressions;visibility:=reexport,
+ org.eclipse.gemoc.gexpressions;visibility:=reexport,
  org.eclipse.xtext.xbase;bundle-version="2.10.0";visibility:=reexport,
  org.eclipse.xtext.common.types;bundle-version="2.10.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
