@@ -37,7 +37,7 @@ import org.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
 import org.gemoc.bflow.BFlowStandaloneSetup;
 import org.gemoc.bflow.bFlow.Model;
-import org.gemoc.execution.concurrent.ccsljavaengine.ui.LogicalStepDeciderFactory;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.LogicalStepDeciderFactory;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
 import org.eclipse.gemoc.executionframework.engine.core.ExecutionWorkspace;
@@ -423,7 +423,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 			generator.doGenerate(monitor );
 		} catch (IOException e) {
 			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-			org.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().getLog().log(status);
+			org.eclipse.gemoc.execution.concurrent.ccsljavaengine.Activator.getDefault().getLog().log(status);
 		} finally {
 			try {
 				bcoolFile.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);

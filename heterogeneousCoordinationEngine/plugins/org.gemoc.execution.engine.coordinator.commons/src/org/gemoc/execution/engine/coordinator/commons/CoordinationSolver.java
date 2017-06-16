@@ -3,7 +3,7 @@ package org.gemoc.execution.engine.coordinator.commons;
 import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.URI;
-import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver;
 
 import fr.inria.aoste.timesquare.ccslkernel.solver.CCSLKernelSolver;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
