@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.gemoc.execution.engine.coordinator.commons.HeterogeneousEngine.ExtendedLogicalStep;
 
-import fr.inria.diverse.trace.commons.model.trace.impl.StepImpl;
+import org.eclipse.gemoc.trace.commons.model.trace.impl.StepImpl;
 
 
 /**

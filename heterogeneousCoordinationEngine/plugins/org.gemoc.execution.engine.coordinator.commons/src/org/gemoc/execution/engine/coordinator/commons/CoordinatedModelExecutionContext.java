@@ -54,7 +54,7 @@ import org.osgi.framework.Bundle;
 import com.google.inject.Injector;
 
 import fr.inria.aoste.timesquare.ccslkernel.parser.xtext.ExtendedCCSLStandaloneSetup;
-import fr.inria.diverse.trace.commons.model.trace.MSEModel;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEModel;
 
 public class CoordinatedModelExecutionContext implements IExecutionContext
 {

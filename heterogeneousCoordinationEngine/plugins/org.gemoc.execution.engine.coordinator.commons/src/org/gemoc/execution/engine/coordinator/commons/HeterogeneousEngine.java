@@ -47,14 +47,14 @@ import fr.inria.aoste.timesquare.ccslkernel.runtime.exceptions.SimulationExcepti
 import fr.inria.aoste.timesquare.ccslkernel.solver.CCSLKernelSolver;
 import fr.inria.aoste.timesquare.ccslkernel.solver.TimeModel.SolverClock;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
-import fr.inria.diverse.trace.commons.model.generictrace.GenericStep;
-import fr.inria.diverse.trace.commons.model.generictrace.GenerictraceFactory;
-import fr.inria.diverse.trace.commons.model.generictrace.impl.GenericParallelStepImpl;
-import fr.inria.diverse.trace.commons.model.helper.StepHelper;
-import fr.inria.diverse.trace.commons.model.trace.BigStep;
-import fr.inria.diverse.trace.commons.model.trace.MSE;
-import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenericStep;
+import org.eclipse.gemoc.trace.commons.model.generictrace.GenerictraceFactory;
+import org.eclipse.gemoc.trace.commons.model.generictrace.impl.GenericParallelStepImpl;
+import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
+import org.eclipse.gemoc.trace.commons.model.trace.BigStep;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 /**
  * Naive implementation of the heterogeneous ExecutionEngine, where so called coordinated execution engines are

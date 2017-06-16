@@ -7,7 +7,7 @@ import org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.i
 
 import fr.inria.aoste.timesquare.ccslkernel.solver.CCSLKernelSolver;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 public class CoordinationSolver extends CcslSolver {
 

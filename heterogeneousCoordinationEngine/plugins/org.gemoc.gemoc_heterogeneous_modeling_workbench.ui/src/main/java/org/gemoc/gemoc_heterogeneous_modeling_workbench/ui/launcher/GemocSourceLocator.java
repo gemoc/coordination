@@ -3,9 +3,9 @@ package org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher;
 import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.emf.ecore.EObject;
 
-import fr.inria.diverse.trace.commons.model.helper.StepHelper;
-import fr.inria.diverse.trace.commons.model.trace.MSE;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.dsl.debug.ide.DSLSourceLocator;
 import org.eclipse.gemoc.dsl.debug.ide.adapter.DSLStackFrameAdapter;
 

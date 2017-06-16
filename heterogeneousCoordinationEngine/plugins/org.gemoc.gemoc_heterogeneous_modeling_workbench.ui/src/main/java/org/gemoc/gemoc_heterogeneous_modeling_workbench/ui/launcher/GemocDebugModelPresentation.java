@@ -16,9 +16,9 @@ import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
 import org.eclipse.gemoc.executionframework.ui.IMSEPresenter;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
-import fr.inria.diverse.trace.commons.model.helper.StepHelper;
-import fr.inria.diverse.trace.commons.model.trace.MSE;
-import fr.inria.diverse.trace.commons.model.trace.Step;
+import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
+import org.eclipse.gemoc.trace.commons.model.trace.MSE;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 import org.eclipse.gemoc.dsl.debug.ide.adapter.DSLStackFrameAdapter;
 import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DSLDebugModelPresentation;
 import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
