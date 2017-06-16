@@ -29,7 +29,7 @@ import org.gemoc.execution.concurrent.ccsljavaxdsml.api.extensions.deciders.Deci
 import org.gemoc.execution.engine.coordinator.commons.CoordinatedRunConfiguration;
 import org.eclipse.gemoc.executionframework.engine.ui.commons.RunConfiguration;
 import org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.Activator;
-import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
+import org.eclipse.gemoc.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 
 public class CoordinatedLaunchConfigurationMainTab extends LaunchConfigurationTab {
 

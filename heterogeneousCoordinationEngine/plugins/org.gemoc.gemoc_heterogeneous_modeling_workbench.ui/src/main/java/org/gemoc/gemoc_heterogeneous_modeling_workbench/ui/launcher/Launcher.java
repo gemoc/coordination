@@ -33,13 +33,13 @@ import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionContext;
 
 import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
-import fr.obeo.dsl.debug.ide.IDSLDebugger;
-import fr.obeo.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
-import fr.obeo.dsl.debug.ide.event.DSLDebugEventDispatcher;
+import org.eclipse.gemoc.dsl.debug.ide.IDSLDebugger;
+import org.eclipse.gemoc.dsl.debug.ide.adapter.IDSLCurrentInstructionListener;
+import org.eclipse.gemoc.dsl.debug.ide.event.DSLDebugEventDispatcher;
 
 public class Launcher
 		extends
-		fr.obeo.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI 
+		org.eclipse.gemoc.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI 
 {
 	
 	

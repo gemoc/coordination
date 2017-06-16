@@ -19,9 +19,9 @@ import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 import fr.inria.diverse.trace.commons.model.helper.StepHelper;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
 import fr.inria.diverse.trace.commons.model.trace.Step;
-import fr.obeo.dsl.debug.ide.adapter.DSLStackFrameAdapter;
-import fr.obeo.dsl.debug.ide.sirius.ui.DSLDebugModelPresentation;
-import fr.obeo.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
+import org.eclipse.gemoc.dsl.debug.ide.adapter.DSLStackFrameAdapter;
+import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.DSLDebugModelPresentation;
+import org.eclipse.gemoc.dsl.debug.ide.sirius.ui.SiriusEditorUtils;
 
 public class GemocDebugModelPresentation extends DSLDebugModelPresentation {
 

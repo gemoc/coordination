@@ -6,8 +6,8 @@ import org.eclipse.emf.ecore.EObject;
 import fr.inria.diverse.trace.commons.model.helper.StepHelper;
 import fr.inria.diverse.trace.commons.model.trace.MSE;
 import fr.inria.diverse.trace.commons.model.trace.Step;
-import fr.obeo.dsl.debug.ide.DSLSourceLocator;
-import fr.obeo.dsl.debug.ide.adapter.DSLStackFrameAdapter;
+import org.eclipse.gemoc.dsl.debug.ide.DSLSourceLocator;
+import org.eclipse.gemoc.dsl.debug.ide.adapter.DSLStackFrameAdapter;
 
 public class GemocSourceLocator extends DSLSourceLocator {
 
