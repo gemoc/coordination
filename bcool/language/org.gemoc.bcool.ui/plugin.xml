@@ -6,24 +6,24 @@
       <category
             id="org.gemoc.bcool.ui"
             name="GEMOC Language Coordination"
-            parentCategory="org.gemoc.xdsmlframework.category">
+            parentCategory="org.eclipse.gemoc.xdsmlframework.category">
       </category>
       <wizard
-            category="org.gemoc.xdsmlframework.category/org.gemoc.bcool.ui"
+            category="org.eclipse.gemoc.xdsmlframework.category/org.gemoc.bcool.ui"
             class="org.gemoc.bcool.ui.wizards.BCOoLFileNewWizard"
             icon="icons/bcoolicon.ico"
             id="org.gemoc.bcool.ui.wizards.BCOoLFileNewWizard"
             name="BCOoL File">
       </wizard>
       <wizard
-            category="org.gemoc.xdsmlframework.category/org.gemoc.bcool.ui"
+            category="org.eclipse.gemoc.xdsmlframework.category/org.gemoc.bcool.ui"
             class="org.gemoc.bcool.ui.wizards.BCOoLLibFileNewWizard"
             icon="icons/bcoolicon.ico"
             id="org.gemoc.bcool.ui.wizards.BCOoLLibFileNewWizard"
             name="BCOoLLib File">
       </wizard>
       <wizard
-            category="org.gemoc.xdsmlframework.category/org.gemoc.bcool.ui"
+            category="org.eclipse.gemoc.xdsmlframework.category/org.gemoc.bcool.ui"
             class="org.gemoc.bcool.ui.wizards.BCOoLProjectNewWizard"
             icon="icons/bcoolicon.ico"
             id="org.gemoc.bcool.ui.wizards.BCOoLProjectNewWizard"
