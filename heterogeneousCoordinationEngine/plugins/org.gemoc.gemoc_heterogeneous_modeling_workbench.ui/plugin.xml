@@ -223,7 +223,7 @@
          </menuContribution>
          <menuContribution
                allPopups="false"
-               locationURI="popup:org.gemoc.executionframework.engine.io.views.timeline.TimeLineView">
+               locationURI="popup:org.eclipse.gemoc.executionframework.engine.io.views.timeline.TimeLineView">
             <command
                   commandId="org.gemoc.gemoc_modeling_workbench.ui.timeline.ShowCallerCommand"
                   icon="icons/showCaller.png"
@@ -249,7 +249,7 @@
          </menuContribution>
          <menuContribution
                allPopups="false"
-               locationURI="popup:org.gemoc.executionframework.engine.io.views.event.EventManagerView">
+               locationURI="popup:org.eclipse.gemoc.executionframework.engine.io.views.event.EventManagerView">
             <command
                   commandId="org.gemoc.gemoc_modeling_workbench.ui.ToggleBreapointCommand"
                   icon="icons/breakpoint.gif"

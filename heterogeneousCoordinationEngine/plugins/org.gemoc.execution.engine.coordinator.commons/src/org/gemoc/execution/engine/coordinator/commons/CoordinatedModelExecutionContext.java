@@ -39,8 +39,8 @@ import org.gemoc.bflow.BFlowStandaloneSetup;
 import org.gemoc.bflow.bFlow.Model;
 import org.gemoc.execution.concurrent.ccsljavaengine.ui.LogicalStepDeciderFactory;
 import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
-import org.gemoc.executionframework.engine.commons.EngineContextException;
-import org.gemoc.executionframework.engine.core.ExecutionWorkspace;
+import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
+import org.eclipse.gemoc.executionframework.engine.core.ExecutionWorkspace;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine;
@@ -208,7 +208,7 @@ public ArrayList<IExecutionEngine> getCoordinatedEngines() {
 		ArrayList<IFile> inputModelfiles = new ArrayList<IFile>();
 		ArrayList<IFile> timodelFiles = new ArrayList<IFile>();
 		coordinatedEngines  = new ArrayList<IExecutionEngine>();
-		Collection<IExecutionEngine> engines = org.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry.getRunningEngines().values();
+		Collection<IExecutionEngine> engines = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry.getRunningEngines().values();
 		for (IExecutionEngine engine : engines)
 		{
 			if (engine.getRunningStatus() == RunStatus.Stopped){

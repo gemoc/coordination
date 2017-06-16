@@ -13,7 +13,7 @@ import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.gemoc.execution.concurrent.ccsljavaengine.concurrentmse.FeedbackMSE;
-import org.gemoc.executionframework.ui.IMSEPresenter;
+import org.eclipse.gemoc.executionframework.ui.IMSEPresenter;
 
 import fr.inria.aoste.timesquare.ecl.feedback.feedback.ModelSpecificEvent;
 import fr.inria.diverse.trace.commons.model.helper.StepHelper;
@@ -90,7 +90,7 @@ public class GemocDebugModelPresentation extends DSLDebugModelPresentation {
 				uris.add(EcoreUtil.getURI((FeedbackMSE)((FeedbackMSE) event).getFeedbackModelSpecificEvent()));
 			}
 		}
-		for (IMSEPresenter presenter : org.gemoc.executionframework.ui.Activator
+		for (IMSEPresenter presenter : org.eclipse.gemoc.executionframework.ui.Activator
 				.getDefault().getEventPresenters()) {
 			presenter.present(uris);
 		}
