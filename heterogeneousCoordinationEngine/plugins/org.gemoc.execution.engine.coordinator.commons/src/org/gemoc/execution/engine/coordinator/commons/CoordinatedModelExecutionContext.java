@@ -38,7 +38,7 @@ import org.gemoc.bcool.transformation.bcool2qvto.ui.common.GenerateAll;
 import org.gemoc.bflow.BFlowStandaloneSetup;
 import org.gemoc.bflow.bFlow.Model;
 import org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.LogicalStepDeciderFactory;
-import org.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
+import org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api.core.ILogicalStepDecider;
 import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
 import org.eclipse.gemoc.executionframework.engine.core.ExecutionWorkspace;
 import org.eclipse.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus;
