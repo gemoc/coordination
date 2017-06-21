@@ -3,7 +3,7 @@
       id="org.gemoc.bcool.license.feature"
       label="Timesquare ECL License"
       version="2.3.0.qualifier"
-      provider-name="Aoste INRIA/I3S">
+      provider-name="%providerName">
 
    <description>
       Timesquare ECL license feature plugin

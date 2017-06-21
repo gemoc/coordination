@@ -3,7 +3,7 @@
       id="org.gemoc.bcool.feature"
       label="BCOoL editor and transfo"
       version="2.3.0.qualifier"
-      provider-name="Aoste INRIA / I3S"
+      provider-name="%providerName"
       plugin="fr.inria.aoste.timesquare.branding"
       image="gemocstudio32.png"
       license-feature-version="2.3.0.qualifier">
