@@ -47,14 +47,15 @@ import fr.inria.aoste.timesquare.ccslkernel.runtime.exceptions.SimulationExcepti
 import fr.inria.aoste.timesquare.ccslkernel.solver.CCSLKernelSolver;
 import fr.inria.aoste.timesquare.ccslkernel.solver.TimeModel.SolverClock;
 import fr.inria.aoste.timesquare.ccslkernel.solver.launch.CCSLKernelSolverWrapper;
-import org.eclipse.gemoc.trace.commons.model.generictrace.GenericStep;
-import org.eclipse.gemoc.trace.commons.model.generictrace.GenerictraceFactory;
-import org.eclipse.gemoc.trace.commons.model.generictrace.impl.GenericParallelStepImpl;
-import org.eclipse.gemoc.trace.commons.model.helper.StepHelper;
-import org.eclipse.gemoc.trace.commons.model.trace.BigStep;
-import org.eclipse.gemoc.trace.commons.model.trace.MSE;
-import org.eclipse.gemoc.trace.commons.model.trace.MSEOccurrence;
-import org.eclipse.gemoc.trace.commons.model.trace.Step;
+import fr.inria.diverse.trace.commons.model.helper.StepHelper;
+import fr.inria.diverse.trace.commons.model.trace.BigStep;
+import fr.inria.diverse.trace.commons.model.trace.GenericParallelStep;
+import fr.inria.diverse.trace.commons.model.trace.MSE;
+import fr.inria.diverse.trace.commons.model.trace.MSEOccurrence;
+import fr.inria.diverse.trace.commons.model.trace.SmallStep;
+import fr.inria.diverse.trace.commons.model.trace.Step;
+import fr.inria.diverse.trace.commons.model.trace.TraceFactory;
+
 
 /**
  * Naive implementation of the heterogeneous ExecutionEngine, where so called coordinated execution engines are
@@ -246,13 +247,17 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 		}
 	}
 
-	class ExtendedLogicalStep extends GenericParallelStepImpl {
+	class ExtendedLogicalStep extends fr.inria.diverse.trace.commons.model.trace.impl.GenericParallelStepImpl {
 
-		public ExtendedLogicalStep(BigStep<GenericStep,?> step) {
-			this.subSteps = new BasicEList<GenericStep>(step.getSubSteps().size());
-			this.subSteps.addAll(((BigStep<GenericStep,?>) step).getSubSteps());
+		public ExtendedLogicalStep(BigStep<SmallStep> step) {
+			this.subSteps = new BasicEList<Step>(step.getSubSteps().size());
+			this.subSteps.addAll(((BigStep<SmallStep>) step).getSubSteps());
 		}
 
+		public ExtendedLogicalStep(GenericParallelStep step) {
+			this.subSteps = new BasicEList<Step>(step.getSubSteps().size());
+			this.subSteps.addAll((step).getSubSteps());
+		}
 		int indexInSolution = 0;
 		int solverIndex = 0;
 
@@ -332,12 +337,12 @@ public class HeterogeneousEngine extends AbstractExecutionEngine implements ICon
 	private List<ExtendedLogicalStep> extendLogicalSteps(List<Step<?>> possibleLogicalSteps, int iSolver) {
 		List<ExtendedLogicalStep> res = new ArrayList<ExtendedLogicalStep>(possibleLogicalSteps.size());
 		for (int i = 0; i < possibleLogicalSteps.size(); i++) {
-			ExtendedLogicalStep eStep = new ExtendedLogicalStep((BigStep<GenericStep,?>) possibleLogicalSteps.get(i));
+			ExtendedLogicalStep eStep = new ExtendedLogicalStep((BigStep<SmallStep>) possibleLogicalSteps.get(i));
 			eStep.indexInSolution = i;
 			eStep.solverIndex = iSolver;
 			res.add(eStep);
 		}
-		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep((BigStep<GenericStep,?>) GenerictraceFactory.eINSTANCE.createGenericParallelStep());
+		ExtendedLogicalStep emptyLogicalStep = new ExtendedLogicalStep(/*(BigStep<SmallStep>)*/ TraceFactory.eINSTANCE.createGenericParallelStep());
 		emptyLogicalStep.indexInSolution = possibleLogicalSteps.size();
 		emptyLogicalStep.solverIndex = iSolver;
 		res.add(emptyLogicalStep);
