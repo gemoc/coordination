@@ -4,12 +4,12 @@
 
   <parent>
     <relativePath>../../pom.xml</relativePath>
-    <groupId>org.gemoc.coordination</groupId>
+    <groupId>org.eclipse.gemoc.coordination</groupId>
     <version>2.3.0-SNAPSHOT</version>
-    <artifactId>org.gemoc.heterogeneous_coordination_engine.root</artifactId>
+    <artifactId>org.eclipse.gemoc.heterogeneous_coordination_engine.root</artifactId>
   </parent>
 
-  <artifactId>org.gemoc.heterogeneous_coordination_engine.repository</artifactId>
+  <artifactId>org.eclipse.gemoc.heterogeneous_coordination_engine.repository</artifactId>
   <packaging>eclipse-repository</packaging>
 
 </project> 
