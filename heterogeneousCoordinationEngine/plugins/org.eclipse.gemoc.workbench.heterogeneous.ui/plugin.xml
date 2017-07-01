@@ -7,22 +7,22 @@
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
             delegate="org.eclipse.gemoc.workbench.heterogeneous.ui.launcher.Launcher"
-            id="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher"
+            id="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher"
             modes="run, debug"
             name="Gemoc Coordinated eXecutable Models"
             public="true"
-            sourceLocatorId="org.gemoc.gemoc_modeling_workbench.ui.sourceLocator">
+            sourceLocatorId="org.eclipse.gemoc.gemoc_modeling_workbench.ui.sourceLocator">
       </launchConfigurationType>
    </extension>
     <extension
           point="org.eclipse.debug.ui.debugModelPresentations">
        <debugModelPresentation
              class="org.eclipse.gemoc.workbench.heterogeneous.ui.launcher.GemocDebugModelPresentation"
-             id="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.debugModel">
+             id="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.debugModel">
        </debugModelPresentation>
     </extension>
     <extension
-          id="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakpointMarker"
+          id="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakpointMarker"
           point="org.eclipse.core.resources.markers">
        <persistent
              value="true">
@@ -31,33 +31,33 @@
              type="org.eclipse.gemoc.dsl.debug.ide.breakpointMarker">
        </super>
        <attribute
-             name="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakOnLogicalStep">
+             name="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakOnLogicalStep">
        </attribute>
        <attribute
-             name="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakOnMSE">
+             name="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakOnMSE">
        </attribute>
     </extension>
     <extension
           point="org.eclipse.debug.core.breakpoints">
        <breakpoint
-             class="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.GemocBreakpoint"
-             id="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.gemocBreakpoint"
-             markerType="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakpointMarker"
+             class="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.GemocBreakpoint"
+             id="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.gemocBreakpoint"
+             markerType="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.breakpointMarker"
              name="Gemoc Breakpoints">
        </breakpoint>
     </extension>
    <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
     <launchConfigurationTypeImage
         icon="icons/IconeGemocModel-16.png"
-        configTypeID="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher"
-        id="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher.image">
+        configTypeID="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher"
+        id="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher.image">
     </launchConfigurationTypeImage>
 	</extension>
 	   <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
 	    <launchConfigurationTabGroup
            class="org.eclipse.gemoc.workbench.heterogeneous.ui.launcher.LauncherTabGroup"
-           id="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher.tabGroup"
-           type="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher">
+           id="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher.tabGroup"
+           type="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.launcher">
 	    </launchConfigurationTabGroup>
 	</extension>
 	<extension
@@ -65,11 +65,11 @@
       <shortcut
             class="org.eclipse.gemoc.workbench.heterogeneous.ui.launcher.Launcher"
             icon="icons/IconeGemocModel-16.png"
-            id="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.GemocExecutableReflectiveModel"
+            id="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.GemocExecutableReflectiveModel"
             label="GEMOC coordinated eXecutable Models"
             modes="run, debug">
          <configurationType
-               id="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.GemocReflectiveModelLauncherID">
+               id="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.GemocReflectiveModelLauncherID">
          </configurationType>
          <contextualLaunch>
             <enablement>
@@ -106,8 +106,8 @@
 <!-- <extension
        point="org.eclipse.debug.ui.detailPaneFactories">
     <detailFactories
-          class="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.breakpoint.BreakpointDetailPaneFactory"
-          id="org.gemoc.gemoc_modeling_workbench.ui.breakpoint.detailFactories">
+          class="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.breakpoint.BreakpointDetailPaneFactory"
+          id="org.eclipse.gemoc.gemoc_modeling_workbench.ui.breakpoint.detailFactories">
        <enablement>
           <with
                 variable="selection">
@@ -116,7 +116,7 @@
              </count>
              <iterate>
                 <instanceof
-                      value="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.breakpoint.GemocBreakpoint">
+                      value="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.breakpoint.GemocBreakpoint">
                 </instanceof>
              </iterate>
           </with>
@@ -128,7 +128,7 @@
          point="org.eclipse.debug.core.sourceLocators">
       <sourceLocator
             class="org.eclipse.gemoc.workbench.heterogeneous.ui.launcher.GemocSourceLocator"
-            id="org.gemoc.gemoc_modeling_workbench.ui.sourceLocator"
+            id="org.eclipse.gemoc.gemoc_modeling_workbench.ui.sourceLocator"
             name="Gemoc Source Locator">
       </sourceLocator>
    </extension>
@@ -146,10 +146,10 @@
          point="org.eclipse.ui.popupMenus">
       <objectContribution
             objectClass="org.eclipse.core.resources.IFile"
-            id="org.gemoc.modeling.menu.contribution">
+            id="org.eclipse.gemoc.modeling.menu.contribution">
          <menu
                icon="icons/IconeGemocModel-16.png"
-               id="org.gemoc.modeling.menu"
+               id="org.eclipse.gemoc.modeling.menu"
                label="GEMOC"
                path="additions">
             <separator
@@ -158,28 +158,28 @@
          </menu>
          <action
                label="Generate extended CCSL (use language specified QVTO)"
-               class="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.actions.GenerateExtendedCCSLFile"
-               menubarPath="org.gemoc.modeling.menu/group1"
-               id="org.gemoc.modeling.generate.extendedccsl">
+               class="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.actions.GenerateExtendedCCSLFile"
+               menubarPath="org.eclipse.gemoc.modeling.menu/group1"
+               id="org.eclipse.gemoc.modeling.generate.extendedccsl">
          </action>
          <action
-               class="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.actions.ChooseBCoOLAndGenerateCoordinationExtendedCCSLFile"
-               id="org.gemoc.modeling.generate.extendedccsl2"
+               class="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.actions.ChooseBCoOLAndGenerateCoordinationExtendedCCSLFile"
+               id="org.eclipse.gemoc.modeling.generate.extendedccsl2"
                label="Generate extended CCSL (choose QVTO)"
-               menubarPath="org.gemoc.modeling.menu/group1">
+               menubarPath="org.eclipse.gemoc.modeling.menu/group1">
          </action>
 
          <action
                label="Generate time model (use language specified QVTO)"
-               class="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.actions.GenerateTimeModelFile"
-               menubarPath="org.gemoc.modeling.menu/group1"
-               id="org.gemoc.modeling.generate.extendedccsl">
+               class="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.actions.GenerateTimeModelFile"
+               menubarPath="org.eclipse.gemoc.modeling.menu/group1"
+               id="org.eclipse.gemoc.modeling.generate.extendedccsl">
          </action>
          <action
-               class="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui.actions.ChooseQVTOAndGenerateTimeModelFile"
-               id="org.gemoc.modeling.generate.extendedccsl2"
+               class="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui.actions.ChooseQVTOAndGenerateTimeModelFile"
+               id="org.eclipse.gemoc.modeling.generate.extendedccsl2"
                label="Generate time model (choose QVTO)"
-               menubarPath="org.gemoc.modeling.menu/group1">
+               menubarPath="org.eclipse.gemoc.modeling.menu/group1">
          </action>
 
       </objectContribution>
@@ -197,7 +197,7 @@
                   id="gemoc"
                   label="Gemoc">
                <command
-                     commandId="org.gemoc.gemoc_modeling_workbench.ui.addDebugLayer"
+                     commandId="org.eclipse.gemoc.gemoc_modeling_workbench.ui.addDebugLayer"
                      icon="icons/gemoc-logo-16.png"
                      label="Add debug layer"
                      style="push"
@@ -225,7 +225,7 @@
                allPopups="false"
                locationURI="popup:org.eclipse.gemoc.executionframework.engine.io.views.timeline.TimeLineView">
             <command
-                  commandId="org.gemoc.gemoc_modeling_workbench.ui.timeline.ShowCallerCommand"
+                  commandId="org.eclipse.gemoc.gemoc_modeling_workbench.ui.timeline.ShowCallerCommand"
                   icon="icons/showCaller.png"
                   label="Show Caller"
                   style="toggle">
@@ -251,7 +251,7 @@
                allPopups="false"
                locationURI="popup:org.eclipse.gemoc.executionframework.engine.io.views.event.EventManagerView">
             <command
-                  commandId="org.gemoc.gemoc_modeling_workbench.ui.ToggleBreapointCommand"
+                  commandId="org.eclipse.gemoc.gemoc_modeling_workbench.ui.ToggleBreapointCommand"
                   icon="icons/breakpoint.gif"
                   label="Toggle breakpoint (heterogeneous)"
                   style="push">
