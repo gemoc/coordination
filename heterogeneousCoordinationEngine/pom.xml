@@ -61,12 +61,12 @@
 	            <activeByDefault>true</activeByDefault>
 	        </activation>
 	        <repositories>
-			<repository>
-			    <id>modelanimation_siriusmodelanimation on CI</id>
-			    <layout>p2</layout>
-			    <url>http://obeo-siriuslab-nightly.s3-website-eu-west-1.amazonaws.com/SiriusAnimator/master/repository/</url>
-			</repository>
-				<repository>
+			<!--<repository>
+		            <id>modelanimation_siriusmodelanimation on CI</id>
+		            <layout>p2</layout>
+		            <url>http://obeo-siriuslab-nightly.s3-website-eu-west-1.amazonaws.com/SiriusAnimator/master/repository/</url>
+                        </repository>-->
+                        <repository>
 		            <id>gemoc-studio_commons on CI</id>
 		            <layout>p2</layout>
 		            <url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.eclipse.gemoc.commons.repository/target/repository/</url>
