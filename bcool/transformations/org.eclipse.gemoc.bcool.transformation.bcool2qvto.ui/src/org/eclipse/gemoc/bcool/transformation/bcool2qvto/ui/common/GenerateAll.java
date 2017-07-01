@@ -79,7 +79,7 @@ public class GenerateAll {
 			targetFolder.getLocation().toFile().mkdirs();
 		}
 		
-		// final URI template0 = getTemplateURI("org.eclipse.gemoc.bcool.transformation.bcool2qvto", new Path("/org/gemoc/bcool/transformation/bcool2qvto/common/generate.emtl"));
+		// final URI template0 = getTemplateURI("org.eclipse.gemoc.bcool.transformation.bcool2qvto", new Path("/org/eclipse/gemoc/bcool/transformation/bcool2qvto/common/generate.emtl"));
 		// org.eclipse.gemoc.bcool.transformation.bcool2qvto.common.Generate gen0 = new org.eclipse.gemoc.bcool.transformation.bcool2qvto.common.Generate(modelURI, targetFolder.getLocation().toFile(), arguments) {
 		//	protected URI createTemplateURI(String entry) {
 		//		return template0;
