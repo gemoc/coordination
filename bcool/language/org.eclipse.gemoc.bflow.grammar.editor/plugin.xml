@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated BFlow -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.gemoc.bflow.bFlow.presentation.BFlowModelWizardID"
+            name="%_UI_BFlowModelWizard_label"
+            class="org.eclipse.gemoc.bflow.bFlow.presentation.BFlowModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/BFlowModelFile.gif">
+         <description>%_UI_BFlowModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated BFlow -->
+      <editor
+            id="org.eclipse.gemoc.bflow.bFlow.presentation.BFlowEditorID"
+            name="%_UI_BFlowEditor_label"
+            icon="icons/full/obj16/BFlowModelFile.gif"
+            extensions="bflow"
+            class="org.eclipse.gemoc.bflow.bFlow.presentation.BFlowEditor"
+            contributorClass="org.eclipse.gemoc.bflow.bFlow.presentation.BFlowActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

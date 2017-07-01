@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="ECL update site" url="http://timesquare.inria.fr/ecl/update_site">
+      BCOoL --&gt; model your coordination at the language level and let the framework compile the coordination for you !
+   </description>
+   <feature url="features/org.eclipse.gemoc.bcool.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.bcool.feature" version="1.0.0.qualifier">
+      <category name="BCOoL full"/>
+   </feature>
+   <category-def name="BCOoL full" label="BCOoL full">
+      <description>
+         Editor plus transfo
+      </description>
+   </category-def>
+</site>

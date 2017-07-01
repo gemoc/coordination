@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.eclipse.gemoc.bcool.ui;singleton:=true
+Bundle-Name: BCOoL User Interface
+Bundle-Version: 2.3.0.201707011353
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
+ re.resources,org.eclipse.ui.ide,org.eclipse.ui.workbench,org.eclipse.
+ swt,org.eclipse.gemoc.commons.eclipse,org.eclipse.gemoc.commons.eclip
+ se.ui,org.eclipse.gemoc.bcool.model.xtext
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.eclipse.gemoc.bcool.ui.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+

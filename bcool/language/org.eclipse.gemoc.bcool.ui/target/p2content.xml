@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='2'>
+  <unit id='org.eclipse.gemoc.bcool.ui' version='2.3.0.201707011353'>
+    <update id='org.eclipse.gemoc.bcool.ui' range='[0.0.0,2.3.0.201707011353)' severity='0'/>
+    <properties size='4'>
+      <property name='org.eclipse.equinox.p2.name' value='BCOoL User Interface'/>
+      <property name='maven-groupId' value='org.eclipse.gemoc.bcool.framework'/>
+      <property name='maven-artifactId' value='org.eclipse.gemoc.bcool.ui'/>
+      <property name='maven-version' value='2.3.0-SNAPSHOT'/>
+    </properties>
+    <provides size='3'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.gemoc.bcool.ui' version='2.3.0.201707011353'/>
+      <provided namespace='osgi.bundle' name='org.eclipse.gemoc.bcool.ui' version='2.3.0.201707011353'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='9'>
+      <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.ui.workbench' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.swt' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.gemoc.commons.eclipse' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.gemoc.commons.eclipse.ui' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.gemoc.bcool.model.xtext' range='0.0.0'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='org.eclipse.gemoc.bcool.ui' version='2.3.0.201707011353'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: org.eclipse.gemoc.bcool.ui;singleton:=true&#xA;Bundle-Version: 2.3.0.201707011353&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+  <unit id='org.eclipse.gemoc.bcool.ui.source' version='2.3.0.201707011353' singleton='false'>
+    <update id='org.eclipse.gemoc.bcool.ui.source' range='[0.0.0,2.3.0.201707011353)' severity='0'/>
+    <properties size='9'>
+      <property name='df_LT.bundleVendor' value='unknown'/>
+      <property name='df_LT.bundleName' value='BCOoL User Interface Source'/>
+      <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+      <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+      <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+      <property name='maven-groupId' value='org.eclipse.gemoc.bcool.framework'/>
+      <property name='maven-artifactId' value='org.eclipse.gemoc.bcool.ui'/>
+      <property name='maven-version' value='2.3.0-SNAPSHOT'/>
+      <property name='maven-classifier' value='sources'/>
+    </properties>
+    <provides size='4'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.gemoc.bcool.ui.source' version='2.3.0.201707011353'/>
+      <provided namespace='osgi.bundle' name='org.eclipse.gemoc.bcool.ui.source' version='2.3.0.201707011353'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+    </provides>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='org.eclipse.gemoc.bcool.ui.source' version='2.3.0.201707011353'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: org.eclipse.gemoc.bcool.ui.source&#xA;Bundle-Version: 2.3.0.201707011353&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>

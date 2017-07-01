@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.gemoc.bcool.ui"
+            name="GEMOC Language Coordination"
+            parentCategory="org.eclipse.gemoc.xdsmlframework.category">
+      </category>
+      <wizard
+            category="org.eclipse.gemoc.xdsmlframework.category/org.eclipse.gemoc.bcool.ui"
+            class="org.eclipse.gemoc.bcool.ui.wizards.BCOoLFileNewWizard"
+            icon="icons/bcoolicon.ico"
+            id="org.eclipse.gemoc.bcool.ui.wizards.BCOoLFileNewWizard"
+            name="BCOoL File">
+      </wizard>
+      <wizard
+            category="org.eclipse.gemoc.xdsmlframework.category/org.eclipse.gemoc.bcool.ui"
+            class="org.eclipse.gemoc.bcool.ui.wizards.BCOoLLibFileNewWizard"
+            icon="icons/bcoolicon.ico"
+            id="org.eclipse.gemoc.bcool.ui.wizards.BCOoLLibFileNewWizard"
+            name="BCOoLLib File">
+      </wizard>
+      <wizard
+            category="org.eclipse.gemoc.xdsmlframework.category/org.eclipse.gemoc.bcool.ui"
+            class="org.eclipse.gemoc.bcool.ui.wizards.BCOoLProjectNewWizard"
+            icon="icons/bcoolicon.ico"
+            id="org.eclipse.gemoc.bcool.ui.wizards.BCOoLProjectNewWizard"
+            name="BCOoL Project"
+            project="true">
+      </wizard>
+   </extension>
+
+</plugin>

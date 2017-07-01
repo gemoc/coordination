@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated bcool -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.gemoc.bcool.model.bcool.presentation.BcoolModelWizardID"
+            name="%_UI_BcoolModelWizard_label"
+            class="org.eclipse.gemoc.bcool.model.bcool.presentation.BcoolModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/BcoolModelFile.gif">
+         <description>%_UI_BcoolModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated bcool -->
+      <editor
+            id="org.eclipse.gemoc.bcool.model.bcool.presentation.BcoolEditorID"
+            name="%_UI_BcoolEditor_label"
+            icon="icons/full/obj16/BcoolModelFile.gif"
+            extensions="bcool"
+            class="org.eclipse.gemoc.bcool.model.bcool.presentation.BcoolEditor"
+            contributorClass="org.eclipse.gemoc.bcool.model.bcool.presentation.BcoolActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

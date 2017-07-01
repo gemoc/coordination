@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+	<packaging>eclipse-feature</packaging>
+  <artifactId>org.eclipse.gemoc.bcool.feature</artifactId>
+
+  <name>org.eclipse.gemoc.bcool.feature</name>
+  <url>http://timesquare.inria.fr/BCOoL</url>
+
+  <parent>
+	<relativePath>../../deployment/org.eclipse.gemoc.bcool.build</relativePath>
+  	<groupId>org.eclipse.gemoc.bcool.framework</groupId>
+  	<artifactId>org.eclipse.gemoc.bcool.build</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <version>2.3.0-SNAPSHOT</version>
+  <description>The complete BCOoL framework</description>
+</project>

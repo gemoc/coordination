@@ -1,0 +1,46 @@
+/**
+ */
+package org.eclipse.gemoc.bcool.model.bcool.tests;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+import junit.textui.TestRunner;
+
+/**
+ * <!-- begin-user-doc -->
+ * A test suite for the '<em><b>Bcool</b></em>' model.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class BcoolAllTests extends TestSuite {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(suite());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static Test suite() {
+		TestSuite suite = new BcoolAllTests("Bcool Tests");
+		return suite;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BcoolAllTests(String name) {
+		super(name);
+	}
+
+} //BcoolAllTests
