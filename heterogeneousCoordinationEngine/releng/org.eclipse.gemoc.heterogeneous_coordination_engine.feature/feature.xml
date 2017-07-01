@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.gemoc.heterogeneous_coordination_engine.feature"
+      id="org.eclipse.gemoc.heterogeneous_coordination_engine.feature"
       label="GEMOC Heterogeneous Coordination Engine"
       version="2.3.0.qualifier"
       provider-name="%providerName"
@@ -23,14 +23,14 @@ http://www.eclipse.org/legal/epl-v10.html
    </license>
 
    <plugin
-         id="org.gemoc.execution.engine.coordinator.commons"
+         id="org.eclipse.gemoc.execution.engine.coordinator.commons"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.gemoc.gemoc_heterogeneous_modeling_workbench.ui"
+         id="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
