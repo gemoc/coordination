@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.gemoc.heterogeneous_coordination_engine.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.heterogeneous_coordination_engine.feature" version="2.3.0.qualifier">
+   <feature url="releng/org.eclipse.gemoc.heterogeneous_coordination_engine.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.heterogeneous_coordination_engine.feature" version="2.3.0.qualifier">
       <category name="gemoc_coordination"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.heterogeneous_coordination_engine.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.heterogeneous_coordination_engine.feature.source" version="2.3.0.qualifier">
+   <!--<feature url="releng/org.eclipse.gemoc.heterogeneous_coordination_engine.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.heterogeneous_coordination_engine.feature" version="2.3.0.qualifier">
       <category name="gemoc_coordination"/>
-   </feature>
+   </feature>-->
    <category-def name="gemoc_coordination" label="Gemoc Heterogeneous Coordination Engine"/>
 </site>

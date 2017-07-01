@@ -7,7 +7,6 @@ Bundle-Activator: org.eclipse.gemoc.execution.engine.coordinator.commons.Activat
 Bundle-Vendor: I3S/INRIA AOSTE
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.gemoc.xdsmlframework.api,
  org.eclipse.debug.core,
  org.eclipse.gemoc.dsl.debug.ide,
  org.eclipse.core.resources,
@@ -43,7 +42,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gemoc.bflow.grammar;bundle-version="1.0.0",
  org.eclipse.gemoc.trace.commons.model,
  fr.inria.aoste.timesquare.instantrelation,
- org.eclipse.gemoc.commons.eclipse.messagingsystem.api
+ org.eclipse.gemoc.commons.eclipse.messagingsystem.api,
+ org.eclipse.gemoc.xdsmlframework.api
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.gemoc.execution.engine.coordinator.commons

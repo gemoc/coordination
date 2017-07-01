@@ -30,7 +30,7 @@ http://www.eclipse.org/legal/epl-v10.html
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.gemoc.gemoc_heterogeneous_modeling_workbench.ui"
+         id="org.eclipse.gemoc.workbench.heterogeneous.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
