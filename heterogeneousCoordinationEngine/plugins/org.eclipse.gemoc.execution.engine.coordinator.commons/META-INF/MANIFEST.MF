@@ -12,7 +12,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.resources,
  org.eclipse.gemoc.bcool.model;bundle-version="0.1.0",
  org.eclipse.gemoc.bcool.transformation.bcool2qvto;bundle-version="1.0.0",
- org.eclipse.gemoc.bcool.transformation.bcool2qvto.ui,
  org.eclipse.gemoc.bcool.model.xtext;bundle-version="1.0.0",
  org.eclipse.xtext,
  org.eclipse.gemoc.dsl.debug.ide.sirius.ui,
@@ -43,7 +42,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gemoc.trace.commons.model,
  fr.inria.aoste.timesquare.instantrelation,
  org.eclipse.gemoc.commons.eclipse.messagingsystem.api,
- org.eclipse.gemoc.xdsmlframework.api
+ org.eclipse.gemoc.xdsmlframework.api,
+ org.eclipse.gemoc.bcool.transformation.bcool2qvto.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.gemoc.execution.engine.coordinator.commons
