@@ -23,7 +23,6 @@ import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 /**
  * Entry point of the 'Generate' generation module.
  *
@@ -364,8 +363,8 @@ public class Generate extends AbstractAcceleoGenerator {
         if (!isInWorkspace(org.eclipse.ocl.xtext.essentialoclcs.EssentialOCLCSPackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.ocl.xtext.essentialoclcs.EssentialOCLCSPackage.eINSTANCE.getNsURI(), org.eclipse.ocl.xtext.essentialoclcs.EssentialOCLCSPackage.eINSTANCE);
         }
-        if (!isInWorkspace(fr.inria.aoste.timesquare.ecl.ecl.ECLPackage.class)) {
-            resourceSet.getPackageRegistry().put(fr.inria.aoste.timesquare.ecl.ecl.ECLPackage.eINSTANCE.getNsURI(), fr.inria.aoste.timesquare.ecl.ecl.ECLPackage.eINSTANCE);
+        if (!isInWorkspace(org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage.eINSTANCE.getNsURI(), org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage.eINSTANCE);
         }
         if (!isInWorkspace(org.eclipse.xtext.xbase.XbasePackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.xtext.xbase.XbasePackage.eINSTANCE.getNsURI(), org.eclipse.xtext.xbase.XbasePackage.eINSTANCE);

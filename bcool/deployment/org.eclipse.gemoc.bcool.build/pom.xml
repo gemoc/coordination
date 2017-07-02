@@ -247,8 +247,8 @@
 					</execution>
 				</executions>
 				<configuration>
-					<brandingPlugin>fr.inria.aoste.timesquare.ecl.branding</brandingPlugin>
-					<strictSrcIncludes>false</strictSrcIncludes>
+<!-- 					<brandingPlugin>fr.inria.aoste.timesquare.ecl.branding</brandingPlugin>
+ -->					<strictSrcIncludes>false</strictSrcIncludes>
 				</configuration>
 			</plugin>
 			<plugin>

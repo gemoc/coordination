@@ -1,4 +1,4 @@
-import fr.inria.aoste.timesquare.ecl.EclQVToHelper;
+import org.eclipse.gemoc.moccml.mapping.EclQVToHelper;
 
 	
 modeltype Ecore uses 'http://www.eclipse.org/emf/2002/Ecore';

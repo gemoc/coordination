@@ -3,7 +3,6 @@
  */
 package org.eclipse.gemoc.bcool.model.xtext.scoping
 
-import fr.inria.aoste.timesquare.ecl.ecl.ECLDocument
 import java.util.HashMap
 import java.util.HashSet
 import java.util.Map
@@ -20,6 +19,7 @@ import org.eclipse.xtext.scoping.impl.FilteringScope
 import org.eclipse.xtext.resource.IEObjectDescription
 import com.google.common.base.Predicate
 import org.eclipse.emf.ecore.EPackage
+import org.eclipse.gemoc.moccml.mapping.moccml_mapping.ECLDocument
 
 /**
  * This class contains custom scoping description.

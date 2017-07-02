@@ -21,13 +21,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.ocl.xtext.basecs.ImportCS;
-import org.eclipse.ocl.xtext.completeoclcs.ClassifierContextDeclCS;
-import org.eclipse.ocl.xtext.completeoclcs.DefPropertyCS;
-import org.eclipse.xtext.resource.SaveOptions;
-import org.eclipse.xtext.resource.SaveOptions.Builder;
-import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.gemoc.bcool.model.bcool.BCoolOperatorArg;
 import org.eclipse.gemoc.bcool.model.bcool.BCoolSpecification;
 import org.eclipse.gemoc.bcool.model.bcool.EventExpression;
@@ -41,13 +34,20 @@ import org.eclipse.gemoc.gexpressions.GNavigationExpression;
 import org.eclipse.gemoc.gexpressions.GNegationExpression;
 import org.eclipse.gemoc.gexpressions.GReferenceExpression;
 import org.eclipse.gemoc.gexpressions.GStringExpression;
+import org.eclipse.gemoc.moccml.mapping.moccml_mapping.ECLDocument;
+import org.eclipse.gemoc.moccml.mapping.xtext.EclStandaloneSetup;
+import org.eclipse.ocl.xtext.basecs.ImportCS;
+import org.eclipse.ocl.xtext.completeoclcs.ClassifierContextDeclCS;
+import org.eclipse.ocl.xtext.completeoclcs.DefPropertyCS;
+import org.eclipse.xtext.resource.SaveOptions;
+import org.eclipse.xtext.resource.SaveOptions.Builder;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.resource.XtextResourceSet;
 
 import com.google.inject.Injector;
 
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.IntegerElement;
 import fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.impl.IntegerImpl;
-import fr.inria.aoste.timesquare.ecl.ecl.ECLDocument;
-import fr.inria.aoste.timesquare.ecl.xtext.EclStandaloneSetup;
 
 
 

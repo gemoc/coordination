@@ -6,7 +6,7 @@
 'http://www.eclipse.org/ocl/2015/Pivot',
 'http://www.eclipse.org/ocl/2015/BaseCS',
 'http://www.eclipse.org/ocl/2015/EssentialOCLCS',
-'http://fr.inria.aoste.timesquare.ecl',
+'http://org.eclipse.gemoc.moccml.mapping',
 'http://www.eclipse.org/xtext/xbase/Xbase',
 'http://www.gemoc.org/gexpressions',
 'http://fr.inria.aoste.timemodel.basicTypes'
@@ -16,7 +16,7 @@
 [comment @main/]
 [file (aBCoolSpecification.name.concat('.qvto'), false, 'UTF-8')]
 [comment][aBCoolSpecification.resolveAll()/][/comment]
-import fr.inria.aoste.timesquare.ecl.EclQVToHelper;
+import org.eclipse.gemoc.moccml.mapping.EclQVToHelper;
 
 	
 modeltype Ecore uses 'http://www.eclipse.org/emf/2002/Ecore';
@@ -1071,10 +1071,10 @@ TimeModel::EventKind::start;
 [/template]
 
 [comment][query public getpackageIndex(arg0 : ECLDocument, objectName : String) : String
-	= invoke('org.eclipse.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getpackageIndex(fr.inria.aoste.timesquare.ECL.ECLDocument,java.lang.String)', Sequence{arg0, objectName}) /][/comment]
+	= invoke('org.eclipse.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getpackageIndex(org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage.ECLDocument,java.lang.String)', Sequence{arg0, objectName}) /][/comment]
 
 [query public getpackageIndex(arg0 : ECLDocument, contextDecl : ClassifierContextDeclCS) : Integer
-	= invoke('org.eclipse.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getpackageIndex(fr.inria.aoste.timesquare.ECL.ECLDocument, org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContextDeclCS)', Sequence{arg0, contextDecl}) /]
+	= invoke('org.eclipse.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getpackageIndex(org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage.ECLDocument, org.eclipse.ocl.examples.xtext.completeocl.completeoclcs.ClassifierContextDeclCS)', Sequence{arg0, contextDecl}) /]
 
 [query public getNSURI(arg0 : ImportInterfaceStatement) : String
 	= invoke('org.eclipse.gemoc.bcool.transformation.bcool2qvto.helper.helperNsURI', 'getNSURI(org.eclipse.gemoc.bcool.model.bcool.ImportInterfaceStatement)', Sequence{arg0}) /]
@@ -1117,43 +1117,43 @@ endif
 /]
 
 [query public getClassifierContext(elem : ElementCS) : String =
-invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'getClassifierContext(org.eclipse.ocl.examples.xtext.base.baseCST.ElementCS)', Sequence{elem})/]
+invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'getClassifierContext(org.eclipse.ocl.examples.xtext.base.baseCST.ElementCS)', Sequence{elem})/]
 
 [query public getElementsFromLib(libPath : String) : Set(EObject) = 
-invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'getElementsFromLib(java.util.String)', Sequence{libPath}) /]
+invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'getElementsFromLib(java.util.String)', Sequence{libPath}) /]
  
 [query public getAllContainedExpression(arg0 : EObject) : Sequence(ExpCS)
-	= invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'getAllContainedExpression(org.eclipse.emf.ecore.EObject)', Sequence{arg0}) /]
+	= invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'getAllContainedExpression(org.eclipse.emf.ecore.EObject)', Sequence{arg0}) /]
 
 [query public getAllContainingExpression(arg0 : EObject) : Sequence(ExpCS)
-	= invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'getAllContainingExpression(org.eclipse.emf.ecore.EObject)', Sequence{arg0}) /]
+	= invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'getAllContainingExpression(org.eclipse.emf.ecore.EObject)', Sequence{arg0}) /]
 
 [query public getAllLetExpParents(arg0 : EObject) : Sequence(LetExpCS)
-	= invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'getAllLetExpParents(org.eclipse.emf.ecore.EObject)', Sequence{arg0}) /]
+	= invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'getAllLetExpParents(org.eclipse.emf.ecore.EObject)', Sequence{arg0}) /]
 
 [query public prettyPrintButLast(constraint : ExpCS) : String =
-invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'prettyPrintButLast(org.eclipse.ocl.examples.xtext.essentialocl.essentialOCLCST.ExpCS)', Sequence{constraint})/]
+invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'prettyPrintButLast(org.eclipse.ocl.examples.xtext.essentialocl.essentialOCLCST.ExpCS)', Sequence{constraint})/]
 
 [query public prettyPrintOnlyLast(constraint : ExpCS) : String =
-invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'prettyPrintOnlyLast(org.eclipse.ocl.examples.xtext.essentialocl.essentialOCLCST.ExpCS)', Sequence{constraint})/]
+invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'prettyPrintOnlyLast(org.eclipse.ocl.examples.xtext.essentialocl.essentialOCLCST.ExpCS)', Sequence{constraint})/]
 
 [query public prettyPrintButRelation(constraint : ExpCS) : String =
-invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'prettyPrintButRelation(org.eclipse.ocl.examples.xtext.essentialocl.essentialOCLCST.ExpCS)', Sequence{constraint})/]
+invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'prettyPrintButRelation(org.eclipse.ocl.examples.xtext.essentialocl.essentialOCLCST.ExpCS)', Sequence{constraint})/]
 
 [query public prettyPrintParametersForDefinition(constraint : ExpCS) : String =
-invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'prettyPrintParametersForDefinition(org.eclipse.ocl.examples.xtext.essentialocl.essentialOCLCST.ExpCS)', Sequence{constraint})/]
+invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'prettyPrintParametersForDefinition(org.eclipse.ocl.examples.xtext.essentialocl.essentialOCLCST.ExpCS)', Sequence{constraint})/]
 
 
 [query public prettyPrintAlias(arg0 : String) : String
-	= invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'prettyPrintAlias(java.lang.String)', Sequence{arg0}) /]
+	= invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'prettyPrintAlias(java.lang.String)', Sequence{arg0}) /]
 
 [query public getModelPath(arg0 : Cool) : String
-	= invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'getModelPath(fr.inria.aoste.timesquare.ocl.ECL.ECLDocument)', Sequence{arg0}) /]
+	= invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'getModelPath(fr.inria.aoste.timesquare.ocl.ECL.ECLDocument)', Sequence{arg0}) /]
 
 [query public getTypeOfSet(param : EObject) : String
-	= invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'getTypeOfSet(org.eclipse.emf.ecore.EObject)', Sequence{param}) /]
+	= invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'getTypeOfSet(org.eclipse.emf.ecore.EObject)', Sequence{param}) /]
 
 
 [query public isAlreadyTranslated(defs : Set(DefCS), paramName : String) : Boolean
-	= invoke('fr.inria.aoste.timesquare.ecl.ecltoqvto.helper.helperNsURI', 'isAlreadyTranslated(java.util.Set, java.lang.String)', Sequence{defs, paramName}) /]
+	= invoke('org.eclipse.gemoc.moccml.mapping.ecltoqvto.helper.helperNsURI', 'isAlreadyTranslated(java.util.Set, java.lang.String)', Sequence{defs, paramName}) /]
 [/comment]
