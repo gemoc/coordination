@@ -58,7 +58,7 @@
          <packagesToRegister>
            	<packageToRegister>fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.BasicType.BasicTypePackage</packageToRegister>
            	<packageToRegister>fr.inria.aoste.timesquare.ccslkernel.model.TimeModel.CCSLModel.ClockExpressionAndRelation.ClockExpressionAndRelationPackage</packageToRegister>
-			<packageToRegister>org.eclipse.gemoc.moccml.mapping.ecl.ECLPackage</packageToRegister>
+			<packageToRegister>org.eclipse.gemoc.moccml.mapping.moccml_mapping.MoCCMLmappingPackage</packageToRegister>
 			<packageToRegister>org.eclipse.emf.ecore.EcorePackage</packageToRegister>
            	<packageToRegister>org.eclipse.ocl.xtext.completeoclcs.CompleteOCLCSPackage</packageToRegister>
 			<packageToRegister>org.eclipse.ocl.pivot.PivotPackage</packageToRegister>
