@@ -38,6 +38,7 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/com.google.guava_15.0.0.v201403281430.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.completeocl_1.1.1.v20160808-1416.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.xtext.essentialocl_1.1.0.v20160523-1914.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.gexpressions_2.3.0.201707010003.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.xbase_2.10.0.v201605250459.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtext.common.types_2.10.0.v201605250459.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.xtend.lib_2.10.0.v201605250459.jar"/>
@@ -52,14 +53,15 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.12.0.v20160526-0356.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.11.0.v20160526-0356.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.mapping_1.0.0.201705310907.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.mapping_1.0.0.201707021152.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo_4.5.0.v20160607-1254.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.cdo.common_4.5.0.v20160301-1326.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.net4j.util_3.6.0.v20160607-1254.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/fr.inria.aoste.timesquare.ccslkernel.model_1.0.0.201706302202.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.mapping.xtext_1.0.0.201705310907.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.moccml.mapping.xtext_1.0.0.201707021152.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.log4j_1.2.15.v201012070815.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gemoc.gexpressions.xtext_2.3.0.201707010003.jar"/>
     </path>
 
     <path id="org.eclipse.gemoc.bcool.transformation.bcool2qvto.classpath">

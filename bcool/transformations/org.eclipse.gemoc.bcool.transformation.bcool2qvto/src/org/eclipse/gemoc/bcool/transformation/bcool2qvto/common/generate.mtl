@@ -158,7 +158,7 @@ query identifyUserRelations() {
 
 
 		[let anEclDoc : ECLDocument = im.getEclDocument()]
-		[for (imecl : ecl::ImportStatement | anEclDoc.imports)]
+		[for (imecl : moccml_mapping::ImportStatement | anEclDoc.imports)]
 		
 		[comment] If the interface is imported as plugin, the libraries used in the interface must be also imported as plugin [/comment]
 		[if im.importURI.startsWith('platform:/plugin') and imecl.importURI.startsWith('platform:/resource')]
@@ -291,7 +291,7 @@ main() {
 						[let importNumber : EInt = i]
 						[if im.importURI.endsWith('.ecl')]
 						[let anEclDoc : ECLDocument = im.getEclDocument()]
-						[for (imecl : ecl::ImportStatement | anEclDoc.imports)]
+						[for (imecl : moccml_mapping::ImportStatement | anEclDoc.imports)]
 
 						[if im.importURI.startsWith('platform:/plugin') and imecl.importURI.startsWith('platform:/resource')]
 						[let uriecl : String = imecl.importURI.replace('platform:/resource', 'platform:/plugin')]
@@ -621,7 +621,7 @@ mapping [aBCoolSpecification.name/]2CCSLSubBlock() : TimeModel::CCSLModel::Block
 	[let importNumber : EInt = i]
 	[if im.importURI.endsWith('.ecl')]
 	[let anEclDoc : ECLDocument = im.getEclDocument()]
-		[for (imecl : ecl::ImportStatement | anEclDoc.imports)]
+		[for (imecl : moccml_mapping::ImportStatement | anEclDoc.imports)]
 
 		[if im.importURI.startsWith('platform:/plugin') and imecl.importURI.startsWith('platform:/resource')]
 			[let uriecl : String = imecl.importURI.replace('platform:/resource', 'platform:/plugin')]
