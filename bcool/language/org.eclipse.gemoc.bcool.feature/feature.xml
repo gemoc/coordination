@@ -31,7 +31,7 @@ http://www.eclipse.org/legal/epl-v10.html
       <discovery label="Acceleo" url="http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2"/>
       <discovery label="Xtext All In One - Releases" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
       <discovery label="TimeSquare" url="http://timesquare.inria.fr/update_site/neon"/>
-      <discovery label="ECL" url="http://timesquare.inria.fr/ecl/update_site/neon"/>
+      <discovery label="ECL" url="https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/"/>
    </url>
 
    <requires>

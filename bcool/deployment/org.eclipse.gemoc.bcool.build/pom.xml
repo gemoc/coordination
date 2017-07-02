@@ -110,8 +110,8 @@
 			</snapshots>
 		</repository> -->
 		<repository>
-			<id>ecl</id>
-			<url>http://timesquare.inria.fr/ecl/update_site/neon</url>
+			<id>moccml_mapping</id>
+			<url>https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/</url>
 			<layout>p2</layout>
 			<releases>
 				<enabled>true</enabled>
