@@ -13,11 +13,11 @@ package org.eclipse.gemoc.workbench.heterogeneous.ui;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem;
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager;
 import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.osgi.framework.BundleContext;
 
-import fr.inria.diverse.commons.eclipse.messagingsystem.api.MessagingSystemManager;
-import fr.inria.diverse.commons.messagingsystem.api.MessagingSystem;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -47,7 +47,7 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 		// start the messagin system ui plugin to load default settings.
-		fr.inria.diverse.commons.eclipse.messagingsystem.ui.Activator.getDefault();
+		org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.Activator.getDefault();
 	}
 
 	/*
