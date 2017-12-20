@@ -22,7 +22,7 @@
     </modules>
 
 	<properties>
-		<xtend.version>2.9.1</xtend.version>
+		<xtend.version>2.10.0</xtend.version>
 	</properties>
     <build>
 		<plugins>
